@@ -77,6 +77,15 @@
           </div>
         </div>
 
+        <div id="returningPanel" class="consent-panel returning-panel hidden">
+          <span class="auth-kicker dark">Account</span>
+          <h3 id="returningTitle">A Google account is already signed in on this device.</h3>
+          <div id="returningEmail" class="signed-in-as"></div>
+          <button id="continueCurrent" class="button primary auth-submit" type="button">Continue with this account</button>
+          <button id="returningAnother" class="button ghost consent-switch" type="button">Use another Google account</button>
+          <div id="returningMessage" class="auth-message" role="status" aria-live="polite"></div>
+        </div>
+
         <div id="consentPanel" class="consent-panel hidden">
           <span class="auth-kicker dark">Account setup</span>
           <h3 id="consentTitle">One-time account setup</h3>

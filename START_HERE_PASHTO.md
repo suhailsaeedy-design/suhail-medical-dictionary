@@ -1,4 +1,4 @@
-# د Suhail Medical Dictionary v3.2 د نشر لنډه طریقه
+# د Suhail Medical Dictionary v3.3 د نشر لنډه طریقه
 
 دا فولډر د Production لپاره جوړ شوی دی. د Dictionary برخه Static/PWA ده، نو آنلاین او د یو ځل Offline Download وروسته افلاین کار کوي. Login/AI/Admin cloud برخې Supabase او Cloudflare Worker ته اړتیا لري.
 
@@ -50,7 +50,7 @@ User دې Online Website خلاص کړي → **Download complete offline diction
 
 د ډېر تفصیل لپاره `DEPLOY_FREE.md` وګوره.
 
-## د v3.2 مهم بدلون
+## د v3.3 مهم بدلون
 
 په دې نسخه کې Login اجباري دی. Dictionary term/detail کې طبي عکسونه نه کارول کېږي. Production deploy د NLM MeSH 2026 بشپړ Descriptor vocabulary او ټول entry terms/synonyms import کوي، او که import تر 25,000 descriptors کم شي build fail کېږي. `index.html` لومړی **Google Login** خلاصوي او `app.html` بې Login څخه نه خلاصیږي. Supabase باید جوړ، Google Provider فعال، او `assets/js/config.js` کې `supabaseUrl` او public `supabaseAnonKey` واچول شي. **Service Role Key هیڅکله frontend یا GitHub ته مه اچوه.**
 

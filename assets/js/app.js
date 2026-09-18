@@ -10,8 +10,16 @@ const LOCALE={en:'en-US',ps:'ps-AF',prs:'fa-AF',fa:'fa-IR',tr:'tr-TR',ar:'ar-SA'
 const state={index:null,categories:[],filtered:[],selected:new Map(),active:null,lang:localStorage.getItem('smd-content-lang')||'en',category:'all',query:'',chatId:null,chatContext:[],selectedMode:false,liveVoice:false,recognition:null};
 const categoryCache=new Map();
 
+function sessionFailure(message){
+ const loader=document.querySelector('#sessionLoader');
+ if(!loader)return;
+ loader.innerHTML=`<div class="session-error-card"><h2>Could not open your workspace</h2><p>${esc(message||'Your sign-in session could not be checked.')}</p><div class="session-error-actions"><button id="sessionRetry" class="button primary">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>`;
+ document.querySelector('#sessionRetry')?.addEventListener('click',()=>location.reload());
+}
 async function init(){
- const requiredSession=await currentSession();
+ let requiredSession=null;
+ try{requiredSession=await currentSession({waitMs:6500,allowStorageFallback:true});}
+ catch(err){sessionFailure(err.message||'Session check timed out.');return;}
  if(!requiredSession){location.replace('./index.html');return;}
  document.body.classList.remove('auth-pending');document.body.classList.add('auth-ready');
  const loader=document.querySelector('#sessionLoader');if(loader)loader.remove();
@@ -19,7 +27,9 @@ async function init(){
  $('#contentLanguage').value=state.lang;setDir();
  $('#contentLanguage').addEventListener('change',()=>{state.lang=$('#contentLanguage').value;localStorage.setItem('smd-content-lang',state.lang);setDir();renderTerms();if(state.active)showDetail(state.active);});
  $('#themeSelect').value=document.body.dataset.theme;$('#themeSelect').addEventListener('change',e=>{document.body.dataset.theme=e.target.value;localStorage.setItem('smd-theme',e.target.value);});
- const res=await fetch('./data/index.json');if(!res.ok)throw new Error(`Dictionary index failed (${res.status})`);state.index=await res.json();state.categories=state.index.categories||[];populateCategories();filter();bindUI();await initAuth(requiredSession);registerInstall();await initPWA({categories:state.categories});
+ const res=await fetch('./data/index.json',{cache:'no-cache'});if(!res.ok)throw new Error(`Dictionary index failed (${res.status})`);state.index=await res.json();state.categories=state.index.categories||[];populateCategories();filter();bindUI();
+ initAuth(requiredSession).catch(err=>{$('#authHint').textContent=err.message||'Cloud account features will retry when available.';});
+ registerInstall();initPWA({categories:state.categories}).catch(()=>{});
  const draft=localStorage.getItem('smd-chat-draft');if(draft&&$('#chatInput')){$('#chatInput').value=draft;localStorage.removeItem('smd-chat-draft');}
 }
 function setDir(){document.documentElement.lang=state.lang;document.documentElement.dir=RTL.has(state.lang)?'rtl':'ltr';}
@@ -77,7 +87,7 @@ function updateSelectedCount(){$('#selectedCount').textContent=state.selected.si
 
 async function initAuth(sess=await currentSession()){updateAccount(sess);if(sess){await logEvent('app_open');await loadPrivacyProfile();await refreshChats();}else setCloudState();}
 function setCloudState(){if(!navigator.onLine)$('#authHint').textContent='Offline mode: dictionary available; cloud login and AI will reconnect when internet returns.';}
-function updateAccount(sess){$('#accountButton').textContent=sess?`${sess.user.email.split('@')[0]} · Sign out`:'Sign in';$('#authHint').textContent=sess?'Your account has separate private chat history. Owner review requires your explicit consent.':'Sign in with email to save separate chat history.';$('#privacyAccountRow').classList.toggle('hidden',!sess);}
+function updateAccount(sess){$('#accountButton').textContent=sess?`${sess.user.email.split('@')[0]} · Sign out`:'Sign in';$('#authHint').textContent=sess?'Your account has separate private chat history. Owner review requires your explicit consent.':'Sign in with Google to save separate chat history.';$('#privacyAccountRow').classList.toggle('hidden',!sess);}
 async function loadPrivacyProfile(){const p=await getMyProfile();if(!p)return;$('#reviewConsentToggle').checked=!!p.allow_owner_review;$('#adminLink').classList.toggle('hidden',!p.is_owner);}
 async function handleConsentChange(e){try{await setOwnerReviewConsent(e.target.checked);$('#privacyAccountStatus').textContent=e.target.checked?'Owner chat-review consent enabled.':'Owner chat-review consent disabled.';}catch(err){e.target.checked=!e.target.checked;$('#privacyAccountStatus').textContent=err.message;}}
 async function handleAccountButton(){const sess=await currentSession();if(sess){if(confirm('Sign out of your account?')){stopLiveVoice();await signOut();location.replace('./index.html');}return;}location.replace('./index.html');}
