@@ -4,7 +4,7 @@ import argparse, datetime as dt, os, shutil, subprocess, sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'_site'
-PUBLIC_FILES=['index.html','app.html','ai.html','admin.html','about.html','privacy.html','terms.html','offline.html','manifest.webmanifest','version.json','ai-config.json','sw.js']
+PUBLIC_FILES=['index.html','app.html','privacy.html','terms.html','404.html','manifest.webmanifest','version.json','sw.js','.nojekyll','robots.txt']
 PUBLIC_DIRS=['assets','data']
 
 def copy_tree():
@@ -20,7 +20,7 @@ def copy_tree():
 def stamp():
     version=os.getenv('GITHUB_SHA','')[:12] or dt.datetime.now(dt.timezone.utc).strftime('%Y%m%d%H%M%S')
     released=dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace('+00:00','Z')
-    (OUT/'version.json').write_text(f'{{"version":"{version}","releasedAt":"{released}"}}\n',encoding='utf-8')
+    (OUT/'version.json').write_text('{' + f'"version":"{version}","releasedAt":"{released}","name":"Suhail Medical Dictionary"' + '}\n',encoding='utf-8')
     sw=(OUT/'sw.js').read_text(encoding='utf-8').replace('__BUILD_VERSION__',version)
     (OUT/'sw.js').write_text(sw,encoding='utf-8')
     return version

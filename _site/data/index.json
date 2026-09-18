@@ -1,0 +1,172 @@
+{
+  "dataset": "Suhail Medical Dictionary starter dataset",
+  "version": "2026-starter",
+  "source_note": "Full importer targets NLM MeSH 2026. Starter records below are original educational summaries.",
+  "categories": [
+    {
+      "id": "anatomy",
+      "label": "Anatomy & Physiology",
+      "file": "anatomy.json",
+      "count": 4
+    },
+    {
+      "id": "cardiology",
+      "label": "Cardiology",
+      "file": "cardiology.json",
+      "count": 4
+    },
+    {
+      "id": "neurology",
+      "label": "Neurology",
+      "file": "neurology.json",
+      "count": 4
+    },
+    {
+      "id": "pharmacology",
+      "label": "Pharmacology",
+      "file": "pharmacology.json",
+      "count": 4
+    }
+  ],
+  "terms": [
+    {
+      "id": "anat-001",
+      "term": "Homeostasis",
+      "category": "anatomy",
+      "category_label": "Anatomy & Physiology",
+      "synonyms": [
+        "Physiologic balance"
+      ]
+    },
+    {
+      "id": "anat-002",
+      "term": "Epithelium",
+      "category": "anatomy",
+      "category_label": "Anatomy & Physiology",
+      "synonyms": [
+        "Epithelial tissue"
+      ]
+    },
+    {
+      "id": "anat-003",
+      "term": "Proximal",
+      "category": "anatomy",
+      "category_label": "Anatomy & Physiology",
+      "synonyms": []
+    },
+    {
+      "id": "anat-004",
+      "term": "Distal",
+      "category": "anatomy",
+      "category_label": "Anatomy & Physiology",
+      "synonyms": []
+    },
+    {
+      "id": "card-001",
+      "term": "Tachycardia",
+      "category": "cardiology",
+      "category_label": "Cardiology",
+      "synonyms": [
+        "Rapid heart rate"
+      ]
+    },
+    {
+      "id": "card-002",
+      "term": "Bradycardia",
+      "category": "cardiology",
+      "category_label": "Cardiology",
+      "synonyms": [
+        "Slow heart rate"
+      ]
+    },
+    {
+      "id": "card-003",
+      "term": "Myocardium",
+      "category": "cardiology",
+      "category_label": "Cardiology",
+      "synonyms": [
+        "Cardiac muscle"
+      ]
+    },
+    {
+      "id": "card-004",
+      "term": "Arrhythmia",
+      "category": "cardiology",
+      "category_label": "Cardiology",
+      "synonyms": [
+        "Cardiac dysrhythmia"
+      ]
+    },
+    {
+      "id": "neuro-001",
+      "term": "Neuron",
+      "category": "neurology",
+      "category_label": "Neurology",
+      "synonyms": [
+        "Nerve cell"
+      ]
+    },
+    {
+      "id": "neuro-002",
+      "term": "Synapse",
+      "category": "neurology",
+      "category_label": "Neurology",
+      "synonyms": [
+        "Neuronal junction"
+      ]
+    },
+    {
+      "id": "neuro-003",
+      "term": "Aphasia",
+      "category": "neurology",
+      "category_label": "Neurology",
+      "synonyms": [
+        "Language impairment"
+      ]
+    },
+    {
+      "id": "neuro-004",
+      "term": "Ataxia",
+      "category": "neurology",
+      "category_label": "Neurology",
+      "synonyms": [
+        "Coordination impairment"
+      ]
+    },
+    {
+      "id": "pharm-001",
+      "term": "Bioavailability",
+      "category": "pharmacology",
+      "category_label": "Pharmacology",
+      "synonyms": []
+    },
+    {
+      "id": "pharm-002",
+      "term": "Half-life",
+      "category": "pharmacology",
+      "category_label": "Pharmacology",
+      "synonyms": [
+        "Elimination half-life"
+      ]
+    },
+    {
+      "id": "pharm-003",
+      "term": "Contraindication",
+      "category": "pharmacology",
+      "category_label": "Pharmacology",
+      "synonyms": []
+    },
+    {
+      "id": "pharm-004",
+      "term": "Adverse effect",
+      "category": "pharmacology",
+      "category_label": "Pharmacology",
+      "synonyms": [
+        "Adverse drug effect"
+      ]
+    }
+  ],
+  "term_count": 16,
+  "searchable_name_count": 28,
+  "content_note": "Starter source data only. GitHub production build replaces this with the complete NLM MeSH 2026 Descriptor vocabulary and searchable entry terms. No term images/media are used."
+}

@@ -2,7 +2,7 @@ name: Build and deploy Suhail Medical Dictionary
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -21,13 +21,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-      - name: Verify source files and local module paths
+          python-version: '3.12'
+      - name: Verify source project
         run: python scripts/verify_project.py
-      - name: Build production site with NLM MeSH 2026
+      - name: Build production site with complete NLM MeSH 2026 descriptors
         run: python scripts/build_release.py --import-mesh
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
   deploy:
