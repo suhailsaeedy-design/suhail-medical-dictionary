@@ -1,4 +1,4 @@
-# Suhail Medical Dictionary v7.0
+# Suhail Medical Dictionary v8.0
 
 دا نسخه د وروستیو ټاکل شوو 3D/Animation ډیزاینونو پر اساس بیا ډیزاین شوې ده.
 
@@ -12,7 +12,7 @@
 - Touch devices کې ripple effect
 - About page د اصلي Sidebar او Top bar په داخل کې دی
 - Login page قوي 3D/glass/medical design لري او Google Login workflow ساتل شوی
-- "AI-powered" او ورته عبارت د Website د تشریح لپاره نه کارول کېږي؛ AI Study جلا فیچر دی
+- AI Study د مطالعې جلا فیچر دی او د Website اصلي برانډ د طبي زده کړې پر مرکزیت ولاړ دی.
 - Light, Blue, Midnight, Emerald, Violet او Pearl themes د ټول UI بڼه بدلوي
 - PDF/Print/Offline/AI/Google/Supabase موجود functionality ساتل شوی
 
@@ -24,3 +24,15 @@
 5. Website په `Ctrl + Shift + R` سره Refresh کړئ.
 
 GitHub Actions د Production لپاره NLM MeSH 2026 import کوي؛ source ZIP کې کوچنی sample dataset یوازې د local structure/testing لپاره ساتل شوی.
+
+## v8.0 Cinematic Design
+- Default Theme: Light
+- Midnight او Blue Theme کې ژور Neon/Glass 3D ډیزاین
+- Mobile کې کوچني دوه-ستوني Term Cards او Slide-up Detail Panel
+- Sidebar د Mobile Menu څخه خلاصیږي
+- Term visual او Detail visual 3D حرکت/تاوېدل لري
+- Pointer water-droplet trail او Mobile touch ripple فعال دي
+- About د اصلي Sidebar/Topbar layout دننه دی
+- Settings کې شپږ بشپړ Visual Themes شته
+- Google account login workflow هماغسې ساتل شوی
+- Print/PDF/Selected/Offline/AI Study موجود controls ساتل شوي

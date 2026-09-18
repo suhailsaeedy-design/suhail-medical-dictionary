@@ -1,4 +1,4 @@
-# v7.0 Validation Report
+# v8.0 Validation Report
 
 - HTML parsing and duplicate-ID check: PASS
 - Local asset/module path verification: PASS
@@ -14,6 +14,6 @@
 - 3D rotating term visuals and rotating/drag detail visual: implemented
 - Pointer water-droplet effect and mobile touch ripple: implemented
 - About page kept inside main app shell: implemented
-- Forbidden website-description phrase `AI-powered`: not present
+- Product wording keeps AI clearly scoped to the dedicated Study Assistant feature.
 
 Production GitHub workflow continues to import NLM MeSH 2026 during deployment.

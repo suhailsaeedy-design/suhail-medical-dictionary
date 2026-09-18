@@ -1,5 +1,5 @@
-import {currentSession,peekSession,signOut,getMyProfile,setOwnerReviewConsent,logEvent} from './auth.js?v=7.0.0';
-import {createChat,listChats,loadMessages,renameChat,deleteChat,editUserMessage,askAI,getAIServiceStatus} from './ai.js?v=7.0.0';
+import {currentSession,peekSession,signOut,getMyProfile,setOwnerReviewConsent,logEvent} from './auth.js?v=8.0.0';
+import {createChat,listChats,loadMessages,renameChat,deleteChat,editUserMessage,askAI,getAIServiceStatus} from './ai.js?v=8.0.0';
 
 const $=s=>document.querySelector(s);
 const LANG_LOCALE={en:'en-US',ps:'ps-AF',prs:'fa-AF',fa:'fa-IR',tr:'tr-TR',ar:'ar-SA',zh:'zh-CN'};

@@ -9,9 +9,10 @@
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
   <link rel="stylesheet" href="./assets/css/v7.css">
+  <link rel="stylesheet" href="./assets/css/v8.css">
   <title>Dictionary · Suhail Medical Dictionary</title>
 </head>
-<body data-build="7.0.0" class="workspace-page auth-pending" data-theme="clinical">
+<body data-build="8.0.0" class="workspace-page auth-pending" data-theme="clinical">
   <div id="sessionLoader" class="session-loader"><div class="loader-ring"></div><p>Opening your study workspace…</p></div>
 
   <div class="med-app-shell">
@@ -72,10 +73,10 @@
             <h1>Medical Dictionary</h1>
             <p id="resultSummary">Loading terms…</p>
             <div class="hero-stats" aria-label="Dictionary highlights">
-              <div class="hero-stat"><strong>31,110</strong><span>Official MeSH concepts</span></div>
-              <div class="hero-stat"><strong>267,012</strong><span>Searchable names</span></div>
+              <div class="hero-stat"><strong>31K+</strong><span>Medical concepts</span></div>
+              <div class="hero-stat"><strong>267K+</strong><span>Searchable names</span></div>
               <div class="hero-stat"><strong>7</strong><span>Study languages</span></div>
-              <div class="hero-stat"><strong>Online + Offline</strong><span>Flexible study access</span></div>
+              <div class="hero-stat"><strong>Offline</strong><span>Study access</span></div>
             </div>
           </div>
           <div class="hero-art" aria-hidden="true">
@@ -156,7 +157,7 @@
     window.setTimeout(function(){
       var loader=document.getElementById('sessionLoader');
       if(!loader || !document.body.classList.contains('auth-pending')) return;
-      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v7.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
+      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v8.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
     },12000);
   </script>
   <script>
@@ -184,7 +185,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '7.0.0'
+  uiVersion: '8.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -411,9 +412,9 @@ const {peekSession,getSupabase,currentSession,signOut,logEvent,getMyProfile,setO
 // Optional features are lazy-loaded only after the core dictionary is allowed to open.
 // A PDF/AI/PWA module failure must never prevent the workspace from starting.
 let aiModulePromise=null, exportModulePromise=null, pwaModulePromise=null;
-const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=7.0.0'));
-const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=7.0.0'));
-const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=7.0.0'));
+const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=8.0.0'));
+const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=8.0.0'));
+const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=8.0.0'));
 async function createChat(...a){return (await aiModule()).createChat(...a);} async function listChats(...a){return (await aiModule()).listChats(...a);} async function loadMessages(...a){return (await aiModule()).loadMessages(...a);} async function renameChat(...a){return (await aiModule()).renameChat(...a);} async function deleteChat(...a){return (await aiModule()).deleteChat(...a);} async function editUserMessage(...a){return (await aiModule()).editUserMessage(...a);} async function askAI(...a){return (await aiModule()).askAI(...a);} async function translateTerm(...a){return (await aiModule()).translateTerm(...a);}
 function printTerms(...a){exportModule().then(m=>m.printTerms(...a)).catch(()=>alert('Print tools could not start. Reload once and retry.'));}
 async function pdfTerms(...a){try{return await (await exportModule()).pdfTerms(...a);}catch{return alert('PDF tools could not start. Use Print → Save as PDF.');}}
@@ -607,12 +608,13 @@ function showDetail(t){
  const l=state.lang,txt=LANG_TEXT[l]||LANG_TEXT.en,has=!!t.definition?.[l],rtl=RTL.has(l),textDir=rtl?'rtl':'ltr';
  const translatedName=displayTerm(t,l),def=has?t.definition[l]:(l==='en'?(t.definition?.en||'Definition not available.'):txt.loading),exp=has?(t.explanation?.[l]||''):(l==='en'?(t.explanation?.en||''):txt.loading);
  const originalLine=l!=='en'&&translatedName!==t.term?`<div class="original-term">English: ${esc(t.term)}</div>`:'';const syns=(t.synonyms||[]);const meshId=t.id||'—',bookmarked=isBookmarked(t.id),trees=(t.mesh_tree_numbers||[]);
- $('#detailPanel').innerHTML=`<div class="detail-visual-wrap"><div class="detail-visual-stage" data-angle="0"><img class="detail-visual" src="${visualUrl(t)}" alt="" aria-hidden="true"></div><span class="detail-rotate-hint">↻ drag / 360°</span><button type="button" id="detailCloseButton" class="detail-close" aria-label="Close details" title="Close">×</button><button type="button" class="detail-bookmark${bookmarked?' saved':''}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button></div><div class="detail-title-block" dir="${textDir}"><h2 id="detailTermName">${esc(translatedName)}</h2>${originalLine}<span class="tag">${esc(t.category_label||categoryLabel(t.category))}</span></div><div class="detail-tabs"><button type="button" class="active" data-detail-tab="overview">Overview</button><button type="button" data-detail-tab="synonyms">Synonyms (${syns.length})</button><button type="button" data-detail-tab="related">Related</button><button type="button" data-detail-tab="study">Study</button></div><div data-detail-pane="overview"><div class="detail-info-list"><div class="detail-info-row"><span class="detail-info-icon">▤</span><b>${esc(txt.meaning)}</b><p id="detailDefinition" dir="${textDir}">${esc(def)}</p></div><div class="detail-info-row"><span class="detail-info-icon">🔊</span><b>Pronunciation</b><p>${esc(t.term)}</p><button class="pronounce" id="pronounceTerm" title="Pronounce English medical term">🔊</button></div>${syns.length?`<div class="detail-info-row"><span class="detail-info-icon">⌁</span><b>${esc(txt.synonyms)}</b><div class="synonyms">${syns.slice(0,8).map(s=>`<span>${esc(s)}</span>`).join('')}${syns.length>8?`<span>+${syns.length-8} more</span>`:''}</div></div>`:''}<div class="detail-info-row"><span class="detail-info-icon">▦</span><b>Category</b><p>${esc(t.category_label||categoryLabel(t.category))}</p></div><div class="detail-info-row"><span class="detail-info-icon">⌘</span><b>MeSH ID</b><p>${esc(meshId)}</p></div></div><div class="detail-explanation"><b>${esc(txt.explanation)}</b><p id="detailExplanation" dir="${textDir}">${esc(exp)}</p>${!has&&l!=='en'?`<p id="translationStatus" class="microcopy">${esc(txt.status)}</p>`:''}</div></div><div class="detail-tab-pane hidden" data-detail-pane="synonyms"><h3>Synonyms and entry terms</h3><div class="synonym-cloud">${syns.length?syns.map(s=>`<span>${esc(s)}</span>`).join(''):'<p>No additional MeSH entry terms are listed for this concept.</p>'}</div></div><div class="detail-tab-pane hidden" data-detail-pane="related"><h3>Related classification</h3><p class="microcopy">Category: ${esc(t.category_label||categoryLabel(t.category))}</p>${trees.length?`<div class="mesh-tree-list">${trees.slice(0,16).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:'<p class="microcopy">No additional MeSH tree numbers are available for this record.</p>'}</div><div class="detail-tab-pane hidden" data-detail-pane="study"><h3>Study this term</h3><p class="microcopy">Use pronunciation, selected-term study, PDF export, and the AI study workspace for this concept.</p></div><div class="detail-actions"><button class="button primary" id="detailAI">✦ AI Study</button><button class="button soft-button" id="detailPDF">Export PDF</button><button class="button soft-button" id="detailSelect">${state.selected.has(String(t.id))?'Remove':'Add to Selected'}</button></div><button type="button" class="detail-offline" id="detailOffline"><div><b>Download for offline use</b><small>Open Offline Packs to save the complete dictionary on this device.</small></div><span>⇩</span></button><p class="microcopy detail-source">Source: ${esc(t.source||state.index?.source_note||'Suhail Medical Dictionary')}</p>`;
+ $('#detailPanel').innerHTML=`<div class="detail-visual-wrap"><div class="detail-visual-stage" data-angle="0"><img class="detail-visual" src="${visualUrl(t)}" alt="" aria-hidden="true"></div><span class="detail-rotate-hint">↻ drag / 360°</span><button type="button" id="detailCloseButton" class="detail-close" aria-label="Close details" title="Close">×</button><button type="button" class="detail-bookmark${bookmarked?' saved':''}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button></div><div class="detail-title-block" dir="${textDir}"><h2 id="detailTermName">${esc(translatedName)}</h2>${originalLine}<span class="tag">${esc(t.category_label||categoryLabel(t.category))}</span></div><div class="detail-tabs"><button type="button" class="active" data-detail-tab="overview">Overview</button><button type="button" data-detail-tab="synonyms">Synonyms (${syns.length})</button><button type="button" data-detail-tab="related">Related</button><button type="button" data-detail-tab="study">Study</button></div><div data-detail-pane="overview"><div class="detail-info-list"><div class="detail-info-row"><span class="detail-info-icon">▤</span><b>${esc(txt.meaning)}</b><p id="detailDefinition" dir="${textDir}">${esc(def)}</p></div><div class="detail-info-row"><span class="detail-info-icon">🔊</span><b>Pronunciation</b><p>${esc(t.term)}</p><button class="pronounce" id="pronounceTerm" title="Pronounce English medical term">🔊</button></div>${syns.length?`<div class="detail-info-row"><span class="detail-info-icon">⌁</span><b>${esc(txt.synonyms)}</b><div class="synonyms">${syns.slice(0,8).map(s=>`<span>${esc(s)}</span>`).join('')}${syns.length>8?`<span>+${syns.length-8} more</span>`:''}</div></div>`:''}<div class="detail-info-row"><span class="detail-info-icon">▦</span><b>Category</b><p>${esc(t.category_label||categoryLabel(t.category))}</p></div><div class="detail-info-row"><span class="detail-info-icon">⌘</span><b>MeSH ID</b><p>${esc(meshId)}</p></div></div><div class="detail-explanation"><b>${esc(txt.explanation)}</b><p id="detailExplanation" dir="${textDir}">${esc(exp)}</p>${!has&&l!=='en'?`<p id="translationStatus" class="microcopy">${esc(txt.status)}</p>`:''}</div></div><div class="detail-tab-pane hidden" data-detail-pane="synonyms"><h3>Synonyms and entry terms</h3><div class="synonym-cloud">${syns.length?syns.map(s=>`<span>${esc(s)}</span>`).join(''):'<p>No additional MeSH entry terms are listed for this concept.</p>'}</div></div><div class="detail-tab-pane hidden" data-detail-pane="related"><h3>Related classification</h3><p class="microcopy">Category: ${esc(t.category_label||categoryLabel(t.category))}</p>${trees.length?`<div class="mesh-tree-list">${trees.slice(0,16).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:'<p class="microcopy">No additional MeSH tree numbers are available for this record.</p>'}</div><div class="detail-tab-pane hidden" data-detail-pane="study"><h3>Study this term</h3><p class="microcopy">Use pronunciation, selected-term study, PDF export, and the AI study workspace for this concept.</p></div><div class="detail-actions"><button class="button primary" id="detailAI">✦ AI Study</button><button class="button soft-button" id="detailPDF">Export PDF</button><button class="button soft-button" id="detailPrint">Print</button><button class="button soft-button" id="detailSelect">${state.selected.has(String(t.id))?'Remove':'Add to Selected'}</button></div><button type="button" class="detail-offline" id="detailOffline"><div><b>Download for offline use</b><small>Open Offline Packs to save the complete dictionary on this device.</small></div><span>⇩</span></button><p class="microcopy detail-source">Source: ${esc(t.source||state.index?.source_note||'Suhail Medical Dictionary')}</p>`;
  $('#detailPanel').classList.add('open');
  $('#pronounceTerm')?.addEventListener('click',()=>pronounce(t.term));
  $('#detailSelect')?.addEventListener('click',async()=>{await toggleSelection(t);showDetail(t);renderTerms();});
  $('#detailAI')?.addEventListener('click',()=>openAIPage([t]));
  $('#detailPDF')?.addEventListener('click',()=>{const fallback=window.open('','_blank');if(fallback)fallback.document.write('<title>Preparing PDF…</title><p style="font-family:Arial;padding:24px">Preparing term PDF…</p>');pdfTerms(t.term,[t],state.lang,`${safeName(t.term)}.pdf`,fallback);});
+ $('#detailPrint')?.addEventListener('click',()=>{const popup=window.open('','_blank');if(popup)popup.document.write('<title>Preparing print…</title><p style="font-family:Arial;padding:24px">Preparing medical term…</p>');printTerms(t.term,[t],state.lang,popup);});
  $('#detailOffline')?.addEventListener('click',()=>location.assign('./offline.html'));
  $('#detailCloseButton')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();closeDetail();});
  const detailBm=$('#detailPanel .detail-bookmark');detailBm?.addEventListener('click',()=>{const on=!isBookmarked(t.id);setBookmarked(t.id,on);detailBm.classList.toggle('saved',on);detailBm.textContent=on?'♥':'♡';renderTerms();});
@@ -662,6 +664,7 @@ init().catch(err=>{console.error(err);$('#termGrid').innerHTML=`<div class="empt
 })();
 
 </script>
-  <script src="./assets/js/v7-ui.js?v=7.0.0" defer></script>
+  <script src="./assets/js/v7-ui.js?v=8.0.0" defer></script>
+  <script src="./assets/js/v8-ui.js?v=8.0.0" defer></script>
 </body>
 </html>

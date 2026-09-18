@@ -4,8 +4,8 @@ const DATA_CACHE=`${VERSION}-data`;
 const RUNTIME_CACHE=`${VERSION}-runtime`;
 const CORE=[
   './','./index.html','./app.html','./ai.html','./admin.html','./about.html','./privacy.html','./terms.html','./offline.html',
-  './manifest.webmanifest','./version.json','./ai-config.json','./assets/css/styles.css','./assets/css/v7.css','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/images/suhail-saeedy.webp',
-  './assets/js/config.js','./assets/js/v7-ui.js','./assets/js/auth.js','./assets/js/ai.js','./assets/js/ai-page.js','./assets/js/export.js','./assets/js/pwa.js','./assets/vendor/jszip.min.js',
+  './manifest.webmanifest','./version.json','./ai-config.json','./assets/css/styles.css','./assets/css/v7.css','./assets/css/v8.css','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/images/suhail-saeedy.webp',
+  './assets/js/config.js','./assets/js/v7-ui.js','./assets/js/v8-ui.js','./assets/js/auth.js','./assets/js/ai.js','./assets/js/ai-page.js','./assets/js/export.js','./assets/js/pwa.js','./assets/vendor/jszip.min.js',
   './assets/images/medical-3d/anatomy.svg','./assets/images/medical-3d/capsule.svg','./assets/images/medical-3d/dna.svg','./assets/images/medical-3d/heart.svg','./assets/images/medical-3d/hero-books.svg','./assets/images/medical-3d/kidneys.svg','./assets/images/medical-3d/lungs.svg','./assets/images/medical-3d/membrane.svg','./assets/images/medical-3d/microbe.svg','./assets/images/medical-3d/molecule-a.svg','./assets/images/medical-3d/molecule-b.svg','./assets/images/medical-3d/neuron.svg','./assets/images/medical-3d/protein.svg',
   './data/index.json'
 ];

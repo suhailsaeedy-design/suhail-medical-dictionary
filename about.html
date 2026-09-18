@@ -10,9 +10,10 @@
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
   <link rel="stylesheet" href="./assets/css/v7.css">
+  <link rel="stylesheet" href="./assets/css/v8.css">
   <title>About · Suhail Medical Dictionary</title>
 </head>
-<body class="about-workspace workspace-page" data-build="7.0.0" data-theme="clinical">
+<body class="about-workspace workspace-page" data-build="8.0.0" data-theme="clinical">
   <div class="med-app-shell">
     <aside class="med-sidebar" aria-label="Primary navigation">
       <a class="med-brand" href="./app.html"><span class="med-brand-mark"><img src="./assets/icons/icon-192.png" alt=""></span><span><strong>Suhail Medical<br>Dictionary</strong><small>Medical study workspace</small></span></a>
@@ -71,7 +72,7 @@
           <article class="about-v7-card"><div class="about-icon">🌐</div><h3>Multilingual Access</h3><p>The interface is designed for English, Pashto, Dari, Persian, Turkish, Arabic, and Chinese study workflows, with right-to-left content handled without breaking the overall layout.</p></article>
           <article class="about-v7-card"><div class="about-icon">⇩</div><h3>Reliable Access</h3><p>Dictionary packs and application files are designed for Progressive Web App use so students can keep useful terminology available after downloading it for offline study.</p></article>
           <article class="about-v7-card"><div class="about-icon">▦</div><h3>Structured Medical Data</h3><p>The production build imports U.S. National Library of Medicine MeSH terminology and organizes terms by searchable names, categories, definitions, synonyms, and study actions.</p></article>
-          <article class="about-v7-card"><div class="about-icon">✦</div><h3>Guided Study Workspace</h3><p>The separate AI Study area is a learning feature for questions, comparisons, explanations, voice-assisted study, and selected-term context. It does not imply that the website itself was created by AI.</p></article>
+          <article class="about-v7-card"><div class="about-icon">✦</div><h3>Interactive Study Workspace</h3><p>The dedicated Study Assistant area supports questions, comparisons, explanations, voice-assisted study, and selected-term context while keeping the dictionary workflow clear and focused.</p></article>
           <article class="about-v7-card"><div class="about-icon">◉</div><h3>Product Design Focus</h3><p>The system prioritizes responsive layouts, clear navigation, modular components, multiple visual themes, accessible controls, and maintainable code so new features can be added without rebuilding the whole project.</p></article>
         </section>
 
@@ -82,6 +83,7 @@
   <script>
   (()=>{const s=document.querySelector('#themeSelect');const v=localStorage.getItem('smd-theme')||'clinical';document.body.dataset.theme=v;s.value=v;s.addEventListener('change',()=>{document.body.dataset.theme=s.value;localStorage.setItem('smd-theme',s.value)});})();
   </script>
-  <script src="./assets/js/v7-ui.js?v=7.0.0" defer></script>
+  <script src="./assets/js/v7-ui.js?v=8.0.0" defer></script>
+  <script src="./assets/js/v8-ui.js?v=8.0.0" defer></script>
 </body>
 </html>

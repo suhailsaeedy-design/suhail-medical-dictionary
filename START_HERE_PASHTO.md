@@ -1,10 +1,10 @@
-# له دې ځایه شروع کړه — v7.0
+# له دې ځایه شروع کړه — v8.0
 
 دا ZIP د GitHub repository لپاره دی.
 
 - `.git` مه حذف کوه.
 - د ZIP دننه فایلونه مستقیم `D:\GitHub\suhail-medical-dictionary\` ته Paste کړه.
-- GitHub Desktop Summary: `Suhail Medical Dictionary premium 3D redesign v7.0`
+- GitHub Desktop Summary: `Suhail Medical Dictionary premium 3D redesign v8.0`
 - `Commit to main` → `Push origin`
 - GitHub Actions شین ✅ شي.
 - اصلي لینک خلاص کړه او `Ctrl + Shift + R` ووهه.

@@ -1,5 +1,5 @@
 import './core.js';
-import {getSupabase,currentSession,signOut,getMyProfile} from './auth.js?v=7.0.0';
+import {getSupabase,currentSession,signOut,getMyProfile} from './auth.js?v=8.0.0';
 const $=s=>document.querySelector(s);let users=[];
 async function init(){const sb=await getSupabase(),sess=await currentSession();if(!sess){location.replace('./index.html');return;}if(!sb){$('#adminGate').innerHTML='<h1>Admin unavailable</h1><p>Cloud account connection is not configured.</p>';return;}const me=await getMyProfile();if(!me?.is_owner){$('#adminGate').innerHTML='<h1>Access denied</h1><p>This page is restricted to the configured owner account.</p>';return;}$('#adminGate').classList.add('hidden');$('#adminContent').classList.remove('hidden');await loadAll(sb);$('#refreshAdmin').onclick=()=>loadAll(sb);$('#userFilter').oninput=renderUsers;$('#adminSignOut').onclick=async()=>{await signOut();location.href='./index.html';};}
 async function rpc(sb,name,args={}){const {data,error}=await sb.rpc(name,args);if(error)throw error;return data;}

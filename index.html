@@ -10,9 +10,10 @@
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
   <link rel="stylesheet" href="./assets/css/v7.css">
+  <link rel="stylesheet" href="./assets/css/v8.css">
   <title>Sign in · Suhail Medical Dictionary</title>
 </head>
-<body data-build="7.0.0" class="auth-page" data-theme="clinical">
+<body data-build="8.0.0" class="auth-page" data-theme="clinical">
   <main class="auth-layout">
     <section class="auth-brand-panel">
       <div class="auth-brand-top">
@@ -24,9 +25,9 @@
       </div>
 
       <div class="auth-brand-copy">
-        <span class="auth-kicker">Medical learning, organized</span>
-        <h1>One account.<br>One private study space.</h1>
-        <p>Search medical terminology, save your study chats, work in multiple languages, create PDFs, hear pronunciation, and keep downloaded dictionary packs available offline.</p>
+        <span class="auth-kicker">Explore · Learn · Apply</span>
+        <h1>Knowledge heals<br>beyond boundaries.</h1>
+        <p>Trusted medical terminology, multilingual explanations, pronunciation, study exports, private chats, and offline dictionary packs — organized in one learning workspace.</p>
         <div class="auth-benefits">
           <div><span>01</span><b>Private account data</b><small>Your saved AI chats are separated by account.</small></div>
           <div><span>02</span><b>Offline dictionary</b><small>Download packs once and keep studying without internet.</small></div>
@@ -137,7 +138,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '7.0.0'
+  uiVersion: '8.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -367,7 +368,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '7.0.0'
+  uiVersion: '8.0.0'
 };
 const {currentSession,signInWithGoogle,signOut,getMyProfile,setOwnerReviewConsent,logEvent}=SMDAuth;
 const $=s=>document.querySelector(s);
@@ -426,6 +427,7 @@ init();
 })();
 
 </script>
-  <script src="./assets/js/v7-ui.js?v=7.0.0" defer></script>
+  <script src="./assets/js/v7-ui.js?v=8.0.0" defer></script>
+  <script src="./assets/js/v8-ui.js?v=8.0.0" defer></script>
 </body>
 </html>
