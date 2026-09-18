@@ -10,15 +10,16 @@
   <link rel="stylesheet" href="./assets/css/styles.css">
   <link rel="stylesheet" href="./assets/css/v7.css">
   <link rel="stylesheet" href="./assets/css/v8.css">
+  <link rel="stylesheet" href="./assets/css/v9-reference.css?v=9.0.0">
   <title>Dictionary · Suhail Medical Dictionary</title>
 </head>
-<body data-build="8.0.0" class="workspace-page auth-pending" data-theme="clinical">
+<body data-build="9.0.0" class="workspace-page auth-pending" data-theme="clinical">
   <div id="sessionLoader" class="session-loader"><div class="loader-ring"></div><p>Opening your study workspace…</p></div>
 
   <div class="med-app-shell">
     <aside class="med-sidebar" aria-label="Primary navigation">
       <a class="med-brand" href="./app.html" aria-label="Suhail Medical Dictionary home">
-        <span class="med-brand-mark"><img src="./assets/icons/icon-192.png" alt=""></span>
+        <span class="med-brand-mark"><img src="./assets/images/logo-book.svg" alt=""></span>
         <span><strong>Suhail Medical<br>Dictionary</strong><small>Medical study workspace</small></span>
       </a>
 
@@ -37,9 +38,9 @@
 
       <div class="med-side-promo">
         <div class="promo-orb" aria-hidden="true"><span>🩺</span></div>
-        <strong>Learn Medicine Smarter</strong>
-        <small>Interactive study tools for a brighter tomorrow.</small>
-        <a href="./ai.html" class="promo-button">Get Started <span>→</span></a>
+        <strong>Advanced Study Tools</strong>
+        <small>Private study chats · Offline packs · PDF exports · Advanced filters.</small>
+        <a href="./ai.html" class="promo-button">Open Study Tools <span>→</span></a>
       </div>
     </aside>
 
@@ -69,9 +70,10 @@
       <main id="dictionary" class="med-content">
         <section id="dashboard" class="med-hero">
           <div class="hero-copy">
-            <span class="section-kicker">Medical terminology</span>
+            <span class="section-kicker">Explore · Learn · Apply</span>
             <h1>Medical Dictionary</h1>
-            <p id="resultSummary">Loading terms…</p>
+            <p class="hero-tagline">Trusted medical knowledge for a healthier tomorrow. Simple, accurate, and always within reach.</p>
+            <p id="resultSummary" class="hero-counts">Loading terms…</p>
             <div class="hero-stats" aria-label="Dictionary highlights">
               <div class="hero-stat"><strong>31K+</strong><span>Medical concepts</span></div>
               <div class="hero-stat"><strong>267K+</strong><span>Searchable names</span></div>
@@ -135,6 +137,12 @@
           </div>
         </section>
 
+        <section class="study-assistant-strip panel-card" aria-label="Medical study assistant">
+          <div class="study-bot" aria-hidden="true">✦</div>
+          <div><strong>Medical Study Assistant</strong><small>Ask for definitions, comparisons, examples, and study explanations in your selected language.</small></div>
+          <a class="assistant-ask" href="./ai.html"><span>Ask anything about medicine…</span><b>→</b></a>
+        </section>
+
         <div class="pwa-actions v6-pwa"><span class="version-chip">v<span id="appVersion">—</span></span><button id="updateAppButton" class="button primary compact hidden">Update app</button><button id="installButton" class="button soft-button compact hidden">Install</button></div>
       </main>
 
@@ -157,7 +165,7 @@
     window.setTimeout(function(){
       var loader=document.getElementById('sessionLoader');
       if(!loader || !document.body.classList.contains('auth-pending')) return;
-      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v8.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
+      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v9.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
     },12000);
   </script>
   <script>
@@ -185,7 +193,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '8.0.0'
+  uiVersion: '9.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -412,9 +420,9 @@ const {peekSession,getSupabase,currentSession,signOut,logEvent,getMyProfile,setO
 // Optional features are lazy-loaded only after the core dictionary is allowed to open.
 // A PDF/AI/PWA module failure must never prevent the workspace from starting.
 let aiModulePromise=null, exportModulePromise=null, pwaModulePromise=null;
-const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=8.0.0'));
-const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=8.0.0'));
-const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=8.0.0'));
+const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=9.0.0'));
+const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=9.0.0'));
+const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=9.0.0'));
 async function createChat(...a){return (await aiModule()).createChat(...a);} async function listChats(...a){return (await aiModule()).listChats(...a);} async function loadMessages(...a){return (await aiModule()).loadMessages(...a);} async function renameChat(...a){return (await aiModule()).renameChat(...a);} async function deleteChat(...a){return (await aiModule()).deleteChat(...a);} async function editUserMessage(...a){return (await aiModule()).editUserMessage(...a);} async function askAI(...a){return (await aiModule()).askAI(...a);} async function translateTerm(...a){return (await aiModule()).translateTerm(...a);}
 function printTerms(...a){exportModule().then(m=>m.printTerms(...a)).catch(()=>alert('Print tools could not start. Reload once and retry.'));}
 async function pdfTerms(...a){try{return await (await exportModule()).pdfTerms(...a);}catch{return alert('PDF tools could not start. Use Print → Save as PDF.');}}
@@ -499,21 +507,18 @@ function bindUI(){
 function filter(){const src=state.index?.terms||[];state.filtered=src.filter(t=>(state.category==='all'||t.category===state.category)&&(!state.query||(`${t.term} ${(t.synonyms||[]).join(' ')}`).toLowerCase().includes(state.query)));renderTerms();}
 function visualAsset(item){
  const s=`${item.term||''} ${item.category||''} ${item.category_label||''}`.toLowerCase();
- if(/kidney|renal|neph|urinary|urolog/.test(s))return 'kidneys.svg';
- if(/heart|card|myocard|arter|vascular|blood pressure/.test(s))return 'heart.svg';
- if(/brain|neuro|synap|neuron|cerebr/.test(s))return 'neuron.svg';
- if(/lung|pulmon|respirat|bronch/.test(s))return 'lungs.svg';
- if(/dna|gene|genom|chromos/.test(s))return 'dna.svg';
- if(/protein|enzyme|peptide|biological|biochem/.test(s))return 'protein.svg';
- if(/membrane|lipid|phospho/.test(s))return 'membrane.svg';
- if(/drug|pharmac|therapeut|medicine|tablet|capsule/.test(s)){const v=['capsule.svg','molecule-a.svg','molecule-b.svg','protein.svg'];let n=0;for(const ch of String(item.id||item.term||''))n=((n<<5)-n+ch.charCodeAt(0))|0;return v[Math.abs(n)%v.length];}
- if(/bacter|virus|infect|microb|fung/.test(s))return 'microbe.svg';
- if(/anatom|physiol|organ|tissue/.test(s))return 'anatomy.svg';
- const set=['molecule-a.svg','molecule-b.svg','protein.svg','capsule.svg'];
+ if(/diabet|pancrea|endocrin|insulin|glucose/.test(s))return 'pancreas.webp';
+ if(/lung|pulmon|respirat|bronch|pneum|asthma/.test(s))return /asthma/.test(s)?'lungs2.webp':'lungs.webp';
+ if(/anemia|blood|hemat|erythro|leuk|platelet/.test(s))return 'blood.webp';
+ if(/fract|bone|ortho|joint|knee|skelet/.test(s))return 'knee.webp';
+ if(/append|colon|intestin|digest|gastro|bowel/.test(s))return 'intestine.webp';
+ if(/heart|card|myocard|arter|vascular|hypertension|tachy|brady|arrhythm/.test(s))return /myocard|arrhythm/.test(s)?'heart-neural.webp':'heart.webp';
+ if(/brain|neuro|synap|neuron|cerebr/.test(s))return 'heart-neural.webp';
+ const set=['heart.webp','pancreas.webp','lungs.webp','blood.webp','knee.webp','intestine.webp'];
  let h=0;for(const ch of String(item.id||item.term||''))h=((h<<5)-h+ch.charCodeAt(0))|0;
  return set[Math.abs(h)%set.length];
 }
-function visualUrl(item){return `./assets/images/medical-3d/${visualAsset(item)}`;}
+function visualUrl(item){return `./assets/images/reference3d/${visualAsset(item)}`;}
 function syncCategoryChips(){document.querySelectorAll('[data-category-chip]').forEach(b=>b.classList.toggle('active',b.dataset.categoryChip===state.category));}
 function readBookmarkIds(){
  let ids=[];try{ids=JSON.parse(localStorage.getItem('smd-bookmarks')||'[]');if(!Array.isArray(ids))ids=[];}catch{ids=[];}
@@ -664,7 +669,7 @@ init().catch(err=>{console.error(err);$('#termGrid').innerHTML=`<div class="empt
 })();
 
 </script>
-  <script src="./assets/js/v7-ui.js?v=8.0.0" defer></script>
-  <script src="./assets/js/v8-ui.js?v=8.0.0" defer></script>
+  <script src="./assets/js/v7-ui.js?v=9.0.0" defer></script>
+  <script src="./assets/js/v8-ui.js?v=9.0.0" defer></script>
 </body>
 </html>

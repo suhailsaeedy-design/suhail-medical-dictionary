@@ -11,14 +11,15 @@
   <link rel="stylesheet" href="./assets/css/styles.css">
   <link rel="stylesheet" href="./assets/css/v7.css">
   <link rel="stylesheet" href="./assets/css/v8.css">
+  <link rel="stylesheet" href="./assets/css/v9-reference.css?v=9.0.0">
   <title>Sign in · Suhail Medical Dictionary</title>
 </head>
-<body data-build="8.0.0" class="auth-page" data-theme="clinical">
+<body data-build="9.0.0" class="auth-page" data-theme="clinical">
   <main class="auth-layout">
     <section class="auth-brand-panel">
       <div class="auth-brand-top">
         <a class="brand brand-light" href="./index.html">
-          <img src="./assets/icons/icon-192.png" class="brand-logo" alt="">
+          <img src="./assets/images/logo-book.svg" class="brand-logo" alt="">
           <span>Suhail Medical Dictionary</span>
         </a>
         <span class="secure-chip">Secure student workspace</span>
@@ -51,7 +52,7 @@
 
     <section class="auth-form-panel">
       <div class="auth-mobile-brand">
-        <img src="./assets/icons/icon-192.png" class="brand-logo" alt="">
+        <img src="./assets/images/logo-book.svg" class="brand-logo" alt="">
         <div><strong>Suhail Medical Dictionary</strong><small>Medical study platform</small></div>
       </div>
 
@@ -138,7 +139,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '8.0.0'
+  uiVersion: '9.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -368,7 +369,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '8.0.0'
+  uiVersion: '9.0.0'
 };
 const {currentSession,signInWithGoogle,signOut,getMyProfile,setOwnerReviewConsent,logEvent}=SMDAuth;
 const $=s=>document.querySelector(s);
@@ -427,7 +428,7 @@ init();
 })();
 
 </script>
-  <script src="./assets/js/v7-ui.js?v=8.0.0" defer></script>
-  <script src="./assets/js/v8-ui.js?v=8.0.0" defer></script>
+  <script src="./assets/js/v7-ui.js?v=9.0.0" defer></script>
+  <script src="./assets/js/v8-ui.js?v=9.0.0" defer></script>
 </body>
 </html>

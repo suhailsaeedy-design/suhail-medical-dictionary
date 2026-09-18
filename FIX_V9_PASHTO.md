@@ -1,4 +1,4 @@
-# Suhail Medical Dictionary v8.0
+# Suhail Medical Dictionary v9.0
 
 دا نسخه د وروستیو ټاکل شوو 3D/Animation ډیزاینونو پر اساس بیا ډیزاین شوې ده.
 
@@ -25,7 +25,7 @@
 
 GitHub Actions د Production لپاره NLM MeSH 2026 import کوي؛ source ZIP کې کوچنی sample dataset یوازې د local structure/testing لپاره ساتل شوی.
 
-## v8.0 Cinematic Design
+## v9.0 Cinematic Design
 - Default Theme: Light
 - Midnight او Blue Theme کې ژور Neon/Glass 3D ډیزاین
 - Mobile کې کوچني دوه-ستوني Term Cards او Slide-up Detail Panel
