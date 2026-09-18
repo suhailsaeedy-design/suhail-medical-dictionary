@@ -71,11 +71,11 @@ Speech synthesis is widely available, but speech recognition support varies. Liv
 ## About creator
 `about.html` contains the creator profile for Suhail Saeedy and uses `assets/images/suhail-saeedy.webp`. The page is included in the PWA offline cache and production build.
 
-## v3.4 secure redesign + full dictionary guard
+## v4.0 stable Google auth + full dictionary guard
 
 The default entry page is now a dedicated Google OAuth sign-in screen. `app.html` is guarded and redirects unsigned users back to `index.html`. Signed-in users keep separate AI chat data under Supabase Row Level Security. The default UI was fully redesigned as a clean, mobile-first medical workspace with a calmer color system, compact navigation, clearer search/category controls, a focused term detail panel, and a dedicated AI study area.
 
-Because login is mandatory in v3.4, configure the public Supabase URL and publishable/anon key in `assets/js/config.js` before deploying this version to production. Never place a service-role key in frontend files.
+Because login is mandatory in v4.0, configure the public Supabase URL and publishable/anon key in `assets/js/config.js` before deploying this version to production. Never place a service-role key in frontend files.
 
 
 For replacing an already-published repository, see `REPLACE_EXISTING_REPO_PASHTO.md`.
@@ -89,3 +89,7 @@ For replacing an already-published repository, see `REPLACE_EXISTING_REPO_PASHTO
 ## Google-only account identity
 
 The public login UI uses Supabase Google OAuth only. A first Google sign-in creates the Supabase Auth user automatically; later sign-ins with the same Google account resolve to the same Supabase user identity. Private rows are keyed by `auth.uid()` / `user_id`, while email is stored only as profile/display metadata. The application never handles the user's Google password.
+
+
+## v4.0 auth architecture
+The critical login/workspace boot path no longer downloads the Supabase JavaScript SDK. Google OAuth callbacks, session persistence/refresh, PostgREST and RPC calls are handled directly over Supabase HTTPS endpoints. Optional AI/PDF/PWA modules load lazily so they cannot block the core dictionary UI.

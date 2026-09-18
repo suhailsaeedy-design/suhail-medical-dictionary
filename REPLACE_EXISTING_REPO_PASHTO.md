@@ -17,7 +17,7 @@
 3. د نوې ZIP دننه ټول فایلونه/فولډرونه مستقیم همدې Repository root ته Paste کړه.
 4. باید `index.html`, `app.html`, `.github`, `assets`, `data`, `scripts`, `supabase`, `cloudflare-worker` مستقیم root کې وي.
 5. GitHub Desktop ته راشه. Deleted او Added/Modified فایلونه به ښکاره شي.
-6. Summary کې ولیکه: `Replace site with v3.3 full dictionary and language update`
+6. Summary کې ولیکه: `Replace site with v4.0 full dictionary and language update`
 7. `Commit to main` ووهه.
 8. `Push origin` ووهه.
 9. GitHub → Actions کې `Build and deploy Suhail Medical Dictionary` وګوره. شین ✅ چې شي، GitHub Pages خپله نوې نسخه Publish کوي.
@@ -28,7 +28,7 @@ Repository source کې یو کوچنی starter dataset ساتل شوی، خو Gi
 
 ## Login مهم دی
 
-v3.3 کې Login اجباري دی. Public Website لومړی `index.html` کې **Continue with Google** ښيي. نوی password نه جوړېږي. د واقعي Google Sign-in لپاره Supabase + Google OAuth باید configure شي. بشپړ ګامونه په `GOOGLE_LOGIN_SETUP_PASHTO.md` کې دي.
+v4.0 کې Login اجباري دی. Public Website لومړی `index.html` کې **Continue with Google** ښيي. نوی password نه جوړېږي. د واقعي Google Sign-in لپاره Supabase + Google OAuth باید configure شي. بشپړ ګامونه په `GOOGLE_LOGIN_SETUP_PASHTO.md` کې دي.
 
 ## ژبې او ژباړه
 

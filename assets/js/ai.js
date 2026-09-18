@@ -1,5 +1,5 @@
-import {CONFIG} from './config.js';
-import {getSupabase,currentSession} from './auth.js';
+import {CONFIG} from './config.js?v=4.0.0';
+import {getSupabase,currentSession} from './auth.js?v=4.0.0';
 export async function createChat(title='New medical chat'){const sb=await getSupabase();if(!sb)throw new Error('Cloud login is not configured.');const {data:{user}}=await sb.auth.getUser();if(!user)throw new Error('Please sign in first.');const {data,error}=await sb.from('chats').insert({user_id:user.id,title}).select().single();if(error)throw error;return data;}
 export async function listChats(){const sb=await getSupabase();if(!sb)return[];const {data,error}=await sb.from('chats').select('*').order('updated_at',{ascending:false});if(error)throw error;return data||[];}
 export async function loadMessages(chatId){const sb=await getSupabase();if(!sb)return[];const {data,error}=await sb.from('ai_messages').select('*').eq('chat_id',chatId).order('created_at',{ascending:true});if(error)throw error;return data||[];}

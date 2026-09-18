@@ -1,8 +1,17 @@
-import './core.js';
-import {getSupabase,currentSession,signOut,logEvent,getMyProfile,setOwnerReviewConsent} from './auth.js';
-import {createChat,listChats,loadMessages,renameChat,deleteChat,editUserMessage,askAI,translateTerm} from './ai.js';
-import {printTerms,pdfTerms,zipCategoryPdfs} from './export.js';
-import {initPWA} from './pwa.js';
+import './core.js?v=4.0.0';
+import {getSupabase,currentSession,signOut,logEvent,getMyProfile,setOwnerReviewConsent} from './auth.js?v=4.0.0';
+
+// Optional features are lazy-loaded only after the core dictionary is allowed to open.
+// A PDF/AI/PWA module failure must never prevent the workspace from starting.
+let aiModulePromise=null, exportModulePromise=null, pwaModulePromise=null;
+const aiModule=()=>aiModulePromise||(aiModulePromise=import('./ai.js?v=4.0.0'));
+const exportModule=()=>exportModulePromise||(exportModulePromise=import('./export.js?v=4.0.0'));
+const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./pwa.js?v=4.0.0'));
+async function createChat(...a){return (await aiModule()).createChat(...a);} async function listChats(...a){return (await aiModule()).listChats(...a);} async function loadMessages(...a){return (await aiModule()).loadMessages(...a);} async function renameChat(...a){return (await aiModule()).renameChat(...a);} async function deleteChat(...a){return (await aiModule()).deleteChat(...a);} async function editUserMessage(...a){return (await aiModule()).editUserMessage(...a);} async function askAI(...a){return (await aiModule()).askAI(...a);} async function translateTerm(...a){return (await aiModule()).translateTerm(...a);}
+function printTerms(...a){exportModule().then(m=>m.printTerms(...a)).catch(()=>alert('Print tools could not start. Reload once and retry.'));}
+async function pdfTerms(...a){try{return await (await exportModule()).pdfTerms(...a);}catch{return alert('PDF tools could not start. Use Print → Save as PDF.');}}
+async function zipCategoryPdfs(...a){try{return await (await exportModule()).zipCategoryPdfs(...a);}catch{return alert('ZIP/PDF tools could not start. Retry while online.');}}
+async function initPWA(...a){try{return await (await pwaModule()).initPWA(...a);}catch{return null;}}
 
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const RTL=new Set(['ps','prs','fa','ar']);

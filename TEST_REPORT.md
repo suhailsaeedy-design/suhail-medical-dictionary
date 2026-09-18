@@ -1,15 +1,16 @@
-# Suhail Medical Dictionary v3.4 — Test Report
+# Suhail Medical Dictionary v4.0 — Test Report
 
-- Project HTML parsing: PASS
-- JSON parsing: PASS
-- JavaScript syntax (`node --check`): PASS
-- Dictionary category file references: PASS
-- Google-only login code path present: PASS
-- Password/email form controls removed from public login page: PASS
-- Auth data ownership remains keyed to Supabase `auth.uid()` / `user_id`: PASS
-- Google password is never collected by the frontend: PASS
-- First-login Privacy/Terms consent gate: PASS (static/code validation)
-- Existing-session redirect to private workspace: PASS (static/code validation)
-- Production build generation: PASS
+## Passed checks
+- All project JavaScript files pass `node --check`.
+- HTML parser validation passed for all top-level HTML files.
+- JSON validation passed for manifest, version and dictionary data files.
+- Production build script completed successfully.
+- Project verification script completed successfully.
+- Auth unit test: persisted session fast-path passed.
+- Auth unit test: OAuth callback parsing and session persistence passed.
+- Auth unit test: `Use another Google account` authorize URL includes `prompt=select_account`.
+- REST client unit test: authenticated PostgREST select query construction and response parsing passed.
+- Secret scan found no Google Client Secret or Supabase service-role secret embedded in frontend configuration.
 
-Runtime Google OAuth requires valid Supabase URL/public key plus a configured Google OAuth Client ID/Secret and allowed redirect URLs. See `GOOGLE_LOGIN_SETUP_PASHTO.md`.
+## Architecture change
+v4.0 removes the remote Supabase JavaScript SDK from the critical login/workspace boot path. Authentication and database access use Supabase HTTPS endpoints directly, so a CDN/module initialization failure cannot hold the workspace on an endless loader.
