@@ -41,9 +41,11 @@ This creates `_site/`, imports full MeSH descriptors, generates a unique release
 
 ## Important data note
 
-MeSH is a large biomedical controlled vocabulary and an excellent foundation, but no single vocabulary can literally contain every medical word ever used. The importer currently targets MeSH **Descriptor Records**. NLM Supplemental Concept Records can be added later, but they are much larger and would significantly increase offline storage.
+The production importer includes the complete **NLM MeSH 2026 Descriptor vocabulary** plus every entry term/synonym contained in those descriptor records. A safety threshold prevents a partial download from being published as the full dictionary. No term images/media are imported or rendered. The About Creator portrait is separate from dictionary content.
 
-Full MeSH imported records start with English NLM source text. Missing non-English translations are generated only on demand, marked as AI-assisted/unreviewed, cached for reuse, and should be medically reviewed before being represented as authoritative translations.
+MeSH is a large biomedical controlled vocabulary and an excellent foundation, but no single vocabulary can literally contain every medical expression ever used. MeSH Supplementary Concept Records are a separate, much larger collection and are not included in the default offline pack because they would greatly increase mobile storage and initial search memory.
+
+Full MeSH imported records start with English NLM source text. Missing non-English `term_name`, definition, and explanation are generated on demand, marked as AI-assisted/unreviewed, cached in Supabase and on the device, and should be medically reviewed before being represented as authoritative translations. For Pashto, the translation prompt explicitly avoids inventing meanings for names/eponyms/acronyms/drug/Latin terms: if there is no established Pashto equivalent, it requests a faithful Pashto-script rendering of the English medical name while translating the definition and explanation.
 
 ## NLM attribution
 
@@ -68,3 +70,12 @@ Speech synthesis is widely available, but speech recognition support varies. Liv
 
 ## About creator
 `about.html` contains the creator profile for Suhail Saeedy and uses `assets/images/suhail-saeedy.webp`. The page is included in the PWA offline cache and production build.
+
+## v3.1 secure redesign + full dictionary guard
+
+The default entry page is now a dedicated email/password sign-in screen. `app.html` is guarded and redirects unsigned users back to `index.html`. Signed-in users keep separate AI chat data under Supabase Row Level Security. The default UI was fully redesigned as a clean, mobile-first medical workspace with a calmer color system, compact navigation, clearer search/category controls, a focused term detail panel, and a dedicated AI study area.
+
+Because login is mandatory in v3.1, configure the public Supabase URL and publishable/anon key in `assets/js/config.js` before deploying this version to production. Never place a service-role key in frontend files.
+
+
+For replacing an already-published repository, see `REPLACE_EXISTING_REPO_PASHTO.md`.

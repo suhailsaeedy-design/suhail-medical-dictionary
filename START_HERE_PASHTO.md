@@ -1,4 +1,4 @@
-# د Suhail Medical Dictionary د نشر لنډه طریقه
+# د Suhail Medical Dictionary v3.1 د نشر لنډه طریقه
 
 دا فولډر د Production لپاره جوړ شوی دی. د Dictionary برخه Static/PWA ده، نو آنلاین او د یو ځل Offline Download وروسته افلاین کار کوي. Login/AI/Admin cloud برخې Supabase او Cloudflare Worker ته اړتیا لري.
 
@@ -49,3 +49,14 @@ User دې Online Website خلاص کړي → **Download complete offline diction
 ته چې Website کې بدلون راوړې او GitHub ته Push کړې، Action نوی release جوړوي. PWA په موبایل/کمپیوټر کې د Network په راتګ سره update ګوري او نوی Version فعالوي. په بشپړ Offline حالت کې نوی update تر انټرنېټ پورې نشي رسېدلی.
 
 د ډېر تفصیل لپاره `DEPLOY_FREE.md` وګوره.
+
+## د v3.1 مهم بدلون
+
+په دې نسخه کې Login اجباري دی. Dictionary term/detail کې طبي عکسونه نه کارول کېږي. Production deploy د NLM MeSH 2026 بشپړ Descriptor vocabulary او ټول entry terms/synonyms import کوي، او که import تر 25,000 descriptors کم شي build fail کېږي. `index.html` لومړی د Email/Password Login صفحه خلاصوي او `app.html` بې Login څخه نه خلاصیږي. نو مخکې له دې چې v3.0 GitHub ته Push کړې، Supabase باید جوړ او `assets/js/config.js` کې `supabaseUrl` او public `supabaseAnonKey` واچول شي. **Service Role Key هیڅکله frontend یا GitHub ته مه اچوه.**
+
+هر User خپل جلا AI chats لري. د Supabase RLS له امله عادي User د بل User chat data ته لاسرسی نه لري. Offline dictionary د هغه device لپاره کار کوي چې User مخکې آنلاین Login کړی وي او offline packs یې download کړي وي.
+
+
+## که موجود Public Repository له زاړه Version څخه نوي Version ته بدلوې
+
+`REPLACE_EXISTING_REPO_PASHTO.md` ولوله. `.git` فولډر مه حذفوه؛ نور زاړه Project فایلونه حذف او د نوې ZIP فایلونه هماغه Repository root ته Paste، Commit او Push کړه.

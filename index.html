@@ -1,5 +1,106 @@
-<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0d6efd"><meta name="description" content="Suhail Medical Dictionary — multilingual medical terminology, offline PWA and AI study assistant for medical students."><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./assets/icons/icon-192.png"><link rel="apple-touch-icon" href="./assets/icons/icon-192.png"><link rel="stylesheet" href="./assets/css/styles.css"><title>Suhail Medical Dictionary</title></head>
-<body data-theme="clinical"><header class="topbar sticky"><a class="brand" href="./index.html"><img src="./assets/icons/icon-192.png" class="brand-logo" alt=""><span>Suhail Medical Dictionary</span></a><nav class="top-actions"><select id="uiLanguage" class="control compact" aria-label="Interface language"><option value="en">English</option><option value="ps">پښتو</option><option value="prs">دري</option><option value="fa">فارسی</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="zh">中文</option></select><select id="themeSelect" class="control compact"><option value="clinical">Clinical</option><option value="dark">Dark</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option></select><a class="button ghost hide-mobile" href="./about.html">About</a><a class="button ghost" href="./app.html" data-i18n="openDictionary">Open Dictionary</a></nav></header>
-<main class="landing"><section class="hero glass"><div class="hero-copy"><span class="eyebrow" data-i18n="forStudents">For medical students</span><h1 data-i18n="heroTitle">Understand medical terminology faster.</h1><p data-i18n="heroText">Search by specialty, switch explanations between languages, hear pronunciation, select terms for print/PDF, study with AI, and keep the dictionary offline.</p><div class="hero-buttons"><a class="button primary large" href="./app.html" data-i18n="startLearning">Start Learning</a><a class="button ghost large" href="./app.html#ai" data-i18n="openAI">Open AI Assistant</a></div><div class="hero-badges"><span>Offline PWA</span><span>Auto updates</span><span>7 languages</span><span>Free-first</span></div><p class="microcopy">Educational reference. AI translations and answers should be verified for important medical study decisions.</p></div><div class="hero-visual" aria-hidden="true"><div class="pulse-orb"><span>ECG</span><span>DNA</span><span>Rx</span><span>🫀</span><span>🧠</span></div></div></section>
-<section class="feature-grid"><article class="feature-card"><b>Large MeSH foundation</b><p>Publish builds can import the official NLM MeSH 2026 descriptor vocabulary and split it into fast static packs.</p></article><article class="feature-card"><b>English + پښتو + دري + more</b><p>English, Pashto, Dari, Persian, Turkish, Arabic and Chinese are supported by the interface and translation cache.</p></article><article class="feature-card"><b>Offline after one download</b><p>Students can download dictionary packs once, install the site like an app, and continue searching without internet.</p></article><article class="feature-card"><b>Automatic updates</b><p>When a new release is deployed, connected installed copies check for it and refresh to the newest version.</p></article><article class="feature-card"><b>Private study chats</b><p>Each account has separate AI chat history, rename/copy/edit/delete controls, selected-term context and voice study.</p></article><article class="feature-card"><b>Consent-aware owner dashboard</b><p>Owner analytics are separated from chat review; chat content is reviewable only when the user has opted in.</p></article></section>
-<section class="notice glass"><h2>Medical vocabulary source</h2><p>Production builds can import Medical Subject Headings (MeSH) from the U.S. National Library of Medicine. The project preserves source/version attribution and does not claim NLM endorsement.</p><div class="hero-buttons"><a class="button ghost" href="./privacy.html">Privacy</a><a class="button ghost" href="./terms.html">Terms</a><a class="button ghost" href="./offline.html">Offline & updates</a><a class="button ghost" href="./about.html">About creator</a></div></section></main><footer class="footer">© <span id="year"></span> Suhail Medical Dictionary · Created by Suhail Saeedy · Educational use · NLM MeSH attribution where applicable.</footer><script type="module" src="./assets/js/core.js"></script></body></html>
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0a2a4a">
+  <meta name="description" content="Suhail Medical Dictionary — secure multilingual medical terminology and AI study workspace.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <title>Sign in · Suhail Medical Dictionary</title>
+</head>
+<body class="auth-page" data-theme="clinical">
+  <main class="auth-layout">
+    <section class="auth-brand-panel">
+      <div class="auth-brand-top">
+        <a class="brand brand-light" href="./index.html">
+          <img src="./assets/icons/icon-192.png" class="brand-logo" alt="">
+          <span>Suhail Medical Dictionary</span>
+        </a>
+        <span class="secure-chip">Secure student workspace</span>
+      </div>
+
+      <div class="auth-brand-copy">
+        <span class="auth-kicker">Medical learning, organized</span>
+        <h1>One account.<br>One private study space.</h1>
+        <p>Search medical terminology, save your AI study chats, work in multiple languages, create PDFs, hear pronunciation, and keep downloaded dictionary packs available offline.</p>
+        <div class="auth-benefits">
+          <div><span>01</span><b>Private account data</b><small>Your saved AI chats are separated by account.</small></div>
+          <div><span>02</span><b>Offline dictionary</b><small>Download packs once and keep studying without internet.</small></div>
+          <div><span>03</span><b>Medical-first workflow</b><small>Fast search, specialties, selected terms, pronunciation and AI context.</small></div>
+        </div>
+      </div>
+
+      <div class="auth-brand-footer">
+        <a href="./about.html">About creator</a>
+        <a href="./privacy.html">Privacy</a>
+        <a href="./terms.html">Terms</a>
+      </div>
+    </section>
+
+    <section class="auth-form-panel">
+      <div class="auth-mobile-brand">
+        <img src="./assets/icons/icon-192.png" class="brand-logo" alt="">
+        <div><strong>Suhail Medical Dictionary</strong><small>Medical study platform</small></div>
+      </div>
+
+      <div class="auth-card">
+        <div class="auth-card-header">
+          <div>
+            <span class="auth-kicker dark">Welcome</span>
+            <h2 id="authTitle">Sign in to continue</h2>
+            <p id="authSubtitle">Use your email and password to open your private study workspace.</p>
+          </div>
+          <select id="loginLanguage" class="control language-control" aria-label="Language">
+            <option value="en">English</option>
+            <option value="ps">پښتو</option>
+            <option value="prs">دري</option>
+            <option value="fa">فارسی</option>
+            <option value="tr">Türkçe</option>
+            <option value="ar">العربية</option>
+            <option value="zh">中文</option>
+          </select>
+        </div>
+
+        <div class="auth-tabs" role="tablist">
+          <button id="signInTab" class="auth-tab active" type="button">Sign in</button>
+          <button id="signUpTab" class="auth-tab" type="button">Create account</button>
+        </div>
+
+        <form id="loginForm" class="auth-form">
+          <label class="auth-field">
+            <span id="emailLabel">Email address</span>
+            <input id="loginEmail" class="control auth-input" type="email" autocomplete="email" placeholder="name@example.com" required>
+          </label>
+          <label class="auth-field">
+            <span id="passwordLabel">Password</span>
+            <div class="password-wrap">
+              <input id="loginPassword" class="control auth-input" type="password" autocomplete="current-password" minlength="6" placeholder="••••••••" required>
+              <button id="togglePassword" type="button" class="password-toggle" aria-label="Show password">Show</button>
+            </div>
+          </label>
+
+          <div id="signupOptions" class="signup-options hidden">
+            <label class="check-row"><input id="privacyAccept" type="checkbox"><span>I accept the <a href="./privacy.html" target="_blank">Privacy Notice</a> and <a href="./terms.html" target="_blank">Terms</a>.</span></label>
+            <label class="check-row"><input id="ownerReviewOptIn" type="checkbox"><span>Optional: allow owner review of my stored chat content for support and quality.</span></label>
+          </div>
+
+          <button id="authSubmit" class="button primary auth-submit" type="submit">Sign in</button>
+          <div id="authMessage" class="auth-message" role="status" aria-live="polite"></div>
+        </form>
+
+        <div class="auth-divider"><span>Account security</span></div>
+        <div class="auth-security-note">
+          <span class="shield-icon">✓</span>
+          <p><b>Your account is separated from other users.</b><br>Do not share your password. The site owner cannot see your password.</p>
+        </div>
+      </div>
+
+      <p class="auth-copyright">© <span id="year"></span> Suhail Medical Dictionary · Created by Suhail Saeedy</p>
+    </section>
+  </main>
+  <script type="module" src="./assets/js/login.js"></script>
+</body>
+</html>

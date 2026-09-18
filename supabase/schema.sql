@@ -42,6 +42,7 @@ create table if not exists public.user_events (
 create table if not exists public.term_translation_cache (
   term_id text not null,
   language text not null,
+  term_name text,
   definition text not null,
   explanation text,
   model text,
@@ -50,6 +51,9 @@ create table if not exists public.term_translation_cache (
   updated_at timestamptz not null default now(),
   primary key(term_id,language)
 );
+-- Safe migration for an existing v2/v3 Supabase project.
+alter table public.term_translation_cache add column if not exists term_name text;
+
 create table if not exists public.ai_usage_daily (
   user_id uuid not null references public.profiles(id) on delete cascade,
   usage_day date not null default current_date,

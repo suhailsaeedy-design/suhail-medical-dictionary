@@ -85,3 +85,7 @@ English NLM definitions are available immediately. For Pashto, Dari, Persian, Tu
 - Keep owner chat review opt-in; do not secretly inspect private chat content.
 - Test signup, logout, separate accounts, owner dashboard, offline download, PWA install, update after a new deploy, and AI quota errors.
 - Keep NLM attribution visible.
+
+## Source-code visibility
+
+GitHub Pages on a GitHub Free personal account normally requires the repository to be public, so the repository source can be viewed and forked by anyone. Public visibility does not grant write access to the original repository. Only the owner and explicitly added collaborators can push changes. If source-code privacy is preferred, Cloudflare Pages supports Git integration with both private and public GitHub repositories; move the repository back to private only after the Cloudflare deployment is working.

@@ -5,7 +5,7 @@ const RUNTIME_CACHE=`${VERSION}-runtime`;
 const CORE=[
   './','./index.html','./app.html','./admin.html','./about.html','./privacy.html','./terms.html','./offline.html',
   './manifest.webmanifest','./version.json','./assets/css/styles.css','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/images/suhail-saeedy.webp',
-  './assets/js/config.js','./assets/js/core.js','./assets/js/about.js','./assets/js/app.js','./assets/js/auth.js','./assets/js/ai.js','./assets/js/export.js','./assets/js/admin.js','./assets/js/pwa.js','./data/index.json'
+  './assets/js/config.js','./assets/js/core.js','./assets/js/login.js','./assets/js/about.js','./assets/js/app.js','./assets/js/auth.js','./assets/js/ai.js','./assets/js/export.js','./assets/js/admin.js','./assets/js/pwa.js','./data/index.json'
 ];
 const CACHEABLE_CDNS=['cdn.jsdelivr.net'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{
@@ -36,7 +36,7 @@ self.addEventListener('fetch',event=>{
   if(event.request.method!=='GET')return;
   const url=new URL(event.request.url);
   if(url.origin===location.origin){
-    if(event.request.mode==='navigate'){event.respondWith(networkFirst(event.request,STATIC_CACHE,'./app.html'));return;}
+    if(event.request.mode==='navigate'){event.respondWith(networkFirst(event.request,STATIC_CACHE,'./index.html'));return;}
     if(url.pathname.includes('/data/')){event.respondWith(staleWhileRevalidate(event.request,DATA_CACHE));return;}
     if(url.pathname.endsWith('/version.json')){event.respondWith(fetch(event.request,{cache:'no-store'}).catch(()=>caches.match(event.request)));return;}
     event.respondWith(networkFirst(event.request,STATIC_CACHE));return;
