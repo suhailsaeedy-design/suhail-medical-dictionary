@@ -1,3 +1,7 @@
+## v6.0 Premium UI
+
+Premium medical dashboard redesign matching the approved reference image.
+
 # Suhail Medical Dictionary — Production Source
 
 A free-first, mobile-first medical dictionary for students. The static dictionary is designed to work online and offline as a PWA, while optional Supabase + Cloudflare Workers AI provide accounts, private chat history, shared translation caching, owner analytics, and voice-assisted study.
