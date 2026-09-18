@@ -10,7 +10,7 @@ A free-first, mobile-first medical dictionary for students. The static dictionar
 - English, Pashto, Dari, Persian, Turkish, Arabic and Simplified Chinese language modes.
 - NLM MeSH 2026 production importer with student-friendly specialty grouping and small static JSON chunks.
 - Search, category filtering, pronunciation, selection, print/PDF, and one-PDF-per-category ZIP workflow.
-- Email/password accounts through Supabase.
+- Google OAuth accounts through Supabase.
 - Separate per-user AI chats with new/rename/delete/copy/edit, selected-term context, speech input, spoken replies, and optional live voice loop where the browser supports speech recognition.
 - AI-assisted missing translations cached once in Supabase and also stored locally in IndexedDB after viewing so they can be reused offline on that device.
 - Owner-only analytics. Stored chat content is reviewable by the owner only while that user has explicitly opted in to owner review.
@@ -71,11 +71,21 @@ Speech synthesis is widely available, but speech recognition support varies. Liv
 ## About creator
 `about.html` contains the creator profile for Suhail Saeedy and uses `assets/images/suhail-saeedy.webp`. The page is included in the PWA offline cache and production build.
 
-## v3.1 secure redesign + full dictionary guard
+## v3.2 secure redesign + full dictionary guard
 
-The default entry page is now a dedicated email/password sign-in screen. `app.html` is guarded and redirects unsigned users back to `index.html`. Signed-in users keep separate AI chat data under Supabase Row Level Security. The default UI was fully redesigned as a clean, mobile-first medical workspace with a calmer color system, compact navigation, clearer search/category controls, a focused term detail panel, and a dedicated AI study area.
+The default entry page is now a dedicated Google OAuth sign-in screen. `app.html` is guarded and redirects unsigned users back to `index.html`. Signed-in users keep separate AI chat data under Supabase Row Level Security. The default UI was fully redesigned as a clean, mobile-first medical workspace with a calmer color system, compact navigation, clearer search/category controls, a focused term detail panel, and a dedicated AI study area.
 
-Because login is mandatory in v3.1, configure the public Supabase URL and publishable/anon key in `assets/js/config.js` before deploying this version to production. Never place a service-role key in frontend files.
+Because login is mandatory in v3.2, configure the public Supabase URL and publishable/anon key in `assets/js/config.js` before deploying this version to production. Never place a service-role key in frontend files.
 
 
 For replacing an already-published repository, see `REPLACE_EXISTING_REPO_PASHTO.md`.
+
+
+## Google Login
+
+د Google-only Login لپاره `GOOGLE_LOGIN_SETUP_PASHTO.md` وګورئ.
+
+
+## Google-only account identity
+
+The public login UI uses Supabase Google OAuth only. A first Google sign-in creates the Supabase Auth user automatically; later sign-ins with the same Google account resolve to the same Supabase user identity. Private rows are keyed by `auth.uid()` / `user_id`, while email is stored only as profile/display metadata. The application never handles the user's Google password.

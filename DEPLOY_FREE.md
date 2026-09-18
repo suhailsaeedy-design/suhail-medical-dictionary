@@ -30,7 +30,7 @@ Cloudflare Pages static assets are separate from the optional AI Worker. Keep th
 
 1. Create a Supabase project.
 2. Open SQL Editor and run `supabase/schema.sql` once.
-3. Authentication → Providers → Email: keep Email/Password enabled. For a completely free public launch, turn **Confirm email OFF** initially. Supabase's built-in/default email sender is restricted for production delivery; verified-email flows normally require configuring your own SMTP provider. You can turn confirmation back on later when SMTP is ready.
+3. Authentication → Providers → Google کې Google OAuth فعال کړه. د Client ID/Secret او Redirect URL بشپړ ګامونه په `GOOGLE_LOGIN_SETUP_PASHTO.md` کې دي. د دې نسخې frontend Email/Password نه کاروي.
 4. From the project's Connect/API area, copy the Project URL and public publishable/anon key into `assets/js/config.js`:
 
 ```js
@@ -89,3 +89,8 @@ English NLM definitions are available immediately. For Pashto, Dari, Persian, Tu
 ## Source-code visibility
 
 GitHub Pages on a GitHub Free personal account normally requires the repository to be public, so the repository source can be viewed and forked by anyone. Public visibility does not grant write access to the original repository. Only the owner and explicitly added collaborators can push changes. If source-code privacy is preferred, Cloudflare Pages supports Git integration with both private and public GitHub repositories; move the repository back to private only after the Cloudflare deployment is working.
+
+
+## Google Login
+
+د Google-only Login لپاره `GOOGLE_LOGIN_SETUP_PASHTO.md` وګورئ.

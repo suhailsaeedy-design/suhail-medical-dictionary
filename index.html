@@ -49,9 +49,9 @@
       <div class="auth-card">
         <div class="auth-card-header">
           <div>
-            <span class="auth-kicker dark">Welcome</span>
-            <h2 id="authTitle">Sign in to continue</h2>
-            <p id="authSubtitle">Use your email and password to open your private study workspace.</p>
+            <span id="authKicker" class="auth-kicker dark">Welcome</span>
+            <h2 id="authTitle">Continue with Google</h2>
+            <p id="authSubtitle">Use your Google account to open your private study workspace. No new password is required.</p>
           </div>
           <select id="loginLanguage" class="control language-control" aria-label="Language">
             <option value="en">English</option>
@@ -64,37 +64,31 @@
           </select>
         </div>
 
-        <div class="auth-tabs" role="tablist">
-          <button id="signInTab" class="auth-tab active" type="button">Sign in</button>
-          <button id="signUpTab" class="auth-tab" type="button">Create account</button>
+        <div id="googleSignInPanel" class="google-signin-panel">
+          <button id="googleSignIn" class="google-signin-button" type="button">
+            <span class="google-mark" aria-hidden="true">G</span>
+            <span id="googleButtonText">Continue with Google</span>
+          </button>
+          <div id="authMessage" class="auth-message" role="status" aria-live="polite"></div>
+          <div class="auth-divider"><span>Account security</span></div>
+          <div class="auth-security-note">
+            <span class="shield-icon">✓</span>
+            <p><b id="securityTitle">Your Google password stays with Google.</b><br><span id="securityBody">This website never asks for, receives, or stores your Google password.</span></p>
+          </div>
         </div>
 
-        <form id="loginForm" class="auth-form">
-          <label class="auth-field">
-            <span id="emailLabel">Email address</span>
-            <input id="loginEmail" class="control auth-input" type="email" autocomplete="email" placeholder="name@example.com" required>
-          </label>
-          <label class="auth-field">
-            <span id="passwordLabel">Password</span>
-            <div class="password-wrap">
-              <input id="loginPassword" class="control auth-input" type="password" autocomplete="current-password" minlength="6" placeholder="••••••••" required>
-              <button id="togglePassword" type="button" class="password-toggle" aria-label="Show password">Show</button>
-            </div>
-          </label>
-
-          <div id="signupOptions" class="signup-options hidden">
-            <label class="check-row"><input id="privacyAccept" type="checkbox"><span>I accept the <a href="./privacy.html" target="_blank">Privacy Notice</a> and <a href="./terms.html" target="_blank">Terms</a>.</span></label>
-            <label class="check-row"><input id="ownerReviewOptIn" type="checkbox"><span>Optional: allow owner review of my stored chat content for support and quality.</span></label>
+        <div id="consentPanel" class="consent-panel hidden">
+          <span class="auth-kicker dark">Account setup</span>
+          <h3 id="consentTitle">One-time account setup</h3>
+          <p id="consentSubtitle" class="consent-subtitle">Accept the Privacy Notice and Terms before opening your workspace.</p>
+          <div id="signedInAs" class="signed-in-as"></div>
+          <div class="signup-options">
+            <label class="check-row"><input id="privacyAccept" type="checkbox"><span><span id="privacyAcceptText">I accept the Privacy Notice and Terms.</span> <a href="./privacy.html" target="_blank">Privacy</a> · <a href="./terms.html" target="_blank">Terms</a></span></label>
+            <label class="check-row"><input id="ownerReviewOptIn" type="checkbox"><span id="ownerReviewText">Optional: allow the owner to review my stored chat content for support and quality.</span></label>
           </div>
-
-          <button id="authSubmit" class="button primary auth-submit" type="submit">Sign in</button>
-          <div id="authMessage" class="auth-message" role="status" aria-live="polite"></div>
-        </form>
-
-        <div class="auth-divider"><span>Account security</span></div>
-        <div class="auth-security-note">
-          <span class="shield-icon">✓</span>
-          <p><b>Your account is separated from other users.</b><br>Do not share your password. The site owner cannot see your password.</p>
+          <button id="consentContinue" class="button primary auth-submit" type="button">Continue to my workspace</button>
+          <button id="useAnotherGoogle" class="button ghost consent-switch" type="button">Use another Google account</button>
+          <div id="authMessageConsent" class="auth-message" aria-hidden="true"></div>
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-# د Suhail Medical Dictionary v3.1 د نشر لنډه طریقه
+# د Suhail Medical Dictionary v3.2 د نشر لنډه طریقه
 
 دا فولډر د Production لپاره جوړ شوی دی. د Dictionary برخه Static/PWA ده، نو آنلاین او د یو ځل Offline Download وروسته افلاین کار کوي. Login/AI/Admin cloud برخې Supabase او Cloudflare Worker ته اړتیا لري.
 
@@ -20,7 +20,7 @@ GitHub به لینک درکړي، تقریباً داسې:
 
 1. Supabase کې Free project جوړ کړه.
 2. SQL Editor کې `supabase/schema.sql` ټول Run کړه.
-3. Supabase → Authentication → Providers → Email کې Email/Password فعال وساته. که غواړې د پیل لپاره 100% وړیا عام Signup کار وکړي، **Confirm email موقتي OFF کړه**؛ د Supabase default email sender د عام production ایمیلونو لپاره محدود دی. وروسته چې خپل SMTP ولرې، Confirm email بېرته ON کولی شې.
+3. Supabase → Authentication → Providers → Google کې Google OAuth فعال کړه. د Google Cloud Client ID/Secret او Redirect URL ترتیب په `GOOGLE_LOGIN_SETUP_PASHTO.md` کې دی. دې نسخې ته Email/Password او SMTP اړتیا نشته.
 4. د Project URL او public **publishable/anon key** ارزښتونه په `assets/js/config.js` کې ولیکه.
 5. Website بیا Deploy کړه.
 6. خپله account په Website کې جوړه کړه.
@@ -50,9 +50,9 @@ User دې Online Website خلاص کړي → **Download complete offline diction
 
 د ډېر تفصیل لپاره `DEPLOY_FREE.md` وګوره.
 
-## د v3.1 مهم بدلون
+## د v3.2 مهم بدلون
 
-په دې نسخه کې Login اجباري دی. Dictionary term/detail کې طبي عکسونه نه کارول کېږي. Production deploy د NLM MeSH 2026 بشپړ Descriptor vocabulary او ټول entry terms/synonyms import کوي، او که import تر 25,000 descriptors کم شي build fail کېږي. `index.html` لومړی د Email/Password Login صفحه خلاصوي او `app.html` بې Login څخه نه خلاصیږي. نو مخکې له دې چې v3.0 GitHub ته Push کړې، Supabase باید جوړ او `assets/js/config.js` کې `supabaseUrl` او public `supabaseAnonKey` واچول شي. **Service Role Key هیڅکله frontend یا GitHub ته مه اچوه.**
+په دې نسخه کې Login اجباري دی. Dictionary term/detail کې طبي عکسونه نه کارول کېږي. Production deploy د NLM MeSH 2026 بشپړ Descriptor vocabulary او ټول entry terms/synonyms import کوي، او که import تر 25,000 descriptors کم شي build fail کېږي. `index.html` لومړی **Google Login** خلاصوي او `app.html` بې Login څخه نه خلاصیږي. Supabase باید جوړ، Google Provider فعال، او `assets/js/config.js` کې `supabaseUrl` او public `supabaseAnonKey` واچول شي. **Service Role Key هیڅکله frontend یا GitHub ته مه اچوه.**
 
 هر User خپل جلا AI chats لري. د Supabase RLS له امله عادي User د بل User chat data ته لاسرسی نه لري. Offline dictionary د هغه device لپاره کار کوي چې User مخکې آنلاین Login کړی وي او offline packs یې download کړي وي.
 
@@ -60,3 +60,8 @@ User دې Online Website خلاص کړي → **Download complete offline diction
 ## که موجود Public Repository له زاړه Version څخه نوي Version ته بدلوې
 
 `REPLACE_EXISTING_REPO_PASHTO.md` ولوله. `.git` فولډر مه حذفوه؛ نور زاړه Project فایلونه حذف او د نوې ZIP فایلونه هماغه Repository root ته Paste، Commit او Push کړه.
+
+
+## Google Login
+
+د Google-only Login لپاره `GOOGLE_LOGIN_SETUP_PASHTO.md` وګورئ.

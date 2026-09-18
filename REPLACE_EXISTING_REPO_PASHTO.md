@@ -17,7 +17,7 @@
 3. د نوې ZIP دننه ټول فایلونه/فولډرونه مستقیم همدې Repository root ته Paste کړه.
 4. باید `index.html`, `app.html`, `.github`, `assets`, `data`, `scripts`, `supabase`, `cloudflare-worker` مستقیم root کې وي.
 5. GitHub Desktop ته راشه. Deleted او Added/Modified فایلونه به ښکاره شي.
-6. Summary کې ولیکه: `Replace site with v3.1 full dictionary and language update`
+6. Summary کې ولیکه: `Replace site with v3.2 full dictionary and language update`
 7. `Commit to main` ووهه.
 8. `Push origin` ووهه.
 9. GitHub → Actions کې `Build and deploy Suhail Medical Dictionary` وګوره. شین ✅ چې شي، GitHub Pages خپله نوې نسخه Publish کوي.
@@ -28,7 +28,7 @@ Repository source کې یو کوچنی starter dataset ساتل شوی، خو Gi
 
 ## Login مهم دی
 
-v3.1 کې Login اجباري دی. Public Website لومړی `index.html` Email/Password Login ښيي. د واقعي Sign-in/Create Account لپاره Supabase باید configure شي. تر Supabase configure کېدو مخکې ته د Login design په موبایل/کمپیوټر کې کتلای شې، خو Dictionary workspace ته به Sign-in نشې کولی.
+v3.2 کې Login اجباري دی. Public Website لومړی `index.html` کې **Continue with Google** ښيي. نوی password نه جوړېږي. د واقعي Google Sign-in لپاره Supabase + Google OAuth باید configure شي. بشپړ ګامونه په `GOOGLE_LOGIN_SETUP_PASHTO.md` کې دي.
 
 ## ژبې او ژباړه
 
@@ -39,3 +39,8 @@ Production MeSH source English دی. د Pashto/Dari/Persian/Turkish/Arabic/Chine
 ## د لغاتو عکسونه
 
 Dictionary term cards او term detail کې د لغتونو یا اړوندو شیانو عکسونه نشته او نه Import کېږي. یوازې د About Creator پاڼه د Creator عکس لري.
+
+
+## Google Login
+
+د Google-only Login لپاره `GOOGLE_LOGIN_SETUP_PASHTO.md` وګورئ.

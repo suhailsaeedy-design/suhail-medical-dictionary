@@ -9,12 +9,13 @@ export async function getSupabase(){
  }catch(e){if(!navigator.onLine)failed=false;else failed=true;return null;}
 }
 export async function currentSession(){const sb=await getSupabase();if(!sb)return null;try{const {data}=await sb.auth.getSession();return data.session;}catch{return null;}}
-export async function signIn(email,password){const sb=await getSupabase();if(!sb)throw new Error('Cloud login is not configured or is temporarily unavailable.');const {data,error}=await sb.auth.signInWithPassword({email,password});if(error)throw error;await logEvent('login');return data;}
-export async function signUp(email,password,{privacyAccepted=false,ownerReview=false}={}){
- if(!privacyAccepted)throw new Error('Please accept the Privacy Notice and Terms first.');
- const sb=await getSupabase();if(!sb)throw new Error('Cloud login is not configured or is temporarily unavailable.');
- const {data,error}=await sb.auth.signUp({email,password,options:{data:{privacy_accepted:true,allow_owner_review:!!ownerReview}}});if(error)throw error;
- if(data.session){await setOwnerReviewConsent(!!ownerReview);await logEvent('signup',{privacyAccepted:true,ownerReview:!!ownerReview});}return data;
+export async function signInWithGoogle(redirectTo){
+ const sb=await getSupabase();if(!sb)throw new Error('Google sign-in is not configured or is temporarily unavailable.');
+ const {data,error}=await sb.auth.signInWithOAuth({
+  provider:'google',
+  options:{redirectTo,queryParams:{prompt:'select_account'}}
+ });
+ if(error)throw error;return data;
 }
 export async function signOut(){const sb=await getSupabase();if(sb)await sb.auth.signOut();}
 export async function getMyProfile(){const sb=await getSupabase();const sess=await currentSession();if(!sb||!sess)return null;const {data,error}=await sb.from('profiles').select('email,is_owner,allow_owner_review,privacy_ack_at').eq('id',sess.user.id).single();if(error)return null;return data;}

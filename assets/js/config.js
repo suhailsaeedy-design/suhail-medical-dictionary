@@ -1,11 +1,9 @@
-// Public frontend configuration. Fill the 3 cloud values before enabling cloud features.
-// Never put a Supabase service-role key here.
 export const CONFIG = {
-  supabaseUrl: '',
-  supabaseAnonKey: '',
+  supabaseUrl: 'https://qdfylefkkkyjwtqqiuye.supabase.co',
+  supabaseAnonKey: 'sb_publishable_CQwb8FIM4lLL27T8xZGqCQ_sGT4phu7',
   aiWorkerUrl: '',
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '3.1.0'
+  uiVersion: '3.2.0'
 };
