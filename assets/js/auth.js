@@ -2,7 +2,7 @@ import {CONFIG} from './config.js';
 
 const SDK_URL='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/+esm';
 const AUTH_STORAGE_KEY='smd-auth-v3-3';
-const DEFAULT_TIMEOUT=8000;
+const DEFAULT_TIMEOUT=7000;
 let supabase=null;
 let sdkPromise=null;
 
@@ -53,6 +53,12 @@ export async function getSupabase(){
   }
 }
 export async function currentSession({waitMs=7000,allowStorageFallback=true}={}){
+  // Fast path: Supabase stores the browser session locally. Reading it directly
+  // avoids rare Web Locks/getSession stalls and lets the offline dictionary open.
+  if(allowStorageFallback){
+    const cached=storageSession();
+    if(cached)return cached;
+  }
   try{
     const sb=await getSupabase();
     if(!sb)return null;
@@ -75,7 +81,7 @@ export async function signInWithGoogle(redirectTo){
     provider:'google',
     options:{
       redirectTo,
-      queryParams:{prompt:'select_account'}
+      queryParams:{prompt:'select_account',include_granted_scopes:'true'}
     }
   }),10000,'Starting Google sign-in');
   if(error){sessionStorage.removeItem('smd-oauth-inflight');throw error;}

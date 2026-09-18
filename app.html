@@ -90,8 +90,14 @@
 
 
 
-  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
-  <script type="module" src="./assets/js/app.js"></script>
+  <script>
+    // Independent boot watchdog: even if a module/CDN fails, never leave users on an endless spinner.
+    window.setTimeout(function(){
+      var loader=document.getElementById('sessionLoader');
+      if(!loader || !document.body.classList.contains('auth-pending')) return;
+      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not finish loading</h2><p>Reload the page. If the problem continues, return to sign in and choose your Google account again.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
+    },9000);
+  </script>
+  <script type="module" src="./assets/js/app.js?v=3.4.0"></script>
 </body>
 </html>

@@ -71,11 +71,11 @@ Speech synthesis is widely available, but speech recognition support varies. Liv
 ## About creator
 `about.html` contains the creator profile for Suhail Saeedy and uses `assets/images/suhail-saeedy.webp`. The page is included in the PWA offline cache and production build.
 
-## v3.3 secure redesign + full dictionary guard
+## v3.4 secure redesign + full dictionary guard
 
 The default entry page is now a dedicated Google OAuth sign-in screen. `app.html` is guarded and redirects unsigned users back to `index.html`. Signed-in users keep separate AI chat data under Supabase Row Level Security. The default UI was fully redesigned as a clean, mobile-first medical workspace with a calmer color system, compact navigation, clearer search/category controls, a focused term detail panel, and a dedicated AI study area.
 
-Because login is mandatory in v3.3, configure the public Supabase URL and publishable/anon key in `assets/js/config.js` before deploying this version to production. Never place a service-role key in frontend files.
+Because login is mandatory in v3.4, configure the public Supabase URL and publishable/anon key in `assets/js/config.js` before deploying this version to production. Never place a service-role key in frontend files.
 
 
 For replacing an already-published repository, see `REPLACE_EXISTING_REPO_PASHTO.md`.
