@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0d6efd">
+  <meta name="description" content="About Suhail Saeedy, creator and developer of Suhail Medical Dictionary.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <title>About · Suhail Medical Dictionary</title>
+</head>
+<body data-theme="clinical">
+<header class="topbar sticky">
+  <a class="brand" href="./index.html"><img src="./assets/icons/icon-192.png" class="brand-logo" alt=""><span>Suhail Medical Dictionary</span></a>
+  <nav class="top-actions">
+    <select id="uiLanguage" class="control compact" aria-label="Interface language">
+      <option value="en">English</option><option value="ps">پښتو</option><option value="prs">دري</option><option value="fa">فارسی</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="zh">中文</option>
+    </select>
+    <select id="themeSelect" class="control compact" aria-label="Theme">
+      <option value="clinical">Clinical</option><option value="dark">Dark</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option>
+    </select>
+    <a class="button ghost" href="./app.html" data-i18n="openDictionary">Open Dictionary</a>
+  </nav>
+</header>
+
+<main class="about-page">
+  <section class="about-hero glass">
+    <div class="creator-photo-wrap">
+      <img class="creator-photo" src="./assets/images/suhail-saeedy.webp" alt="Portrait of Suhail Saeedy" loading="eager">
+    </div>
+    <div class="creator-copy">
+      <span class="eyebrow" data-about="label">About the Creator</span>
+      <h1>Suhail Saeedy</h1>
+      <p class="creator-role" data-about="role">Creator & Developer · Suhail Medical Dictionary</p>
+      <p class="creator-bio" data-about="bio">Suhail Saeedy created Suhail Medical Dictionary to make medical terminology easier for students to study across languages, devices, and different internet conditions. The project combines a fast multilingual dictionary, pronunciation, offline access, print/PDF study tools, and a privacy-aware AI study assistant.</p>
+      <div class="hero-badges"><span data-about="badge1">Medical education</span><span data-about="badge2">Multilingual learning</span><span data-about="badge3">Offline-first access</span><span data-about="badge4">Student-focused design</span></div>
+      <div class="hero-buttons"><a class="button primary large" href="./app.html" data-about="cta">Open Dictionary</a><a class="button ghost large" href="./index.html" data-about="home">Home</a></div>
+    </div>
+  </section>
+
+  <section class="about-grid">
+    <article class="feature-card"><b data-about="missionTitle">Project mission</b><p data-about="mission">The goal is to give medical students a practical study tool that remains useful online and offline, while making terminology easier to understand in multiple languages.</p></article>
+    <article class="feature-card"><b data-about="approachTitle">Learning approach</b><p data-about="approach">Students can search by specialty, hear pronunciation, select terms, export study material, and use AI as an educational assistant while important medical information remains something to verify against trusted academic sources.</p></article>
+    <article class="feature-card"><b data-about="privacyTitle">Privacy by design</b><p data-about="privacy">Each signed-in student has separate chat data. Owner access to chat content is controlled by explicit user consent, while system analytics remain separated from private study conversations.</p></article>
+  </section>
+
+  <section class="notice glass about-note"><h2 data-about="noteTitle">About this project</h2><p data-about="note">Suhail Medical Dictionary is an educational project for medical terminology study. It is not a replacement for a clinician, medical textbook, university curriculum, or emergency medical service.</p></section>
+</main>
+<footer class="footer">© <span id="year"></span> Suhail Medical Dictionary · Created by Suhail Saeedy · Educational use.</footer>
+<script type="module" src="./assets/js/about.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+name = "suhail-medical-dictionary-ai"
+main = "src/index.js"
+compatibility_date = "2026-09-18"
+
+[ai]
+binding = "AI"
+
+[vars]
+AI_DAILY_USER_LIMIT = "30"
+TRANSLATION_DAILY_USER_LIMIT = "30"
+# Set ALLOWED_ORIGINS in the dashboard or here after you know your site URLs.
+# Example: "https://USERNAME.github.io,https://suhail-medical-dictionary.pages.dev"
