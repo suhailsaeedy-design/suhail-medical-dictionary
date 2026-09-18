@@ -4,9 +4,10 @@ export default {async fetch(request,env){
  const url=new URL(request.url),cors=corsHeaders(request,env);
  if(request.method==='OPTIONS')return new Response(null,{headers:cors});
  if(!originAllowed(request,env))return json({error:'Origin not allowed'},403,cors);
- if(request.method==='GET'&&url.pathname==='/health')return json({ok:true,model:MODEL},200,cors);
+ if(request.method==='GET'&&url.pathname==='/health'){const missing=['SUPABASE_URL','SUPABASE_ANON_KEY','SUPABASE_SERVICE_ROLE_KEY'].filter(k=>!env[k]);return json({ok:missing.length===0,model:MODEL,missing},missing.length?503:200,cors);}
  if(request.method!=='POST'||!['/chat','/translate'].includes(url.pathname))return json({error:'Not found'},404,cors);
  try{
+  if(!env.AI)return json({error:'Workers AI binding is missing'},503,cors);
   const token=(request.headers.get('Authorization')||'').replace(/^Bearer\s+/i,'');if(!token)return json({error:'Authentication required'},401,cors);
   const user=await validateUser(token,env);if(!user?.id)return json({error:'Invalid login session'},401,cors);
   const body=await request.json();

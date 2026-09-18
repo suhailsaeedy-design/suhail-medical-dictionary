@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0a2a4a">
+  <meta name="description" content="Private AI study workspace for Suhail Medical Dictionary.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/css/v7.css">
+  <title>AI Study · Suhail Medical Dictionary</title>
+</head>
+<body data-build="7.0.0" class="workspace-page ai-page" data-theme="clinical">
+  <div class="med-app-shell">
+    <aside class="med-sidebar" aria-label="Primary navigation">
+      <a class="med-brand" href="./app.html" aria-label="Suhail Medical Dictionary home">
+        <span class="med-brand-mark"><img src="./assets/icons/icon-192.png" alt=""></span>
+        <span><strong>Suhail Medical<br>Dictionary</strong><small>Medical study workspace</small></span>
+      </a>
+      <nav class="med-nav">
+        <a class="med-nav-item" href="./app.html#dashboard"><span class="nav-ico">⌂</span><span>Dashboard</span></a>
+        <a class="med-nav-item" href="./app.html#dictionary"><span class="nav-ico">▣</span><span>Dictionary</span></a>
+        <a class="med-nav-item active" href="./ai.html"><span class="nav-ico">✦</span><span>AI Study</span></a>
+        <a class="med-nav-item" href="./app.html?view=selected"><span class="nav-ico">◇</span><span>Selected</span></a>
+        <a class="med-nav-item" href="./offline.html"><span class="nav-ico">⇩</span><span>Offline Packs</span></a>
+        <a class="med-nav-item" href="./app.html?view=bookmarks"><span class="nav-ico">★</span><span>Bookmarks</span></a>
+        <a class="med-nav-item" href="./app.html?view=history"><span class="nav-ico">◷</span><span>History</span></a>
+        <span class="med-nav-separator"></span>
+        <a class="med-nav-item" href="./about.html"><span class="nav-ico">ⓘ</span><span>About</span></a>
+        <a class="med-nav-item" href="./app.html#settings"><span class="nav-ico">⚙</span><span>Settings</span></a>
+      </nav>
+      <div class="med-side-promo ai-side-card">
+        <div class="promo-orb" aria-hidden="true"><span>✦</span></div>
+        <strong>Smart Study Workspace</strong>
+        <small>Private chats, selected-term context, voice, and study tools.</small>
+        <a href="./app.html" class="promo-button">Dictionary <span>→</span></a>
+      </div>
+    </aside>
+
+    <div class="med-main">
+      <header class="med-topbar ai-topbar">
+        <div class="ai-page-heading">
+          <span class="section-kicker">Private study workspace</span>
+          <strong>AI Medical Study Assistant</strong>
+        </div>
+        <div class="med-top-actions">
+          <span id="aiBackendStatus" class="status-chip"><i></i><span>Checking AI…</span></span>
+          <select id="contentLanguage" class="control compact top-select" aria-label="AI response language"><option value="en">🌐 English</option><option value="ps">پښتو</option><option value="prs">دري</option><option value="fa">فارسی</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="zh">中文</option></select>
+          <select id="themeSelect" class="control compact top-select" aria-label="Theme"><option value="clinical">☾ Light</option><option value="dark">◐ Dark</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option></select>
+          <a id="adminLink" class="icon-link hidden" href="./admin.html" title="Owner admin">Admin</a>
+          <div class="account-wrap">
+            <button id="accountButton" class="med-account" type="button" aria-haspopup="menu" aria-expanded="false"><span class="avatar-dot">●</span><span class="account-lines"><b>Account</b><small>Medical Learner</small></span><span class="account-chevron" aria-hidden="true">▾</span></button>
+            <div id="accountMenu" class="account-menu hidden" role="menu" aria-label="Account menu">
+              <div class="account-menu-user"><span class="account-menu-avatar">●</span><div><strong id="accountMenuName">Account</strong><small id="accountMenuEmail">Google account</small></div></div>
+              <button id="switchAccountButton" class="account-menu-action" type="button" role="menuitem">↻ Use another Google account</button>
+              <button id="signOutButton" class="account-menu-action danger" type="button" role="menuitem">⇥ Sign out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="ai-page-content">
+        <section class="ai-page-intro panel-card">
+          <div><span class="section-kicker">Medical learning assistant</span><h1>Study, explain, compare, and review.</h1><p>Ask questions about selected dictionary terms or create a new private medical study chat. AI responses are educational and should be checked against trusted academic sources.</p></div>
+          <a class="button soft-button" href="./app.html">＋ Add terms from Dictionary</a>
+        </section>
+
+        <div class="ai-layout ai-page-layout panel-card">
+          <aside class="chat-list-panel">
+            <div class="chat-list-header"><div><b>Chats</b><small>Saved to your account</small></div><button id="newChat" class="round-button" title="New chat" type="button">＋</button></div>
+            <div id="authHint" class="auth-hint">Loading your private chat history…</div>
+            <div id="privacyAccountRow" class="privacy-toggle hidden"><label><input type="checkbox" id="reviewConsentToggle"> Allow owner to review my chat content for support/quality</label><small id="privacyAccountStatus">You can change this anytime.</small></div>
+            <div id="chatList" class="chat-list"></div>
+          </aside>
+          <section class="chat-panel">
+            <div class="chat-toolbar"><div><strong id="chatTitle">Medical Study Assistant</strong><small id="chatContextLabel">No dictionary terms selected as context.</small></div><div class="chat-toolbar-actions"><button id="renameChat" class="text-button" type="button">Rename</button><button id="deleteChat" class="text-button danger-text" type="button">Delete</button><button id="clearContext" class="text-button" type="button">Clear context</button></div></div>
+            <div id="contextChips" class="ai-context-chips"></div>
+            <div id="messageList" class="message-list"><div class="assistant-note">Educational AI assistant. Verify important medical facts with trusted references and instructors.</div></div>
+            <form id="chatForm" class="chat-composer"><textarea id="chatInput" class="control" rows="2" placeholder="Ask a medical study question…"></textarea><button type="button" id="micButton" class="round-button" title="Voice input">🎙</button><button type="submit" class="button primary">Send</button></form>
+            <div class="chat-options"><label><input type="checkbox" id="speakReply" checked> Speak reply</label><label><input type="checkbox" id="liveVoiceToggle"> Live voice</label><span id="aiStatus" class="muted"></span></div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation"><a href="./app.html">Dictionary</a><a href="./app.html?view=selected">Selected</a><a class="active" href="./ai.html">AI</a><a href="./offline.html">Offline</a></nav>
+  <script type="module" src="./assets/js/ai-page.js?v=7.0.0"></script>
+  <script src="./assets/js/v7-ui.js?v=7.0.0" defer></script>
+</body>
+</html>

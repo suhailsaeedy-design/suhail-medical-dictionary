@@ -4,7 +4,7 @@ import argparse, datetime as dt, os, shutil, subprocess, sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'_site'
-PUBLIC_FILES=['index.html','app.html','admin.html','about.html','privacy.html','terms.html','offline.html','manifest.webmanifest','version.json','sw.js']
+PUBLIC_FILES=['index.html','app.html','ai.html','admin.html','about.html','privacy.html','terms.html','offline.html','manifest.webmanifest','version.json','ai-config.json','sw.js']
 PUBLIC_DIRS=['assets','data']
 
 def copy_tree():

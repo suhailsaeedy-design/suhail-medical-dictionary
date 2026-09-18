@@ -4,14 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0a2a4a">
-  <meta name="description" content="Suhail Medical Dictionary — secure multilingual medical terminology and AI study workspace.">
+  <meta name="description" content="Suhail Medical Dictionary — secure multilingual medical terminology and intelligent study workspace.">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/css/v7.css">
   <title>Sign in · Suhail Medical Dictionary</title>
 </head>
-<body data-build="6.1.0" class="auth-page" data-theme="clinical">
+<body data-build="7.0.0" class="auth-page" data-theme="clinical">
   <main class="auth-layout">
     <section class="auth-brand-panel">
       <div class="auth-brand-top">
@@ -25,12 +26,19 @@
       <div class="auth-brand-copy">
         <span class="auth-kicker">Medical learning, organized</span>
         <h1>One account.<br>One private study space.</h1>
-        <p>Search medical terminology, save your AI study chats, work in multiple languages, create PDFs, hear pronunciation, and keep downloaded dictionary packs available offline.</p>
+        <p>Search medical terminology, save your study chats, work in multiple languages, create PDFs, hear pronunciation, and keep downloaded dictionary packs available offline.</p>
         <div class="auth-benefits">
           <div><span>01</span><b>Private account data</b><small>Your saved AI chats are separated by account.</small></div>
           <div><span>02</span><b>Offline dictionary</b><small>Download packs once and keep studying without internet.</small></div>
-          <div><span>03</span><b>Medical-first workflow</b><small>Fast search, specialties, selected terms, pronunciation and AI context.</small></div>
+          <div><span>03</span><b>Medical-first workflow</b><small>Fast search, specialties, selected terms, pronunciation and guided study context.</small></div>
         </div>
+      </div>
+
+      <div class="auth-3d-scene" aria-hidden="true">
+        <div class="auth-orbit-heart"><img src="./assets/images/medical-3d/heart.svg" alt=""></div>
+        <div class="auth-float-card c1">Explore · Learn · Apply</div>
+        <div class="auth-float-card c2">Medical knowledge, beautifully organized</div>
+        <div class="auth-float-card c3">Multilingual · Offline-ready · Private</div>
       </div>
 
       <div class="auth-brand-footer">
@@ -129,7 +137,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '6.1.0'
+  uiVersion: '7.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -359,7 +367,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '6.1.0'
+  uiVersion: '7.0.0'
 };
 const {currentSession,signInWithGoogle,signOut,getMyProfile,setOwnerReviewConsent,logEvent}=SMDAuth;
 const $=s=>document.querySelector(s);
@@ -418,5 +426,6 @@ init();
 })();
 
 </script>
+  <script src="./assets/js/v7-ui.js?v=7.0.0" defer></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-import {CONFIG} from './config.js?v=6.2.0';
+import {CONFIG} from './config.js?v=7.0.0';
 
 // v4 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.

@@ -3,13 +3,13 @@ const STATIC_CACHE=`${VERSION}-static`;
 const DATA_CACHE=`${VERSION}-data`;
 const RUNTIME_CACHE=`${VERSION}-runtime`;
 const CORE=[
-  './','./index.html','./app.html','./admin.html','./about.html','./privacy.html','./terms.html','./offline.html',
-  './manifest.webmanifest','./version.json','./assets/css/styles.css','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/images/suhail-saeedy.webp',
-  './assets/js/config.js','./assets/js/auth.js','./assets/js/ai.js','./assets/js/export.js','./assets/js/pwa.js',
+  './','./index.html','./app.html','./ai.html','./admin.html','./about.html','./privacy.html','./terms.html','./offline.html',
+  './manifest.webmanifest','./version.json','./ai-config.json','./assets/css/styles.css','./assets/css/v7.css','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/images/suhail-saeedy.webp',
+  './assets/js/config.js','./assets/js/v7-ui.js','./assets/js/auth.js','./assets/js/ai.js','./assets/js/ai-page.js','./assets/js/export.js','./assets/js/pwa.js','./assets/vendor/jszip.min.js',
   './assets/images/medical-3d/anatomy.svg','./assets/images/medical-3d/capsule.svg','./assets/images/medical-3d/dna.svg','./assets/images/medical-3d/heart.svg','./assets/images/medical-3d/hero-books.svg','./assets/images/medical-3d/kidneys.svg','./assets/images/medical-3d/lungs.svg','./assets/images/medical-3d/membrane.svg','./assets/images/medical-3d/microbe.svg','./assets/images/medical-3d/molecule-a.svg','./assets/images/medical-3d/molecule-b.svg','./assets/images/medical-3d/neuron.svg','./assets/images/medical-3d/protein.svg',
   './data/index.json'
 ];
-const CACHEABLE_CDNS=['cdn.jsdelivr.net'];
+const CACHEABLE_CDNS=['cdn.jsdelivr.net','cdnjs.cloudflare.com'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{
   const cache=await caches.open(STATIC_CACHE);
   for(const u of CORE){try{const r=await fetch(u,{cache:'reload'});if(r.ok)await cache.put(u,r);}catch{}}
@@ -40,7 +40,7 @@ self.addEventListener('fetch',event=>{
   if(url.origin===location.origin){
     if(event.request.mode==='navigate'){event.respondWith(networkFirst(event.request,STATIC_CACHE,'./index.html'));return;}
     if(url.pathname.includes('/data/')){event.respondWith(staleWhileRevalidate(event.request,DATA_CACHE));return;}
-    if(url.pathname.endsWith('/version.json')){event.respondWith(fetch(event.request,{cache:'no-store'}).catch(()=>caches.match(event.request)));return;}
+    if(url.pathname.endsWith('/version.json')||url.pathname.endsWith('/ai-config.json')){event.respondWith(fetch(event.request,{cache:'no-store'}).catch(()=>caches.match(event.request)));return;}
     event.respondWith(networkFirst(event.request,STATIC_CACHE));return;
   }
   if(CACHEABLE_CDNS.includes(url.hostname)){event.respondWith(cacheFirst(event.request,RUNTIME_CACHE));}

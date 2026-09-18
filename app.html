@@ -8,9 +8,10 @@
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/css/v7.css">
   <title>Dictionary · Suhail Medical Dictionary</title>
 </head>
-<body data-build="6.2.0" class="workspace-page auth-pending" data-theme="clinical">
+<body data-build="7.0.0" class="workspace-page auth-pending" data-theme="clinical">
   <div id="sessionLoader" class="session-loader"><div class="loader-ring"></div><p>Opening your study workspace…</p></div>
 
   <div class="med-app-shell">
@@ -23,7 +24,7 @@
       <nav class="med-nav">
         <a class="med-nav-item" href="#dashboard"><span class="nav-ico">⌂</span><span>Dashboard</span></a>
         <a class="med-nav-item active" href="#dictionary"><span class="nav-ico">▣</span><span>Dictionary</span></a>
-        <a class="med-nav-item" href="#ai"><span class="nav-ico">✦</span><span>AI Study</span></a>
+        <a class="med-nav-item" href="./ai.html"><span class="nav-ico">✦</span><span>AI Study</span></a>
         <button id="selectedButton" class="med-nav-item" type="button"><span class="nav-ico">◇</span><span>Selected</span><b id="selectedCount" class="nav-count">0</b></button>
         <a class="med-nav-item" href="./offline.html"><span class="nav-ico">⇩</span><span>Offline Packs</span></a>
         <button id="bookmarksButton" class="med-nav-item" type="button"><span class="nav-ico">★</span><span>Bookmarks</span><b id="bookmarksCount" class="nav-count">0</b></button>
@@ -36,8 +37,8 @@
       <div class="med-side-promo">
         <div class="promo-orb" aria-hidden="true"><span>🩺</span></div>
         <strong>Learn Medicine Smarter</strong>
-        <small>AI-powered study tools for a brighter tomorrow.</small>
-        <a href="#ai" class="promo-button">Get Started <span>→</span></a>
+        <small>Interactive study tools for a brighter tomorrow.</small>
+        <a href="./ai.html" class="promo-button">Get Started <span>→</span></a>
       </div>
     </aside>
 
@@ -70,9 +71,15 @@
             <span class="section-kicker">Medical terminology</span>
             <h1>Medical Dictionary</h1>
             <p id="resultSummary">Loading terms…</p>
+            <div class="hero-stats" aria-label="Dictionary highlights">
+              <div class="hero-stat"><strong>31,110</strong><span>Official MeSH concepts</span></div>
+              <div class="hero-stat"><strong>267,012</strong><span>Searchable names</span></div>
+              <div class="hero-stat"><strong>7</strong><span>Study languages</span></div>
+              <div class="hero-stat"><strong>Online + Offline</strong><span>Flexible study access</span></div>
+            </div>
           </div>
           <div class="hero-art" aria-hidden="true">
-            <img src="./assets/images/medical-3d/hero-books.svg" alt="">
+            <img src="./assets/images/medical-3d/heart.svg" alt="">
           </div>
         </section>
 
@@ -130,23 +137,7 @@
         <div class="pwa-actions v6-pwa"><span class="version-chip">v<span id="appVersion">—</span></span><button id="updateAppButton" class="button primary compact hidden">Update app</button><button id="installButton" class="button soft-button compact hidden">Install</button></div>
       </main>
 
-      <section id="ai" class="ai-section v6-ai-section">
-        <div class="section-heading"><div><span class="section-kicker">Your private workspace</span><h2>AI Medical Study Assistant</h2><p>Your chat history is stored separately for your signed-in account.</p></div></div>
-        <div class="ai-layout panel-card">
-          <aside class="chat-list-panel">
-            <div class="chat-list-header"><div><b>Chats</b><small>Saved to your account</small></div><button id="newChat" class="round-button" title="New chat">＋</button></div>
-            <div id="authHint" class="auth-hint">Your private chat history is loading.</div>
-            <div id="privacyAccountRow" class="privacy-toggle hidden"><label><input type="checkbox" id="reviewConsentToggle"> Allow owner to review my chat content for support/quality</label><small id="privacyAccountStatus">You can change this anytime.</small></div>
-            <div id="chatList" class="chat-list"></div>
-          </aside>
-          <div class="chat-panel">
-            <div class="chat-toolbar"><div><strong id="chatTitle">Medical Study Assistant</strong><small id="chatContextLabel">Ask about a term or add selected terms as context.</small></div><div class="chat-toolbar-actions"><button id="renameChat" class="text-button">Rename</button><button id="deleteChat" class="text-button danger-text">Delete</button><button id="clearContext" class="text-button">Clear context</button></div></div>
-            <div id="messageList" class="message-list"><div class="assistant-note">Educational AI assistant. Verify important medical facts with trusted references and instructors.</div></div>
-            <form id="chatForm" class="chat-composer"><textarea id="chatInput" class="control" rows="2" placeholder="Ask a medical study question…"></textarea><button type="button" id="micButton" class="round-button" title="Voice input">🎙</button><button type="submit" class="button primary">Send</button></form>
-            <div class="chat-options"><label><input type="checkbox" id="speakReply" checked> Speak reply</label><label><input type="checkbox" id="liveVoiceToggle"> Live voice</label><span id="aiStatus" class="muted"></span></div>
-          </div>
-        </div>
-      </section>
+
     </div>
   </div>
 
@@ -159,13 +150,13 @@
     </section>
   </div>
 
-  <nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation"><button id="mobileDictionaryButton" type="button">Dictionary</button><button id="mobileSelectedButton" type="button">Selected</button><button id="mobileAIButton" type="button">AI</button><a href="./offline.html">Offline</a></nav>
+  <nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation"><button id="mobileDictionaryButton" type="button">Dictionary</button><button id="mobileSelectedButton" type="button">Selected</button><a id="mobileAIButton" href="./ai.html">AI</a><a href="./offline.html">Offline</a></nav>
   <script>
     // Independent boot watchdog: even if a module/CDN fails, never leave users on an endless spinner.
     window.setTimeout(function(){
       var loader=document.getElementById('sessionLoader');
       if(!loader || !document.body.classList.contains('auth-pending')) return;
-      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v6.2.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
+      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v7.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
     },12000);
   </script>
   <script>
@@ -193,7 +184,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '6.2.0'
+  uiVersion: '7.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -420,9 +411,9 @@ const {peekSession,getSupabase,currentSession,signOut,logEvent,getMyProfile,setO
 // Optional features are lazy-loaded only after the core dictionary is allowed to open.
 // A PDF/AI/PWA module failure must never prevent the workspace from starting.
 let aiModulePromise=null, exportModulePromise=null, pwaModulePromise=null;
-const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=6.2.0'));
-const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=6.2.0'));
-const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=6.2.0'));
+const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=7.0.0'));
+const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=7.0.0'));
+const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=7.0.0'));
 async function createChat(...a){return (await aiModule()).createChat(...a);} async function listChats(...a){return (await aiModule()).listChats(...a);} async function loadMessages(...a){return (await aiModule()).loadMessages(...a);} async function renameChat(...a){return (await aiModule()).renameChat(...a);} async function deleteChat(...a){return (await aiModule()).deleteChat(...a);} async function editUserMessage(...a){return (await aiModule()).editUserMessage(...a);} async function askAI(...a){return (await aiModule()).askAI(...a);} async function translateTerm(...a){return (await aiModule()).translateTerm(...a);}
 function printTerms(...a){exportModule().then(m=>m.printTerms(...a)).catch(()=>alert('Print tools could not start. Reload once and retry.'));}
 async function pdfTerms(...a){try{return await (await exportModule()).pdfTerms(...a);}catch{return alert('PDF tools could not start. Use Print → Save as PDF.');}}
@@ -454,12 +445,15 @@ async function init(){
  $('#contentLanguage').addEventListener('change',()=>{state.lang=$('#contentLanguage').value;localStorage.setItem('smd-content-lang',state.lang);setDir();renderTerms();if(state.active)showDetail(state.active);});
  $('#themeSelect').value=document.body.dataset.theme;$('#themeSelect').addEventListener('change',e=>{document.body.dataset.theme=e.target.value;localStorage.setItem('smd-theme',e.target.value);});
  const res=await fetch('./data/index.json',{cache:'no-cache'});if(!res.ok)throw new Error(`Dictionary index failed (${res.status})`);state.index=await res.json();state.categories=state.index.categories||[];populateCategories();filter();bindUI();
- initAuth(requiredSession).catch(err=>{$('#authHint').textContent=err.message||'Cloud account features will retry when available.';});
- registerInstall();initPWA({categories:state.categories}).catch(()=>{});
- const draft=localStorage.getItem('smd-chat-draft');if(draft&&$('#chatInput')){$('#chatInput').value=draft;localStorage.removeItem('smd-chat-draft');}
+ initAuth(requiredSession).catch(err=>{console.warn('Cloud account initialization:',err);});
+ registerInstall();initPWA({categories:state.categories}).catch(()=>{});exportModule().then(m=>m.preloadExportLibraries?.()).catch(()=>{});
 }
 function setDir(){document.documentElement.lang=state.lang;document.documentElement.dir='ltr';document.body.dataset.contentDir=RTL.has(state.lang)?'rtl':'ltr';}
 function populateCategories(){const s=$('#categorySelect');for(const c of state.categories){const o=document.createElement('option');o.value=c.id;o.textContent=`${c.label} (${Number(c.count||0).toLocaleString()})`;s.appendChild(o);}}
+function openAIPage(terms=[]){
+ try{localStorage.setItem('smd-ai-context',JSON.stringify((terms||[]).slice(0,40).map(t=>({id:t.id,term:t.term,category:t.category,category_label:t.category_label,definition:t.definition,explanation:t.explanation,localized_term:t.localized_term}))));}catch{}
+ location.assign('./ai.html');
+}
 function bindUI(){
  const search=$('#searchInput'),mirror=$('#heroSearchMirror');
  const resetSpecial=()=>{state.selectedMode=false;state.specialMode=null;syncNavModes();};
@@ -473,11 +467,11 @@ function bindUI(){
  $('#bookmarksButton')?.addEventListener('click',()=>{state.selectedMode=false;state.specialMode=state.specialMode==='bookmarks'?null:'bookmarks';renderTerms();syncNavModes();document.querySelector('#dictionary')?.scrollIntoView({behavior:'smooth',block:'start'});});
  $('#historyButton')?.addEventListener('click',()=>{state.selectedMode=false;state.specialMode=state.specialMode==='history'?null:'history';renderTerms();syncNavModes();document.querySelector('#dictionary')?.scrollIntoView({behavior:'smooth',block:'start'});});
  document.querySelector('a[href="#dictionary"]')?.addEventListener('click',()=>{resetSpecial();renderTerms();});
- $('#printSelected')?.addEventListener('click',async()=>{const terms=await hydrateTerms([...state.selected.values()]);printTerms('Selected medical terms',terms,state.lang);});
- $('#pdfSelected')?.addEventListener('click',async()=>{const terms=await hydrateTerms([...state.selected.values()]);await pdfTerms('Selected medical terms',terms,state.lang);});
- $('#pdfCategory')?.addEventListener('click',async()=>{if(state.category==='all')return alert('Select one category first. Use the ZIP button for all categories.');const cat=state.category,c=state.categories.find(x=>x.id===cat);if(!c)return;await pdfTerms(c.label,await loadCategory(cat),state.lang,`${safeName(c.label)}.pdf`);});
+ $('#printSelected')?.addEventListener('click',async()=>{const popup=window.open('','_blank');if(popup)popup.document.write('<title>Preparing print…</title><p style="font-family:Arial;padding:24px">Preparing selected medical terms…</p>');const terms=await hydrateTerms([...state.selected.values()]);if(!terms.length){popup?.close();return alert('Select one or more terms first.');}printTerms('Selected medical terms',terms,state.lang,popup);});
+ $('#pdfSelected')?.addEventListener('click',async()=>{const fallback=window.open('','_blank');if(fallback)fallback.document.write('<title>Preparing PDF…</title><p style="font-family:Arial;padding:24px">Preparing PDF…</p>');const terms=await hydrateTerms([...state.selected.values()]);if(!terms.length){fallback?.close();return alert('Select one or more terms first.');}await pdfTerms('Selected medical terms',terms,state.lang,'selected-medical-terms.pdf',fallback);});
+ $('#pdfCategory')?.addEventListener('click',async()=>{if(state.category==='all')return alert('Select one specialty first. Use All PDFs ZIP for the complete dictionary.');const cat=state.category,c=state.categories.find(x=>x.id===cat);if(!c)return;const fallback=window.open('','_blank');if(fallback)fallback.document.write('<title>Preparing PDF…</title><p style="font-family:Arial;padding:24px">Preparing specialty PDF…</p>');await pdfTerms(c.label,await loadCategory(cat),state.lang,`${safeName(c.label)}.pdf`,fallback);});
  $('#pdfAllZip')?.addEventListener('click',()=>zipCategoryPdfs(state.categories,loadCategory,state.lang));
- $('#aiSelectedButton')?.addEventListener('click',async()=>{state.chatContext=await hydrateTerms([...state.selected.values()],40);updateChatContext();$('#ai')?.scrollIntoView({behavior:'smooth'});});
+ $('#aiSelectedButton')?.addEventListener('click',async()=>{const terms=await hydrateTerms([...state.selected.values()],40);openAIPage(terms);});
  $('#accountButton')?.addEventListener('click',toggleAccountMenu);
  $('#switchAccountButton')?.addEventListener('click',switchGoogleAccount);
  $('#signOutButton')?.addEventListener('click',signOutFromMenu);
@@ -493,19 +487,14 @@ function bindUI(){
  $('#listViewButton')?.addEventListener('click',()=>setView('list'));
  $('#mobileDictionaryButton')?.addEventListener('click',()=>{resetSpecial();renderTerms();document.querySelector('#dictionary')?.scrollIntoView({behavior:'smooth'});});
  $('#mobileSelectedButton')?.addEventListener('click',()=>$('#selectedButton')?.click());
- $('#mobileAIButton')?.addEventListener('click',()=>document.querySelector('#ai')?.scrollIntoView({behavior:'smooth'}));
- $('#newChat')?.addEventListener('click',newChat);
- $('#renameChat')?.addEventListener('click',handleRenameChat);
- $('#deleteChat')?.addEventListener('click',handleDeleteChat);
- $('#chatForm')?.addEventListener('submit',sendMessage);
- $('#micButton')?.addEventListener('click',voiceInput);
- $('#liveVoiceToggle')?.addEventListener('change',toggleLiveVoice);
- $('#clearContext')?.addEventListener('click',()=>{state.chatContext=[];updateChatContext();});
- $('#reviewConsentToggle')?.addEventListener('change',handleConsentChange);
- $('#chatInput')?.addEventListener('input',e=>localStorage.setItem('smd-chat-draft',e.target.value));
  document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();search?.focus();}if(e.key==='Escape'){closeAccountMenu();closeSettings();closeDetail();}});
  updateBookmarksCount();syncNavModes();setView(state.view);
+ const requested=new URLSearchParams(location.search).get('view');
+ if(requested==='selected'){$('#selectedButton')?.click();}
+ else if(requested==='bookmarks'){$('#bookmarksButton')?.click();}
+ else if(requested==='history'){$('#historyButton')?.click();}
 }
+
 function filter(){const src=state.index?.terms||[];state.filtered=src.filter(t=>(state.category==='all'||t.category===state.category)&&(!state.query||(`${t.term} ${(t.synonyms||[]).join(' ')}`).toLowerCase().includes(state.query)));renderTerms();}
 function visualAsset(item){
  const s=`${item.term||''} ${item.category||''} ${item.category_label||''}`.toLowerCase();
@@ -581,7 +570,7 @@ function renderTerms(){
  const arr=base.slice(0,320);setView(state.view);
  for(const item of arr){
   const card=document.createElement('article');card.className='term-card'+(state.active?.id===item.id?' active':'');const checked=state.selected.has(String(item.id))||state.selected.has(item.id),bookmarked=isBookmarked(item.id);
-  if(checked)card.classList.add('selected');card.innerHTML=`<label class="term-check"><input type="checkbox" ${checked?'checked':''} aria-label="Select ${esc(item.term)}"><span></span></label><button type="button" class="term-bookmark${bookmarked?' saved':''}" title="${bookmarked?'Remove bookmark':'Bookmark'}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button><div class="term-visual" role="button" tabindex="0" aria-label="Select this term"><img loading="lazy" src="${visualUrl(item)}" alt="" aria-hidden="true"></div><div class="term-main"><div class="term-name">${esc(item.term)}</div><div class="term-meta"><span class="tag">${esc(item.category_label||categoryLabel(item.category))}</span>${item.synonyms?.length?`<span>${item.synonyms.length} synonym${item.synonyms.length>1?'s':''}</span>`:''}</div></div>`;
+  if(checked)card.classList.add('selected');card.innerHTML=`<label class="term-check"><input type="checkbox" ${checked?'checked':''} aria-label="Select ${esc(item.term)}"><span></span></label><button type="button" class="term-bookmark${bookmarked?' saved':''}" title="${bookmarked?'Remove bookmark':'Bookmark'}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button><div class="term-visual" role="button" tabindex="0" aria-label="Select this term"><div class="term-visual-stage"><img loading="lazy" src="${visualUrl(item)}" alt="" aria-hidden="true"></div></div><div class="term-main"><div class="term-name">${esc(item.term)}</div><div class="term-meta"><span class="tag">${esc(item.category_label||categoryLabel(item.category))}</span>${item.synonyms?.length?`<span>${item.synonyms.length} synonym${item.synonyms.length>1?'s':''}</span>`:''}</div></div>`;
   card.addEventListener('click',async e=>{if(e.target.closest('.term-check')||e.target.closest('.term-bookmark')||e.target.closest('.term-visual'))return;const full=await getTerm(item);state.active=full;rememberHistory(full);showDetail(full);$$('.term-card').forEach(x=>x.classList.remove('active'));card.classList.add('active');});
   const cb=card.querySelector('input');cb.addEventListener('change',async()=>{await toggleSelection(item,cb.checked);if(state.selectedMode)renderTerms();else updateSelectAllControl();});
   const visual=card.querySelector('.term-visual');const selectFromVisual=async(e)=>{e.preventDefault();e.stopPropagation();await toggleSelection(item);cb.checked=state.selected.has(String(item.id))||state.selected.has(item.id);card.classList.toggle('selected',cb.checked);updateSelectAllControl();};visual?.addEventListener('click',selectFromVisual);visual?.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){selectFromVisual(e);}});
@@ -618,12 +607,12 @@ function showDetail(t){
  const l=state.lang,txt=LANG_TEXT[l]||LANG_TEXT.en,has=!!t.definition?.[l],rtl=RTL.has(l),textDir=rtl?'rtl':'ltr';
  const translatedName=displayTerm(t,l),def=has?t.definition[l]:(l==='en'?(t.definition?.en||'Definition not available.'):txt.loading),exp=has?(t.explanation?.[l]||''):(l==='en'?(t.explanation?.en||''):txt.loading);
  const originalLine=l!=='en'&&translatedName!==t.term?`<div class="original-term">English: ${esc(t.term)}</div>`:'';const syns=(t.synonyms||[]);const meshId=t.id||'—',bookmarked=isBookmarked(t.id),trees=(t.mesh_tree_numbers||[]);
- $('#detailPanel').innerHTML=`<div class="detail-visual-wrap"><img class="detail-visual" src="${visualUrl(t)}" alt="" aria-hidden="true"><button type="button" id="detailCloseButton" class="detail-close" aria-label="Close details" title="Close">×</button><button type="button" class="detail-bookmark${bookmarked?' saved':''}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button></div><div class="detail-title-block" dir="${textDir}"><h2 id="detailTermName">${esc(translatedName)}</h2>${originalLine}<span class="tag">${esc(t.category_label||categoryLabel(t.category))}</span></div><div class="detail-tabs"><button type="button" class="active" data-detail-tab="overview">Overview</button><button type="button" data-detail-tab="synonyms">Synonyms (${syns.length})</button><button type="button" data-detail-tab="related">Related</button><button type="button" data-detail-tab="study">Study</button></div><div data-detail-pane="overview"><div class="detail-info-list"><div class="detail-info-row"><span class="detail-info-icon">▤</span><b>${esc(txt.meaning)}</b><p id="detailDefinition" dir="${textDir}">${esc(def)}</p></div><div class="detail-info-row"><span class="detail-info-icon">🔊</span><b>Pronunciation</b><p>${esc(t.term)}</p><button class="pronounce" id="pronounceTerm" title="Pronounce English medical term">🔊</button></div>${syns.length?`<div class="detail-info-row"><span class="detail-info-icon">⌁</span><b>${esc(txt.synonyms)}</b><div class="synonyms">${syns.slice(0,8).map(s=>`<span>${esc(s)}</span>`).join('')}${syns.length>8?`<span>+${syns.length-8} more</span>`:''}</div></div>`:''}<div class="detail-info-row"><span class="detail-info-icon">▦</span><b>Category</b><p>${esc(t.category_label||categoryLabel(t.category))}</p></div><div class="detail-info-row"><span class="detail-info-icon">⌘</span><b>MeSH ID</b><p>${esc(meshId)}</p></div></div><div class="detail-explanation"><b>${esc(txt.explanation)}</b><p id="detailExplanation" dir="${textDir}">${esc(exp)}</p>${!has&&l!=='en'?`<p id="translationStatus" class="microcopy">${esc(txt.status)}</p>`:''}</div></div><div class="detail-tab-pane hidden" data-detail-pane="synonyms"><h3>Synonyms and entry terms</h3><div class="synonym-cloud">${syns.length?syns.map(s=>`<span>${esc(s)}</span>`).join(''):'<p>No additional MeSH entry terms are listed for this concept.</p>'}</div></div><div class="detail-tab-pane hidden" data-detail-pane="related"><h3>Related classification</h3><p class="microcopy">Category: ${esc(t.category_label||categoryLabel(t.category))}</p>${trees.length?`<div class="mesh-tree-list">${trees.slice(0,16).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:'<p class="microcopy">No additional MeSH tree numbers are available for this record.</p>'}</div><div class="detail-tab-pane hidden" data-detail-pane="study"><h3>Study this term</h3><p class="microcopy">Use pronunciation, selected-term study, PDF export, and the AI study workspace for this concept.</p></div><div class="detail-actions"><button class="button primary" id="detailAI">✦ AI Study</button><button class="button soft-button" id="detailPDF">Export PDF</button><button class="button soft-button" id="detailSelect">${state.selected.has(String(t.id))?'Remove':'Add to Selected'}</button></div><button type="button" class="detail-offline" id="detailOffline"><div><b>Download for offline use</b><small>Open Offline Packs to save the complete dictionary on this device.</small></div><span>⇩</span></button><p class="microcopy detail-source">Source: ${esc(t.source||state.index?.source_note||'Suhail Medical Dictionary')}</p>`;
+ $('#detailPanel').innerHTML=`<div class="detail-visual-wrap"><div class="detail-visual-stage" data-angle="0"><img class="detail-visual" src="${visualUrl(t)}" alt="" aria-hidden="true"></div><span class="detail-rotate-hint">↻ drag / 360°</span><button type="button" id="detailCloseButton" class="detail-close" aria-label="Close details" title="Close">×</button><button type="button" class="detail-bookmark${bookmarked?' saved':''}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button></div><div class="detail-title-block" dir="${textDir}"><h2 id="detailTermName">${esc(translatedName)}</h2>${originalLine}<span class="tag">${esc(t.category_label||categoryLabel(t.category))}</span></div><div class="detail-tabs"><button type="button" class="active" data-detail-tab="overview">Overview</button><button type="button" data-detail-tab="synonyms">Synonyms (${syns.length})</button><button type="button" data-detail-tab="related">Related</button><button type="button" data-detail-tab="study">Study</button></div><div data-detail-pane="overview"><div class="detail-info-list"><div class="detail-info-row"><span class="detail-info-icon">▤</span><b>${esc(txt.meaning)}</b><p id="detailDefinition" dir="${textDir}">${esc(def)}</p></div><div class="detail-info-row"><span class="detail-info-icon">🔊</span><b>Pronunciation</b><p>${esc(t.term)}</p><button class="pronounce" id="pronounceTerm" title="Pronounce English medical term">🔊</button></div>${syns.length?`<div class="detail-info-row"><span class="detail-info-icon">⌁</span><b>${esc(txt.synonyms)}</b><div class="synonyms">${syns.slice(0,8).map(s=>`<span>${esc(s)}</span>`).join('')}${syns.length>8?`<span>+${syns.length-8} more</span>`:''}</div></div>`:''}<div class="detail-info-row"><span class="detail-info-icon">▦</span><b>Category</b><p>${esc(t.category_label||categoryLabel(t.category))}</p></div><div class="detail-info-row"><span class="detail-info-icon">⌘</span><b>MeSH ID</b><p>${esc(meshId)}</p></div></div><div class="detail-explanation"><b>${esc(txt.explanation)}</b><p id="detailExplanation" dir="${textDir}">${esc(exp)}</p>${!has&&l!=='en'?`<p id="translationStatus" class="microcopy">${esc(txt.status)}</p>`:''}</div></div><div class="detail-tab-pane hidden" data-detail-pane="synonyms"><h3>Synonyms and entry terms</h3><div class="synonym-cloud">${syns.length?syns.map(s=>`<span>${esc(s)}</span>`).join(''):'<p>No additional MeSH entry terms are listed for this concept.</p>'}</div></div><div class="detail-tab-pane hidden" data-detail-pane="related"><h3>Related classification</h3><p class="microcopy">Category: ${esc(t.category_label||categoryLabel(t.category))}</p>${trees.length?`<div class="mesh-tree-list">${trees.slice(0,16).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:'<p class="microcopy">No additional MeSH tree numbers are available for this record.</p>'}</div><div class="detail-tab-pane hidden" data-detail-pane="study"><h3>Study this term</h3><p class="microcopy">Use pronunciation, selected-term study, PDF export, and the AI study workspace for this concept.</p></div><div class="detail-actions"><button class="button primary" id="detailAI">✦ AI Study</button><button class="button soft-button" id="detailPDF">Export PDF</button><button class="button soft-button" id="detailSelect">${state.selected.has(String(t.id))?'Remove':'Add to Selected'}</button></div><button type="button" class="detail-offline" id="detailOffline"><div><b>Download for offline use</b><small>Open Offline Packs to save the complete dictionary on this device.</small></div><span>⇩</span></button><p class="microcopy detail-source">Source: ${esc(t.source||state.index?.source_note||'Suhail Medical Dictionary')}</p>`;
  $('#detailPanel').classList.add('open');
  $('#pronounceTerm')?.addEventListener('click',()=>pronounce(t.term));
  $('#detailSelect')?.addEventListener('click',async()=>{await toggleSelection(t);showDetail(t);renderTerms();});
- $('#detailAI')?.addEventListener('click',()=>{state.chatContext=[t];updateChatContext();$('#ai')?.scrollIntoView({behavior:'smooth'});});
- $('#detailPDF')?.addEventListener('click',()=>pdfTerms(t.term,[t],state.lang,`${safeName(t.term)}.pdf`));
+ $('#detailAI')?.addEventListener('click',()=>openAIPage([t]));
+ $('#detailPDF')?.addEventListener('click',()=>{const fallback=window.open('','_blank');if(fallback)fallback.document.write('<title>Preparing PDF…</title><p style="font-family:Arial;padding:24px">Preparing term PDF…</p>');pdfTerms(t.term,[t],state.lang,`${safeName(t.term)}.pdf`,fallback);});
  $('#detailOffline')?.addEventListener('click',()=>location.assign('./offline.html'));
  $('#detailCloseButton')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();closeDetail();});
  const detailBm=$('#detailPanel .detail-bookmark');detailBm?.addEventListener('click',()=>{const on=!isBookmarked(t.id);setBookmarked(t.id,on);detailBm.classList.toggle('saved',on);detailBm.textContent=on?'♥':'♡';renderTerms();});
@@ -635,10 +624,10 @@ function applyTranslation(t,lang,x){t.definition=t.definition||{};t.explanation=
 function pronounce(text){if(!('speechSynthesis'in window))return alert('Speech synthesis is not available in this browser.');speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.82;const voices=speechSynthesis.getVoices();u.voice=voices.find(v=>/^en(-|_)/i.test(v.lang))||null;speechSynthesis.speak(u);}
 function updateSelectedCount(){$('#selectedCount').textContent=state.selected.size;updateSelectAllControl();}function categoryLabel(id){return state.categories.find(c=>c.id===id)?.label||id;}
 
-async function initAuth(sess=null){if(!sess)sess=await currentSession();updateAccount(sess);if(sess){await logEvent('app_open');await loadPrivacyProfile();await refreshChats();}else setCloudState();}
-function setCloudState(){if(!navigator.onLine)$('#authHint').textContent='Offline mode: dictionary available; cloud login and AI will reconnect when internet returns.';}
-function updateAccount(sess){const b=$('#accountButton');if(b){const meta=sess?.user?.user_metadata||{};const fallback=sess?.user?.email?.split('@')[0]||'Account';const name=sess?(meta.full_name||meta.name||fallback):'Sign in';b.innerHTML=`<span class="avatar-dot">●</span><span class="account-lines"><b>${esc(name)}</b><small>${sess?'Medical Learner':'Google account'}</small></span><span class="account-chevron" aria-hidden="true">▾</span>`;const mn=$('#accountMenuName'),me=$('#accountMenuEmail');if(mn)mn.textContent=name;if(me)me.textContent=sess?.user?.email||'Google account';}$('#authHint').textContent=sess?'Your account has separate private chat history. Owner review requires your explicit consent.':'Sign in with Google to save separate chat history.';$('#privacyAccountRow').classList.toggle('hidden',!sess);}
-async function loadPrivacyProfile(){const p=await getMyProfile();if(!p)return;$('#reviewConsentToggle').checked=!!p.allow_owner_review;$('#adminLink').classList.toggle('hidden',!p.is_owner);}
+async function initAuth(sess=null){if(!sess)sess=await currentSession();updateAccount(sess);if(sess){await logEvent('app_open');await loadPrivacyProfile();}}
+function setCloudState(){}
+function updateAccount(sess){const b=$('#accountButton');if(b){const meta=sess?.user?.user_metadata||{};const fallback=sess?.user?.email?.split('@')[0]||'Account';const name=sess?(meta.full_name||meta.name||fallback):'Sign in';b.innerHTML=`<span class="avatar-dot">●</span><span class="account-lines"><b>${esc(name)}</b><small>${sess?'Medical Learner':'Google account'}</small></span><span class="account-chevron" aria-hidden="true">▾</span>`;const mn=$('#accountMenuName'),me=$('#accountMenuEmail');if(mn)mn.textContent=name;if(me)me.textContent=sess?.user?.email||'Google account';}}
+async function loadPrivacyProfile(){const p=await getMyProfile();if(!p)return;$('#adminLink')?.classList.toggle('hidden',!p.is_owner);}
 async function handleConsentChange(e){try{await setOwnerReviewConsent(e.target.checked);$('#privacyAccountStatus').textContent=e.target.checked?'Owner chat-review consent enabled.':'Owner chat-review consent disabled.';}catch(err){e.target.checked=!e.target.checked;$('#privacyAccountStatus').textContent=err.message;}}
 function toggleAccountMenu(e){e?.stopPropagation?.();const menu=$('#accountMenu'),btn=$('#accountButton');if(!menu||!btn)return;const open=menu.classList.contains('hidden');menu.classList.toggle('hidden',!open);btn.setAttribute('aria-expanded',String(open));btn.classList.toggle('open',open);}function closeAccountMenu(){const menu=$('#accountMenu'),btn=$('#accountButton');menu?.classList.add('hidden');btn?.setAttribute('aria-expanded','false');btn?.classList.remove('open');}async function switchGoogleAccount(){closeAccountMenu();stopLiveVoice();await signOut();location.replace('./index.html?switch=1');}async function signOutFromMenu(){closeAccountMenu();stopLiveVoice();await signOut();location.replace('./index.html');}function openSettings(){const o=$('#settingsOverlay');if(!o)return;$('#settingsLanguage').value=state.lang;$('#settingsTheme').value=document.body.dataset.theme||'clinical';o.classList.remove('hidden');o.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');}function closeSettings(){const o=$('#settingsOverlay');if(!o)return;o.classList.add('hidden');o.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');}
 async function refreshChats(){try{const chats=await listChats();renderChats(chats);if(!state.chatId&&chats[0])await openChat(chats[0].id,chats[0].title);}catch(err){$('#authHint').textContent=err.message;}}
@@ -673,5 +662,6 @@ init().catch(err=>{console.error(err);$('#termGrid').innerHTML=`<div class="empt
 })();
 
 </script>
+  <script src="./assets/js/v7-ui.js?v=7.0.0" defer></script>
 </body>
 </html>
