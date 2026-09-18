@@ -5,7 +5,9 @@ const RUNTIME_CACHE=`${VERSION}-runtime`;
 const CORE=[
   './','./index.html','./app.html','./admin.html','./about.html','./privacy.html','./terms.html','./offline.html',
   './manifest.webmanifest','./version.json','./assets/css/styles.css','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/images/suhail-saeedy.webp',
-  './assets/js/ai.js','./assets/js/export.js','./assets/js/pwa.js','./data/index.json'
+  './assets/js/config.js','./assets/js/auth.js','./assets/js/ai.js','./assets/js/export.js','./assets/js/pwa.js',
+  './assets/images/medical-3d/anatomy.svg','./assets/images/medical-3d/capsule.svg','./assets/images/medical-3d/dna.svg','./assets/images/medical-3d/heart.svg','./assets/images/medical-3d/hero-books.svg','./assets/images/medical-3d/kidneys.svg','./assets/images/medical-3d/lungs.svg','./assets/images/medical-3d/membrane.svg','./assets/images/medical-3d/microbe.svg','./assets/images/medical-3d/molecule-a.svg','./assets/images/medical-3d/molecule-b.svg','./assets/images/medical-3d/neuron.svg','./assets/images/medical-3d/protein.svg',
+  './data/index.json'
 ];
 const CACHEABLE_CDNS=['cdn.jsdelivr.net'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{

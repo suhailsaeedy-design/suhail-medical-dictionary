@@ -1,4 +1,4 @@
-# Suhail Medical Dictionary v5.0 — Test Report
+# Suhail Medical Dictionary v6.1 — Test Report
 
 ## Passed checks
 - All project JavaScript files pass `node --check`.
@@ -25,3 +25,15 @@ v5.0 removes the remote Supabase JavaScript SDK from the critical login/workspac
 - local 3D medical SVG assets copied into build: PASS
 - responsive breakpoints included for desktop/tablet/mobile: PASS
 - Google/Supabase auth boot code retained from stable v5 path: PASS (not redesigned)
+
+
+## v6.1 interaction/path validation
+- `app.html` dynamic imports resolve to existing files under `assets/js/`: PASS
+- `ai.js`, `export.js`, `pwa.js` root-path 404 regression: FIXED
+- Local HTML asset/module references validation: PASS
+- Duplicate ID validation: PASS
+- All JavaScript syntax checks: PASS
+- Production static build with required module/3D asset files: PASS
+- Account menu, Bookmarks, History, Settings, Grid/List and detail-action handlers are wired in source.
+- Mobile CSS includes 820px, 560px and 390px layouts with single-column cards on small phones.
+- Note: full browser automation is not available in this execution environment due administrator navigation restrictions; GitHub Pages runtime should still be checked once after deployment.
