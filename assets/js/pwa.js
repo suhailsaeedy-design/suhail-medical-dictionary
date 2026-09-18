@@ -1,4 +1,4 @@
-import {CONFIG} from './config.js?v=6.1.0';
+import {CONFIG} from './config.js?v=6.2.0';
 const $=s=>document.querySelector(s);let refreshing=false,registration=null;
 const EXTERNAL=[
  'https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js',

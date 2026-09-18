@@ -1,9 +1,9 @@
-import {CONFIG} from './config.js?v=6.1.0';
+import {CONFIG} from './config.js?v=6.2.0';
 
 // v4 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
-const AUTH_STORAGE_KEY='smd-auth-v4';
-const OLD_STORAGE_KEYS=['smd-auth-v3-3'];
+const AUTH_STORAGE_KEY='smd-auth-v5';
+const OLD_STORAGE_KEYS=['smd-auth-v4','smd-auth-v3-3'];
 const DEFAULT_TIMEOUT=8000;
 
 function withTimeout(promise,ms=DEFAULT_TIMEOUT,label='Request'){
@@ -103,6 +103,7 @@ async function refreshSession(session){
   if(!data.access_token||!user?.id)return null;
   return saveSession({...data,user,expires_at:data.expires_at||Math.floor(Date.now()/1000)+Number(data.expires_in||3600)});
 }
+export function peekSession(){return readStoredSession();}
 export async function currentSession(){
   if(!configured())return null;
   const callback=await captureOAuthCallback();

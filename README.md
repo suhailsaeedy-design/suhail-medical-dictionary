@@ -1,3 +1,5 @@
+> Current UI release: **v6.2.0** — selection/filter/RTL/theme interaction fixes.
+
 ## v6.1 Premium UI + interaction fixes
 
 Premium medical dashboard redesign matching the approved reference image, with repaired module paths, working account menu, bookmarks/history/settings controls, improved mobile behavior, and stronger deployment verification.

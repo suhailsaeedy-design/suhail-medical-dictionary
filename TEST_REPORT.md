@@ -1,3 +1,5 @@
+> Current UI release: **v6.2.0** — selection/filter/RTL/theme interaction fixes.
+
 # Suhail Medical Dictionary v6.1 — Test Report
 
 ## Passed checks

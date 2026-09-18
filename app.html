@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./assets/css/styles.css">
   <title>Dictionary · Suhail Medical Dictionary</title>
 </head>
-<body data-build="6.1.0" class="workspace-page auth-pending" data-theme="clinical">
+<body data-build="6.2.0" class="workspace-page auth-pending" data-theme="clinical">
   <div id="sessionLoader" class="session-loader"><div class="loader-ring"></div><p>Opening your study workspace…</p></div>
 
   <div class="med-app-shell">
@@ -54,7 +54,7 @@
           <select id="themeSelect" class="control compact top-select" aria-label="Theme"><option value="clinical">☾ Light</option><option value="dark">◐ Dark</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option></select>
           <a id="adminLink" class="icon-link hidden" href="./admin.html" title="Owner admin">Admin</a>
           <div class="account-wrap">
-            <button id="accountButton" class="med-account" type="button" aria-haspopup="menu" aria-expanded="false"><span class="avatar-dot">●</span><span class="account-lines"><b>Account</b><small>Medical Learner</small></span><span class="account-chevron">⌄</span></button>
+            <button id="accountButton" class="med-account" type="button" aria-haspopup="menu" aria-expanded="false"><span class="avatar-dot">●</span><span class="account-lines"><b>Account</b><small>Medical Learner</small></span><span class="account-chevron" aria-hidden="true">▾</span></button>
             <div id="accountMenu" class="account-menu hidden" role="menu" aria-label="Account menu">
               <div class="account-menu-user"><span class="account-menu-avatar">●</span><div><strong id="accountMenuName">Account</strong><small id="accountMenuEmail">Google account</small></div></div>
               <button id="switchAccountButton" class="account-menu-action" type="button" role="menuitem">↻ Use another Google account</button>
@@ -98,6 +98,7 @@
             <div class="results-toolbar">
               <strong id="resultsCountLabel">Medical terms</strong>
               <div class="results-controls">
+                <button id="selectAllFiltered" class="select-all-control" type="button" aria-pressed="false" title="Select all terms in the current filter"><span class="select-all-box" aria-hidden="true"></span><span id="selectAllText">Select all</span></button>
                 <select id="sortSelect" class="sort-pill" aria-label="Sort medical terms"><option value="relevant">Most relevant</option><option value="az">A–Z</option><option value="za">Z–A</option></select>
                 <button id="gridViewButton" class="view-toggle active" type="button" aria-label="Grid view">▦</button><button id="listViewButton" class="view-toggle" type="button" aria-label="List view">☷</button>
               </div>
@@ -164,7 +165,7 @@
     window.setTimeout(function(){
       var loader=document.getElementById('sessionLoader');
       if(!loader || !document.body.classList.contains('auth-pending')) return;
-      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v6.1.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
+      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v6.2.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
     },12000);
   </script>
   <script>
@@ -192,7 +193,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '6.1.0'
+  uiVersion: '6.2.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -419,9 +420,9 @@ const {peekSession,getSupabase,currentSession,signOut,logEvent,getMyProfile,setO
 // Optional features are lazy-loaded only after the core dictionary is allowed to open.
 // A PDF/AI/PWA module failure must never prevent the workspace from starting.
 let aiModulePromise=null, exportModulePromise=null, pwaModulePromise=null;
-const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=6.1.0'));
-const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=6.1.0'));
-const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=6.1.0'));
+const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=6.2.0'));
+const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=6.2.0'));
+const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=6.2.0'));
 async function createChat(...a){return (await aiModule()).createChat(...a);} async function listChats(...a){return (await aiModule()).listChats(...a);} async function loadMessages(...a){return (await aiModule()).loadMessages(...a);} async function renameChat(...a){return (await aiModule()).renameChat(...a);} async function deleteChat(...a){return (await aiModule()).deleteChat(...a);} async function editUserMessage(...a){return (await aiModule()).editUserMessage(...a);} async function askAI(...a){return (await aiModule()).askAI(...a);} async function translateTerm(...a){return (await aiModule()).translateTerm(...a);}
 function printTerms(...a){exportModule().then(m=>m.printTerms(...a)).catch(()=>alert('Print tools could not start. Reload once and retry.'));}
 async function pdfTerms(...a){try{return await (await exportModule()).pdfTerms(...a);}catch{return alert('PDF tools could not start. Use Print → Save as PDF.');}}
@@ -457,7 +458,7 @@ async function init(){
  registerInstall();initPWA({categories:state.categories}).catch(()=>{});
  const draft=localStorage.getItem('smd-chat-draft');if(draft&&$('#chatInput')){$('#chatInput').value=draft;localStorage.removeItem('smd-chat-draft');}
 }
-function setDir(){document.documentElement.lang=state.lang;document.documentElement.dir=RTL.has(state.lang)?'rtl':'ltr';}
+function setDir(){document.documentElement.lang=state.lang;document.documentElement.dir='ltr';document.body.dataset.contentDir=RTL.has(state.lang)?'rtl':'ltr';}
 function populateCategories(){const s=$('#categorySelect');for(const c of state.categories){const o=document.createElement('option');o.value=c.id;o.textContent=`${c.label} (${Number(c.count||0).toLocaleString()})`;s.appendChild(o);}}
 function bindUI(){
  const search=$('#searchInput'),mirror=$('#heroSearchMirror');
@@ -472,11 +473,11 @@ function bindUI(){
  $('#bookmarksButton')?.addEventListener('click',()=>{state.selectedMode=false;state.specialMode=state.specialMode==='bookmarks'?null:'bookmarks';renderTerms();syncNavModes();document.querySelector('#dictionary')?.scrollIntoView({behavior:'smooth',block:'start'});});
  $('#historyButton')?.addEventListener('click',()=>{state.selectedMode=false;state.specialMode=state.specialMode==='history'?null:'history';renderTerms();syncNavModes();document.querySelector('#dictionary')?.scrollIntoView({behavior:'smooth',block:'start'});});
  document.querySelector('a[href="#dictionary"]')?.addEventListener('click',()=>{resetSpecial();renderTerms();});
- $('#printSelected')?.addEventListener('click',()=>printTerms('Selected medical terms',[...state.selected.values()],state.lang));
- $('#pdfSelected')?.addEventListener('click',()=>pdfTerms('Selected medical terms',[...state.selected.values()],state.lang));
+ $('#printSelected')?.addEventListener('click',async()=>{const terms=await hydrateTerms([...state.selected.values()]);printTerms('Selected medical terms',terms,state.lang);});
+ $('#pdfSelected')?.addEventListener('click',async()=>{const terms=await hydrateTerms([...state.selected.values()]);await pdfTerms('Selected medical terms',terms,state.lang);});
  $('#pdfCategory')?.addEventListener('click',async()=>{if(state.category==='all')return alert('Select one category first. Use the ZIP button for all categories.');const cat=state.category,c=state.categories.find(x=>x.id===cat);if(!c)return;await pdfTerms(c.label,await loadCategory(cat),state.lang,`${safeName(c.label)}.pdf`);});
  $('#pdfAllZip')?.addEventListener('click',()=>zipCategoryPdfs(state.categories,loadCategory,state.lang));
- $('#aiSelectedButton')?.addEventListener('click',()=>{state.chatContext=[...state.selected.values()].slice(0,40);updateChatContext();$('#ai')?.scrollIntoView({behavior:'smooth'});});
+ $('#aiSelectedButton')?.addEventListener('click',async()=>{state.chatContext=await hydrateTerms([...state.selected.values()],40);updateChatContext();$('#ai')?.scrollIntoView({behavior:'smooth'});});
  $('#accountButton')?.addEventListener('click',toggleAccountMenu);
  $('#switchAccountButton')?.addEventListener('click',switchGoogleAccount);
  $('#signOutButton')?.addEventListener('click',signOutFromMenu);
@@ -486,6 +487,7 @@ function bindUI(){
  $('#settingsOverlay')?.addEventListener('click',e=>{if(e.target===e.currentTarget)closeSettings();});
  $('#settingsLanguage')?.addEventListener('change',e=>{if($('#contentLanguage')){$('#contentLanguage').value=e.target.value;$('#contentLanguage').dispatchEvent(new Event('change',{bubbles:true}));}});
  $('#settingsTheme')?.addEventListener('change',e=>{if($('#themeSelect')){$('#themeSelect').value=e.target.value;$('#themeSelect').dispatchEvent(new Event('change',{bubbles:true}));}});
+ $('#selectAllFiltered')?.addEventListener('click',selectAllCurrentFilter);
  $('#sortSelect')?.addEventListener('change',e=>{state.sort=e.target.value;renderTerms();});
  $('#gridViewButton')?.addEventListener('click',()=>setView('grid'));
  $('#listViewButton')?.addEventListener('click',()=>setView('list'));
@@ -501,7 +503,7 @@ function bindUI(){
  $('#clearContext')?.addEventListener('click',()=>{state.chatContext=[];updateChatContext();});
  $('#reviewConsentToggle')?.addEventListener('change',handleConsentChange);
  $('#chatInput')?.addEventListener('input',e=>localStorage.setItem('smd-chat-draft',e.target.value));
- document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();search?.focus();}if(e.key==='Escape'){closeAccountMenu();closeSettings();}});
+ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();search?.focus();}if(e.key==='Escape'){closeAccountMenu();closeSettings();closeDetail();}});
  updateBookmarksCount();syncNavModes();setView(state.view);
 }
 function filter(){const src=state.index?.terms||[];state.filtered=src.filter(t=>(state.category==='all'||t.category===state.category)&&(!state.query||(`${t.term} ${(t.synonyms||[]).join(' ')}`).toLowerCase().includes(state.query)));renderTerms();}
@@ -544,27 +546,51 @@ function syncNavModes(){
  $('#mobileSelectedButton')?.classList.toggle('active',state.selectedMode);
 }
 function setView(view){state.view=view==='list'?'list':'grid';const grid=$('#termGrid');grid?.classList.toggle('list-view',state.view==='list');$('#gridViewButton')?.classList.toggle('active',state.view==='grid');$('#listViewButton')?.classList.toggle('active',state.view==='list');try{localStorage.setItem('smd-term-view',state.view);}catch{}}
+function currentBaseTerms(){
+ if(state.selectedMode)return [...state.selected.values()].map(x=>({id:x.id,term:x.term,category:x.category,category_label:x.category_label,synonyms:x.synonyms||[]}));
+ if(state.specialMode==='bookmarks'){const ids=readBookmarkIds();return state.filtered.filter(x=>ids.has(String(x.id)));}
+ if(state.specialMode==='history'){const map=new Map(state.filtered.map(x=>[String(x.id),x]));return readHistoryIds().map(id=>map.get(id)).filter(Boolean);}
+ return state.filtered;
+}
+function updateSelectAllControl(base=currentBaseTerms()){
+ const btn=$('#selectAllFiltered'),txt=$('#selectAllText');if(!btn||!txt)return;
+ if(state.selectedMode){btn.classList.add('hidden');return;}btn.classList.remove('hidden');
+ const ids=base.map(x=>String(x.id));const selectedCount=ids.reduce((n,id)=>n+(state.selected.has(id)?1:0),0);
+ const all=ids.length>0&&selectedCount===ids.length,partial=selectedCount>0&&!all;
+ btn.classList.toggle('checked',all);btn.classList.toggle('partial',partial);btn.setAttribute('aria-pressed',String(all));
+ txt.textContent=all?'Deselect all':'Select all';btn.title=all?'Deselect all terms in the current filter':`Select all ${ids.length.toLocaleString()} terms in the current filter`;
+}
+async function toggleSelection(item,force){
+ const id=String(item.id),has=state.selected.has(id)||state.selected.has(item.id),want=typeof force==='boolean'?force:!has;
+ if(want){const full=item.definition?item:await getTerm(item);state.selected.set(id,full);}else{state.selected.delete(id);state.selected.delete(item.id);}
+ updateSelectedCount();
+}
+async function selectAllCurrentFilter(){
+ const base=currentBaseTerms();if(!base.length)return;
+ const all=base.every(x=>state.selected.has(String(x.id))||state.selected.has(x.id));
+ if(all){for(const x of base){state.selected.delete(String(x.id));state.selected.delete(x.id);}}
+ else{for(const x of base){const id=String(x.id);if(!state.selected.has(id)&&!state.selected.has(x.id))state.selected.set(id,x);}}
+ updateSelectedCount();renderTerms();
+}
+function closeDetail(){const panel=$('#detailPanel');if(!panel)return;panel.classList.remove('open');state.active=null;$$('.term-card').forEach(x=>x.classList.remove('active'));if(window.innerWidth<821)panel.scrollTop=0;}
 function renderTerms(){
  const grid=$('#termGrid');if(!grid)return;grid.innerHTML='';
- let base;
- if(state.selectedMode){base=[...state.selected.values()].map(x=>({id:x.id,term:x.term,category:x.category,category_label:x.category_label,synonyms:x.synonyms||[]}));}
- else if(state.specialMode==='bookmarks'){const ids=readBookmarkIds();base=state.filtered.filter(x=>ids.has(String(x.id)));}
- else if(state.specialMode==='history'){const map=new Map(state.filtered.map(x=>[String(x.id),x]));base=readHistoryIds().map(id=>map.get(id)).filter(Boolean);}
- else base=state.filtered;
+ let base=currentBaseTerms();
  if(state.sort==='az')base=[...base].sort((a,b)=>String(a.term).localeCompare(String(b.term)));
  else if(state.sort==='za')base=[...base].sort((a,b)=>String(b.term).localeCompare(String(a.term)));
  const arr=base.slice(0,320);setView(state.view);
  for(const item of arr){
-  const card=document.createElement('article');card.className='term-card'+(state.active?.id===item.id?' active':'');const checked=state.selected.has(item.id),bookmarked=isBookmarked(item.id);
-  card.innerHTML=`<label class="term-check"><input type="checkbox" ${checked?'checked':''} aria-label="Select ${esc(item.term)}"><span></span></label><button type="button" class="term-bookmark${bookmarked?' saved':''}" title="${bookmarked?'Remove bookmark':'Bookmark'}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button><div class="term-visual"><img loading="lazy" src="${visualUrl(item)}" alt="" aria-hidden="true"></div><div class="term-main"><div class="term-name">${esc(item.term)}</div><div class="term-meta"><span class="tag">${esc(item.category_label||categoryLabel(item.category))}</span>${item.synonyms?.length?`<span>${item.synonyms.length} synonym${item.synonyms.length>1?'s':''}</span>`:''}</div></div>`;
-  card.addEventListener('click',async e=>{if(e.target.closest('.term-check')||e.target.closest('.term-bookmark'))return;const full=await getTerm(item);state.active=full;rememberHistory(full);showDetail(full);$$('.term-card').forEach(x=>x.classList.remove('active'));card.classList.add('active');});
-  const cb=card.querySelector('input');cb.addEventListener('change',async()=>{const full=await getTerm(item);cb.checked?state.selected.set(item.id,full):state.selected.delete(item.id);updateSelectedCount();if(state.selectedMode)renderTerms();});
+  const card=document.createElement('article');card.className='term-card'+(state.active?.id===item.id?' active':'');const checked=state.selected.has(String(item.id))||state.selected.has(item.id),bookmarked=isBookmarked(item.id);
+  if(checked)card.classList.add('selected');card.innerHTML=`<label class="term-check"><input type="checkbox" ${checked?'checked':''} aria-label="Select ${esc(item.term)}"><span></span></label><button type="button" class="term-bookmark${bookmarked?' saved':''}" title="${bookmarked?'Remove bookmark':'Bookmark'}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button><div class="term-visual" role="button" tabindex="0" aria-label="Select this term"><img loading="lazy" src="${visualUrl(item)}" alt="" aria-hidden="true"></div><div class="term-main"><div class="term-name">${esc(item.term)}</div><div class="term-meta"><span class="tag">${esc(item.category_label||categoryLabel(item.category))}</span>${item.synonyms?.length?`<span>${item.synonyms.length} synonym${item.synonyms.length>1?'s':''}</span>`:''}</div></div>`;
+  card.addEventListener('click',async e=>{if(e.target.closest('.term-check')||e.target.closest('.term-bookmark')||e.target.closest('.term-visual'))return;const full=await getTerm(item);state.active=full;rememberHistory(full);showDetail(full);$$('.term-card').forEach(x=>x.classList.remove('active'));card.classList.add('active');});
+  const cb=card.querySelector('input');cb.addEventListener('change',async()=>{await toggleSelection(item,cb.checked);if(state.selectedMode)renderTerms();else updateSelectAllControl();});
+  const visual=card.querySelector('.term-visual');const selectFromVisual=async(e)=>{e.preventDefault();e.stopPropagation();await toggleSelection(item);cb.checked=state.selected.has(String(item.id))||state.selected.has(item.id);card.classList.toggle('selected',cb.checked);updateSelectAllControl();};visual?.addEventListener('click',selectFromVisual);visual?.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){selectFromVisual(e);}});
   const bm=card.querySelector('.term-bookmark');bm.onclick=()=>{const on=!isBookmarked(item.id);setBookmarked(item.id,on);if(state.specialMode==='bookmarks')renderTerms();else{bm.classList.toggle('saved',on);bm.textContent=on?'♥':'♡';bm.title=on?'Remove bookmark':'Bookmark';}};
   grid.appendChild(card);
  }
  const total=base.length,fullCount=Number(state.index?.term_count||state.index?.terms?.length||total),searchable=Number(state.index?.searchable_name_count||fullCount);
  let summary;if(state.selectedMode)summary=`${total.toLocaleString()} selected terms`;else if(state.specialMode==='bookmarks')summary=`${total.toLocaleString()} bookmarked terms`;else if(state.specialMode==='history')summary=`${total.toLocaleString()} recently viewed terms`;else summary=`${total.toLocaleString()} matching terms · ${fullCount.toLocaleString()} official MeSH concepts · ${searchable.toLocaleString()} searchable names`;
- $('#resultSummary').textContent=summary;const rc=$('#resultsCountLabel');if(rc)rc.textContent=state.specialMode==='bookmarks'?`${total.toLocaleString()} bookmarks`:state.specialMode==='history'?`${total.toLocaleString()} recent terms`:`${total.toLocaleString()} terms found`;syncCategoryChips();syncNavModes();updateBookmarksCount();if(!total)grid.innerHTML='<div class="empty-state">No matching terms.</div>';
+ $('#resultSummary').textContent=summary;const rc=$('#resultsCountLabel');if(rc)rc.textContent=state.specialMode==='bookmarks'?`${total.toLocaleString()} bookmarks`:state.specialMode==='history'?`${total.toLocaleString()} recent terms`:`${total.toLocaleString()} terms found`;syncCategoryChips();syncNavModes();updateBookmarksCount();updateSelectAllControl(base);if(!total)grid.innerHTML='<div class="empty-state">No matching terms.</div>';
 }
 async function loadCategory(id){
  if(categoryCache.has(id))return categoryCache.get(id);const c=state.categories.find(x=>x.id===id);if(!c)return[];const files=(c.files||[c.file]).filter(Boolean);const all=[];
@@ -572,6 +598,12 @@ async function loadCategory(id){
  categoryCache.set(id,all);return all;
 }
 async function getTerm(item){const arr=await loadCategory(item.category);return arr.find(x=>x.id===item.id)||item;}
+async function hydrateTerms(items,limit=Infinity){
+ const list=items.slice(0,Number.isFinite(limit)?limit:items.length);if(!list.length)return[];
+ const groups=new Map();for(const item of list){const key=item.category||'__none__';if(!groups.has(key))groups.set(key,[]);groups.get(key).push(item);}
+ const fullById=new Map();for(const [category,group] of groups){if(category==='__none__'){for(const x of group)fullById.set(String(x.id),x);continue;}const full=await loadCategory(category);const map=new Map(full.map(x=>[String(x.id),x]));for(const x of group)fullById.set(String(x.id),map.get(String(x.id))||x);}
+ return list.map(x=>fullById.get(String(x.id))||x);
+}
 const LANG_TEXT={
  en:{meaning:'Meaning / Definition',explanation:'Explanation',synonyms:'Synonyms / related terms',tools:'Study tools',loading:'Loading translation…',status:'Translation is being prepared and will be cached for later/offline use.'},
  ps:{meaning:'معنا / تعریف',explanation:'تشریح',synonyms:'مترادف او اړوند نومونه',tools:'د مطالعې وسایل',loading:'پښتو ژباړه چمتو کېږي…',status:'معنا او تشریح پښتو ته اړول کېږي او بیا به په وسیله کې هم وساتل شي.'},
@@ -583,29 +615,29 @@ const LANG_TEXT={
 };
 function displayTerm(t,lang=state.lang){return t.localized_term?.[lang]||t.term;}
 function showDetail(t){
- const l=state.lang,txt=LANG_TEXT[l]||LANG_TEXT.en,has=!!t.definition?.[l];
+ const l=state.lang,txt=LANG_TEXT[l]||LANG_TEXT.en,has=!!t.definition?.[l],rtl=RTL.has(l),textDir=rtl?'rtl':'ltr';
  const translatedName=displayTerm(t,l),def=has?t.definition[l]:(l==='en'?(t.definition?.en||'Definition not available.'):txt.loading),exp=has?(t.explanation?.[l]||''):(l==='en'?(t.explanation?.en||''):txt.loading);
  const originalLine=l!=='en'&&translatedName!==t.term?`<div class="original-term">English: ${esc(t.term)}</div>`:'';const syns=(t.synonyms||[]);const meshId=t.id||'—',bookmarked=isBookmarked(t.id),trees=(t.mesh_tree_numbers||[]);
- $('#detailPanel').innerHTML=`<div class="detail-visual-wrap"><img class="detail-visual" src="${visualUrl(t)}" alt="" aria-hidden="true"><button type="button" class="detail-close" aria-label="Close">×</button><button type="button" class="detail-bookmark${bookmarked?' saved':''}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button></div><div class="detail-title-block"><h2 id="detailTermName">${esc(translatedName)}</h2>${originalLine}<span class="tag">${esc(t.category_label||categoryLabel(t.category))}</span></div><div class="detail-tabs"><button type="button" class="active" data-detail-tab="overview">Overview</button><button type="button" data-detail-tab="synonyms">Synonyms (${syns.length})</button><button type="button" data-detail-tab="related">Related</button><button type="button" data-detail-tab="study">Study</button></div><div data-detail-pane="overview"><div class="detail-info-list"><div class="detail-info-row"><span class="detail-info-icon">▤</span><b>${esc(txt.meaning)}</b><p id="detailDefinition">${esc(def)}</p></div><div class="detail-info-row"><span class="detail-info-icon">🔊</span><b>Pronunciation</b><p>${esc(t.term)}</p><button class="pronounce" id="pronounceTerm" title="Pronounce English medical term">🔊</button></div>${syns.length?`<div class="detail-info-row"><span class="detail-info-icon">⌁</span><b>${esc(txt.synonyms)}</b><div class="synonyms">${syns.slice(0,8).map(s=>`<span>${esc(s)}</span>`).join('')}${syns.length>8?`<span>+${syns.length-8} more</span>`:''}</div></div>`:''}<div class="detail-info-row"><span class="detail-info-icon">▦</span><b>Category</b><p>${esc(t.category_label||categoryLabel(t.category))}</p></div><div class="detail-info-row"><span class="detail-info-icon">⌘</span><b>MeSH ID</b><p>${esc(meshId)}</p></div></div><div class="detail-explanation"><b>${esc(txt.explanation)}</b><p id="detailExplanation">${esc(exp)}</p>${!has&&l!=='en'?`<p id="translationStatus" class="microcopy">${esc(txt.status)}</p>`:''}</div></div><div class="detail-tab-pane hidden" data-detail-pane="synonyms"><h3>Synonyms and entry terms</h3><div class="synonym-cloud">${syns.length?syns.map(s=>`<span>${esc(s)}</span>`).join(''):'<p>No additional MeSH entry terms are listed for this concept.</p>'}</div></div><div class="detail-tab-pane hidden" data-detail-pane="related"><h3>Related classification</h3><p class="microcopy">Category: ${esc(t.category_label||categoryLabel(t.category))}</p>${trees.length?`<div class="mesh-tree-list">${trees.slice(0,16).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:'<p class="microcopy">No additional MeSH tree numbers are available for this record.</p>'}</div><div class="detail-tab-pane hidden" data-detail-pane="study"><h3>Study this term</h3><p class="microcopy">Use pronunciation, selected-term study, PDF export, and the AI study workspace for this concept.</p></div><div class="detail-actions"><button class="button primary" id="detailAI">✦ AI Study</button><button class="button soft-button" id="detailPDF">Export PDF</button><button class="button soft-button" id="detailSelect">${state.selected.has(t.id)?'Remove':'Add to Selected'}</button></div><button type="button" class="detail-offline" id="detailOffline"><div><b>Download for offline use</b><small>Open Offline Packs to save the complete dictionary on this device.</small></div><span>⇩</span></button><p class="microcopy detail-source">Source: ${esc(t.source||state.index?.source_note||'Suhail Medical Dictionary')}</p>`;
+ $('#detailPanel').innerHTML=`<div class="detail-visual-wrap"><img class="detail-visual" src="${visualUrl(t)}" alt="" aria-hidden="true"><button type="button" id="detailCloseButton" class="detail-close" aria-label="Close details" title="Close">×</button><button type="button" class="detail-bookmark${bookmarked?' saved':''}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button></div><div class="detail-title-block" dir="${textDir}"><h2 id="detailTermName">${esc(translatedName)}</h2>${originalLine}<span class="tag">${esc(t.category_label||categoryLabel(t.category))}</span></div><div class="detail-tabs"><button type="button" class="active" data-detail-tab="overview">Overview</button><button type="button" data-detail-tab="synonyms">Synonyms (${syns.length})</button><button type="button" data-detail-tab="related">Related</button><button type="button" data-detail-tab="study">Study</button></div><div data-detail-pane="overview"><div class="detail-info-list"><div class="detail-info-row"><span class="detail-info-icon">▤</span><b>${esc(txt.meaning)}</b><p id="detailDefinition" dir="${textDir}">${esc(def)}</p></div><div class="detail-info-row"><span class="detail-info-icon">🔊</span><b>Pronunciation</b><p>${esc(t.term)}</p><button class="pronounce" id="pronounceTerm" title="Pronounce English medical term">🔊</button></div>${syns.length?`<div class="detail-info-row"><span class="detail-info-icon">⌁</span><b>${esc(txt.synonyms)}</b><div class="synonyms">${syns.slice(0,8).map(s=>`<span>${esc(s)}</span>`).join('')}${syns.length>8?`<span>+${syns.length-8} more</span>`:''}</div></div>`:''}<div class="detail-info-row"><span class="detail-info-icon">▦</span><b>Category</b><p>${esc(t.category_label||categoryLabel(t.category))}</p></div><div class="detail-info-row"><span class="detail-info-icon">⌘</span><b>MeSH ID</b><p>${esc(meshId)}</p></div></div><div class="detail-explanation"><b>${esc(txt.explanation)}</b><p id="detailExplanation" dir="${textDir}">${esc(exp)}</p>${!has&&l!=='en'?`<p id="translationStatus" class="microcopy">${esc(txt.status)}</p>`:''}</div></div><div class="detail-tab-pane hidden" data-detail-pane="synonyms"><h3>Synonyms and entry terms</h3><div class="synonym-cloud">${syns.length?syns.map(s=>`<span>${esc(s)}</span>`).join(''):'<p>No additional MeSH entry terms are listed for this concept.</p>'}</div></div><div class="detail-tab-pane hidden" data-detail-pane="related"><h3>Related classification</h3><p class="microcopy">Category: ${esc(t.category_label||categoryLabel(t.category))}</p>${trees.length?`<div class="mesh-tree-list">${trees.slice(0,16).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:'<p class="microcopy">No additional MeSH tree numbers are available for this record.</p>'}</div><div class="detail-tab-pane hidden" data-detail-pane="study"><h3>Study this term</h3><p class="microcopy">Use pronunciation, selected-term study, PDF export, and the AI study workspace for this concept.</p></div><div class="detail-actions"><button class="button primary" id="detailAI">✦ AI Study</button><button class="button soft-button" id="detailPDF">Export PDF</button><button class="button soft-button" id="detailSelect">${state.selected.has(String(t.id))?'Remove':'Add to Selected'}</button></div><button type="button" class="detail-offline" id="detailOffline"><div><b>Download for offline use</b><small>Open Offline Packs to save the complete dictionary on this device.</small></div><span>⇩</span></button><p class="microcopy detail-source">Source: ${esc(t.source||state.index?.source_note||'Suhail Medical Dictionary')}</p>`;
  $('#detailPanel').classList.add('open');
  $('#pronounceTerm')?.addEventListener('click',()=>pronounce(t.term));
- $('#detailSelect')?.addEventListener('click',()=>{state.selected.has(t.id)?state.selected.delete(t.id):state.selected.set(t.id,t);updateSelectedCount();showDetail(t);renderTerms();});
+ $('#detailSelect')?.addEventListener('click',async()=>{await toggleSelection(t);showDetail(t);renderTerms();});
  $('#detailAI')?.addEventListener('click',()=>{state.chatContext=[t];updateChatContext();$('#ai')?.scrollIntoView({behavior:'smooth'});});
  $('#detailPDF')?.addEventListener('click',()=>pdfTerms(t.term,[t],state.lang,`${safeName(t.term)}.pdf`));
  $('#detailOffline')?.addEventListener('click',()=>location.assign('./offline.html'));
- $('#detailPanel .detail-close')?.addEventListener('click',()=>{$('#detailPanel').classList.remove('open');state.active=null;$$('.term-card').forEach(x=>x.classList.remove('active'));});
+ $('#detailCloseButton')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();closeDetail();});
  const detailBm=$('#detailPanel .detail-bookmark');detailBm?.addEventListener('click',()=>{const on=!isBookmarked(t.id);setBookmarked(t.id,on);detailBm.classList.toggle('saved',on);detailBm.textContent=on?'♥':'♡';renderTerms();});
  document.querySelectorAll('[data-detail-tab]').forEach(btn=>btn.addEventListener('click',()=>{const tab=btn.dataset.detailTab;document.querySelectorAll('[data-detail-tab]').forEach(x=>x.classList.toggle('active',x===btn));document.querySelectorAll('[data-detail-pane]').forEach(x=>x.classList.toggle('hidden',x.dataset.detailPane!==tab));}));
  if(!has&&l!=='en')loadMissingTranslation(t,l);
 }
-async function loadMissingTranslation(t,lang){const status=$('#translationStatus');try{const local=await getLocalTranslation(t.id,lang);if(local){applyTranslation(t,lang,local);if(status)status.textContent='Saved translation available offline on this device.';return;}const sb=await getSupabase();if(sb&&navigator.onLine){const {data}=await sb.from('term_translation_cache').select('term_name,definition,explanation,reviewed').eq('term_id',t.id).eq('language',lang).maybeSingle();if(data?.definition){applyTranslation(t,lang,data);await saveLocalTranslation(t.id,lang,data);if(status)status.textContent=data.reviewed?'Reviewed shared translation.':'Shared AI-assisted translation · medical review recommended.';return;}}const sess=await currentSession();if(!sess){if(status)status.textContent=navigator.onLine?'Sign in to generate this missing translation once and share the cached result.':'No saved translation on this device. Connect once to load it.';return;}if(!navigator.onLine){if(status)status.textContent='No saved translation on this device. Translation generation needs internet.';return;}if(status)status.textContent=(LANG_TEXT[lang]||LANG_TEXT.en).loading;const x=await translateTerm({termId:t.id,term:t.term,definition:t.definition?.en||'',explanation:t.explanation?.en||'',language:lang});applyTranslation(t,lang,x);await saveLocalTranslation(t.id,lang,x);if(status)status.textContent=x.reviewed?'Reviewed translation.':(x.cached?'Cached AI-assisted translation · medical review recommended.':'AI-assisted translation · saved for offline use on this device.');}catch(err){if(status)status.textContent=`Translation unavailable: ${err.message}`;}}
+async function loadMissingTranslation(t,lang){const status=$('#translationStatus');try{const local=await getLocalTranslation(t.id,lang);if(local){applyTranslation(t,lang,local);if(status)status.textContent='Saved translation available offline on this device.';return;}const sb=await getSupabase();if(sb&&navigator.onLine){const {data}=await sb.from('term_translation_cache').select('term_name,definition,explanation,reviewed').eq('term_id',t.id).eq('language',lang).maybeSingle();if(data?.definition){applyTranslation(t,lang,data);await saveLocalTranslation(t.id,lang,data);if(status)status.textContent=data.reviewed?'Reviewed shared translation.':'Shared AI-assisted translation · medical review recommended.';return;}}const sess=peekSession()||await currentSession();if(!sess){if(status)status.textContent=navigator.onLine?'Your Google session needs to be refreshed before generating a new translation.':'No saved translation on this device. Connect once to load it.';return;}if(!navigator.onLine){if(status)status.textContent='No saved translation on this device. Translation generation needs internet.';return;}if(status)status.textContent=(LANG_TEXT[lang]||LANG_TEXT.en).loading;const x=await translateTerm({termId:t.id,term:t.term,definition:t.definition?.en||'',explanation:t.explanation?.en||'',language:lang});applyTranslation(t,lang,x);await saveLocalTranslation(t.id,lang,x);if(status)status.textContent=x.reviewed?'Reviewed translation.':(x.cached?'Cached AI-assisted translation · medical review recommended.':'AI-assisted translation · saved for offline use on this device.');}catch(err){if(status)status.textContent=`Translation unavailable: ${err.message}`;}}
 function applyTranslation(t,lang,x){t.definition=t.definition||{};t.explanation=t.explanation||{};t.localized_term=t.localized_term||{};t.definition[lang]=x.definition||'';t.explanation[lang]=x.explanation||'';t.localized_term[lang]=x.term_name||x.term||t.term;if(state.active?.id===t.id&&state.lang===lang){const name=$('#detailTermName');if(name)name.textContent=displayTerm(t,lang);$('#detailDefinition').textContent=x.definition||'';$('#detailExplanation').textContent=x.explanation||'';}}
 function pronounce(text){if(!('speechSynthesis'in window))return alert('Speech synthesis is not available in this browser.');speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.82;const voices=speechSynthesis.getVoices();u.voice=voices.find(v=>/^en(-|_)/i.test(v.lang))||null;speechSynthesis.speak(u);}
-function updateSelectedCount(){$('#selectedCount').textContent=state.selected.size;}function categoryLabel(id){return state.categories.find(c=>c.id===id)?.label||id;}
+function updateSelectedCount(){$('#selectedCount').textContent=state.selected.size;updateSelectAllControl();}function categoryLabel(id){return state.categories.find(c=>c.id===id)?.label||id;}
 
 async function initAuth(sess=null){if(!sess)sess=await currentSession();updateAccount(sess);if(sess){await logEvent('app_open');await loadPrivacyProfile();await refreshChats();}else setCloudState();}
 function setCloudState(){if(!navigator.onLine)$('#authHint').textContent='Offline mode: dictionary available; cloud login and AI will reconnect when internet returns.';}
-function updateAccount(sess){const b=$('#accountButton');if(b){const meta=sess?.user?.user_metadata||{};const fallback=sess?.user?.email?.split('@')[0]||'Account';const name=sess?(meta.full_name||meta.name||fallback):'Sign in';b.innerHTML=`<span class="avatar-dot">●</span><span class="account-lines"><b>${esc(name)}</b><small>${sess?'Medical Learner':'Google account'}</small></span><span class="account-chevron">⌄</span>`;const mn=$('#accountMenuName'),me=$('#accountMenuEmail');if(mn)mn.textContent=name;if(me)me.textContent=sess?.user?.email||'Google account';}$('#authHint').textContent=sess?'Your account has separate private chat history. Owner review requires your explicit consent.':'Sign in with Google to save separate chat history.';$('#privacyAccountRow').classList.toggle('hidden',!sess);}
+function updateAccount(sess){const b=$('#accountButton');if(b){const meta=sess?.user?.user_metadata||{};const fallback=sess?.user?.email?.split('@')[0]||'Account';const name=sess?(meta.full_name||meta.name||fallback):'Sign in';b.innerHTML=`<span class="avatar-dot">●</span><span class="account-lines"><b>${esc(name)}</b><small>${sess?'Medical Learner':'Google account'}</small></span><span class="account-chevron" aria-hidden="true">▾</span>`;const mn=$('#accountMenuName'),me=$('#accountMenuEmail');if(mn)mn.textContent=name;if(me)me.textContent=sess?.user?.email||'Google account';}$('#authHint').textContent=sess?'Your account has separate private chat history. Owner review requires your explicit consent.':'Sign in with Google to save separate chat history.';$('#privacyAccountRow').classList.toggle('hidden',!sess);}
 async function loadPrivacyProfile(){const p=await getMyProfile();if(!p)return;$('#reviewConsentToggle').checked=!!p.allow_owner_review;$('#adminLink').classList.toggle('hidden',!p.is_owner);}
 async function handleConsentChange(e){try{await setOwnerReviewConsent(e.target.checked);$('#privacyAccountStatus').textContent=e.target.checked?'Owner chat-review consent enabled.':'Owner chat-review consent disabled.';}catch(err){e.target.checked=!e.target.checked;$('#privacyAccountStatus').textContent=err.message;}}
 function toggleAccountMenu(e){e?.stopPropagation?.();const menu=$('#accountMenu'),btn=$('#accountButton');if(!menu||!btn)return;const open=menu.classList.contains('hidden');menu.classList.toggle('hidden',!open);btn.setAttribute('aria-expanded',String(open));btn.classList.toggle('open',open);}function closeAccountMenu(){const menu=$('#accountMenu'),btn=$('#accountButton');menu?.classList.add('hidden');btn?.setAttribute('aria-expanded','false');btn?.classList.remove('open');}async function switchGoogleAccount(){closeAccountMenu();stopLiveVoice();await signOut();location.replace('./index.html?switch=1');}async function signOutFromMenu(){closeAccountMenu();stopLiveVoice();await signOut();location.replace('./index.html');}function openSettings(){const o=$('#settingsOverlay');if(!o)return;$('#settingsLanguage').value=state.lang;$('#settingsTheme').value=document.body.dataset.theme||'clinical';o.classList.remove('hidden');o.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');}function closeSettings(){const o=$('#settingsOverlay');if(!o)return;o.classList.add('hidden');o.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');}
