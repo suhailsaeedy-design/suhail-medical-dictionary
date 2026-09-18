@@ -5,7 +5,7 @@ const RUNTIME_CACHE=`${VERSION}-runtime`;
 const CORE=[
   './','./index.html','./app.html','./admin.html','./about.html','./privacy.html','./terms.html','./offline.html',
   './manifest.webmanifest','./version.json','./assets/css/styles.css','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/images/suhail-saeedy.webp',
-  './assets/js/config.js','./assets/js/core.js','./assets/js/login.js','./assets/js/about.js','./assets/js/app.js','./assets/js/auth.js','./assets/js/ai.js','./assets/js/export.js','./assets/js/admin.js','./assets/js/pwa.js','./data/index.json'
+  './assets/js/ai.js','./assets/js/export.js','./assets/js/pwa.js','./data/index.json'
 ];
 const CACHEABLE_CDNS=['cdn.jsdelivr.net'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{

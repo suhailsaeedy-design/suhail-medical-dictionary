@@ -1,4 +1,4 @@
-# Suhail Medical Dictionary v4.0 — Test Report
+# Suhail Medical Dictionary v5.0 — Test Report
 
 ## Passed checks
 - All project JavaScript files pass `node --check`.
@@ -13,4 +13,4 @@
 - Secret scan found no Google Client Secret or Supabase service-role secret embedded in frontend configuration.
 
 ## Architecture change
-v4.0 removes the remote Supabase JavaScript SDK from the critical login/workspace boot path. Authentication and database access use Supabase HTTPS endpoints directly, so a CDN/module initialization failure cannot hold the workspace on an endless loader.
+v5.0 removes the remote Supabase JavaScript SDK from the critical login/workspace boot path. Authentication and database access use Supabase HTTPS endpoints directly, so a CDN/module initialization failure cannot hold the workspace on an endless loader.

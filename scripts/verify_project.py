@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from pathlib import Path
 from html.parser import HTMLParser
-import json, subprocess, sys
+import json, subprocess, sys, re, tempfile
 ROOT=Path(__file__).resolve().parents[1]
 class Parser(HTMLParser):
     def error(self,message): pass
@@ -9,7 +9,17 @@ class Parser(HTMLParser):
 def main():
     failures=[]
     for p in ROOT.glob('*.html'):
-        try: Parser().feed(p.read_text(encoding='utf-8'))
+        try:
+            html=p.read_text(encoding='utf-8')
+            Parser().feed(html)
+            # Syntax-check inline JavaScript too. This catches errors that external-file-only checks miss.
+            for i,code in enumerate(re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>',html,re.S)):
+                if not code.strip(): continue
+                with tempfile.NamedTemporaryFile('w',suffix='.js',delete=False,encoding='utf-8') as tmp:
+                    tmp.write(code); name=tmp.name
+                r=subprocess.run(['node','--check',name],capture_output=True,text=True)
+                Path(name).unlink(missing_ok=True)
+                if r.returncode: failures.append(f'{p.name} inline script #{i+1}: {r.stderr.strip()}')
         except Exception as e: failures.append(f'{p.name}: {e}')
     for p in [ROOT/'manifest.webmanifest',ROOT/'version.json',ROOT/'data'/'index.json',*sorted((ROOT/'data'/'categories').glob('*.json'))]:
         try: json.loads(p.read_text(encoding='utf-8'))

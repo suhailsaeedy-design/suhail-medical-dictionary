@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="./assets/css/styles.css">
   <title>Sign in · Suhail Medical Dictionary</title>
 </head>
-<body class="auth-page" data-theme="clinical">
+<body data-build="5.0.0" class="auth-page" data-theme="clinical">
   <main class="auth-layout">
     <section class="auth-brand-panel">
       <div class="auth-brand-top">
@@ -104,6 +104,319 @@
       <p class="auth-copyright">© <span id="year"></span> Suhail Medical Dictionary · Created by Suhail Saeedy</p>
     </section>
   </main>
-  <script type="module" src="./assets/js/login.js?v=4.0.0"></script>
+  <script>
+'use strict';
+(()=>{
+const UI={
+ en:{openDictionary:'Open Dictionary',forStudents:'For medical students',heroTitle:'Understand medical terminology faster.',heroText:'Search by specialty, switch explanations between languages, hear pronunciation, select terms for print/PDF, study with AI, and keep the dictionary offline.',startLearning:'Start Learning',openAI:'Open AI Assistant'},
+ ps:{openDictionary:'ډیکشنري خلاصه کړه',forStudents:'د طب محصلینو لپاره',heroTitle:'طبي اصطلاحات په اسانه او چټکه توګه زده کړئ.',heroText:'د څانګې له مخې لټون، څو ژبې، تلفظ، چاپ/PDF، AI زده کړه او افلاین ډیکشنري.',startLearning:'زده کړه پیل کړه',openAI:'AI مرستیال خلاص کړه'},
+ prs:{openDictionary:'دیکشنری را باز کنید',forStudents:'برای محصلان طب',heroTitle:'اصطلاحات طبی را سریع‌تر و آسان‌تر بیاموزید.',heroText:'جستجو بر اساس بخش، چند زبان، تلفظ، چاپ/PDF، یادگیری با AI و استفاده آفلاین.',startLearning:'شروع یادگیری',openAI:'دستیار AI را باز کنید'},
+ fa:{openDictionary:'باز کردن فرهنگ',forStudents:'برای دانشجویان پزشکی',heroTitle:'اصطلاحات پزشکی را سریع‌تر درک کنید.',heroText:'جستجو بر اساس تخصص، چند زبان، تلفظ، چاپ/PDF، یادگیری با AI و فرهنگ آفلاین.',startLearning:'شروع یادگیری',openAI:'باز کردن دستیار AI'},
+ tr:{openDictionary:'Sözlüğü Aç',forStudents:'Tıp öğrencileri için',heroTitle:'Tıbbi terminolojiyi daha hızlı anlayın.',heroText:'Uzmanlığa göre arayın, dilleri değiştirin, telaffuzu dinleyin, PDF oluşturun, AI ile çalışın ve çevrimdışı kullanın.',startLearning:'Öğrenmeye Başla',openAI:'AI Asistanını Aç'},
+ ar:{openDictionary:'فتح القاموس',forStudents:'لطلبة الطب',heroTitle:'افهم المصطلحات الطبية بسرعة أكبر.',heroText:'ابحث حسب التخصص، بدّل اللغة، استمع للنطق، اطبع/صدّر PDF، ادرس بالذكاء الاصطناعي واستخدم القاموس دون اتصال.',startLearning:'ابدأ التعلم',openAI:'فتح مساعد الذكاء الاصطناعي'},
+ zh:{openDictionary:'打开词典',forStudents:'面向医学生',heroTitle:'更快理解医学术语。',heroText:'按专业搜索、切换语言、收听发音、打印/PDF、使用 AI 学习，并可离线使用词典。',startLearning:'开始学习',openAI:'打开 AI 助手'}
+};
+function applyTheme(){const sel=document.querySelector('#themeSelect');const saved=localStorage.getItem('smd-theme')||'clinical';document.body.dataset.theme=saved;if(sel){sel.value=saved;sel.addEventListener('change',()=>{localStorage.setItem('smd-theme',sel.value);document.body.dataset.theme=sel.value;});}}
+function applyUI(lang){const dict=UI[lang]||UI.en;document.documentElement.lang=lang;document.documentElement.dir=['ps','prs','fa','ar'].includes(lang)?'rtl':'ltr';document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=dict[el.dataset.i18n]||el.textContent;});}
+function init(){applyTheme();const l=document.querySelector('#uiLanguage');if(l){const saved=localStorage.getItem('smd-ui-lang')||'en';l.value=saved;applyUI(saved);l.addEventListener('change',()=>{localStorage.setItem('smd-ui-lang',l.value);applyUI(l.value);});}const y=document.querySelector('#year');if(y)y.textContent=new Date().getFullYear();if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});}
+init();
+})();
+const SMDAuth=(()=>{
+const CONFIG={
+  supabaseUrl: 'https://qdfylefkkkyjwtqqiuye.supabase.co',
+  supabaseAnonKey: 'sb_publishable_CQwb8FIM4lLL27T8xZGqCQ_sGT4phu7',
+  aiWorkerUrl: '',
+  appName: 'Suhail Medical Dictionary',
+  meshVersion: '2026',
+  autoApplyUpdates: true,
+  uiVersion: '5.0.0'
+};
+// v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
+// so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
+const AUTH_STORAGE_KEY='smd-auth-v5';
+const OLD_STORAGE_KEYS=['smd-auth-v4','smd-auth-v3-3'];
+const DEFAULT_TIMEOUT=8000;
+
+function withTimeout(promise,ms=DEFAULT_TIMEOUT,label='Request'){
+  let timer;
+  return Promise.race([
+    promise,
+    new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(`${label} timed out. Please retry.`)),ms);})
+  ]).finally(()=>clearTimeout(timer));
+}
+function apiBase(){return String(CONFIG.supabaseUrl||'').replace(/\/$/,'');}
+function configured(){return /^https:\/\//.test(apiBase())&&String(CONFIG.supabaseAnonKey||'').length>10;}
+function jsonParse(raw){try{return JSON.parse(raw);}catch{return null;}}
+function readStoredSession(){
+  try{
+    const direct=jsonParse(localStorage.getItem(AUTH_STORAGE_KEY));
+    if(direct?.access_token&&direct?.user)return direct;
+    for(const key of OLD_STORAGE_KEYS){
+      const legacy=jsonParse(localStorage.getItem(key));
+      if(legacy?.access_token&&legacy?.user){
+        try{localStorage.setItem(AUTH_STORAGE_KEY,JSON.stringify(legacy));}catch{}
+        return legacy;
+      }
+    }
+  }catch{}
+  return null;
+}
+function peekSession(){
+  const s=readStoredSession();
+  if(!s?.access_token||!s?.user?.id)return null;
+  const now=Math.floor(Date.now()/1000);
+  if(s.expires_at && Number(s.expires_at)<=now-10)return null;
+  return s;
+}
+function saveSession(session){
+  if(!session?.access_token||!session?.user)throw new Error('The sign-in response was incomplete.');
+  localStorage.setItem(AUTH_STORAGE_KEY,JSON.stringify(session));
+  for(const key of OLD_STORAGE_KEYS){try{localStorage.removeItem(key);}catch{}}
+  return session;
+}
+function clearLocalAuth(){
+  try{localStorage.removeItem(AUTH_STORAGE_KEY);}catch{}
+  for(const key of OLD_STORAGE_KEYS){try{localStorage.removeItem(key);}catch{}}
+  try{sessionStorage.removeItem('smd-oauth-inflight');}catch{}
+}
+function decodeJwtUser(token){
+  try{
+    const part=token.split('.')[1];
+    const normalized=part.replace(/-/g,'+').replace(/_/g,'/').padEnd(Math.ceil(part.length/4)*4,'=');
+    const payload=JSON.parse(decodeURIComponent(Array.from(atob(normalized),c=>`%${c.charCodeAt(0).toString(16).padStart(2,'0')}`).join('')));
+    if(!payload?.sub)return null;
+    return {id:payload.sub,email:payload.email||'',aud:payload.aud,role:payload.role||'authenticated',app_metadata:payload.app_metadata||{},user_metadata:payload.user_metadata||{}};
+  }catch{return null;}
+}
+function authHeaders(token,extra={}){
+  const h={'apikey':CONFIG.supabaseAnonKey,...extra};
+  if(token)h.Authorization=`Bearer ${token}`;
+  return h;
+}
+async function parseResponse(res){
+  const text=await res.text();
+  const body=text?jsonParse(text):null;
+  if(!res.ok){
+    const err=new Error(body?.msg||body?.message||body?.error_description||body?.error||`Request failed (${res.status}).`);
+    err.status=res.status;err.code=body?.code||body?.error_code||'';err.details=body?.details||'';
+    throw err;
+  }
+  return body;
+}
+async function fetchUser(accessToken){
+  const res=await withTimeout(fetch(`${apiBase()}/auth/v1/user`,{headers:authHeaders(accessToken)}),7000,'Verifying your Google session');
+  return parseResponse(res);
+}
+async function captureOAuthCallback(){
+  if(!configured()||typeof location==='undefined')return null;
+  const raw=location.hash?.startsWith('#')?location.hash.slice(1):'';
+  if(!raw)return null;
+  const p=new URLSearchParams(raw);
+  const oauthError=p.get('error_description')||p.get('error');
+  if(oauthError){
+    history.replaceState(null,'',location.pathname+location.search);
+    throw new Error(oauthError);
+  }
+  const access=p.get('access_token');
+  if(!access)return null;
+  let user=null;
+  try{user=await fetchUser(access);}catch{user=decodeJwtUser(access);}
+  if(!user?.id)throw new Error('Google sign-in completed, but the user session could not be read.');
+  const expiresIn=Number(p.get('expires_in')||3600);
+  const expiresAt=Number(p.get('expires_at')||0)||Math.floor(Date.now()/1000)+expiresIn;
+  const session={
+    access_token:access,
+    refresh_token:p.get('refresh_token')||'',
+    token_type:p.get('token_type')||'bearer',
+    expires_in:expiresIn,
+    expires_at:expiresAt,
+    provider_token:p.get('provider_token')||undefined,
+    provider_refresh_token:p.get('provider_refresh_token')||undefined,
+    user
+  };
+  saveSession(session);
+  history.replaceState(null,'',location.pathname+location.search);
+  return session;
+}
+async function refreshSession(session){
+  if(!session?.refresh_token)return null;
+  const res=await withTimeout(fetch(`${apiBase()}/auth/v1/token?grant_type=refresh_token`,{
+    method:'POST',headers:authHeaders(null,{'content-type':'application/json'}),body:JSON.stringify({refresh_token:session.refresh_token})
+  }),8000,'Refreshing your session');
+  const data=await parseResponse(res);
+  const user=data.user||decodeJwtUser(data.access_token);
+  if(!data.access_token||!user?.id)return null;
+  return saveSession({...data,user,expires_at:data.expires_at||Math.floor(Date.now()/1000)+Number(data.expires_in||3600)});
+}
+async function currentSession(){
+  if(!configured())return null;
+  const callback=await captureOAuthCallback();
+  if(callback)return callback;
+  const session=readStoredSession();
+  if(!session)return null;
+  const now=Math.floor(Date.now()/1000);
+  if(!session.expires_at||Number(session.expires_at)>now+45)return session;
+  try{return await refreshSession(session);}catch{clearLocalAuth();return null;}
+}
+async function signInWithGoogle(redirectTo){
+  if(!configured())throw new Error('Google sign-in is not configured.');
+  sessionStorage.setItem('smd-oauth-inflight','1');
+  const u=new URL(`${apiBase()}/auth/v1/authorize`);
+  u.searchParams.set('provider','google');
+  u.searchParams.set('redirect_to',redirectTo);
+  // GoTrue forwards supported provider query params to Google.
+  u.searchParams.set('prompt','select_account');
+  location.assign(u.toString());
+  return {url:u.toString()};
+}
+async function signOut(){
+  const session=readStoredSession();
+  clearLocalAuth();
+  if(session?.access_token&&navigator.onLine){
+    try{await withTimeout(fetch(`${apiBase()}/auth/v1/logout?scope=local`,{method:'POST',headers:authHeaders(session.access_token)}),3500,'Signing out');}catch{}
+  }
+}
+
+class RestBuilder{
+  constructor(table){this.table=table;this.method='GET';this.body=null;this.filters=[];this.params=new URLSearchParams();this.wantRepresentation=false;}
+  select(cols='*'){this.params.set('select',cols||'*');if(this.method!=='GET')this.wantRepresentation=true;return this;}
+  insert(value){this.method='POST';this.body=value;return this;}
+  update(value){this.method='PATCH';this.body=value;return this;}
+  delete(){this.method='DELETE';return this;}
+  eq(col,value){this.filters.push([col,`eq.${value}`]);return this;}
+  order(col,{ascending=true}={}){this.params.set('order',`${col}.${ascending?'asc':'desc'}`);return this;}
+  async single(){const r=await this._execute();if(r.error)return r;const arr=Array.isArray(r.data)?r.data:[];if(arr.length!==1)return {data:null,error:new Error(arr.length?'Expected one row.':'No row found.')};return {data:arr[0],error:null};}
+  async maybeSingle(){const r=await this._execute();if(r.error)return r;const arr=Array.isArray(r.data)?r.data:[];return {data:arr[0]||null,error:null};}
+  then(resolve,reject){return this._execute().then(resolve,reject);}
+  async _execute(){
+    try{
+      const session=await currentSession();
+      const url=new URL(`${apiBase()}/rest/v1/${encodeURIComponent(this.table)}`);
+      for(const [k,v] of this.params)url.searchParams.set(k,v);
+      for(const [k,v] of this.filters)url.searchParams.append(k,v);
+      const headers=authHeaders(session?.access_token,{});
+      const opts={method:this.method,headers};
+      if(this.method!=='GET'&&this.body!==null){headers['content-type']='application/json';opts.body=JSON.stringify(this.body);}
+      if(this.method==='POST'||this.method==='PATCH')headers.Prefer=this.wantRepresentation?'return=representation':'return=minimal';
+      const res=await withTimeout(fetch(url.toString(),opts),9000,'Cloud data request');
+      if(!res.ok)await parseResponse(res);
+      if(res.status===204)return {data:null,error:null};
+      const text=await res.text();const data=text?jsonParse(text):null;
+      return {data,error:null};
+    }catch(error){return {data:null,error};}
+  }
+}
+class RestClient{
+  constructor(){
+    this.auth={
+      getSession:async()=>({data:{session:await currentSession()},error:null}),
+      getUser:async()=>{const s=await currentSession();return {data:{user:s?.user||null},error:null};},
+      signOut:async()=>{await signOut();return {error:null};}
+    };
+  }
+  from(table){return new RestBuilder(table);}
+  async rpc(name,args={}){
+    try{
+      const session=await currentSession();
+      const res=await withTimeout(fetch(`${apiBase()}/rest/v1/rpc/${encodeURIComponent(name)}`,{
+        method:'POST',headers:authHeaders(session?.access_token,{'content-type':'application/json'}),body:JSON.stringify(args||{})
+      }),9000,'Cloud account request');
+      const data=await parseResponse(res);
+      return {data,error:null};
+    }catch(error){return {data:null,error};}
+  }
+}
+let client=null;
+async function getSupabase(){
+  if(!configured())return null;
+  if(!client)client=new RestClient();
+  return client;
+}
+async function getMyProfile(){
+  const sb=await getSupabase();const sess=await currentSession();if(!sb||!sess)return null;
+  const {data,error}=await sb.from('profiles').select('email,is_owner,allow_owner_review,privacy_ack_at').eq('id',sess.user.id).single();
+  if(error)return null;return data;
+}
+async function setOwnerReviewConsent(value){
+  const sb=await getSupabase();if(!sb)throw new Error('Cloud account is unavailable.');
+  const {error}=await sb.rpc('set_owner_review_consent',{p_allow:!!value});if(error)throw error;return !!value;
+}
+async function logEvent(type,metadata={}){
+  try{
+    const sb=await getSupabase(),sess=await currentSession();if(!sb||!sess?.user)return;
+    await sb.from('user_events').insert({user_id:sess.user.id,event_type:type,metadata,user_agent:navigator.userAgent.slice(0,500)});
+    await sb.rpc('touch_last_seen');
+  }catch{}
+}
+
+return {peekSession,currentSession,signInWithGoogle,signOut,getSupabase,getMyProfile,setOwnerReviewConsent,logEvent};
+})();
+(()=>{
+const CONFIG={
+  supabaseUrl: 'https://qdfylefkkkyjwtqqiuye.supabase.co',
+  supabaseAnonKey: 'sb_publishable_CQwb8FIM4lLL27T8xZGqCQ_sGT4phu7',
+  aiWorkerUrl: '',
+  appName: 'Suhail Medical Dictionary',
+  meshVersion: '2026',
+  autoApplyUpdates: true,
+  uiVersion: '5.0.0'
+};
+const {currentSession,signInWithGoogle,signOut,getMyProfile,setOwnerReviewConsent,logEvent}=SMDAuth;
+const $=s=>document.querySelector(s);
+const RTL=new Set(['ps','prs','fa','ar']);
+const TEXT={
+ en:{welcome:'Welcome',title:'Continue with Google',sub:'Choose the Google account you want to use. This site never asks for a new password.',google:'Choose a Google account',working:'Opening Google…',needConfig:'Google sign-in is not configured yet. The owner must connect Supabase and Google OAuth first.',securityTitle:'Your Google password stays with Google.',securityBody:'This website never asks for, receives, or stores your Google password.',consentTitle:'One-time account setup',consentSub:'Accept the Privacy Notice and Terms before opening your workspace.',accept:'I accept the Privacy Notice and Terms.',review:'Optional: allow the owner to review my stored chat content for support and quality.',continue:'Continue to my workspace',another:'Use another Google account',signed:'Signed in as',returning:'A Google account is already signed in on this device.',continueCurrent:'Continue with this account'},
+ ps:{welcome:'ښه راغلاست',title:'د Google حساب وټاکئ',sub:'هغه Google حساب وټاکئ چې غواړئ له همدې سره سیستم وکاروئ. نوی پاسورډ ته اړتیا نشته.',google:'Google حساب وټاکئ',working:'Google پرانیستل کېږي…',needConfig:'Google Login لا نه دی تنظیم شوی. Owner باید لومړی Supabase او Google OAuth وصل کړي.',securityTitle:'ستاسو د Google پاسورډ له Google سره پاتې کېږي.',securityBody:'دا ویب‌سایټ ستاسو د Google پاسورډ نه غواړي، نه یې ترلاسه کوي او نه یې ذخیره کوي.',consentTitle:'د حساب یو ځل تنظیم',consentSub:'Workspace ته له ننوتلو مخکې Privacy Notice او Terms ومنئ.',accept:'زه Privacy Notice او Terms منم.',review:'اختیاري: Owner ته اجازه ورکوم چې د Support او Quality لپاره زما ذخیره شوي Chatونه وګوري.',continue:'خپل Workspace ته دوام',another:'بل Google حساب استعمالول',signed:'داخل شوی حساب',returning:'په دې وسیله کې یو Google حساب لا داخل دی.',continueCurrent:'په همدې حساب دوام'},
+ prs:{welcome:'خوش آمدید',title:'حساب Google را انتخاب کنید',sub:'حساب Google مورد نظر را انتخاب کنید. نیازی به ساختن رمز جدید نیست.',google:'انتخاب حساب Google',working:'Google باز می‌شود…',needConfig:'ورود Google هنوز تنظیم نشده است.',securityTitle:'رمز Google شما نزد Google می‌ماند.',securityBody:'این وب‌سایت رمز Google شما را نمی‌خواهد، دریافت نمی‌کند و ذخیره نمی‌کند.',consentTitle:'تنظیم یک‌باره حساب',consentSub:'پیش از ورود، Privacy Notice و Terms را بپذیرید.',accept:'Privacy Notice و Terms را می‌پذیرم.',review:'اختیاری: اجازه بررسی چت‌های ذخیره‌شده برای پشتیبانی و کیفیت.',continue:'ادامه به فضای من',another:'استفاده از حساب Google دیگر',signed:'حساب واردشده',returning:'یک حساب Google در این دستگاه وارد شده است.',continueCurrent:'ادامه با همین حساب'},
+ fa:{welcome:'خوش آمدید',title:'حساب Google را انتخاب کنید',sub:'حساب Google مورد نظر را انتخاب کنید. نیازی به ساخت رمز جدید نیست.',google:'انتخاب حساب Google',working:'در حال باز کردن Google…',needConfig:'ورود Google هنوز تنظیم نشده است.',securityTitle:'رمز Google شما نزد Google می‌ماند.',securityBody:'این وب‌سایت رمز Google شما را درخواست، دریافت یا ذخیره نمی‌کند.',consentTitle:'راه‌اندازی یک‌باره حساب',consentSub:'پیش از ورود، Privacy Notice و Terms را بپذیرید.',accept:'Privacy Notice و Terms را می‌پذیرم.',review:'اختیاری: اجازه بررسی چت‌های ذخیره‌شده برای پشتیبانی و کیفیت.',continue:'ادامه به فضای من',another:'استفاده از حساب Google دیگر',signed:'حساب واردشده',returning:'یک حساب Google در این دستگاه وارد شده است.',continueCurrent:'ادامه با همین حساب'},
+ tr:{welcome:'Hoş geldiniz',title:'Google hesabı seçin',sub:'Kullanmak istediğiniz Google hesabını seçin. Yeni parola gerekmez.',google:'Google hesabı seç',working:'Google açılıyor…',needConfig:'Google girişi henüz yapılandırılmadı.',securityTitle:'Google parolanız Google’da kalır.',securityBody:'Bu site Google parolanızı istemez, almaz veya saklamaz.',consentTitle:'Tek seferlik hesap kurulumu',consentSub:'Çalışma alanını açmadan önce Gizlilik Bildirimi ve Koşulları kabul edin.',accept:'Gizlilik Bildirimi ve Koşulları kabul ediyorum.',review:'İsteğe bağlı: destek ve kalite için kayıtlı sohbetlerimin incelenmesine izin ver.',continue:'Çalışma alanıma devam et',another:'Başka bir Google hesabı kullan',signed:'Giriş yapılan hesap',returning:'Bu cihazda bir Google hesabı zaten açık.',continueCurrent:'Bu hesapla devam et'},
+ ar:{welcome:'مرحباً',title:'اختر حساب Google',sub:'اختر حساب Google الذي تريد استخدامه. لا حاجة لإنشاء كلمة مرور جديدة.',google:'اختيار حساب Google',working:'جارٍ فتح Google…',needConfig:'تسجيل الدخول عبر Google غير مُعد بعد.',securityTitle:'كلمة مرور Google تبقى لدى Google.',securityBody:'هذا الموقع لا يطلب كلمة مرور Google ولا يستلمها ولا يخزنها.',consentTitle:'إعداد الحساب لمرة واحدة',consentSub:'اقبل إشعار الخصوصية والشروط قبل فتح مساحة الدراسة.',accept:'أوافق على إشعار الخصوصية والشروط.',review:'اختياري: السماح للمالك بمراجعة المحادثات المحفوظة للدعم والجودة.',continue:'المتابعة إلى مساحتي',another:'استخدام حساب Google آخر',signed:'الحساب المسجل',returning:'يوجد حساب Google مسجل على هذا الجهاز.',continueCurrent:'المتابعة بهذا الحساب'},
+ zh:{welcome:'欢迎',title:'选择 Google 账号',sub:'选择你想使用的 Google 账号，无需创建新密码。',google:'选择 Google 账号',working:'正在打开 Google…',needConfig:'Google 登录尚未配置。',securityTitle:'你的 Google 密码只由 Google 保管。',securityBody:'本网站不会请求、接收或存储你的 Google 密码。',consentTitle:'一次性账户设置',consentSub:'进入学习空间前，请接受隐私声明和条款。',accept:'我接受隐私声明和条款。',review:'可选：允许站点所有者为支持和质量目的查看我保存的聊天。',continue:'进入我的学习空间',another:'使用其他 Google 账号',signed:'已登录账号',returning:'此设备已有 Google 账号登录。',continueCurrent:'使用此账号继续'}
+};
+function lang(){return localStorage.getItem('smd-ui-lang')||'en';}
+function t(){return TEXT[lang()]||TEXT.en;}
+function applyLanguage(code){localStorage.setItem('smd-ui-lang',code);document.documentElement.lang=code;document.documentElement.dir=RTL.has(code)?'rtl':'ltr';$('#loginLanguage').value=code;render();}
+function render(){const x=t();$('#authKicker').textContent=x.welcome;$('#authTitle').textContent=x.title;$('#authSubtitle').textContent=x.sub;$('#googleButtonText').textContent=x.google;$('#securityTitle').textContent=x.securityTitle;$('#securityBody').textContent=x.securityBody;$('#consentTitle').textContent=x.consentTitle;$('#consentSubtitle').textContent=x.consentSub;$('#privacyAcceptText').textContent=x.accept;$('#ownerReviewText').textContent=x.review;$('#consentContinue').textContent=x.continue;$('#useAnotherGoogle').textContent=x.another;$('#returningTitle').textContent=x.returning;$('#continueCurrent').textContent=x.continueCurrent;$('#returningAnother').textContent=x.another;}
+function showMessage(msg,type='info'){for(const id of ['#authMessage','#authMessageConsent','#returningMessage']){const el=$(id);if(!el)continue;el.textContent=msg;el.className=`auth-message ${type}`;}}
+function showGoogle(){ $('#returningPanel').classList.add('hidden');$('#consentPanel').classList.add('hidden');$('#googleSignInPanel').classList.remove('hidden'); }
+function showConsent(session){const x=t();$('#googleSignInPanel').classList.add('hidden');$('#returningPanel').classList.add('hidden');$('#consentPanel').classList.remove('hidden');$('#signedInAs').textContent=`${x.signed}: ${session.user.email||''}`;}
+function showReturning(session){const x=t();$('#googleSignInPanel').classList.add('hidden');$('#consentPanel').classList.add('hidden');$('#returningPanel').classList.remove('hidden');$('#returningEmail').textContent=`${x.signed}: ${session.user.email||''}`;}
+async function loadProfileWithRetry(){for(let i=0;i<6;i++){const p=await getMyProfile();if(p)return p;await new Promise(r=>setTimeout(r,300));}return null;}
+async function proceedSession(session,{fromOAuth=false}={}){const profile=await loadProfileWithRetry();if(profile?.privacy_ack_at){if(fromOAuth){logEvent('login',{provider:'google'}).catch(()=>{});location.replace('./app.html');return;}showReturning(session);return;}if(!profile&&!fromOAuth){showReturning(session);return;}showConsent(session);}
+async function init(){
+ $('#year').textContent=new Date().getFullYear();applyLanguage(lang());
+ $('#loginLanguage').addEventListener('change',e=>applyLanguage(e.target.value));
+ $('#googleSignIn').addEventListener('click',()=>startGoogle({resetLocal:true}));
+ $('#consentContinue').addEventListener('click',saveConsent);
+ $('#useAnotherGoogle').addEventListener('click',()=>startGoogle({resetLocal:true}));
+ $('#returningAnother').addEventListener('click',()=>startGoogle({resetLocal:true}));
+ $('#continueCurrent').addEventListener('click',async()=>{location.replace('./app.html');});
+ if(!CONFIG.supabaseUrl||!CONFIG.supabaseAnonKey){showMessage(t().needConfig,'warning');return;}
+ try{
+   const s=await currentSession();
+   if(s){const fromOAuth=sessionStorage.getItem('smd-oauth-inflight')==='1';sessionStorage.removeItem('smd-oauth-inflight');await proceedSession(s,{fromOAuth});}
+   else showGoogle();
+ }catch(err){showGoogle();showMessage(err.message||'Sign-in could not be completed.','warning');}
+}
+async function startGoogle({resetLocal=false}={}){
+ if(!CONFIG.supabaseUrl||!CONFIG.supabaseAnonKey){showMessage(t().needConfig,'warning');return;}
+ const btn=$('#googleSignIn');if(btn)btn.disabled=true;$('#googleButtonText').textContent=t().working;showMessage('');
+ try{
+   if(resetLocal)await signOut();
+   const redirectTo=new URL('./index.html',window.location.href).href.split('#')[0].split('?')[0];
+   await signInWithGoogle(redirectTo);
+ }catch(err){showGoogle();showMessage(err.message||'Google sign-in could not be started.','error');if(btn)btn.disabled=false;render();}
+}
+async function saveConsent(){
+ if(!$('#privacyAccept').checked){showMessage(t().accept,'warning');return;}
+ const btn=$('#consentContinue');btn.disabled=true;showMessage('');
+ try{await setOwnerReviewConsent($('#ownerReviewOptIn').checked);logEvent('signup_or_consent',{provider:'google',privacyAccepted:true,ownerReview:$('#ownerReviewOptIn').checked}).catch(()=>{});location.replace('./app.html');}
+ catch(err){showMessage(err.message||'Account setup could not be completed.','error');btn.disabled=false;}
+}
+init();
+
+})();
+
+</script>
 </body>
 </html>

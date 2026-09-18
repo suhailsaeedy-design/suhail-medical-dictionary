@@ -1,1 +1,263 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0d6efd"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./assets/icons/icon-192.png"><link rel="stylesheet" href="./assets/css/styles.css"><title>Owner Admin · Suhail Medical Dictionary</title></head><body data-theme="clinical"><header class="topbar sticky"><a class="brand" href="./index.html"><img src="./assets/icons/icon-192.png" class="brand-logo" alt=""><span>Owner Admin</span></a><div class="top-actions"><a class="button ghost" href="./app.html">Dictionary</a><button id="adminSignOut" class="button ghost">Sign out</button></div></header><main class="admin-shell"><section id="adminGate" class="glass admin-gate"><h1>Owner dashboard</h1><p>Sign in from the Dictionary page with the configured owner account.</p><a class="button primary" href="./app.html">Go to sign in</a></section><section id="adminContent" class="hidden"><div class="admin-heading"><div><h1>System overview</h1><p class="muted">Analytics are owner-only. Chat content is available only for users who have enabled owner review consent.</p></div><button id="refreshAdmin" class="button ghost">Refresh</button></div><div class="metric-grid"><article><span>Total users</span><strong id="metricUsers">—</strong></article><article><span>Chats</span><strong id="metricChats">—</strong></article><article><span>AI messages</span><strong id="metricMessages">—</strong></article><article><span>Events</span><strong id="metricEvents">—</strong></article></div><div class="admin-grid"><section class="glass table-card"><h2>Users</h2><input id="userFilter" class="control" placeholder="Filter by email"><div class="table-wrap"><table><thead><tr><th>Email</th><th>Created</th><th>Last seen</th><th>Chats</th><th>Messages</th><th>Review consent</th><th></th></tr></thead><tbody id="userRows"></tbody></table></div></section><section class="glass table-card"><h2>Recent activity</h2><div id="eventList" class="event-list"></div></section></div><section class="glass table-card"><div class="chat-audit-head"><div><h2>Consent-aware chat audit</h2><p id="auditUser" class="muted">Choose a user who has enabled review consent.</p></div><select id="auditChatSelect" class="control compact"><option value="">Choose chat</option></select></div><div id="auditMessages" class="audit-messages"></div></section></section></main><script type="module" src="./assets/js/admin.js"></script></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0d6efd"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./assets/icons/icon-192.png"><link rel="stylesheet" href="./assets/css/styles.css"><title>Owner Admin · Suhail Medical Dictionary</title></head><body data-build="5.0.0" data-theme="clinical"><header class="topbar sticky"><a class="brand" href="./index.html"><img src="./assets/icons/icon-192.png" class="brand-logo" alt=""><span>Owner Admin</span></a><div class="top-actions"><a class="button ghost" href="./app.html">Dictionary</a><button id="adminSignOut" class="button ghost">Sign out</button></div></header><main class="admin-shell"><section id="adminGate" class="glass admin-gate"><h1>Owner dashboard</h1><p>Sign in from the Dictionary page with the configured owner account.</p><a class="button primary" href="./app.html">Go to sign in</a></section><section id="adminContent" class="hidden"><div class="admin-heading"><div><h1>System overview</h1><p class="muted">Analytics are owner-only. Chat content is available only for users who have enabled owner review consent.</p></div><button id="refreshAdmin" class="button ghost">Refresh</button></div><div class="metric-grid"><article><span>Total users</span><strong id="metricUsers">—</strong></article><article><span>Chats</span><strong id="metricChats">—</strong></article><article><span>AI messages</span><strong id="metricMessages">—</strong></article><article><span>Events</span><strong id="metricEvents">—</strong></article></div><div class="admin-grid"><section class="glass table-card"><h2>Users</h2><input id="userFilter" class="control" placeholder="Filter by email"><div class="table-wrap"><table><thead><tr><th>Email</th><th>Created</th><th>Last seen</th><th>Chats</th><th>Messages</th><th>Review consent</th><th></th></tr></thead><tbody id="userRows"></tbody></table></div></section><section class="glass table-card"><h2>Recent activity</h2><div id="eventList" class="event-list"></div></section></div><section class="glass table-card"><div class="chat-audit-head"><div><h2>Consent-aware chat audit</h2><p id="auditUser" class="muted">Choose a user who has enabled review consent.</p></div><select id="auditChatSelect" class="control compact"><option value="">Choose chat</option></select></div><div id="auditMessages" class="audit-messages"></div></section></section></main><script>
+'use strict';
+(()=>{
+const UI={
+ en:{openDictionary:'Open Dictionary',forStudents:'For medical students',heroTitle:'Understand medical terminology faster.',heroText:'Search by specialty, switch explanations between languages, hear pronunciation, select terms for print/PDF, study with AI, and keep the dictionary offline.',startLearning:'Start Learning',openAI:'Open AI Assistant'},
+ ps:{openDictionary:'ډیکشنري خلاصه کړه',forStudents:'د طب محصلینو لپاره',heroTitle:'طبي اصطلاحات په اسانه او چټکه توګه زده کړئ.',heroText:'د څانګې له مخې لټون، څو ژبې، تلفظ، چاپ/PDF، AI زده کړه او افلاین ډیکشنري.',startLearning:'زده کړه پیل کړه',openAI:'AI مرستیال خلاص کړه'},
+ prs:{openDictionary:'دیکشنری را باز کنید',forStudents:'برای محصلان طب',heroTitle:'اصطلاحات طبی را سریع‌تر و آسان‌تر بیاموزید.',heroText:'جستجو بر اساس بخش، چند زبان، تلفظ، چاپ/PDF، یادگیری با AI و استفاده آفلاین.',startLearning:'شروع یادگیری',openAI:'دستیار AI را باز کنید'},
+ fa:{openDictionary:'باز کردن فرهنگ',forStudents:'برای دانشجویان پزشکی',heroTitle:'اصطلاحات پزشکی را سریع‌تر درک کنید.',heroText:'جستجو بر اساس تخصص، چند زبان، تلفظ، چاپ/PDF، یادگیری با AI و فرهنگ آفلاین.',startLearning:'شروع یادگیری',openAI:'باز کردن دستیار AI'},
+ tr:{openDictionary:'Sözlüğü Aç',forStudents:'Tıp öğrencileri için',heroTitle:'Tıbbi terminolojiyi daha hızlı anlayın.',heroText:'Uzmanlığa göre arayın, dilleri değiştirin, telaffuzu dinleyin, PDF oluşturun, AI ile çalışın ve çevrimdışı kullanın.',startLearning:'Öğrenmeye Başla',openAI:'AI Asistanını Aç'},
+ ar:{openDictionary:'فتح القاموس',forStudents:'لطلبة الطب',heroTitle:'افهم المصطلحات الطبية بسرعة أكبر.',heroText:'ابحث حسب التخصص، بدّل اللغة، استمع للنطق، اطبع/صدّر PDF، ادرس بالذكاء الاصطناعي واستخدم القاموس دون اتصال.',startLearning:'ابدأ التعلم',openAI:'فتح مساعد الذكاء الاصطناعي'},
+ zh:{openDictionary:'打开词典',forStudents:'面向医学生',heroTitle:'更快理解医学术语。',heroText:'按专业搜索、切换语言、收听发音、打印/PDF、使用 AI 学习，并可离线使用词典。',startLearning:'开始学习',openAI:'打开 AI 助手'}
+};
+function applyTheme(){const sel=document.querySelector('#themeSelect');const saved=localStorage.getItem('smd-theme')||'clinical';document.body.dataset.theme=saved;if(sel){sel.value=saved;sel.addEventListener('change',()=>{localStorage.setItem('smd-theme',sel.value);document.body.dataset.theme=sel.value;});}}
+function applyUI(lang){const dict=UI[lang]||UI.en;document.documentElement.lang=lang;document.documentElement.dir=['ps','prs','fa','ar'].includes(lang)?'rtl':'ltr';document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=dict[el.dataset.i18n]||el.textContent;});}
+function init(){applyTheme();const l=document.querySelector('#uiLanguage');if(l){const saved=localStorage.getItem('smd-ui-lang')||'en';l.value=saved;applyUI(saved);l.addEventListener('change',()=>{localStorage.setItem('smd-ui-lang',l.value);applyUI(l.value);});}const y=document.querySelector('#year');if(y)y.textContent=new Date().getFullYear();if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});}
+init();
+})();
+const SMDAuth=(()=>{
+const CONFIG={
+  supabaseUrl: 'https://qdfylefkkkyjwtqqiuye.supabase.co',
+  supabaseAnonKey: 'sb_publishable_CQwb8FIM4lLL27T8xZGqCQ_sGT4phu7',
+  aiWorkerUrl: '',
+  appName: 'Suhail Medical Dictionary',
+  meshVersion: '2026',
+  autoApplyUpdates: true,
+  uiVersion: '5.0.0'
+};
+// v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
+// so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
+const AUTH_STORAGE_KEY='smd-auth-v5';
+const OLD_STORAGE_KEYS=['smd-auth-v4','smd-auth-v3-3'];
+const DEFAULT_TIMEOUT=8000;
+
+function withTimeout(promise,ms=DEFAULT_TIMEOUT,label='Request'){
+  let timer;
+  return Promise.race([
+    promise,
+    new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(`${label} timed out. Please retry.`)),ms);})
+  ]).finally(()=>clearTimeout(timer));
+}
+function apiBase(){return String(CONFIG.supabaseUrl||'').replace(/\/$/,'');}
+function configured(){return /^https:\/\//.test(apiBase())&&String(CONFIG.supabaseAnonKey||'').length>10;}
+function jsonParse(raw){try{return JSON.parse(raw);}catch{return null;}}
+function readStoredSession(){
+  try{
+    const direct=jsonParse(localStorage.getItem(AUTH_STORAGE_KEY));
+    if(direct?.access_token&&direct?.user)return direct;
+    for(const key of OLD_STORAGE_KEYS){
+      const legacy=jsonParse(localStorage.getItem(key));
+      if(legacy?.access_token&&legacy?.user){
+        try{localStorage.setItem(AUTH_STORAGE_KEY,JSON.stringify(legacy));}catch{}
+        return legacy;
+      }
+    }
+  }catch{}
+  return null;
+}
+function peekSession(){
+  const s=readStoredSession();
+  if(!s?.access_token||!s?.user?.id)return null;
+  const now=Math.floor(Date.now()/1000);
+  if(s.expires_at && Number(s.expires_at)<=now-10)return null;
+  return s;
+}
+function saveSession(session){
+  if(!session?.access_token||!session?.user)throw new Error('The sign-in response was incomplete.');
+  localStorage.setItem(AUTH_STORAGE_KEY,JSON.stringify(session));
+  for(const key of OLD_STORAGE_KEYS){try{localStorage.removeItem(key);}catch{}}
+  return session;
+}
+function clearLocalAuth(){
+  try{localStorage.removeItem(AUTH_STORAGE_KEY);}catch{}
+  for(const key of OLD_STORAGE_KEYS){try{localStorage.removeItem(key);}catch{}}
+  try{sessionStorage.removeItem('smd-oauth-inflight');}catch{}
+}
+function decodeJwtUser(token){
+  try{
+    const part=token.split('.')[1];
+    const normalized=part.replace(/-/g,'+').replace(/_/g,'/').padEnd(Math.ceil(part.length/4)*4,'=');
+    const payload=JSON.parse(decodeURIComponent(Array.from(atob(normalized),c=>`%${c.charCodeAt(0).toString(16).padStart(2,'0')}`).join('')));
+    if(!payload?.sub)return null;
+    return {id:payload.sub,email:payload.email||'',aud:payload.aud,role:payload.role||'authenticated',app_metadata:payload.app_metadata||{},user_metadata:payload.user_metadata||{}};
+  }catch{return null;}
+}
+function authHeaders(token,extra={}){
+  const h={'apikey':CONFIG.supabaseAnonKey,...extra};
+  if(token)h.Authorization=`Bearer ${token}`;
+  return h;
+}
+async function parseResponse(res){
+  const text=await res.text();
+  const body=text?jsonParse(text):null;
+  if(!res.ok){
+    const err=new Error(body?.msg||body?.message||body?.error_description||body?.error||`Request failed (${res.status}).`);
+    err.status=res.status;err.code=body?.code||body?.error_code||'';err.details=body?.details||'';
+    throw err;
+  }
+  return body;
+}
+async function fetchUser(accessToken){
+  const res=await withTimeout(fetch(`${apiBase()}/auth/v1/user`,{headers:authHeaders(accessToken)}),7000,'Verifying your Google session');
+  return parseResponse(res);
+}
+async function captureOAuthCallback(){
+  if(!configured()||typeof location==='undefined')return null;
+  const raw=location.hash?.startsWith('#')?location.hash.slice(1):'';
+  if(!raw)return null;
+  const p=new URLSearchParams(raw);
+  const oauthError=p.get('error_description')||p.get('error');
+  if(oauthError){
+    history.replaceState(null,'',location.pathname+location.search);
+    throw new Error(oauthError);
+  }
+  const access=p.get('access_token');
+  if(!access)return null;
+  let user=null;
+  try{user=await fetchUser(access);}catch{user=decodeJwtUser(access);}
+  if(!user?.id)throw new Error('Google sign-in completed, but the user session could not be read.');
+  const expiresIn=Number(p.get('expires_in')||3600);
+  const expiresAt=Number(p.get('expires_at')||0)||Math.floor(Date.now()/1000)+expiresIn;
+  const session={
+    access_token:access,
+    refresh_token:p.get('refresh_token')||'',
+    token_type:p.get('token_type')||'bearer',
+    expires_in:expiresIn,
+    expires_at:expiresAt,
+    provider_token:p.get('provider_token')||undefined,
+    provider_refresh_token:p.get('provider_refresh_token')||undefined,
+    user
+  };
+  saveSession(session);
+  history.replaceState(null,'',location.pathname+location.search);
+  return session;
+}
+async function refreshSession(session){
+  if(!session?.refresh_token)return null;
+  const res=await withTimeout(fetch(`${apiBase()}/auth/v1/token?grant_type=refresh_token`,{
+    method:'POST',headers:authHeaders(null,{'content-type':'application/json'}),body:JSON.stringify({refresh_token:session.refresh_token})
+  }),8000,'Refreshing your session');
+  const data=await parseResponse(res);
+  const user=data.user||decodeJwtUser(data.access_token);
+  if(!data.access_token||!user?.id)return null;
+  return saveSession({...data,user,expires_at:data.expires_at||Math.floor(Date.now()/1000)+Number(data.expires_in||3600)});
+}
+async function currentSession(){
+  if(!configured())return null;
+  const callback=await captureOAuthCallback();
+  if(callback)return callback;
+  const session=readStoredSession();
+  if(!session)return null;
+  const now=Math.floor(Date.now()/1000);
+  if(!session.expires_at||Number(session.expires_at)>now+45)return session;
+  try{return await refreshSession(session);}catch{clearLocalAuth();return null;}
+}
+async function signInWithGoogle(redirectTo){
+  if(!configured())throw new Error('Google sign-in is not configured.');
+  sessionStorage.setItem('smd-oauth-inflight','1');
+  const u=new URL(`${apiBase()}/auth/v1/authorize`);
+  u.searchParams.set('provider','google');
+  u.searchParams.set('redirect_to',redirectTo);
+  // GoTrue forwards supported provider query params to Google.
+  u.searchParams.set('prompt','select_account');
+  location.assign(u.toString());
+  return {url:u.toString()};
+}
+async function signOut(){
+  const session=readStoredSession();
+  clearLocalAuth();
+  if(session?.access_token&&navigator.onLine){
+    try{await withTimeout(fetch(`${apiBase()}/auth/v1/logout?scope=local`,{method:'POST',headers:authHeaders(session.access_token)}),3500,'Signing out');}catch{}
+  }
+}
+
+class RestBuilder{
+  constructor(table){this.table=table;this.method='GET';this.body=null;this.filters=[];this.params=new URLSearchParams();this.wantRepresentation=false;}
+  select(cols='*'){this.params.set('select',cols||'*');if(this.method!=='GET')this.wantRepresentation=true;return this;}
+  insert(value){this.method='POST';this.body=value;return this;}
+  update(value){this.method='PATCH';this.body=value;return this;}
+  delete(){this.method='DELETE';return this;}
+  eq(col,value){this.filters.push([col,`eq.${value}`]);return this;}
+  order(col,{ascending=true}={}){this.params.set('order',`${col}.${ascending?'asc':'desc'}`);return this;}
+  async single(){const r=await this._execute();if(r.error)return r;const arr=Array.isArray(r.data)?r.data:[];if(arr.length!==1)return {data:null,error:new Error(arr.length?'Expected one row.':'No row found.')};return {data:arr[0],error:null};}
+  async maybeSingle(){const r=await this._execute();if(r.error)return r;const arr=Array.isArray(r.data)?r.data:[];return {data:arr[0]||null,error:null};}
+  then(resolve,reject){return this._execute().then(resolve,reject);}
+  async _execute(){
+    try{
+      const session=await currentSession();
+      const url=new URL(`${apiBase()}/rest/v1/${encodeURIComponent(this.table)}`);
+      for(const [k,v] of this.params)url.searchParams.set(k,v);
+      for(const [k,v] of this.filters)url.searchParams.append(k,v);
+      const headers=authHeaders(session?.access_token,{});
+      const opts={method:this.method,headers};
+      if(this.method!=='GET'&&this.body!==null){headers['content-type']='application/json';opts.body=JSON.stringify(this.body);}
+      if(this.method==='POST'||this.method==='PATCH')headers.Prefer=this.wantRepresentation?'return=representation':'return=minimal';
+      const res=await withTimeout(fetch(url.toString(),opts),9000,'Cloud data request');
+      if(!res.ok)await parseResponse(res);
+      if(res.status===204)return {data:null,error:null};
+      const text=await res.text();const data=text?jsonParse(text):null;
+      return {data,error:null};
+    }catch(error){return {data:null,error};}
+  }
+}
+class RestClient{
+  constructor(){
+    this.auth={
+      getSession:async()=>({data:{session:await currentSession()},error:null}),
+      getUser:async()=>{const s=await currentSession();return {data:{user:s?.user||null},error:null};},
+      signOut:async()=>{await signOut();return {error:null};}
+    };
+  }
+  from(table){return new RestBuilder(table);}
+  async rpc(name,args={}){
+    try{
+      const session=await currentSession();
+      const res=await withTimeout(fetch(`${apiBase()}/rest/v1/rpc/${encodeURIComponent(name)}`,{
+        method:'POST',headers:authHeaders(session?.access_token,{'content-type':'application/json'}),body:JSON.stringify(args||{})
+      }),9000,'Cloud account request');
+      const data=await parseResponse(res);
+      return {data,error:null};
+    }catch(error){return {data:null,error};}
+  }
+}
+let client=null;
+async function getSupabase(){
+  if(!configured())return null;
+  if(!client)client=new RestClient();
+  return client;
+}
+async function getMyProfile(){
+  const sb=await getSupabase();const sess=await currentSession();if(!sb||!sess)return null;
+  const {data,error}=await sb.from('profiles').select('email,is_owner,allow_owner_review,privacy_ack_at').eq('id',sess.user.id).single();
+  if(error)return null;return data;
+}
+async function setOwnerReviewConsent(value){
+  const sb=await getSupabase();if(!sb)throw new Error('Cloud account is unavailable.');
+  const {error}=await sb.rpc('set_owner_review_consent',{p_allow:!!value});if(error)throw error;return !!value;
+}
+async function logEvent(type,metadata={}){
+  try{
+    const sb=await getSupabase(),sess=await currentSession();if(!sb||!sess?.user)return;
+    await sb.from('user_events').insert({user_id:sess.user.id,event_type:type,metadata,user_agent:navigator.userAgent.slice(0,500)});
+    await sb.rpc('touch_last_seen');
+  }catch{}
+}
+
+return {peekSession,currentSession,signInWithGoogle,signOut,getSupabase,getMyProfile,setOwnerReviewConsent,logEvent};
+})();
+(()=>{
+const {getSupabase,currentSession,signOut,getMyProfile}=SMDAuth;
+const $=s=>document.querySelector(s);let users=[];
+async function init(){const sb=await getSupabase(),sess=await currentSession();if(!sess){location.replace('./index.html');return;}if(!sb){$('#adminGate').innerHTML='<h1>Admin unavailable</h1><p>Cloud account connection is not configured.</p>';return;}const me=await getMyProfile();if(!me?.is_owner){$('#adminGate').innerHTML='<h1>Access denied</h1><p>This page is restricted to the configured owner account.</p>';return;}$('#adminGate').classList.add('hidden');$('#adminContent').classList.remove('hidden');await loadAll(sb);$('#refreshAdmin').onclick=()=>loadAll(sb);$('#userFilter').oninput=renderUsers;$('#adminSignOut').onclick=async()=>{await signOut();location.href='./index.html';};}
+async function rpc(sb,name,args={}){const {data,error}=await sb.rpc(name,args);if(error)throw error;return data;}
+async function loadAll(sb){try{const [stats,u,e]=await Promise.all([rpc(sb,'admin_dashboard_stats'),rpc(sb,'admin_user_summaries'),rpc(sb,'admin_recent_events',{p_limit:100})]);const s=Array.isArray(stats)?stats[0]:stats||{};users=u||[];$('#metricUsers').textContent=Number(s.total_users||0).toLocaleString();$('#metricChats').textContent=Number(s.total_chats||0).toLocaleString();$('#metricMessages').textContent=Number(s.total_messages||0).toLocaleString();$('#metricEvents').textContent=Number(s.total_events||0).toLocaleString();renderUsers();renderEvents(e||[]);}catch(err){$('#adminContent').insertAdjacentHTML('afterbegin',`<p class="error-banner">${esc(err.message)}</p>`);}}
+function renderUsers(){const q=$('#userFilter').value.trim().toLowerCase();$('#userRows').innerHTML=users.filter(u=>!q||u.email.toLowerCase().includes(q)).map(u=>`<tr><td>${esc(u.email)}</td><td>${fmt(u.created_at)}</td><td>${fmt(u.last_seen_at)}</td><td>${u.chat_count||0}</td><td>${u.message_count||0}</td><td><span class="pill">${u.allow_owner_review?'Yes':'No'}</span></td><td><button class="button ghost compact" data-user="${u.id}" data-email="${esc(u.email)}" ${u.allow_owner_review?'':'disabled'}>${u.allow_owner_review?'View chats':'No consent'}</button></td></tr>`).join('');document.querySelectorAll('[data-user]:not([disabled])').forEach(b=>b.onclick=()=>loadUserChats(b.dataset.user,b.dataset.email));}
+function renderEvents(events){$('#eventList').innerHTML=events.map(e=>`<div class="event-item"><b>${esc(e.event_type)}</b><br><span class="muted">${fmt(e.created_at)} · ${esc(String(e.user_id).slice(0,8))}…</span></div>`).join('')||'<p class="muted">No events yet.</p>';}
+async function loadUserChats(userId,email){const sb=await getSupabase();$('#auditUser').textContent=`${email} · user consent is currently enabled`;const data=await rpc(sb,'admin_user_chats',{p_user:userId});const sel=$('#auditChatSelect');sel.innerHTML='<option value="">Choose chat</option>'+((data||[]).map(c=>`<option value="${c.id}">${esc(c.title)}</option>`).join(''));sel.onchange=()=>loadAuditMessages(sel.value);if(data?.[0]){sel.value=data[0].id;await loadAuditMessages(data[0].id);}else $('#auditMessages').innerHTML='<p class="muted">No reviewable chats found.</p>';}
+async function loadAuditMessages(chatId){if(!chatId)return;const sb=await getSupabase();try{const data=await rpc(sb,'admin_chat_messages',{p_chat:chatId});$('#auditMessages').innerHTML=(data||[]).map(m=>`<div class="audit-message"><b>${esc(m.role)} · ${fmt(m.created_at)}</b><div>${esc(m.content)}</div></div>`).join('')||'<p class="muted">No messages or consent has been withdrawn.</p>';}catch(err){$('#auditMessages').textContent=err.message;}}
+function fmt(d){return d?new Date(d).toLocaleString():'—'}function esc(v=''){return String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+init().catch(err=>{$('#adminGate').innerHTML=`<h1>Admin error</h1><p>${esc(err.message)}</p>`;});
+
+})();
+
+</script></body></html>

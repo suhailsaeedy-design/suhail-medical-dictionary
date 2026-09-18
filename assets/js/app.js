@@ -94,7 +94,7 @@ function applyTranslation(t,lang,x){t.definition=t.definition||{};t.explanation=
 function pronounce(text){if(!('speechSynthesis'in window))return alert('Speech synthesis is not available in this browser.');speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.82;const voices=speechSynthesis.getVoices();u.voice=voices.find(v=>/^en(-|_)/i.test(v.lang))||null;speechSynthesis.speak(u);}
 function updateSelectedCount(){$('#selectedCount').textContent=state.selected.size;}function categoryLabel(id){return state.categories.find(c=>c.id===id)?.label||id;}
 
-async function initAuth(sess=await currentSession()){updateAccount(sess);if(sess){await logEvent('app_open');await loadPrivacyProfile();await refreshChats();}else setCloudState();}
+async function initAuth(sess=null){if(!sess)sess=await currentSession();updateAccount(sess);if(sess){await logEvent('app_open');await loadPrivacyProfile();await refreshChats();}else setCloudState();}
 function setCloudState(){if(!navigator.onLine)$('#authHint').textContent='Offline mode: dictionary available; cloud login and AI will reconnect when internet returns.';}
 function updateAccount(sess){$('#accountButton').textContent=sess?`${sess.user.email.split('@')[0]} · Sign out`:'Sign in';$('#authHint').textContent=sess?'Your account has separate private chat history. Owner review requires your explicit consent.':'Sign in with Google to save separate chat history.';$('#privacyAccountRow').classList.toggle('hidden',!sess);}
 async function loadPrivacyProfile(){const p=await getMyProfile();if(!p)return;$('#reviewConsentToggle').checked=!!p.allow_owner_review;$('#adminLink').classList.toggle('hidden',!p.is_owner);}
