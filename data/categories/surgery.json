@@ -1,0 +1,27 @@
+[
+  {
+    "id": "D001064",
+    "mesh_id": "D001064",
+    "term": "Appendicitis",
+    "category": "surgery",
+    "category_label": "Surgery",
+    "synonyms": [
+      "Inflammation of appendix"
+    ],
+    "definition": {
+      "en": "Inflammation of the vermiform appendix.",
+      "ps": "دا د طبي زده کړې لنډه تشریح ده: Inflammation of the vermiform appendix.",
+      "fa": "خلاصه آموزشی: Inflammation of the vermiform appendix."
+    },
+    "explanation": {
+      "en": "Appendicitis commonly causes abdominal pain and can require urgent assessment because untreated inflammation may lead to serious complications.",
+      "ps": "د دې اصطلاح مهم معلومات د زده کړې لپاره په ساده ډول وړاندې کېږي.",
+      "fa": "اطلاعات اصلی این اصطلاح برای مطالعه به شکل ساده ارائه می‌شود."
+    },
+    "source": "U.S. National Library of Medicine (NLM) MeSH — educational summary",
+    "localized_term": {
+      "ps": "اپنډيسایټس",
+      "fa": "آپاندیسیت"
+    }
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "D050723",
+    "mesh_id": "D050723",
+    "term": "Fracture",
+    "category": "orthopedics",
+    "category_label": "Orthopedics",
+    "synonyms": [
+      "Bone fracture",
+      "Broken bone"
+    ],
+    "definition": {
+      "en": "A break or disruption in the continuity of a bone.",
+      "ps": "دا د طبي زده کړې لنډه تشریح ده: A break or disruption in the continuity of a bone.",
+      "fa": "خلاصه آموزشی: A break or disruption in the continuity of a bone."
+    },
+    "explanation": {
+      "en": "Fractures range from small cracks to complete breaks and are evaluated according to location, pattern, alignment, and surrounding tissue injury.",
+      "ps": "د دې اصطلاح مهم معلومات د زده کړې لپاره په ساده ډول وړاندې کېږي.",
+      "fa": "اطلاعات اصلی این اصطلاح برای مطالعه به شکل ساده ارائه می‌شود."
+    },
+    "source": "U.S. National Library of Medicine (NLM) MeSH — educational summary",
+    "localized_term": {
+      "ps": "هډوکي ماتېدل",
+      "fa": "شکستگی"
+    }
+  }
+]

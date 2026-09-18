@@ -1,0 +1,45 @@
+[
+  {
+    "id": "D003920",
+    "mesh_id": "D003920",
+    "term": "Diabetes Mellitus",
+    "category": "endocrinology",
+    "category_label": "Endocrinology",
+    "synonyms": [
+      "Diabetes",
+      "Diabetes mellitus"
+    ],
+    "definition": {
+      "en": "A group of metabolic disorders characterized by chronic elevation of blood glucose.",
+      "ps": "دا د طبي زده کړې لنډه تشریح ده: A group of metabolic disorders characterized by chronic elevation of blood glucose.",
+      "fa": "خلاصه آموزشی: A group of metabolic disorders characterized by chronic elevation of blood glucose."
+    },
+    "explanation": {
+      "en": "Diabetes results from problems with insulin production, insulin action, or both and requires ongoing monitoring and individualized management.",
+      "ps": "د دې اصطلاح مهم معلومات د زده کړې لپاره په ساده ډول وړاندې کېږي.",
+      "fa": "اطلاعات اصلی این اصطلاح برای مطالعه به شکل ساده ارائه می‌شود."
+    },
+    "source": "U.S. National Library of Medicine (NLM) MeSH — educational summary",
+    "localized_term": {
+      "ps": "د شکر ناروغي",
+      "fa": "دیابت"
+    }
+  },
+  {
+    "id": "D007037",
+    "mesh_id": "D007037",
+    "term": "Hypothyroidism",
+    "category": "endocrinology",
+    "category_label": "Endocrinology",
+    "synonyms": [
+      "Underactive thyroid"
+    ],
+    "definition": {
+      "en": "A condition in which the thyroid gland produces insufficient thyroid hormone."
+    },
+    "explanation": {
+      "en": "Hypothyroidism can affect metabolism and may cause fatigue, cold intolerance, and other systemic symptoms."
+    },
+    "source": "U.S. National Library of Medicine (NLM) MeSH — educational summary"
+  }
+]

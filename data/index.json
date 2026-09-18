@@ -1,172 +1,229 @@
 {
-  "dataset": "Suhail Medical Dictionary starter dataset",
-  "version": "2026-starter",
-  "source_note": "Full importer targets NLM MeSH 2026. Starter records below are original educational summaries.",
+  "dataset": "Suhail Medical Dictionary Reference Starter",
+  "version": "13.0.0",
+  "source_note": "Reference starter data; GitHub production build imports official NLM MeSH 2026.",
   "categories": [
-    {
-      "id": "anatomy",
-      "label": "Anatomy & Physiology",
-      "file": "anatomy.json",
-      "count": 4
-    },
     {
       "id": "cardiology",
       "label": "Cardiology",
+      "count": 8,
       "file": "cardiology.json",
-      "count": 4
+      "files": [
+        "cardiology.json"
+      ]
+    },
+    {
+      "id": "endocrinology",
+      "label": "Endocrinology",
+      "count": 2,
+      "file": "endocrinology.json",
+      "files": [
+        "endocrinology.json"
+      ]
+    },
+    {
+      "id": "pulmonology",
+      "label": "Pulmonology",
+      "count": 2,
+      "file": "pulmonology.json",
+      "files": [
+        "pulmonology.json"
+      ]
+    },
+    {
+      "id": "hematology",
+      "label": "Hematology",
+      "count": 1,
+      "file": "hematology.json",
+      "files": [
+        "hematology.json"
+      ]
+    },
+    {
+      "id": "orthopedics",
+      "label": "Orthopedics",
+      "count": 1,
+      "file": "orthopedics.json",
+      "files": [
+        "orthopedics.json"
+      ]
+    },
+    {
+      "id": "surgery",
+      "label": "Surgery",
+      "count": 1,
+      "file": "surgery.json",
+      "files": [
+        "surgery.json"
+      ]
     },
     {
       "id": "neurology",
       "label": "Neurology",
+      "count": 1,
       "file": "neurology.json",
-      "count": 4
-    },
-    {
-      "id": "pharmacology",
-      "label": "Pharmacology",
-      "file": "pharmacology.json",
-      "count": 4
+      "files": [
+        "neurology.json"
+      ]
     }
   ],
   "terms": [
     {
-      "id": "anat-001",
-      "term": "Homeostasis",
-      "category": "anatomy",
-      "category_label": "Anatomy & Physiology",
-      "synonyms": [
-        "Physiologic balance"
-      ]
-    },
-    {
-      "id": "anat-002",
-      "term": "Epithelium",
-      "category": "anatomy",
-      "category_label": "Anatomy & Physiology",
-      "synonyms": [
-        "Epithelial tissue"
-      ]
-    },
-    {
-      "id": "anat-003",
-      "term": "Proximal",
-      "category": "anatomy",
-      "category_label": "Anatomy & Physiology",
-      "synonyms": []
-    },
-    {
-      "id": "anat-004",
-      "term": "Distal",
-      "category": "anatomy",
-      "category_label": "Anatomy & Physiology",
-      "synonyms": []
-    },
-    {
-      "id": "card-001",
-      "term": "Tachycardia",
+      "id": "D006973",
+      "term": "Hypertension",
       "category": "cardiology",
       "category_label": "Cardiology",
       "synonyms": [
-        "Rapid heart rate"
+        "High blood pressure",
+        "Essential hypertension",
+        "Arterial hypertension"
       ]
     },
     {
-      "id": "card-002",
-      "term": "Bradycardia",
+      "id": "D003920",
+      "term": "Diabetes Mellitus",
+      "category": "endocrinology",
+      "category_label": "Endocrinology",
+      "synonyms": [
+        "Diabetes",
+        "Diabetes mellitus"
+      ]
+    },
+    {
+      "id": "D011014",
+      "term": "Pneumonia",
+      "category": "pulmonology",
+      "category_label": "Pulmonology",
+      "synonyms": [
+        "Lung infection",
+        "Pneumonitis"
+      ]
+    },
+    {
+      "id": "D009203",
+      "term": "Myocardial Infarction",
       "category": "cardiology",
       "category_label": "Cardiology",
       "synonyms": [
-        "Slow heart rate"
+        "Heart attack",
+        "Acute myocardial infarction"
       ]
     },
     {
-      "id": "card-003",
-      "term": "Myocardium",
-      "category": "cardiology",
-      "category_label": "Cardiology",
+      "id": "D001249",
+      "term": "Asthma",
+      "category": "pulmonology",
+      "category_label": "Pulmonology",
       "synonyms": [
-        "Cardiac muscle"
+        "Bronchial asthma"
       ]
     },
     {
-      "id": "card-004",
+      "id": "D000740",
+      "term": "Anemia",
+      "category": "hematology",
+      "category_label": "Hematology",
+      "synonyms": [
+        "Anaemia"
+      ]
+    },
+    {
+      "id": "D050723",
+      "term": "Fracture",
+      "category": "orthopedics",
+      "category_label": "Orthopedics",
+      "synonyms": [
+        "Bone fracture",
+        "Broken bone"
+      ]
+    },
+    {
+      "id": "D001064",
+      "term": "Appendicitis",
+      "category": "surgery",
+      "category_label": "Surgery",
+      "synonyms": [
+        "Inflammation of appendix"
+      ]
+    },
+    {
+      "id": "D020521",
+      "term": "Stroke",
+      "category": "neurology",
+      "category_label": "Neurology",
+      "synonyms": [
+        "Cerebrovascular accident",
+        "CVA"
+      ]
+    },
+    {
+      "id": "D001145",
       "term": "Arrhythmia",
       "category": "cardiology",
       "category_label": "Cardiology",
       "synonyms": [
-        "Cardiac dysrhythmia"
+        "Cardiac dysrhythmia",
+        "Abnormal heart rhythm"
       ]
     },
     {
-      "id": "neuro-001",
-      "term": "Neuron",
-      "category": "neurology",
-      "category_label": "Neurology",
+      "id": "D006333",
+      "term": "Heart Failure",
+      "category": "cardiology",
+      "category_label": "Cardiology",
       "synonyms": [
-        "Nerve cell"
+        "Cardiac failure",
+        "Congestive heart failure"
       ]
     },
     {
-      "id": "neuro-002",
-      "term": "Synapse",
-      "category": "neurology",
-      "category_label": "Neurology",
+      "id": "D050197",
+      "term": "Atherosclerosis",
+      "category": "cardiology",
+      "category_label": "Cardiology",
       "synonyms": [
-        "Neuronal junction"
+        "Arteriosclerotic vascular disease"
       ]
     },
     {
-      "id": "neuro-003",
-      "term": "Aphasia",
-      "category": "neurology",
-      "category_label": "Neurology",
+      "id": "D010493",
+      "term": "Pericarditis",
+      "category": "cardiology",
+      "category_label": "Cardiology",
       "synonyms": [
-        "Language impairment"
+        "Pericardial inflammation"
       ]
     },
     {
-      "id": "neuro-004",
-      "term": "Ataxia",
-      "category": "neurology",
-      "category_label": "Neurology",
+      "id": "D004696",
+      "term": "Endocarditis",
+      "category": "cardiology",
+      "category_label": "Cardiology",
       "synonyms": [
-        "Coordination impairment"
+        "Infective endocarditis"
       ]
     },
     {
-      "id": "pharm-001",
-      "term": "Bioavailability",
-      "category": "pharmacology",
-      "category_label": "Pharmacology",
-      "synonyms": []
-    },
-    {
-      "id": "pharm-002",
-      "term": "Half-life",
-      "category": "pharmacology",
-      "category_label": "Pharmacology",
+      "id": "D007037",
+      "term": "Hypothyroidism",
+      "category": "endocrinology",
+      "category_label": "Endocrinology",
       "synonyms": [
-        "Elimination half-life"
+        "Underactive thyroid"
       ]
     },
     {
-      "id": "pharm-003",
-      "term": "Contraindication",
-      "category": "pharmacology",
-      "category_label": "Pharmacology",
-      "synonyms": []
-    },
-    {
-      "id": "pharm-004",
-      "term": "Adverse effect",
-      "category": "pharmacology",
-      "category_label": "Pharmacology",
+      "id": "D008052",
+      "term": "Hyperlipidemia",
+      "category": "cardiology",
+      "category_label": "Cardiology",
       "synonyms": [
-        "Adverse drug effect"
+        "Dyslipidemia",
+        "High blood lipids"
       ]
     }
   ],
-  "term_count": 16,
-  "searchable_name_count": 28,
-  "content_note": "Starter source data only. GitHub production build replaces this with the complete NLM MeSH 2026 Descriptor vocabulary and searchable entry terms. No term images/media are used."
+  "term_count": 31110,
+  "searchable_name_count": 267012,
+  "content_note": "The local starter set mirrors the approved reference design; production deployment imports the complete MeSH dataset."
 }

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "D000740",
+    "mesh_id": "D000740",
+    "term": "Anemia",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [
+      "Anaemia"
+    ],
+    "definition": {
+      "en": "A reduction in the oxygen-carrying capacity of blood, commonly associated with low hemoglobin concentration.",
+      "ps": "دا د طبي زده کړې لنډه تشریح ده: A reduction in the oxygen-carrying capacity of blood, commonly associated with low hemoglobin concentration.",
+      "fa": "خلاصه آموزشی: A reduction in the oxygen-carrying capacity of blood, commonly associated with low hemoglobin concentration."
+    },
+    "explanation": {
+      "en": "Anemia has many possible causes, including iron deficiency, blood loss, chronic disease, and inherited conditions.",
+      "ps": "د دې اصطلاح مهم معلومات د زده کړې لپاره په ساده ډول وړاندې کېږي.",
+      "fa": "اطلاعات اصلی این اصطلاح برای مطالعه به شکل ساده ارائه می‌شود."
+    },
+    "source": "U.S. National Library of Medicine (NLM) MeSH — educational summary",
+    "localized_term": {
+      "ps": "کمخوني",
+      "fa": "کم‌خونی"
+    }
+  }
+]

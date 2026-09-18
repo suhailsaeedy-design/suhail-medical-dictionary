@@ -1,115 +1,206 @@
-(function(){
-  'use strict';
-  const cfg=window.SUHAIL_CONFIG||{};
-  const PREFIX='suhail-medical-v10';
-  const AUTH_KEY=PREFIX+':auth';
-  const DEFAULT_TIMEOUT=9000;
-  let readyResolve;
-  const ready=new Promise(r=>readyResolve=r);
+import {CONFIG} from './config.js?v=13.0.0';
 
-  function escapeHtml(s=''){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
-  function toast(message,type='good'){
-    const stack=document.getElementById('toastStack');
-    if(!stack){console[type==='bad'?'error':'log'](message);return}
-    const el=document.createElement('div');el.className=`toast ${type}`;el.innerHTML=`<span>${type==='bad'?'⚠':'✓'}</span><div>${escapeHtml(message)}</div>`;stack.appendChild(el);setTimeout(()=>el.remove(),4200);
-  }
-  function apiBase(){return String(cfg.SUPABASE_URL||'').replace(/\/$/,'')}
-  function configured(){return /^https:\/\//.test(apiBase())&&String(cfg.SUPABASE_ANON_KEY||'').length>10}
-  function withTimeout(promise,ms=DEFAULT_TIMEOUT,label='Request'){
-    let timer;return Promise.race([promise,new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(`${label} timed out. Please retry.`)),ms)})]).finally(()=>clearTimeout(timer));
-  }
-  function jsonParse(raw){try{return JSON.parse(raw)}catch{return null}}
-  function readStored(){
-    try{return jsonParse(sessionStorage.getItem(AUTH_KEY))||jsonParse(localStorage.getItem(AUTH_KEY))}catch{return null}
-  }
-  function saveStored(session,remember=true){
-    if(!session?.access_token||!session?.user)throw new Error('The sign-in response was incomplete.');
-    localStorage.removeItem(AUTH_KEY);sessionStorage.removeItem(AUTH_KEY);
-    (remember?localStorage:sessionStorage).setItem(AUTH_KEY,JSON.stringify(session));return session;
-  }
-  function clearStored(){try{localStorage.removeItem(AUTH_KEY);sessionStorage.removeItem(AUTH_KEY);sessionStorage.removeItem(PREFIX+':oauth-inflight')}catch{}}
-  function authHeaders(token,extra={}){const h={apikey:cfg.SUPABASE_ANON_KEY,...extra};if(token)h.Authorization=`Bearer ${token}`;return h}
-  async function parseResponse(res){
-    const text=await res.text();const body=text?jsonParse(text):null;
-    if(!res.ok){const err=new Error(body?.msg||body?.message||body?.error_description||body?.error||`Request failed (${res.status}).`);err.status=res.status;throw err}return body;
-  }
-  function decodeJwtUser(token){
-    try{const part=token.split('.')[1];const norm=part.replace(/-/g,'+').replace(/_/g,'/').padEnd(Math.ceil(part.length/4)*4,'=');const payload=JSON.parse(decodeURIComponent(Array.from(atob(norm),c=>`%${c.charCodeAt(0).toString(16).padStart(2,'0')}`).join('')));if(!payload?.sub)return null;return {id:payload.sub,email:payload.email||'',user_metadata:payload.user_metadata||{},app_metadata:payload.app_metadata||{}}}catch{return null}
-  }
-  function normalizeUser(user){
-    if(!user)return null;const m=user.user_metadata||{};return {id:user.id||user.sub,email:user.email||'',name:m.full_name||m.name||user.email?.split('@')[0]||'Medical Learner',avatar:m.avatar_url||m.picture||''};
-  }
-  function normalizeSession(raw){if(!raw?.user)return null;return {provider:'supabase',user:normalizeUser(raw.user),raw}}
-  async function fetchUser(accessToken){const res=await withTimeout(fetch(`${apiBase()}/auth/v1/user`,{headers:authHeaders(accessToken)}),7000,'Verifying your session');return parseResponse(res)}
-  async function captureOAuthCallback(){
-    if(!configured()||!location.hash?.startsWith('#'))return null;
-    const p=new URLSearchParams(location.hash.slice(1));const err=p.get('error_description')||p.get('error');
-    if(err){history.replaceState(null,'',location.pathname+location.search);throw new Error(err)}
-    const access=p.get('access_token');if(!access)return null;
-    let user=null;try{user=await fetchUser(access)}catch{user=decodeJwtUser(access)}
-    if(!user?.id)throw new Error('Google sign-in completed, but the user session could not be read.');
-    const expiresIn=Number(p.get('expires_in')||3600);const raw={access_token:access,refresh_token:p.get('refresh_token')||'',token_type:p.get('token_type')||'bearer',expires_in:expiresIn,expires_at:Number(p.get('expires_at')||0)||Math.floor(Date.now()/1000)+expiresIn,user};
-    saveStored(raw,true);history.replaceState(null,'',location.pathname+location.search);return raw;
-  }
-  async function refreshSession(raw){
-    if(!raw?.refresh_token)return null;
-    const res=await withTimeout(fetch(`${apiBase()}/auth/v1/token?grant_type=refresh_token`,{method:'POST',headers:authHeaders(null,{'content-type':'application/json'}),body:JSON.stringify({refresh_token:raw.refresh_token})}),8000,'Refreshing your session');
-    const data=await parseResponse(res);data.user=data.user||decodeJwtUser(data.access_token);if(!data.access_token||!data.user?.id)return null;data.expires_at=data.expires_at||Math.floor(Date.now()/1000)+Number(data.expires_in||3600);return saveStored(data,!!localStorage.getItem(AUTH_KEY));
-  }
-  async function currentRawSession(){
-    if(!configured())return null;
-    const cb=await captureOAuthCallback();if(cb)return cb;
-    const raw=readStored();if(!raw)return null;const now=Math.floor(Date.now()/1000);
-    if(!raw.expires_at||Number(raw.expires_at)>now+45)return raw;
-    try{return await refreshSession(raw)}catch{clearStored();return null}
-  }
-  async function getSession(){const raw=await currentRawSession();return normalizeSession(raw)}
-  function googleUrl(redirectTo){
-    const u=new URL(`${apiBase()}/auth/v1/authorize`);u.searchParams.set('provider','google');u.searchParams.set('redirect_to',redirectTo);if(cfg.GOOGLE_PROMPT_SELECT_ACCOUNT!==false)u.searchParams.set('prompt','select_account');return u;
-  }
-  async function googleSignIn(){
-    if(!configured()){toast('Google sign-in is not configured.','bad');return}
-    sessionStorage.setItem(PREFIX+':oauth-inflight','1');location.assign(googleUrl(new URL('app.html',location.href).href).toString());
-  }
-  async function emailSignIn(email,password,remember=true){
-    if(!configured())throw new Error('Secure account service is not configured.');
-    if(!email||!password)throw new Error('Enter your email and password.');
-    const res=await withTimeout(fetch(`${apiBase()}/auth/v1/token?grant_type=password`,{method:'POST',headers:authHeaders(null,{'content-type':'application/json'}),body:JSON.stringify({email,password})}),9000,'Signing in');
-    const raw=await parseResponse(res);raw.user=raw.user||decodeJwtUser(raw.access_token);saveStored(raw,remember);return normalizeSession(raw);
-  }
-  async function emailSignUp(name,email,password){
-    if(!configured())throw new Error('Secure account service is not configured.');if(password.length<8)throw new Error('Password must be at least 8 characters.');
-    const res=await withTimeout(fetch(`${apiBase()}/auth/v1/signup`,{method:'POST',headers:authHeaders(null,{'content-type':'application/json'}),body:JSON.stringify({email,password,data:{full_name:name}})}),9000,'Creating account');
-    const raw=await parseResponse(res);if(raw?.access_token&&raw?.user){saveStored(raw,true);return {signedIn:true}}return {signedIn:false};
-  }
-  async function resetPassword(email){
-    if(!configured())throw new Error('Password reset is not configured.');
-    const res=await withTimeout(fetch(`${apiBase()}/auth/v1/recover`,{method:'POST',headers:authHeaders(null,{'content-type':'application/json'}),body:JSON.stringify({email})}),8000,'Sending reset email');await parseResponse(res);return true;
-  }
-  async function serverLogout(){
-    const raw=readStored();clearStored();if(raw?.access_token&&navigator.onLine){try{await withTimeout(fetch(`${apiBase()}/auth/v1/logout?scope=local`,{method:'POST',headers:authHeaders(raw.access_token)}),3500,'Signing out')}catch{}}
-  }
-  async function signOut(){await serverLogout();location.replace(new URL('index.html',location.href).href)}
-  async function switchAccount(){await serverLogout();if(configured()){location.assign(googleUrl(new URL('app.html',location.href).href).toString())}else location.assign(new URL('index.html?choose=1',location.href).href)}
+// v4 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
+// so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
+const AUTH_STORAGE_KEY='smd-auth-v5';
+const OLD_STORAGE_KEYS=['smd-auth-v4','smd-auth-v3-3'];
+const DEFAULT_TIMEOUT=8000;
 
-  async function initAppGuard(){
-    try{const session=await getSession();if(!session){location.replace(new URL('index.html',location.href).href);return}window.dispatchEvent(new CustomEvent('suhail:auth-ready',{detail:session}))}catch(e){toast(e.message||'Sign-in session could not be opened.','bad');setTimeout(()=>location.replace(new URL('index.html?choose=1',location.href).href),900)}
+function withTimeout(promise,ms=DEFAULT_TIMEOUT,label='Request'){
+  let timer;
+  return Promise.race([
+    promise,
+    new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(`${label} timed out. Please retry.`)),ms);})
+  ]).finally(()=>clearTimeout(timer));
+}
+function apiBase(){return String(CONFIG.supabaseUrl||'').replace(/\/$/,'');}
+function configured(){return /^https:\/\//.test(apiBase())&&String(CONFIG.supabaseAnonKey||'').length>10;}
+function jsonParse(raw){try{return JSON.parse(raw);}catch{return null;}}
+function readStoredSession(){
+  try{
+    const direct=jsonParse(localStorage.getItem(AUTH_STORAGE_KEY));
+    if(direct?.access_token&&direct?.user)return direct;
+  }catch{}
+  return null;
+}
+function saveSession(session){
+  if(!session?.access_token||!session?.user)throw new Error('The sign-in response was incomplete.');
+  localStorage.setItem(AUTH_STORAGE_KEY,JSON.stringify(session));
+  for(const key of OLD_STORAGE_KEYS){try{localStorage.removeItem(key);}catch{}}
+  return session;
+}
+function clearLocalAuth(){
+  try{localStorage.removeItem(AUTH_STORAGE_KEY);}catch{}
+  for(const key of OLD_STORAGE_KEYS){try{localStorage.removeItem(key);}catch{}}
+  try{sessionStorage.removeItem('smd-oauth-inflight');}catch{}
+}
+function decodeJwtUser(token){
+  try{
+    const part=token.split('.')[1];
+    const normalized=part.replace(/-/g,'+').replace(/_/g,'/').padEnd(Math.ceil(part.length/4)*4,'=');
+    const payload=JSON.parse(decodeURIComponent(Array.from(atob(normalized),c=>`%${c.charCodeAt(0).toString(16).padStart(2,'0')}`).join('')));
+    if(!payload?.sub)return null;
+    return {id:payload.sub,email:payload.email||'',aud:payload.aud,role:payload.role||'authenticated',app_metadata:payload.app_metadata||{},user_metadata:payload.user_metadata||{}};
+  }catch{return null;}
+}
+function authHeaders(token,extra={}){
+  const h={'apikey':CONFIG.supabaseAnonKey,...extra};
+  if(token)h.Authorization=`Bearer ${token}`;
+  return h;
+}
+async function parseResponse(res){
+  const text=await res.text();
+  const body=text?jsonParse(text):null;
+  if(!res.ok){
+    const err=new Error(body?.msg||body?.message||body?.error_description||body?.error||`Request failed (${res.status}).`);
+    err.status=res.status;err.code=body?.code||body?.error_code||'';err.details=body?.details||'';
+    throw err;
   }
-  function initLoginPage(){
-    const note=document.getElementById('authModeNote');if(note)note.textContent=configured()?'Secure account mode is active. Google sign-in always opens the account chooser.':'Account service is not configured.';
-    document.querySelectorAll('[data-toggle-password]').forEach(btn=>btn.addEventListener('click',()=>{const input=document.getElementById(btn.dataset.togglePassword);if(!input)return;input.type=input.type==='password'?'text':'password';btn.textContent=input.type==='password'?'◉':'◎'}));
-    document.getElementById('showSignup')?.addEventListener('click',()=>document.getElementById('authCard').classList.add('signup-open'));
-    document.getElementById('showSignin')?.addEventListener('click',()=>document.getElementById('authCard').classList.remove('signup-open'));
-    document.getElementById('googleSignIn')?.addEventListener('click',googleSignIn);document.getElementById('googleSignup')?.addEventListener('click',googleSignIn);
-    document.getElementById('signinForm')?.addEventListener('submit',async e=>{e.preventDefault();const email=document.getElementById('signinEmail').value.trim();const pw=document.getElementById('signinPassword').value;const remember=document.getElementById('rememberMe').checked;try{await emailSignIn(email,pw,remember);location.href=new URL('app.html',location.href).href}catch(err){toast(err.message||'Sign in failed.','bad')}});
-    document.getElementById('signupForm')?.addEventListener('submit',async e=>{e.preventDefault();const name=document.getElementById('signupName').value.trim();const email=document.getElementById('signupEmail').value.trim();const pw=document.getElementById('signupPassword').value;try{const r=await emailSignUp(name,email,pw);if(r.signedIn)location.href=new URL('app.html',location.href).href;else toast('Account created. Check your email if confirmation is enabled.')}catch(err){toast(err.message||'Account creation failed.','bad')}});
-    document.getElementById('forgotPassword')?.addEventListener('click',async e=>{e.preventDefault();const email=document.getElementById('signinEmail').value.trim();if(!email){toast('Enter your email address first.','bad');return}try{await resetPassword(email);toast('Password reset email sent.')}catch(err){toast(err.message||'Reset email could not be sent.','bad')}});
-    const theme=document.getElementById('loginTheme'),lang=document.getElementById('loginLanguage');const savedTheme=localStorage.getItem(PREFIX+':theme')||cfg.DEFAULT_THEME||'light';document.documentElement.dataset.theme=savedTheme;if(theme)theme.value=savedTheme;
-    theme?.addEventListener('change',()=>{document.documentElement.dataset.theme=theme.value;localStorage.setItem(PREFIX+':theme',theme.value)});lang?.addEventListener('change',()=>{localStorage.setItem(PREFIX+':language',lang.value);document.documentElement.lang=lang.value;document.documentElement.dir=['ps','fa','ar'].includes(lang.value)?'rtl':'ltr'});
-    if(new URLSearchParams(location.search).get('choose')==='1')toast('Choose the Google account you want to use.');
-    getSession().then(s=>{if(s&&!new URLSearchParams(location.search).has('choose'))location.replace(new URL('app.html',location.href).href)}).catch(()=>{});
+  return body;
+}
+async function fetchUser(accessToken){
+  const res=await withTimeout(fetch(`${apiBase()}/auth/v1/user`,{headers:authHeaders(accessToken)}),7000,'Verifying your Google session');
+  return parseResponse(res);
+}
+async function captureOAuthCallback(){
+  if(!configured()||typeof location==='undefined')return null;
+  const raw=location.hash?.startsWith('#')?location.hash.slice(1):'';
+  if(!raw)return null;
+  const p=new URLSearchParams(raw);
+  const oauthError=p.get('error_description')||p.get('error');
+  if(oauthError){
+    history.replaceState(null,'',location.pathname+location.search);
+    throw new Error(oauthError);
   }
-  async function init(){readyResolve();if(document.body.classList.contains('login-page'))initLoginPage();if(document.body.classList.contains('app-page'))initAppGuard()}
-  window.SuhailAuth={ready,getSession,signOut,switchAccount,googleSignIn,emailSignIn,emailSignUp,resetPassword,toast,escapeHtml,configured,currentRawSession};
-  init();
-})();
+  const access=p.get('access_token');
+  if(!access)return null;
+  let user=null;
+  try{user=await fetchUser(access);}catch{user=decodeJwtUser(access);}
+  if(!user?.id)throw new Error('Google sign-in completed, but the user session could not be read.');
+  const expiresIn=Number(p.get('expires_in')||3600);
+  const expiresAt=Number(p.get('expires_at')||0)||Math.floor(Date.now()/1000)+expiresIn;
+  const session={
+    access_token:access,
+    refresh_token:p.get('refresh_token')||'',
+    token_type:p.get('token_type')||'bearer',
+    expires_in:expiresIn,
+    expires_at:expiresAt,
+    provider_token:p.get('provider_token')||undefined,
+    provider_refresh_token:p.get('provider_refresh_token')||undefined,
+    user
+  };
+  saveSession(session);
+  history.replaceState(null,'',location.pathname+location.search);
+  return session;
+}
+async function refreshSession(session){
+  if(!session?.refresh_token)return null;
+  const res=await withTimeout(fetch(`${apiBase()}/auth/v1/token?grant_type=refresh_token`,{
+    method:'POST',headers:authHeaders(null,{'content-type':'application/json'}),body:JSON.stringify({refresh_token:session.refresh_token})
+  }),8000,'Refreshing your session');
+  const data=await parseResponse(res);
+  const user=data.user||decodeJwtUser(data.access_token);
+  if(!data.access_token||!user?.id)return null;
+  return saveSession({...data,user,expires_at:data.expires_at||Math.floor(Date.now()/1000)+Number(data.expires_in||3600)});
+}
+export function peekSession(){return readStoredSession();}
+export async function currentSession(){
+  if(!configured())return null;
+  const callback=await captureOAuthCallback();
+  if(callback)return callback;
+  const session=readStoredSession();
+  if(!session)return null;
+  const now=Math.floor(Date.now()/1000);
+  if(!session.expires_at||Number(session.expires_at)>now+45)return session;
+  try{return await refreshSession(session);}catch{clearLocalAuth();return null;}
+}
+export async function signInWithGoogle(redirectTo){
+  if(!configured())throw new Error('Google sign-in is not configured.');
+  sessionStorage.setItem('smd-oauth-inflight','1');
+  const u=new URL(`${apiBase()}/auth/v1/authorize`);
+  u.searchParams.set('provider','google');
+  u.searchParams.set('redirect_to',redirectTo);
+  // GoTrue forwards supported provider query params to Google.
+  u.searchParams.set('prompt','select_account');
+  location.assign(u.toString());
+  return {url:u.toString()};
+}
+export async function signOut(){
+  const session=readStoredSession();
+  clearLocalAuth();
+  if(session?.access_token&&navigator.onLine){
+    try{await withTimeout(fetch(`${apiBase()}/auth/v1/logout?scope=local`,{method:'POST',headers:authHeaders(session.access_token)}),3500,'Signing out');}catch{}
+  }
+}
+
+class RestBuilder{
+  constructor(table){this.table=table;this.method='GET';this.body=null;this.filters=[];this.params=new URLSearchParams();this.wantRepresentation=false;}
+  select(cols='*'){this.params.set('select',cols||'*');if(this.method!=='GET')this.wantRepresentation=true;return this;}
+  insert(value){this.method='POST';this.body=value;return this;}
+  update(value){this.method='PATCH';this.body=value;return this;}
+  delete(){this.method='DELETE';return this;}
+  eq(col,value){this.filters.push([col,`eq.${value}`]);return this;}
+  order(col,{ascending=true}={}){this.params.set('order',`${col}.${ascending?'asc':'desc'}`);return this;}
+  async single(){const r=await this._execute();if(r.error)return r;const arr=Array.isArray(r.data)?r.data:[];if(arr.length!==1)return {data:null,error:new Error(arr.length?'Expected one row.':'No row found.')};return {data:arr[0],error:null};}
+  async maybeSingle(){const r=await this._execute();if(r.error)return r;const arr=Array.isArray(r.data)?r.data:[];return {data:arr[0]||null,error:null};}
+  then(resolve,reject){return this._execute().then(resolve,reject);}
+  async _execute(){
+    try{
+      const session=await currentSession();
+      const url=new URL(`${apiBase()}/rest/v1/${encodeURIComponent(this.table)}`);
+      for(const [k,v] of this.params)url.searchParams.set(k,v);
+      for(const [k,v] of this.filters)url.searchParams.append(k,v);
+      const headers=authHeaders(session?.access_token,{});
+      const opts={method:this.method,headers};
+      if(this.method!=='GET'&&this.body!==null){headers['content-type']='application/json';opts.body=JSON.stringify(this.body);}
+      if(this.method==='POST'||this.method==='PATCH')headers.Prefer=this.wantRepresentation?'return=representation':'return=minimal';
+      const res=await withTimeout(fetch(url.toString(),opts),9000,'Cloud data request');
+      if(!res.ok)await parseResponse(res);
+      if(res.status===204)return {data:null,error:null};
+      const text=await res.text();const data=text?jsonParse(text):null;
+      return {data,error:null};
+    }catch(error){return {data:null,error};}
+  }
+}
+class RestClient{
+  constructor(){
+    this.auth={
+      getSession:async()=>({data:{session:await currentSession()},error:null}),
+      getUser:async()=>{const s=await currentSession();return {data:{user:s?.user||null},error:null};},
+      signOut:async()=>{await signOut();return {error:null};}
+    };
+  }
+  from(table){return new RestBuilder(table);}
+  async rpc(name,args={}){
+    try{
+      const session=await currentSession();
+      const res=await withTimeout(fetch(`${apiBase()}/rest/v1/rpc/${encodeURIComponent(name)}`,{
+        method:'POST',headers:authHeaders(session?.access_token,{'content-type':'application/json'}),body:JSON.stringify(args||{})
+      }),9000,'Cloud account request');
+      const data=await parseResponse(res);
+      return {data,error:null};
+    }catch(error){return {data:null,error};}
+  }
+}
+let client=null;
+export async function getSupabase(){
+  if(!configured())return null;
+  if(!client)client=new RestClient();
+  return client;
+}
+export async function getMyProfile(){
+  const sb=await getSupabase();const sess=await currentSession();if(!sb||!sess)return null;
+  const {data,error}=await sb.from('profiles').select('email,is_owner,allow_owner_review,privacy_ack_at').eq('id',sess.user.id).single();
+  if(error)return null;return data;
+}
+export async function setOwnerReviewConsent(value){
+  const sb=await getSupabase();if(!sb)throw new Error('Cloud account is unavailable.');
+  const {error}=await sb.rpc('set_owner_review_consent',{p_allow:!!value});if(error)throw error;return !!value;
+}
+export async function logEvent(type,metadata={}){
+  try{
+    const sb=await getSupabase(),sess=await currentSession();if(!sb||!sess?.user)return;
+    await sb.from('user_events').insert({user_id:sess.user.id,event_type:type,metadata,user_agent:navigator.userAgent.slice(0,500)});
+    await sb.rpc('touch_last_seen');
+  }catch{}
+}

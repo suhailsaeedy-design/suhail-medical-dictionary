@@ -1,0 +1,53 @@
+[
+  {
+    "id": "D011014",
+    "mesh_id": "D011014",
+    "term": "Pneumonia",
+    "category": "pulmonology",
+    "category_label": "Pulmonology",
+    "synonyms": [
+      "Lung infection",
+      "Pneumonitis"
+    ],
+    "definition": {
+      "en": "An infection or inflammatory condition affecting the air sacs and tissues of the lungs.",
+      "ps": "دا د طبي زده کړې لنډه تشریح ده: An infection or inflammatory condition affecting the air sacs and tissues of the lungs.",
+      "fa": "خلاصه آموزشی: An infection or inflammatory condition affecting the air sacs and tissues of the lungs."
+    },
+    "explanation": {
+      "en": "Pneumonia can be caused by bacteria, viruses, or other organisms and may lead to cough, fever, breathing difficulty, and chest discomfort.",
+      "ps": "د دې اصطلاح مهم معلومات د زده کړې لپاره په ساده ډول وړاندې کېږي.",
+      "fa": "اطلاعات اصلی این اصطلاح برای مطالعه به شکل ساده ارائه می‌شود."
+    },
+    "source": "U.S. National Library of Medicine (NLM) MeSH — educational summary",
+    "localized_term": {
+      "ps": "سینه بغل",
+      "fa": "ذات الریه"
+    }
+  },
+  {
+    "id": "D001249",
+    "mesh_id": "D001249",
+    "term": "Asthma",
+    "category": "pulmonology",
+    "category_label": "Pulmonology",
+    "synonyms": [
+      "Bronchial asthma"
+    ],
+    "definition": {
+      "en": "A chronic inflammatory airway disorder characterized by variable airflow limitation and bronchial hyper-responsiveness.",
+      "ps": "دا د طبي زده کړې لنډه تشریح ده: A chronic inflammatory airway disorder characterized by variable airflow limitation and bronchial hyper-responsiveness.",
+      "fa": "خلاصه آموزشی: A chronic inflammatory airway disorder characterized by variable airflow limitation and bronchial hyper-responsiveness."
+    },
+    "explanation": {
+      "en": "Asthma commonly causes episodes of wheezing, cough, chest tightness, and shortness of breath; triggers and severity vary between people.",
+      "ps": "د دې اصطلاح مهم معلومات د زده کړې لپاره په ساده ډول وړاندې کېږي.",
+      "fa": "اطلاعات اصلی این اصطلاح برای مطالعه به شکل ساده ارائه می‌شود."
+    },
+    "source": "U.S. National Library of Medicine (NLM) MeSH — educational summary",
+    "localized_term": {
+      "ps": "سالنډي",
+      "fa": "آسم"
+    }
+  }
+]

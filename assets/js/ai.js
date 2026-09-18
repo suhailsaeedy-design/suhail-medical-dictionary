@@ -1,30 +1,115 @@
-(function(){
-  const cfg=window.SUHAIL_CONFIG||{};
-  const terms=()=>window.SUHAIL_TERMS||[];
-  const findTerm=(q)=>{const s=q.toLowerCase();return terms().find(t=>s.includes(t.name.toLowerCase())||t.synonyms.some(x=>s.includes(x.toLowerCase())))};
-  const clean=(s)=>String(s||'').trim();
-  async function externalReply(prompt,context){
-    if(!cfg.AI_ENDPOINT)return null;
-    const res=await fetch(cfg.AI_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt,context,app:'Suhail Medical Dictionary'})});
-    if(!res.ok)throw new Error(`AI service returned ${res.status}`);const data=await res.json();return data.answer||data.text||data.response||null;
+import {CONFIG} from './config.js?v=13.0.0';
+import {getSupabase,currentSession,peekSession} from './auth.js?v=13.0.0';
+
+let workerConfigPromise=null;
+
+async function requireSession(){
+  const fresh=await currentSession().catch(()=>null);
+  const sess=fresh||peekSession();
+  if(!sess?.access_token||!sess?.user?.id){
+    throw new Error('Your Google session has expired. Use the account menu and sign in again.');
   }
-  function localReply(prompt,contextTerm){
-    const p=clean(prompt);const lower=p.toLowerCase();const t=contextTerm||findTerm(p);
-    if(/hello|hi\b|salam|سلام|سلامونه/i.test(p))return 'Hello! I can help you study medical terminology, compare concepts, make short revision notes, or quiz you on a selected term.';
-    if(/quiz|question|test me/i.test(lower)&&t){return `Quick revision quiz — ${t.name}:\n1) Which specialty is most closely associated with this term?\n2) Explain the term in one sentence.\n3) Name one synonym or related concept.\n\nTry answering first, then ask me to check your answers.`}
-    if(/compare|difference|vs\.?/i.test(lower)){
-      const hits=terms().filter(x=>lower.includes(x.name.toLowerCase())).slice(0,2);
-      if(hits.length===2)return `${hits[0].name}: ${hits[0].definition}\n\n${hits[1].name}: ${hits[1].definition}\n\nKey study distinction: they belong to ${hits[0].category} and ${hits[1].category}, respectively. Focus on the underlying organ/system and defining feature.`;
-    }
-    if(/synonym|also known/i.test(lower)&&t)return `${t.name} is also known as: ${t.synonyms.join(', ') || 'No local synonyms are stored for this term.'}`;
-    if(/pronoun|say|pronunciation/i.test(lower)&&t)return `Pronunciation guide for ${t.name}: ${t.pron}. Use the speaker button in the term detail panel to hear your browser read it aloud.`;
-    if(/summary|simple|explain|what is|definition|meaning/i.test(lower)&&t)return `${t.name} — ${t.definition}\n\nStudy note: category: ${t.category}; common synonym(s): ${t.synonyms.slice(0,3).join(', ') || 'none stored'}.`;
-    if(t)return `For ${t.name}: ${t.definition}\n\nYou can ask me to explain it simply, compare it with another term, list synonyms, or make a quick quiz.`;
-    return 'I can answer from the built-in medical term set. Try a question such as “Explain hypertension simply,” “Compare hypertension vs diabetes,” or select a term and open AI Study. For important medical decisions, use authoritative references and a qualified health professional.';
+  return sess;
+}
+
+async function getWorkerUrl(){
+  const direct=String(CONFIG.aiWorkerUrl||'').trim();
+  if(direct)return direct.replace(/\/$/,'');
+  if(!workerConfigPromise){
+    workerConfigPromise=fetch('./ai-config.json',{cache:'no-store'})
+      .then(async r=>r.ok?await r.json():{})
+      .catch(()=>({}));
   }
-  async function reply(prompt,contextTerm){
-    try{const ext=await externalReply(prompt,contextTerm);if(ext)return ext}catch(e){console.warn('External AI unavailable; using local assistant.',e)}
-    return localReply(prompt,contextTerm);
+  const cfg=await workerConfigPromise;
+  return String(cfg?.workerUrl||'').trim().replace(/\/$/,'');
+}
+
+export async function getAIServiceStatus(){
+  const url=await getWorkerUrl();
+  if(!url)return {configured:false,online:false,message:'AI backend is not connected yet.'};
+  if(!navigator.onLine)return {configured:true,online:false,message:'Offline'};
+  try{
+    const r=await fetch(`${url}/health`,{cache:'no-store'});
+    const data=await r.json().catch(()=>({}));
+    return {configured:true,online:r.ok,workerUrl:url,model:data.model||'',message:r.ok?'AI service online':(data.error||`AI service error (${r.status})`)};
+  }catch(err){
+    return {configured:true,online:false,workerUrl:url,message:err?.message||'AI service unavailable'};
   }
-  window.SuhailAI={reply,findTerm};
-})();
+}
+
+export async function createChat(title='New medical chat'){
+  const sess=await requireSession();
+  const sb=await getSupabase();
+  if(!sb)throw new Error('Cloud account storage is not configured.');
+  const {data,error}=await sb.from('chats').insert({user_id:sess.user.id,title:String(title||'New medical chat').slice(0,120)}).select().single();
+  if(error)throw error;
+  return data;
+}
+
+export async function listChats(){
+  const sess=await requireSession();
+  const sb=await getSupabase();
+  if(!sb)return[];
+  const {data,error}=await sb.from('chats').select('*').eq('user_id',sess.user.id).order('updated_at',{ascending:false});
+  if(error)throw error;
+  return data||[];
+}
+
+export async function loadMessages(chatId){
+  const sess=await requireSession();
+  const sb=await getSupabase();
+  if(!sb)return[];
+  const {data,error}=await sb.from('ai_messages').select('*').eq('chat_id',chatId).eq('user_id',sess.user.id).order('created_at',{ascending:true});
+  if(error)throw error;
+  return data||[];
+}
+
+export async function renameChat(chatId,title){
+  const sess=await requireSession();
+  const sb=await getSupabase();
+  if(!sb)throw new Error('Cloud account storage is unavailable.');
+  const {error}=await sb.from('chats').update({title:String(title||'').slice(0,120),updated_at:new Date().toISOString()}).eq('id',chatId).eq('user_id',sess.user.id);
+  if(error)throw error;
+}
+
+export async function deleteChat(chatId){
+  const sess=await requireSession();
+  const sb=await getSupabase();
+  if(!sb)throw new Error('Cloud account storage is unavailable.');
+  const {error}=await sb.from('chats').delete().eq('id',chatId).eq('user_id',sess.user.id);
+  if(error)throw error;
+}
+
+export async function editUserMessage(messageId,content){
+  const sess=await requireSession();
+  const sb=await getSupabase();
+  if(!sb)throw new Error('Cloud account storage is unavailable.');
+  const {error}=await sb.from('ai_messages').update({content:String(content||'').slice(0,12000),edited_at:new Date().toISOString()}).eq('id',messageId).eq('user_id',sess.user.id).eq('role','user');
+  if(error)throw error;
+}
+
+async function worker(path,body){
+  const workerUrl=await getWorkerUrl();
+  if(!workerUrl)throw new Error('AI backend is not connected yet. Finish the Cloudflare AI setup once; then AI chat and missing translations will work for everyone.');
+  const sess=await requireSession();
+  if(!navigator.onLine)throw new Error('AI needs an internet connection. The dictionary itself still works offline.');
+  const r=await fetch(`${workerUrl}${path}`,{
+    method:'POST',
+    headers:{'content-type':'application/json','authorization':`Bearer ${sess.access_token}`},
+    body:JSON.stringify(body)
+  });
+  const data=await r.json().catch(()=>({}));
+  if(!r.ok){
+    if(r.status===401)throw new Error('Your Google session expired. Sign in again and retry.');
+    throw new Error(data.error||`AI request failed (${r.status}).`);
+  }
+  return data;
+}
+
+export async function askAI({chatId,message,selectedTerms=[],language='en'}){
+  return worker('/chat',{chatId,message,selectedTerms,language});
+}
+
+export async function translateTerm({termId,term,definition,explanation,language}){
+  return worker('/translate',{termId,term,definition,explanation,language});
+}

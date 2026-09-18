@@ -1,0 +1,14 @@
+/* Pixel-locked login reference. Google OAuth remains the only real authentication method. */
+@media(min-width:701px){
+  body.auth-page.pixel-login-ready{overflow:hidden!important;background:#eaf5ff!important}
+  body.auth-page.pixel-login-ready .auth-layout{opacity:0;pointer-events:none}
+  body.auth-page.pixel-login-live{overflow:auto!important}
+  body.auth-page.pixel-login-live .auth-layout{opacity:1;pointer-events:auto;transition:opacity .2s ease}
+  .pixel-login-skin{position:fixed;inset:0;z-index:9000;background-size:100% 100%;background-position:center;background-repeat:no-repeat;pointer-events:none;transition:.2s ease}
+  .pixel-login-controls{position:fixed;inset:0;z-index:9010;pointer-events:none;transition:.2s ease}
+  .pixel-login-live .pixel-login-skin,.pixel-login-live .pixel-login-controls{opacity:0;visibility:hidden}
+  .pixel-login-hit,.pixel-login-input,.pixel-login-select{position:absolute;pointer-events:auto;background:transparent;border:0;outline:0;border-radius:14px;color:transparent}
+  .pixel-login-hit{cursor:pointer}.pixel-login-input{cursor:text;color:#123d76;font:600 15px system-ui;padding:0 15px}.pixel-login-input::placeholder{color:transparent}.pixel-login-select{opacity:.01;cursor:pointer}
+  .pl-email{left:61.0%;top:34.0%;width:25.2%;height:5.8%}.pl-pass{left:61.0%;top:44.8%;width:25.2%;height:5.8%}.pl-signin{left:61.0%;top:57.0%;width:25.2%;height:6.6%}.pl-google{left:61.0%;top:69.0%;width:25.2%;height:6.3%}.pl-create{left:72.5%;top:76.8%;width:13%;height:4%}.pl-theme{left:78.3%;top:1.6%;width:7.7%;height:5.3%}.pl-lang{left:86.0%;top:1.6%;width:8.4%;height:5.3%}
+}
+@media(max-width:700px){.pixel-login-skin,.pixel-login-controls{display:none!important}}
