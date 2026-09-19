@@ -1,9 +1,6 @@
-import {CONFIG} from './config.js?v=19.0.0';
+import {CONFIG} from './config.js?v=20.16.0';
 const $=s=>document.querySelector(s);let refreshing=false,registration=null;
-const EXTERNAL=[
- 'https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js',
- 'https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js'
-];
+const EXTERNAL=[];
 export async function initPWA({categories=[]}={}){
  updateNetworkBadge();window.addEventListener('online',()=>{updateNetworkBadge();checkVersion();registration?.update().catch(()=>{});});window.addEventListener('offline',updateNetworkBadge);
  if(!('serviceWorker'in navigator)){setOfflineStatus('Offline app mode is not supported by this browser.');return;}

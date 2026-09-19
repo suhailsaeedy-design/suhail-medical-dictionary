@@ -3,34 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Offline-first medical dictionary, clinical reference, interactive 3D anatomy and local study tools.">
   <meta name="theme-color" content="#0a2a4a">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
-  <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase2-mobile.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase3-detail.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase4-ai-settings.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20.16.0">
+  <link rel="stylesheet" href="./assets/css/v20-dictionary-foundation.css?v=20.16.0">
   <title>Dictionary · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-desktop.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-mobile.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-phase4-detail-ai.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-final-integration.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-desktop.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-mobile.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-detail.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-phase4-ai-settings.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-final-integration.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-phase7-polish.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-phase8-final.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v19-core.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v19-mobile.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v19-phase3.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="./assets/css/v20-shell.css?v=20.16.0">
+  <link rel="stylesheet" href="./assets/css/v20-dictionary.css?v=20.16.0">
+  <link rel="stylesheet" href="./assets/css/v20-reference.css?v=20.16.0">
+  <link rel="stylesheet" href="./assets/css/v20-release.css?v=20.16.0">
 </head>
-<body data-build="19.0.0" class="workspace-page auth-pending" data-theme="dark">
+<body data-build="20.16.0" class="workspace-page auth-pending" data-theme="dark">
+  <a class="v20-skip-link" href="#dictionary">Skip to main content</a>
   <div id="sessionLoader" class="session-loader"><div class="loader-ring"></div><p>Opening your study workspace…</p></div>
 
   <div class="med-app-shell">
@@ -43,6 +32,7 @@
       <nav class="med-nav">
         <a class="med-nav-item active" href="#dashboard"><span class="nav-ico">⌂</span><span>Dashboard</span></a>
         <a class="med-nav-item" href="#dictionary"><span class="nav-ico">▣</span><span>Dictionary</span><span class="nav-arrow" aria-hidden="true">›</span></a>
+        <a class="med-nav-item v20-reference-link" href="#clinical-reference"><span class="nav-ico"><i class="bi bi-clipboard2-pulse" aria-hidden="true"></i></span><span>Clinical Reference</span></a>
         <a class="med-nav-item v19-anatomy-link" href="./anatomy.html"><span class="nav-ico v19-cube-icon">◇</span><span>3D Anatomy</span></a>
         <a class="med-nav-item" href="./ai.html"><span class="nav-ico">✦</span><span>AI Study</span><span class="nav-badge">New</span></a>
         <button id="selectedButton" class="med-nav-item" type="button"><span class="nav-ico">◇</span><span>Selected</span><b id="selectedCount" class="nav-count">0</b></button>
@@ -57,20 +47,20 @@
 
       <button class="med-nav-item v19-sidebar-install" type="button" data-install-app><span class="nav-ico">⇩</span><span>Install App</span></button>
 
-      <div class="med-side-promo">
-        <div class="promo-orb" aria-hidden="true"><span>♛</span></div>
-        <strong>Upgrade to<br>Suhail Premium</strong>
-        <small>✓ Unlimited AI Study<br>✓ Offline Packs<br>✓ Interactive 3D Anatomy<br>✓ Offline Medical Library<br>✓ AI Study when online</small>
-        <a href="./ai.html" class="promo-button">Go Premium <span>→</span></a>
+      <div class="med-side-promo v20-study-card">
+        <div class="v20-study-card-icon" aria-hidden="true"><i class="bi bi-cloud-check"></i></div>
+        <strong>Offline-ready<br>medical study</strong>
+        <small>Dictionary, saved 3D anatomy and downloaded packs stay available offline. AI Study requires internet.</small>
+        <a href="./offline.html" class="promo-button">Manage Offline Packs <span>→</span></a>
       </div>
-      <div class="v17-sidebar-quote">Knowledge heals<br>beyond boundaries.<small>Suhail Medical Dictionary<br>v19.0.0</small></div>
+      <div class="v17-sidebar-quote">Knowledge heals<br>beyond boundaries.<small>Suhail Medical Dictionary<br>v20.16.0</small></div>
     </aside>
 
     <div class="med-main">
       <header class="med-topbar">
         <div class="global-search-wrap">
           <span class="search-glyph">⌕</span>
-          <input id="searchInput" class="global-search" placeholder="Search medical terms, diseases, drugs, or concepts..." autocomplete="off">
+          <input id="searchInput" class="global-search" placeholder="Search medical terms, conditions, anatomy, or concepts..." autocomplete="off" aria-label="Search medical dictionary">
           <kbd>Ctrl K</kbd>
         </div>
         <div class="med-top-actions">
@@ -82,8 +72,8 @@
           <div class="account-wrap">
             <button id="accountButton" class="med-account" type="button" aria-haspopup="menu" aria-expanded="false"><span class="avatar-dot">●</span><span class="account-lines"><b>Account</b><small>Medical Learner</small></span><span class="account-chevron" aria-hidden="true">▾</span></button>
             <div id="accountMenu" class="account-menu hidden" role="menu" aria-label="Account menu">
-              <div class="account-menu-user"><span class="account-menu-avatar">●</span><div><strong id="accountMenuName">Account</strong><small id="accountMenuEmail">Google account</small></div></div>
-              <button id="switchAccountButton" class="account-menu-action" type="button" role="menuitem">↻ Use another Google account</button>
+              <div class="account-menu-user"><span class="account-menu-avatar">●</span><div><strong id="accountMenuName">Account</strong><small id="accountMenuEmail">Local / optional cloud account</small></div></div>
+              <button id="switchAccountButton" class="account-menu-action" type="button" role="menuitem">↻ Use another email</button>
               <button id="signOutButton" class="account-menu-action danger" type="button" role="menuitem">⇥ Sign out</button>
             </div>
           </div>
@@ -105,15 +95,52 @@
             </div>
           </div>
           <div class="hero-art" aria-hidden="true">
-            <img src="./assets/images/v16/hero-art-light.webp" alt="" data-v16-hero-art>
+            <img loading="lazy" decoding="async" src="./assets/images/v16/hero-art-light.webp" alt="" data-v16-hero-art>
           </div>
+        </section>
+
+        <section id="clinical-reference" class="v20-clinical-reference panel-card" aria-labelledby="clinicalReferenceTitle">
+          <div class="v20-reference-head">
+            <div>
+              <span class="section-kicker">Clinical Reference</span>
+              <h2 id="clinicalReferenceTitle">Find the right medical reference path</h2>
+              <p>Original Suhail workspace structure for conditions, medicines, procedures, study tools and upcoming clinical utilities.</p>
+            </div>
+            <a class="v20-reference-anatomy" href="./anatomy.html"><i class="bi bi-box"></i><span>Open 3D Anatomy</span></a>
+          </div>
+          <div id="clinicalReferenceGrid" class="v20-reference-grid" aria-live="polite">
+            <div class="v20-reference-loading">Loading clinical reference modules…</div>
+          </div>
+          <section id="clinicalReferenceWorkspace" class="v20-reference-workspace" aria-hidden="true" hidden>
+            <header class="v20-reference-workspace-head">
+              <div><span class="section-kicker">Phase 9 Clinical Reference</span><h3>Clinical learning tools</h3><p>Expanded conditions, procedure/test reference cards, pharmacology concepts, seven source-bounded formula tools and a safety-gated interaction data contract.</p></div>
+              <button id="referenceWorkspaceClose" class="v20-reference-workspace-close" type="button" aria-label="Close clinical reference workspace">×</button>
+            </header>
+            <nav class="v20-reference-tabs" aria-label="Clinical reference modules" role="tablist">
+              <button type="button" data-ref-tab="conditions" role="tab" aria-selected="true">Conditions</button>
+              <button type="button" data-ref-tab="pharmacology" role="tab" aria-selected="false">Pharmacology</button>
+              <button type="button" data-ref-tab="procedures" role="tab" aria-selected="false">Procedures</button>
+              <button type="button" data-ref-tab="calculators" role="tab" aria-selected="false">Calculators</button>
+              <button type="button" data-ref-tab="interactions" role="tab" aria-selected="false">Interaction Safety</button>
+              <button type="button" data-ref-tab="learning" role="tab" aria-selected="false">Learning</button>
+            </nav>
+            <div class="v20-reference-tools">
+              <label class="v20-reference-search"><i class="bi bi-search" aria-hidden="true"></i><input id="referenceSearch" type="search" placeholder="Search this reference module…" autocomplete="off"></label>
+              <select id="referenceGroup" class="v20-reference-filter" aria-label="Filter by specialty or group"><option value="all">All groups</option></select>
+              <select id="referenceSort" class="v20-reference-filter" aria-label="Sort reference entries"><option value="name">A–Z</option><option value="group">Group</option></select>
+              <button id="referenceClear" class="v20-reference-clear" type="button">Clear</button>
+              <span id="referenceCount" class="v20-reference-count" aria-live="polite"></span>
+            </div>
+            <div id="referenceWorkspaceContent" class="v20-reference-content" aria-live="polite"></div>
+          </section>
+          <p class="v20-reference-note"><i class="bi bi-shield-check"></i> Educational reference only. Phase 9 expands conditions, procedures, joints, neurovascular references, pharmacology concepts and physiology formula tools. Numeric calculators do not provide diagnosis or treatment interpretation; medication-pair advice remains intentionally safety-gated.</p>
         </section>
 
         <section class="med-search-panel panel-card">
           <div class="med-search-row">
-            <div class="hero-search"><span>⌕</span><input id="heroSearchMirror" class="control" placeholder="Search for a medical term or synonym..."></div>
+            <div class="hero-search"><span>⌕</span><input id="heroSearchMirror" class="control" aria-label="Search medical dictionary" placeholder="Search for a medical term or synonym..."></div>
             <button id="heroSearchButton" class="button primary hero-search-button" type="button"><span>⌕</span> Search</button>
-            <div class="specialty-select-wrap"><span>🩺</span><select id="categorySelect" class="control"><option value="all">All Categories</option></select></div>
+            <div class="specialty-select-wrap"><span>🩺</span><select id="categorySelect" class="control" aria-label="Filter dictionary by category"><option value="all">All Categories</option></select></div>
             <button id="advancedFiltersButton" class="advanced-filters-button" type="button">☷ Advanced Filters</button>
           </div>
           <div class="category-chip-row" id="categoryChipRow">
@@ -130,7 +157,7 @@
         <section class="med-work-area">
           <div class="results-column">
             <div class="results-toolbar">
-              <strong id="resultsCountLabel">Medical terms</strong>
+              <strong id="resultsCountLabel" role="status" aria-live="polite">Medical terms</strong>
               <div class="results-controls">
                 <button id="selectAllFiltered" class="select-all-control" type="button" aria-pressed="false" title="Select all terms in the current filter"><span class="select-all-box" aria-hidden="true"></span><span id="selectAllText">Select all</span></button>
                 <select id="sortSelect" class="sort-pill" aria-label="Sort medical terms"><option value="relevant">Most relevant</option><option value="az">A–Z</option><option value="za">Z–A</option></select>
@@ -226,21 +253,19 @@
     </section>
   </div>
 
-  <nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation">
-    <button id="mobileDictionaryButton" class="active mobile-nav-home" type="button"><span>Home</span></button>
-    <a id="mobileAIButton" class="mobile-nav-ai" href="./ai.html"><span>AI Study</span></a>
-    <button id="mobileSelectedButton" class="mobile-nav-selected" type="button"><span>Selected</span></button>
-    <button id="mobileBookmarksButton" class="mobile-nav-bookmarks" type="button"><span>Bookmarks</span></button>
-    <button id="mobileHistoryButton" class="mobile-nav-history" type="button"><span>History</span></button>
-    <a class="mobile-nav-offline" href="./offline.html"><span>Offline</span></a>
-    <button id="mobileMoreButton" class="mobile-nav-more" type="button"><span>More</span></button>
+  <nav class="mobile-bottom-nav v20-mobile-nav" aria-label="Mobile navigation">
+    <a data-v20-mobile="home" href="./app.html#dashboard"><i class="bi bi-house-door"></i><span>Home</span></a>
+    <a data-v20-mobile="dictionary" class="active" href="./app.html#dictionary"><i class="bi bi-journal-medical"></i><span>Dictionary</span></a>
+    <a data-v20-mobile="anatomy" href="./anatomy.html"><i class="bi bi-box"></i><span>3D Anatomy</span></a>
+    <a data-v20-mobile="ai" href="./ai.html"><i class="bi bi-stars"></i><span>AI Study</span></a>
+    <button data-v20-mobile="more" type="button"><i class="bi bi-grid"></i><span>More</span></button>
   </nav>
   <script>
     // Independent boot watchdog: even if a module/CDN fails, never leave users on an endless spinner.
     window.setTimeout(function(){
       var loader=document.getElementById('sessionLoader');
       if(!loader || !document.body.classList.contains('auth-pending')) return;
-      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v19.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
+      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v20.16.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
     },12000);
   </script>
   <script>
@@ -262,13 +287,13 @@ init();
 })();
 const SMDAuth=(()=>{
 const CONFIG={
-  supabaseUrl: 'https://qdfylefkkkyjwtqqiuye.supabase.co',
-  supabaseAnonKey: 'sb_publishable_CQwb8FIM4lLL27T8xZGqCQ_sGT4phu7',
+  supabaseUrl: '',
+  supabaseAnonKey: '',
   aiWorkerUrl: '',
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '19.0.0'
+  uiVersion: '20.16.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -388,10 +413,12 @@ async function refreshSession(session){
   return saveSession({...data,user,expires_at:data.expires_at||Math.floor(Date.now()/1000)+Number(data.expires_in||3600)});
 }
 async function currentSession(){
+  const stored=readStoredSession();
+  if(stored?.local_only)return stored;
   if(!configured())return null;
   const callback=await captureOAuthCallback();
   if(callback)return callback;
-  const session=readStoredSession();
+  const session=stored;
   if(!session)return null;
   const now=Math.floor(Date.now()/1000);
   if(!navigator.onLine)return {...session,offline_cached:true};
@@ -412,7 +439,7 @@ async function signInWithGoogle(redirectTo){
 async function signOut(){
   const session=readStoredSession();
   clearLocalAuth();
-  if(session?.access_token&&navigator.onLine){
+  if(session?.access_token&&!session?.local_only&&navigator.onLine){
     try{await withTimeout(fetch(`${apiBase()}/auth/v1/logout?scope=local`,{method:'POST',headers:authHeaders(session.access_token)}),3500,'Signing out');}catch{}
   }
 }
@@ -473,17 +500,22 @@ async function getSupabase(){
   return client;
 }
 async function getMyProfile(){
-  const sb=await getSupabase();const sess=await currentSession();if(!sb||!sess)return null;
+  const sess=await currentSession();if(!sess)return null;
+  if(sess.local_only){let p={};try{p=JSON.parse(localStorage.getItem('smd-local-profile-v1')||'{}');}catch{}return {email:sess.user.email,is_owner:true,allow_owner_review:false,privacy_ack_at:p.privacy_ack_at||new Date().toISOString(),local_only:true};}
+  const sb=await getSupabase();if(!sb)return null;
   const {data,error}=await sb.from('profiles').select('email,is_owner,allow_owner_review,privacy_ack_at').eq('id',sess.user.id).single();
   if(error)return null;return data;
 }
 async function setOwnerReviewConsent(value){
+  const sess=await currentSession();if(sess?.local_only){let p={};try{p=JSON.parse(localStorage.getItem('smd-local-profile-v1')||'{}');}catch{}p.allow_owner_review=false;p.privacy_ack_at=p.privacy_ack_at||new Date().toISOString();localStorage.setItem('smd-local-profile-v1',JSON.stringify(p));return false;}
   const sb=await getSupabase();if(!sb)throw new Error('Cloud account is unavailable.');
   const {error}=await sb.rpc('set_owner_review_consent',{p_allow:!!value});if(error)throw error;return !!value;
 }
 async function logEvent(type,metadata={}){
   try{
-    const sb=await getSupabase(),sess=await currentSession();if(!sb||!sess?.user)return;
+    const sess=await currentSession();if(!sess?.user)return;
+    if(sess.local_only){let rows=[];try{rows=JSON.parse(localStorage.getItem('smd-local-events-v1')||'[]');}catch{}rows.unshift({id:`evt-${Date.now()}`,user_id:sess.user.id,event_type:type,metadata,created_at:new Date().toISOString()});localStorage.setItem('smd-local-events-v1',JSON.stringify(rows.slice(0,200)));return;}
+    const sb=await getSupabase();if(!sb)return;
     await sb.from('user_events').insert({user_id:sess.user.id,event_type:type,metadata,user_agent:navigator.userAgent.slice(0,500)});
     await sb.rpc('touch_last_seen');
   }catch{}
@@ -496,9 +528,9 @@ const {peekSession,getSupabase,currentSession,signOut,logEvent,getMyProfile,setO
 // Optional features are lazy-loaded only after the core dictionary is allowed to open.
 // A PDF/AI/PWA module failure must never prevent the workspace from starting.
 let aiModulePromise=null, exportModulePromise=null, pwaModulePromise=null;
-const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=19.0.0'));
-const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=19.0.0'));
-const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=19.0.0'));
+const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=20.16.0'));
+const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=20.16.0'));
+const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=20.16.0'));
 async function createChat(...a){return (await aiModule()).createChat(...a);} async function listChats(...a){return (await aiModule()).listChats(...a);} async function loadMessages(...a){return (await aiModule()).loadMessages(...a);} async function renameChat(...a){return (await aiModule()).renameChat(...a);} async function deleteChat(...a){return (await aiModule()).deleteChat(...a);} async function editUserMessage(...a){return (await aiModule()).editUserMessage(...a);} async function askAI(...a){return (await aiModule()).askAI(...a);} async function translateTerm(...a){return (await aiModule()).translateTerm(...a);}
 function printTerms(...a){exportModule().then(m=>m.printTerms(...a)).catch(()=>alert('Print tools could not start. Reload once and retry.'));}
 async function pdfTerms(...a){try{return await (await exportModule()).pdfTerms(...a);}catch{return alert('PDF tools could not start. Use Print → Save as PDF.');}}
@@ -509,7 +541,22 @@ const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const RTL=new Set(['ps','prs','fa','ar']);
 const LOCALE={en:'en-US',ps:'ps-AF',prs:'fa-AF',fa:'fa-IR',tr:'tr-TR',ar:'ar-SA',zh:'zh-CN'};
 const state={index:null,categories:[],filtered:[],selected:new Map(),active:null,lang:localStorage.getItem('smd-content-lang')||'en',category:'all',query:'',chatId:null,chatContext:[],selectedMode:false,specialMode:null,sort:'relevant',view:localStorage.getItem('smd-term-view')||'grid',liveVoice:false,recognition:null};
+const COMMON_TERM_PRIORITY=["Hypertension", "Diabetes Mellitus", "Asthma", "Pneumonia", "Anemia", "Fracture", "Stroke", "Heart Failure", "Myocardial Infarction", "Appendicitis", "Hypothyroidism", "Arrhythmia", "Atherosclerosis", "Hyperlipidemia", "Adverse effect", "Contraindication", "Homeostasis", "Proximal", "Distal", "Epithelium", "Bioavailability", "Half-life", "Endocarditis", "Pericarditis"];
+const COMMON_TERM_RANK=new Map(COMMON_TERM_PRIORITY.map((term,index)=>[term.toLowerCase(),index]));
+function relevanceSort(items){return [...items].sort((a,b)=>{const at=String(a.term||'').toLowerCase(),bt=String(b.term||'').toLowerCase(),q=state.query;let aq=0,bq=0;if(q){aq=at===q?-3000:at.startsWith(q)?-2000:at.includes(q)?-1000:0;bq=bt===q?-3000:bt.startsWith(q)?-2000:bt.includes(q)?-1000:0;if(aq!==bq)return aq-bq;}const ar=COMMON_TERM_RANK.has(at)?COMMON_TERM_RANK.get(at):10000,br=COMMON_TERM_RANK.has(bt)?COMMON_TERM_RANK.get(bt):10000;if(ar!==br)return ar-br;return String(a.term||'').localeCompare(String(b.term||''));});}
 const categoryCache=new Map();
+let bundledTermLocalizationPromise=null;
+async function bundledTermLocalizations(){
+ if(bundledTermLocalizationPromise)return bundledTermLocalizationPromise;
+ bundledTermLocalizationPromise=fetch('./data/i18n/medical-terms-ps-prs.json',{cache:'force-cache'}).then(r=>r.ok?r.json():{items:[]}).then(d=>new Map((d.items||[]).map(x=>[String(x.term_id),x]))).catch(()=>new Map());
+ return bundledTermLocalizationPromise;
+}
+async function applyBundledTermNames(){
+ if(!['ps','prs'].includes(state.lang)||!state.index)return;
+ const map=await bundledTermLocalizations();
+ for(const t of state.index.terms||[]){const x=map.get(String(t.id));if(x?.[state.lang]){t.localized_term=t.localized_term||{};t.localized_term[state.lang]=x[state.lang];}}
+}
+function indexTermById(id){return (state.index?.terms||[]).find(x=>String(x.id)===String(id))||null;}
 
 function sessionFailure(message){
  const loader=document.querySelector('#sessionLoader');
@@ -527,10 +574,12 @@ async function init(){
  currentSession().then(s=>{if(!s){signOut().finally(()=>location.replace('./index.html'));}}).catch(()=>{});
  document.body.dataset.theme=localStorage.getItem('smd-theme')||'dark';
  $('#contentLanguage').value=state.lang;setDir();
- $('#contentLanguage').addEventListener('change',()=>{state.lang=$('#contentLanguage').value;localStorage.setItem('smd-content-lang',state.lang);setDir();renderTerms();if(state.active)showDetail(state.active);});
+ $('#contentLanguage').addEventListener('change',async()=>{state.lang=$('#contentLanguage').value;localStorage.setItem('smd-content-lang',state.lang);setDir();await applyBundledTermNames();renderTerms();if(state.active)showDetail(state.active);});
  $('#themeSelect').value=document.body.dataset.theme;$('#themeSelect').addEventListener('change',e=>{document.body.dataset.theme=e.target.value;localStorage.setItem('smd-theme',e.target.value);});
- const res=await fetch('./data/index.json',{cache:'no-cache'});if(!res.ok)throw new Error(`Dictionary index failed (${res.status})`);state.index=await res.json();state.categories=state.index.categories||[];populateCategories();filter();bindUI();
- if(window.innerWidth>820&&state.filtered[0]){try{const first=await getTerm(state.filtered[0]);state.active=first;showDetail(first);renderTerms();}catch{}}
+ const res=await fetch('./data/index.json',{cache:'no-cache'});if(!res.ok)throw new Error(`Dictionary index failed (${res.status})`);state.index=await res.json();state.categories=state.index.categories||[];await applyBundledTermNames();populateCategories();filter();bindUI();
+ const requestedTerm=localStorage.getItem('smd-open-term');
+ if(requestedTerm){localStorage.removeItem('smd-open-term');const hit=(state.index.terms||[]).find(x=>String(x.term).toLowerCase()===requestedTerm.toLowerCase())||(state.index.terms||[]).find(x=>String(x.term).toLowerCase().includes(requestedTerm.toLowerCase()));if(hit){state.query=String(hit.term).toLowerCase();const search=$('#searchInput'),mirror=$('#heroSearchMirror');if(search)search.value=hit.term;if(mirror)mirror.value=hit.term;filter();try{const full=await getTerm(hit);state.active=full;showDetail(full);renderTerms();}catch{}}}
+ else if(window.innerWidth>820&&state.filtered[0]){try{const first=await getTerm(state.filtered[0]);state.active=first;showDetail(first);renderTerms();}catch{}}
  initAuth(requiredSession).catch(err=>{console.warn('Cloud account initialization:',err);});
  registerInstall();initPWA({categories:state.categories}).catch(()=>{});exportModule().then(m=>m.preloadExportLibraries?.()).catch(()=>{});
 }
@@ -559,7 +608,7 @@ function bindUI(){
  $('#pdfAllZip')?.addEventListener('click',()=>zipCategoryPdfs(state.categories,loadCategory,state.lang));
  $('#aiSelectedButton')?.addEventListener('click',async()=>{const terms=await hydrateTerms([...state.selected.values()],40);openAIPage(terms);});
  $('#accountButton')?.addEventListener('click',toggleAccountMenu);
- $('#switchAccountButton')?.addEventListener('click',switchGoogleAccount);
+ $('#switchAccountButton')?.addEventListener('click',switchAccount);
  $('#signOutButton')?.addEventListener('click',signOutFromMenu);
  document.addEventListener('click',e=>{if(!e.target.closest('.account-wrap'))closeAccountMenu();});
  $('#settingsButton')?.addEventListener('click',openSettings);
@@ -576,7 +625,7 @@ function bindUI(){
  $('#mobileBookmarksButton')?.addEventListener('click',()=>$('#bookmarksButton')?.click());
  $('#mobileHistoryButton')?.addEventListener('click',()=>$('#historyButton')?.click());
  $('#mobileMoreButton')?.addEventListener('click',()=>document.querySelector('.mobile-menu-button')?.click());
- document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();search?.focus();}if(e.key==='Escape'){closeAccountMenu();closeSettings();closeDetail();}});
+ document.addEventListener('keydown',async e=>{const tag=String(document.activeElement?.tagName||'').toLowerCase();const typing=['input','textarea','select'].includes(tag)||document.activeElement?.isContentEditable;if(((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k')||(!typing&&e.key==='/')){e.preventDefault();search?.focus();search?.select?.();return;}if(e.key==='Enter'&&document.activeElement===search&&state.filtered?.[0]){e.preventDefault();try{const full=await getTerm(state.filtered[0]);state.active=full;rememberHistory(full);showDetail(full);renderTerms();}catch{}}if(e.key==='Escape'){closeAccountMenu();closeSettings();closeDetail();}});
  updateBookmarksCount();syncNavModes();setView(state.view);
  const requested=new URLSearchParams(location.search).get('view');
  if(requested==='selected'){$('#selectedButton')?.click();}
@@ -655,12 +704,13 @@ function closeDetail(){const panel=$('#detailPanel');if(!panel)return;panel.clas
 function renderTerms(){
  const grid=$('#termGrid');if(!grid)return;grid.innerHTML='';
  let base=currentBaseTerms();
- if(state.sort==='az')base=[...base].sort((a,b)=>String(a.term).localeCompare(String(b.term)));
+ if(state.sort==='relevant')base=relevanceSort(base);
+ else if(state.sort==='az')base=[...base].sort((a,b)=>String(a.term).localeCompare(String(b.term)));
  else if(state.sort==='za')base=[...base].sort((a,b)=>String(b.term).localeCompare(String(a.term)));
  const arr=base.slice(0,320);setView(state.view);
  for(const item of arr){
   const card=document.createElement('article');card.className='term-card'+(state.active?.id===item.id?' active':'');const checked=state.selected.has(String(item.id))||state.selected.has(item.id),bookmarked=isBookmarked(item.id);
-  if(checked)card.classList.add('selected');card.innerHTML=`<label class="term-check"><input type="checkbox" ${checked?'checked':''} aria-label="Select ${esc(item.term)}"><span></span></label><button type="button" class="term-bookmark${bookmarked?' saved':''}" title="${bookmarked?'Remove bookmark':'Bookmark'}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button><div class="term-visual" role="button" tabindex="0" aria-label="Select this term"><div class="term-visual-stage"><img loading="lazy" data-v12-asset="${visualAsset(item)}" src="${visualUrl(item)}" alt="" aria-hidden="true"></div></div><div class="term-main"><div class="term-name">${esc(item.term)}</div><div class="term-meta"><span class="tag">${esc(item.category_label||categoryLabel(item.category))}</span>${item.synonyms?.length?`<span>${item.synonyms.length} synonym${item.synonyms.length>1?'s':''}</span>`:''}</div></div>`;
+  if(checked)card.classList.add('selected');card.innerHTML=`<label class="term-check"><input type="checkbox" ${checked?'checked':''} aria-label="Select ${esc(item.term)}"><span></span></label><button type="button" class="term-bookmark${bookmarked?' saved':''}" title="${bookmarked?'Remove bookmark':'Bookmark'}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button><div class="term-visual" role="button" tabindex="0" aria-label="Select this term"><div class="term-visual-stage"><img loading="lazy" data-v12-asset="${visualAsset(item)}" src="${visualUrl(item)}" alt="" aria-hidden="true"></div></div><div class="term-main"><div class="term-name">${esc(displayTerm(item,state.lang))}</div>${displayTerm(item,state.lang)!==item.term?`<small class="term-original-name">${esc(item.term)}</small>`:''}<div class="term-meta"><span class="tag">${esc(item.category_label||categoryLabel(item.category))}</span>${item.synonyms?.length?`<span>${item.synonyms.length} synonym${item.synonyms.length>1?'s':''}</span>`:''}</div></div>`;
   card.addEventListener('click',async e=>{if(e.target.closest('.term-check')||e.target.closest('.term-bookmark')||e.target.closest('.term-visual'))return;const full=await getTerm(item);state.active=full;rememberHistory(full);showDetail(full);$$('.term-card').forEach(x=>x.classList.remove('active'));card.classList.add('active');});
   const cb=card.querySelector('input');cb.addEventListener('change',async()=>{await toggleSelection(item,cb.checked);card.classList.toggle('selected',cb.checked);if(state.selectedMode)renderTerms();else updateSelectAllControl();});
   const visual=card.querySelector('.term-visual');const selectFromVisual=async(e)=>{e.preventDefault();e.stopPropagation();await toggleSelection(item);cb.checked=state.selected.has(String(item.id))||state.selected.has(item.id);card.classList.toggle('selected',cb.checked);updateSelectAllControl();};visual?.addEventListener('click',selectFromVisual);visual?.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){selectFromVisual(e);}});
@@ -668,7 +718,7 @@ function renderTerms(){
   grid.appendChild(card);
  }
  const total=base.length,fullCount=Number(state.index?.term_count||state.index?.terms?.length||total),searchable=Number(state.index?.searchable_name_count||fullCount);
- let summary;if(state.selectedMode)summary=`${total.toLocaleString()} selected terms`;else if(state.specialMode==='bookmarks')summary=`${total.toLocaleString()} bookmarked terms`;else if(state.specialMode==='history')summary=`${total.toLocaleString()} recently viewed terms`;else summary=`${total.toLocaleString()} matching terms · ${fullCount.toLocaleString()} official MeSH concepts · ${searchable.toLocaleString()} searchable names`;
+ let summary;if(state.selectedMode)summary=`${total.toLocaleString()} selected terms`;else if(state.specialMode==='bookmarks')summary=`${total.toLocaleString()} bookmarked terms`;else if(state.specialMode==='history')summary=`${total.toLocaleString()} recently viewed terms`;else summary=`${total.toLocaleString()} matching terms · ${fullCount.toLocaleString()} bundled concepts · ${searchable.toLocaleString()} searchable names`;
  $('#resultSummary').textContent=summary;const rc=$('#resultsCountLabel');if(rc)rc.textContent=state.specialMode==='bookmarks'?`${total.toLocaleString()} bookmarks`:state.specialMode==='history'?`${total.toLocaleString()} recent terms`:`${total.toLocaleString()} terms found`;const toolbar=document.querySelector('.results-toolbar');if(toolbar)toolbar.dataset.v19Total=`${fullCount.toLocaleString()} terms`;const hs=$('#heroTermStat');if(hs)hs.textContent=fullCount>=1000?`${Math.floor(fullCount/1000)}K+`:fullCount.toLocaleString();const hc=$('#heroSpecialtyStat');if(hc)hc.textContent=Number(state.categories?.length||0).toLocaleString();syncCategoryChips();syncNavModes();updateBookmarksCount();updateSelectAllControl(base);if(!total)grid.innerHTML='<div class="empty-state">No matching terms.</div>';
 }
 async function loadCategory(id){
@@ -699,6 +749,10 @@ function showDetail(t){
  const originalLine=l!=='en'&&translatedName!==t.term?`<div class="original-term">English: ${esc(t.term)}</div>`:'';const syns=(t.synonyms||[]);const meshId=t.mesh_id||t.id||'—',bookmarked=isBookmarked(t.id),trees=(t.mesh_tree_numbers||[]);
  const category=esc(t.category_label||categoryLabel(t.category));
  const alsoKnown=syns[0]?esc(syns[0]):esc(t.term);
+ const anatomyVisualLink=t.anatomy_link?`<a class="button primary" href="./anatomy.html?region=${encodeURIComponent(t.anatomy_link)}"><i class="bi bi-box"></i> Open ${esc(t.term)} in 3D Anatomy</a>`:`<a class="button soft-button" href="./anatomy.html"><i class="bi bi-box"></i> Open 3D Anatomy</a>`;
+ const relatedTerms=(t.related_term_ids||[]).map(indexTermById).filter(Boolean).slice(0,12);
+ const clinicalLink=t.reference_module?`<button type="button" class="button soft-button detail-reference-link" data-reference-module="${esc(t.reference_module)}" data-reference-query="${esc(t.reference_query||t.term)}"><i class="bi bi-journal-text"></i> Open Clinical Reference</button>`:'';
+ const relatedLinks=relatedTerms.length?`<div class="detail-related-links">${relatedTerms.map(x=>`<button type="button" data-related-term-id="${esc(x.id)}">${esc(displayTerm(x,state.lang))}</button>`).join('')}</div>`:'<p class="microcopy">No curated related dictionary links are bundled for this entry yet.</p>';
  $('#detailPanel').innerHTML=`
  <div class="detail-visual-wrap">
    <div class="detail-visual-stage" data-angle="0"><img class="detail-visual" data-v12-asset="${visualAsset(t)}" src="${detailVisualUrl(t)}" alt="" aria-hidden="true"></div>
@@ -710,7 +764,7 @@ function showDetail(t){
  <div class="detail-title-block" dir="${textDir}">
    <div class="detail-heading-row">
      <div class="detail-heading-copy">
-       <div class="detail-name-line"><h2 id="detailTermName">${esc(translatedName)}</h2><span class="detail-verified">● Verified</span></div>${originalLine}
+       <div class="detail-name-line"><h2 id="detailTermName">${esc(translatedName)}</h2><span class="detail-verified">● Bundled reference</span></div>${originalLine}
        <div class="detail-kicker-row"><span class="tag">${category}</span></div>
        <div class="detail-submeta">${category}${syns.length?` · ${syns.length} synonyms`:''}</div>
      </div>
@@ -738,8 +792,8 @@ function showDetail(t){
  </div>
  <div class="detail-tab-pane hidden" data-detail-pane="pronunciation"><h3>Pronunciation</h3><p class="microcopy">Hear the English medical term.</p><button class="button soft-button detail-pronounce-large" id="pronounceTerm">🔊 Pronounce ${esc(t.term)}</button></div>
  <div class="detail-tab-pane hidden" data-detail-pane="synonyms"><h3>Synonyms and entry terms</h3><div class="synonym-cloud">${syns.length?syns.map(s=>`<span>${esc(s)}</span>`).join(''):'<p>No additional MeSH entry terms are listed for this concept.</p>'}</div></div>
- <div class="detail-tab-pane hidden" data-detail-pane="related"><h3>Related classification</h3><p class="microcopy">Category: ${category}</p>${trees.length?`<div class="mesh-tree-list">${trees.slice(0,16).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:'<p class="microcopy">No additional MeSH tree numbers are available for this record.</p>'}</div>
- <div class="detail-tab-pane hidden" data-detail-pane="visuals"><h3>Medical visual</h3><p class="microcopy">Use the 3D visual controls above to study this term from different views.</p></div>
+ <div class="detail-tab-pane hidden" data-detail-pane="related"><h3>Related terms & reference</h3><p class="microcopy">Category: ${category}</p>${relatedLinks}${clinicalLink}${trees.length?`<div class="mesh-tree-list">${trees.slice(0,16).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:''}</div>
+ <div class="detail-tab-pane hidden" data-detail-pane="visuals"><h3>Medical visual</h3><p class="microcopy">Use the 3D Anatomy workspace to study linked structures from different views.</p>${anatomyVisualLink}</div>
  <div class="detail-actions"><button class="button primary" id="detailAI">✦ <span class="detail-ai-label">AI Study</span></button><button class="button soft-button" id="detailPDF">▤ <span>Export PDF</span></button><button class="button soft-button" id="detailPrint">▣ <span>Print</span></button><button class="button soft-button" id="detailSelect">▮ <span>${state.selected.has(String(t.id))?'Remove':'Add to Selected'}</span></button><button class="button soft-button detail-share-action" id="detailShare">⌯ <span>Share</span></button></div>
  <button type="button" class="detail-offline" id="detailOffline"><div><b>Download Offline Pack</b><small>Keep the dictionary available offline.</small></div><span>⇩</span></button>
  <p class="microcopy detail-source">Source: ${esc(t.source||state.index?.source_note||'Suhail Medical Dictionary')}</p>`;
@@ -755,20 +809,22 @@ function showDetail(t){
  $('#detailOffline')?.addEventListener('click',()=>location.assign('./offline.html'));
  $('#detailCloseButton')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();closeDetail();});
  const detailBm=$('#detailPanel .detail-bookmark');detailBm?.addEventListener('click',()=>{const on=!isBookmarked(t.id);setBookmarked(t.id,on);detailBm.classList.toggle('saved',on);detailBm.textContent=on?'♥':'♡';renderTerms();});
+ $$('#detailPanel [data-related-term-id]').forEach(btn=>btn.addEventListener('click',async()=>{const item=indexTermById(btn.dataset.relatedTermId);if(!item)return;try{const full=await getTerm(item);state.active=full;rememberHistory(full);showDetail(full);}catch{}}));
+ $('#detailPanel [data-reference-module]')?.addEventListener('click',e=>{const b=e.currentTarget;document.dispatchEvent(new CustomEvent('smd:reference-open',{detail:{module:b.dataset.referenceModule,query:b.dataset.referenceQuery||t.term}}));});
  document.querySelectorAll('[data-detail-tab]').forEach(btn=>btn.addEventListener('click',()=>{const tab=btn.dataset.detailTab;document.querySelectorAll('[data-detail-tab]').forEach(x=>x.classList.toggle('active',x===btn));document.querySelectorAll('[data-detail-pane]').forEach(x=>x.classList.toggle('hidden',x.dataset.detailPane!==tab));if(tab==='pronunciation')setTimeout(()=>$('#pronounceTerm')?.focus(),0);}));
  if(!has&&l!=='en')loadMissingTranslation(t,l);
 }
-async function loadMissingTranslation(t,lang){const status=$('#translationStatus');try{const local=await getLocalTranslation(t.id,lang);if(local){applyTranslation(t,lang,local);if(status)status.textContent='Saved translation available offline on this device.';return;}const sb=await getSupabase();if(sb&&navigator.onLine){const {data}=await sb.from('term_translation_cache').select('term_name,definition,explanation,reviewed').eq('term_id',t.id).eq('language',lang).maybeSingle();if(data?.definition){applyTranslation(t,lang,data);await saveLocalTranslation(t.id,lang,data);if(status)status.textContent=data.reviewed?'Reviewed shared translation.':'Shared AI-assisted translation · medical review recommended.';return;}}const sess=peekSession()||await currentSession();if(!sess){if(status)status.textContent=navigator.onLine?'Your Google session needs to be refreshed before generating a new translation.':'No saved translation on this device. Connect once to load it.';return;}if(!navigator.onLine){if(status)status.textContent='No saved translation on this device. Translation generation needs internet.';return;}if(status)status.textContent=(LANG_TEXT[lang]||LANG_TEXT.en).loading;const x=await translateTerm({termId:t.id,term:t.term,definition:t.definition?.en||'',explanation:t.explanation?.en||'',language:lang});applyTranslation(t,lang,x);await saveLocalTranslation(t.id,lang,x);if(status)status.textContent=x.reviewed?'Reviewed translation.':(x.cached?'Cached AI-assisted translation · medical review recommended.':'AI-assisted translation · saved for offline use on this device.');}catch(err){if(status)status.textContent=`Translation unavailable: ${err.message}`;}}
+async function loadMissingTranslation(t,lang){const status=$('#translationStatus');try{if(['ps','prs'].includes(lang)){const map=await bundledTermLocalizations(),draft=map.get(String(t.id));if(draft?.[lang]){t.localized_term=t.localized_term||{};t.localized_term[lang]=draft[lang];const name=$('#detailTermName');if(name)name.textContent=draft[lang];$('#detailDefinition').textContent=t.definition?.en||'Definition not available.';$('#detailExplanation').textContent=t.explanation?.en||'English explanation available in this offline bundle.';if(status)status.textContent='Bundled draft term name · English definition shown · human medical-language review recommended.';return;}}const local=await getLocalTranslation(t.id,lang);if(local){applyTranslation(t,lang,local);if(status)status.textContent='Saved translation available offline on this device.';return;}const sb=await getSupabase();if(sb&&navigator.onLine){const {data}=await sb.from('term_translation_cache').select('term_name,definition,explanation,reviewed').eq('term_id',t.id).eq('language',lang).maybeSingle();if(data?.definition){applyTranslation(t,lang,data);await saveLocalTranslation(t.id,lang,data);if(status)status.textContent=data.reviewed?'Reviewed shared translation.':'Shared AI-assisted translation · medical review recommended.';return;}}const sess=peekSession()||await currentSession();if(!sess){if(status)status.textContent=navigator.onLine?'Your Google session needs to be refreshed before generating a new translation.':'No saved translation on this device. Connect once to load it.';return;}if(!navigator.onLine){if(status)status.textContent='No saved translation on this device. Translation generation needs internet.';return;}if(status)status.textContent=(LANG_TEXT[lang]||LANG_TEXT.en).loading;const x=await translateTerm({termId:t.id,term:t.term,definition:t.definition?.en||'',explanation:t.explanation?.en||'',language:lang});applyTranslation(t,lang,x);await saveLocalTranslation(t.id,lang,x);if(status)status.textContent=x.reviewed?'Reviewed translation.':(x.cached?'Cached AI-assisted translation · medical review recommended.':'AI-assisted translation · saved for offline use on this device.');}catch(err){if(status)status.textContent=`Translation unavailable: ${err.message}`;}}
 function applyTranslation(t,lang,x){t.definition=t.definition||{};t.explanation=t.explanation||{};t.localized_term=t.localized_term||{};t.definition[lang]=x.definition||'';t.explanation[lang]=x.explanation||'';t.localized_term[lang]=x.term_name||x.term||t.term;if(state.active?.id===t.id&&state.lang===lang){const name=$('#detailTermName');if(name)name.textContent=displayTerm(t,lang);$('#detailDefinition').textContent=x.definition||'';$('#detailExplanation').textContent=x.explanation||'';}}
 function pronounce(text){if(!('speechSynthesis'in window))return alert('Speech synthesis is not available in this browser.');speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='en-US';u.rate=.82;const voices=speechSynthesis.getVoices();u.voice=voices.find(v=>/^en(-|_)/i.test(v.lang))||null;speechSynthesis.speak(u);}
 function updateSelectedCount(){$('#selectedCount').textContent=state.selected.size;updateSelectAllControl();}function categoryLabel(id){return state.categories.find(c=>c.id===id)?.label||id;}
 
 async function initAuth(sess=null){if(!sess)sess=await currentSession();updateAccount(sess);if(sess){await logEvent('app_open');await loadPrivacyProfile();}}
 function setCloudState(){}
-function updateAccount(sess){const b=$('#accountButton');if(b){const meta=sess?.user?.user_metadata||{};const fallback=sess?.user?.email?.split('@')[0]||'Account';const name=sess?(meta.full_name||meta.name||fallback):'Sign in';b.innerHTML=`<span class="avatar-dot">●</span><span class="account-lines"><b>${esc(name)}</b><small>${sess?'Medical Learner':'Google account'}</small></span><span class="account-chevron" aria-hidden="true">▾</span>`;const mn=$('#accountMenuName'),me=$('#accountMenuEmail');if(mn)mn.textContent=name;if(me)me.textContent=sess?.user?.email||'Google account';}}
+function updateAccount(sess){const b=$('#accountButton');if(b){const meta=sess?.user?.user_metadata||{};const fallback=sess?.user?.email?.split('@')[0]||'Account';const name=sess?(meta.full_name||meta.name||fallback):'Sign in';b.innerHTML=`<span class="avatar-dot">●</span><span class="account-lines"><b>${esc(name)}</b><small>${sess?'Medical Learner':'Local / optional cloud account'}</small></span><span class="account-chevron" aria-hidden="true">▾</span>`;const mn=$('#accountMenuName'),me=$('#accountMenuEmail');if(mn)mn.textContent=name;if(me)me.textContent=sess?.user?.email||'Local / optional cloud account';}}
 async function loadPrivacyProfile(){const p=await getMyProfile();if(!p)return;$('#adminLink')?.classList.toggle('hidden',!p.is_owner);}
 async function handleConsentChange(e){try{await setOwnerReviewConsent(e.target.checked);$('#privacyAccountStatus').textContent=e.target.checked?'Owner chat-review consent enabled.':'Owner chat-review consent disabled.';}catch(err){e.target.checked=!e.target.checked;$('#privacyAccountStatus').textContent=err.message;}}
-function toggleAccountMenu(e){e?.stopPropagation?.();const menu=$('#accountMenu'),btn=$('#accountButton');if(!menu||!btn)return;const open=menu.classList.contains('hidden');menu.classList.toggle('hidden',!open);btn.setAttribute('aria-expanded',String(open));btn.classList.toggle('open',open);}function closeAccountMenu(){const menu=$('#accountMenu'),btn=$('#accountButton');menu?.classList.add('hidden');btn?.setAttribute('aria-expanded','false');btn?.classList.remove('open');}async function switchGoogleAccount(){closeAccountMenu();stopLiveVoice();await signOut();location.replace('./index.html?switch=1');}async function signOutFromMenu(){closeAccountMenu();stopLiveVoice();await signOut();location.replace('./index.html');}function openSettings(){const o=$('#settingsOverlay');if(!o)return;$('#settingsLanguage').value=state.lang;$('#settingsTheme').value=document.body.dataset.theme||'clinical';o.classList.remove('hidden');o.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');}function closeSettings(){const o=$('#settingsOverlay');if(!o)return;o.classList.add('hidden');o.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');}
+function toggleAccountMenu(e){e?.stopPropagation?.();const menu=$('#accountMenu'),btn=$('#accountButton');if(!menu||!btn)return;const open=menu.classList.contains('hidden');menu.classList.toggle('hidden',!open);btn.setAttribute('aria-expanded',String(open));btn.classList.toggle('open',open);}function closeAccountMenu(){const menu=$('#accountMenu'),btn=$('#accountButton');menu?.classList.add('hidden');btn?.setAttribute('aria-expanded','false');btn?.classList.remove('open');}async function switchAccount(){closeAccountMenu();stopLiveVoice();await signOut();location.replace('./index.html?switch=1');}async function signOutFromMenu(){closeAccountMenu();stopLiveVoice();await signOut();location.replace('./index.html');}function openSettings(){const o=$('#settingsOverlay');if(!o)return;$('#settingsLanguage').value=state.lang;$('#settingsTheme').value=document.body.dataset.theme||'clinical';o.classList.remove('hidden');o.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');}function closeSettings(){const o=$('#settingsOverlay');if(!o)return;o.classList.add('hidden');o.setAttribute('aria-hidden','true');document.body.classList.remove('modal-open');}
 async function refreshChats(){try{const chats=await listChats();renderChats(chats);if(!state.chatId&&chats[0])await openChat(chats[0].id,chats[0].title);}catch(err){$('#authHint').textContent=err.message;}}
 function renderChats(chats){const list=$('#chatList');list.innerHTML='';for(const c of chats){const b=document.createElement('button');b.className='chat-list-item'+(state.chatId===c.id?' active':'');b.textContent=c.title;b.onclick=()=>openChat(c.id,c.title);list.appendChild(b);}}
 async function newChat(){try{const c=await createChat(`Medical chat ${new Date().toLocaleDateString()}`);state.chatId=c.id;await refreshChats();await openChat(c.id,c.title);}catch(err){alert(err.message);}}
@@ -780,7 +836,7 @@ async function handleRenameChat(){if(!state.chatId)return;const name=prompt('New
 async function handleDeleteChat(){if(!state.chatId||!confirm('Delete this chat and its messages?'))return;try{await deleteChat(state.chatId);state.chatId=null;$('#messageList').innerHTML='<div class="assistant-note">Chat deleted.</div>';$('#chatTitle').textContent='Medical Study Assistant';await refreshChats();}catch(err){alert(err.message);}}
 function updateChatContext(){const names=state.chatContext.map(t=>t.term);$('#chatContextLabel').textContent=names.length?`Selected context: ${names.slice(0,5).join(', ')}${names.length>5?'…':''}`:'';}
 async function sendMessage(e){
- e?.preventDefault?.();const text=$('#chatInput').value.trim();if(!text)return;const sess=await currentSession();if(!sess){stopLiveVoice();location.replace('./index.html');return;}if(!navigator.onLine){appendMessage('assistant','AI is offline right now. Your downloaded medical dictionary is still available.');stopLiveVoice();return;}if(!state.chatId)await newChat();appendMessage('user',text);$('#chatInput').value='';localStorage.removeItem('smd-chat-draft');$('#aiStatus').textContent='Thinking…';
+ e?.preventDefault?.();const text=$('#chatInput').value.trim();if(!text)return;const sess=await currentSession();if(!sess){stopLiveVoice();location.replace('./index.html');return;}if(!state.chatId)await newChat();appendMessage('user',text);$('#chatInput').value='';localStorage.removeItem('smd-chat-draft');$('#aiStatus').textContent='Thinking…';
  try{const selectedTerms=state.chatContext.map(t=>({term:t.term,definition:t.definition?.[state.lang]||t.definition?.en||'',explanation:t.explanation?.[state.lang]||t.explanation?.en||''}));const data=await askAI({chatId:state.chatId,message:text,selectedTerms,language:state.lang});appendMessage('assistant',data.answer);if($('#speakReply').checked)await speakReply(data.answer,state.lang);await refreshChatsNoLoop();}
  catch(err){appendMessage('assistant',`Error: ${err.message}`);}finally{$('#aiStatus').textContent='';$('#messageList').scrollTop=$('#messageList').scrollHeight;if(state.liveVoice)setTimeout(startLiveListening,450);}
 }
@@ -795,27 +851,15 @@ function openTranslationDb(){return new Promise((resolve,reject)=>{if(!('indexed
 async function getLocalTranslation(termId,lang){try{const db=await openTranslationDb();if(!db)return null;return await new Promise((resolve,reject)=>{const tx=db.transaction('translations','readonly'),r=tx.objectStore('translations').get(`${termId}:${lang}`);r.onsuccess=()=>resolve(r.result?.value||null);r.onerror=()=>reject(r.error);});}catch{return null;}}
 async function saveLocalTranslation(termId,lang,value){try{const db=await openTranslationDb();if(!db)return;await new Promise((resolve,reject)=>{const tx=db.transaction('translations','readwrite');tx.objectStore('translations').put({key:`${termId}:${lang}`,value:{term_name:value.term_name||value.term||'',definition:value.definition||'',explanation:value.explanation||'',reviewed:!!value.reviewed},savedAt:Date.now()});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);});}catch{}}
 function safeName(s){return String(s).replace(/[^a-z0-9-_]+/gi,'-').replace(/-+/g,'-').replace(/^-|-$/g,'').slice(0,80)||'category';}function esc(v=''){return String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
-window.addEventListener('online',()=>{if(state.liveVoice)startLiveListening();});window.addEventListener('offline',()=>{stopLiveVoice();$('#aiStatus').textContent='Offline · dictionary remains available';});
+window.addEventListener('online',()=>{if(state.liveVoice)startLiveListening();});window.addEventListener('offline',()=>{stopLiveVoice();$('#aiStatus').textContent='Offline · local Study Engine ready';});
 init().catch(err=>{console.error(err);$('#termGrid').innerHTML=`<div class="empty-state">Could not load dictionary data: ${esc(err.message)}</div>`;});
 
 })();
 
 </script>
-  <script src="./assets/js/v16-ui.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v16-phase4-ui.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v17-desktop.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v17-mobile.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v17-phase4-detail.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v17-final-integration.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v18-desktop.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v18-mobile.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v18-detail.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v18-phase4-ai-settings.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v18-final-integration.js?v=19.0.0"></script>
-  <script src="./assets/js/v18-phase7-polish.js?v=19.0.0"></script>
-  <script src="./assets/js/v18-phase8-final.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v19-core.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v19-mobile.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v19-phase3.js?v=19.0.0" defer></script>
+  <script src="./assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/v20-shell.js?v=20.16.0" defer></script>
+  <script src="./assets/js/v20-reference.js?v=20.16.0" defer></script>
+  <script src="./assets/js/v20-dictionary.js?v=20.16.0" defer></script>
 </body>
 </html>

@@ -3,476 +3,111 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#0a2a4a">
-  <meta name="description" content="Suhail Medical Dictionary — secure multilingual medical terminology and intelligent study workspace.">
+  <meta name="theme-color" content="#031226">
+  <meta name="description" content="Suhail Medical Dictionary — medical dictionary, 3D anatomy, study tools and offline PWA.">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
-  <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="./assets/css/v20-login.css?v=20.16.0">
   <title>Sign in · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-login.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-login.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-final-integration.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-phase7-polish.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-phase8-final.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v19-core.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v19-login.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v19-mobile.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v20-release.css?v=20.16.0">
 </head>
-<body data-build="19.0.0" class="auth-page" data-theme="dark">
-  <main class="auth-layout">
-    <div class="auth-top-controls" aria-label="Login page controls">
-      <span class="auth-online"><i></i> Online</span>
-      <label class="auth-language-top"><span aria-hidden="true">◎</span><select id="loginLanguage" aria-label="Language">
-        <option value="en">English</option>
-        <option value="ps">پښتو</option>
-        <option value="prs">دري</option>
-        <option value="fa">فارسی</option>
-        <option value="tr">Türkçe</option>
-        <option value="ar">العربية</option>
-        <option value="zh">中文</option>
+<body class="v20-login-page" data-theme="dark" data-build="20.16.0">
+  <a class="v20-skip-link" href="#main-content">Skip to main content</a>
+  <div class="v20-login-bg" aria-hidden="true">
+    <div class="v20-aurora a1"></div><div class="v20-aurora a2"></div>
+    <img class="v20-bg-dna dna-left" src="./assets/images/medical-3d/dna.svg" alt="">
+    <img class="v20-bg-dna dna-right" src="./assets/images/medical-3d/dna.svg" alt="">
+    <div class="v20-particles"></div>
+  </div>
+
+  <header class="v20-login-topbar container-fluid">
+    <a class="v20-brand" href="./index.html" aria-label="Suhail Medical Dictionary">
+      <img src="./assets/images/logo-book.svg" alt=""><span><b>Suhail</b><small>Medical Dictionary</small></span>
+    </a>
+    <div class="v20-login-tools">
+      <span class="v20-online" id="loginOnline"><i></i><span>Online</span></span>
+      <label class="v20-tool-select" aria-label="Language"><i class="bi bi-globe2"></i><select id="loginLanguage">
+        <option value="en">English</option><option value="ps">پښتو</option><option value="prs">دري</option><option value="fa">فارسی</option><option value="ar">العربية</option><option value="tr">Türkçe</option><option value="zh">中文</option>
       </select></label>
-      <button id="authThemeToggle" class="auth-theme-toggle" type="button" aria-label="Toggle appearance"><span aria-hidden="true">☾</span><b>Dark</b></button>
-      <button class="v19-login-install" type="button" data-install-app><span>⇩</span><b>Install App</b></button>
+      <button class="v20-icon-tool" id="loginTheme" type="button" aria-label="Toggle theme"><i class="bi bi-moon-stars-fill"></i><span>Dark</span></button>
+      <button class="v20-install" type="button" data-install-app><i class="bi bi-download"></i><span>Install App</span></button>
     </div>
+  </header>
 
-    <section class="auth-brand-panel">
-      <div class="auth-brand-top">
-        <a class="brand brand-light" href="./index.html">
-          <img src="./assets/images/logo-book.svg" class="brand-logo" alt="">
-          <span><strong>Suhail</strong><small>Medical Dictionary</small></span>
-        </a>
+  <main id="main-content" class="v20-login-stage container-fluid">
+    <section class="v20-story-panel">
+      <span class="v20-eyebrow">EDUCATIONAL MEDICAL REFERENCE</span>
+      <h1>Knowledge<br>Heals Beyond<br><em>Boundaries.</em></h1>
+      <p>Dictionary, clinical reference, interactive 3D anatomy and intelligent study tools in one medical learning system.</p>
+      <div class="v20-login-stats">
+        <article><i class="bi bi-journal-medical"></i><div><b id="loginTermCount">1,158</b><small>Medical Terms</small></div></article>
+        <article><i class="bi bi-heart-pulse"></i><div><b id="loginCategoryCount">17</b><small>Categories</small></div></article>
+        <article><i class="bi bi-translate"></i><div><b id="loginLanguageCount">7</b><small>UI Languages</small></div></article>
+        <article><i class="bi bi-box"></i><div><b>3D</b><small>Anatomy</small></div></article>
       </div>
-
-      <div class="auth-brand-copy">
-        <span class="auth-kicker">Trusted medical knowledge</span>
-        <h1>Knowledge<br>Heals Beyond<br><span>Boundaries.</span></h1>
-        <p>Trusted medical knowledge. Simple. Accurate. Always with you.</p>
-        <div class="auth-benefits" aria-label="Platform highlights">
-          <div><span aria-hidden="true">▣</span><b>50K+</b><small>Medical Terms</small></div>
-          <div><span aria-hidden="true">⌁</span><b>200+</b><small>Specialties</small></div>
-          <div><span aria-hidden="true">◎</span><b>15+</b><small>Languages</small></div>
-          <div><span aria-hidden="true">◇</span><b>100%</b><small>Free to Learn</small></div>
-        </div>
-        <blockquote class="auth-brand-quote">A healthier tomorrow through knowledge.</blockquote>
-      </div>
-
-      <div class="auth-brand-footer">
-        <a href="./privacy.html">Privacy</a>
-        <a href="./terms.html">Terms</a>
-        <a href="./about.html">About</a>
+      <div class="v20-books" aria-hidden="true">
+        <span>CARDIOLOGY</span><span>ANATOMY</span><span>PHARMACOLOGY</span><span>PATHOLOGY</span><span>INTERNAL MEDICINE</span>
       </div>
     </section>
 
-    <section class="auth-form-panel">
-      <div class="auth-mobile-brand">
-        <a href="./index.html" class="auth-mobile-brand-logo"><img src="./assets/images/logo-book.svg" alt=""><span><strong>Suhail</strong><small>Medical Dictionary</small></span></a>
-      </div>
-
-      <div class="auth-mobile-hero" aria-hidden="true">
-        <div><span>Explore · Learn · Apply</span><strong>Medical Knowledge</strong><small>Right in your hand.</small></div>
-        <img src="./assets/images/v16/login-heart-light.webp" alt="">
-      </div>
-
-      <div class="auth-card">
-        <div class="auth-card-brand" aria-label="Suhail Medical Dictionary">
-          <img src="./assets/images/logo-book.svg" alt="">
-          <div><strong>Suhail</strong><small>Medical Dictionary</small></div>
-        </div>
-        <div class="auth-card-header">
-          <div>
-            <span id="authKicker" class="auth-kicker dark">Welcome</span>
-            <h2 id="authTitle">Continue with Google</h2>
-            <p id="authSubtitle">Choose the Google account you want to use. Your Google password always stays with Google.</p>
-          </div>
-        </div>
-
-        <div id="googleSignInPanel" class="google-signin-panel">
-          <button id="googleSignIn" class="google-signin-button" type="button">
-            <span class="google-mark" aria-hidden="true">G</span>
-            <span id="googleButtonText">Choose a Google account</span>
-            <span class="google-arrow" aria-hidden="true">→</span>
+    <section class="v20-auth-zone">
+      <div class="v20-login-card">
+        <div class="v20-card-brand"><img src="./assets/images/logo-book.svg" alt=""><div><b>Suhail</b><span>Medical Dictionary</span></div></div>
+        <h2 id="loginTitle">Welcome Back</h2>
+        <p id="loginSubtitle">Choose how you want to continue.</p>
+        <div class="v20-login-actions">
+          <button id="currentAccountBtn" class="v20-sign-btn current" type="button" disabled>
+            <span class="v20-sign-icon"><i class="bi bi-person-check-fill"></i></span>
+            <span><b id="currentAccountText">Sign in with current email</b><small id="currentEmailText">No saved account on this device</small></span>
+            <i class="bi bi-arrow-right"></i>
           </button>
-          <a class="v19-offline-entry" href="./offline.html"><span>⇩</span><div><b>Offline Medical Library</b><small>Dictionary + saved anatomy work without internet</small></div><span>→</span></a>
-          <button class="v19-card-install" type="button" data-install-app><span>⇩</span><b>Install as PWA</b><small>Use the app from your home screen and keep offline content ready</small></button>
-          <div id="authMessage" class="auth-message" role="status" aria-live="polite"></div>
-          <div class="auth-divider"><span>Secure sign in</span></div>
-          <div class="auth-security-note">
-            <span class="shield-icon">✓</span>
-            <p><b id="securityTitle">Your Google password stays with Google.</b><br><span id="securityBody">This website never asks for, receives, or stores your Google password.</span></p>
-          </div>
-          <div class="auth-trust-row" aria-label="Trust information">
-            <div><span>⌾</span><b>Secure & Private</b></div>
-            <div><span>♙</span><b>Your own cloud data</b></div>
-            <div><span>♡</span><b>Free to learn</b></div>
-          </div>
+          <button id="otherAccountBtn" class="v20-sign-btn other" type="button">
+            <span class="v20-sign-icon google">G</span>
+            <span><b id="otherAccountText">Sign in with Other email</b><small id="otherAccountHint">Use another email on this device</small></span>
+            <i class="bi bi-arrow-right"></i>
+          </button>
         </div>
-
-        <div id="returningPanel" class="consent-panel returning-panel hidden">
-          <span class="auth-kicker dark">Account</span>
-          <h3 id="returningTitle">A Google account is already signed in on this device.</h3>
-          <div id="returningEmail" class="signed-in-as"></div>
-          <button id="continueCurrent" class="button primary auth-submit" type="button">Continue with this account</button>
-          <button id="returningAnother" class="button ghost consent-switch" type="button">Use another Google account</button>
-          <div id="returningMessage" class="auth-message" role="status" aria-live="polite"></div>
-        </div>
-
-        <div id="consentPanel" class="consent-panel hidden">
-          <span class="auth-kicker dark">Account setup</span>
-          <h3 id="consentTitle">One-time account setup</h3>
-          <p id="consentSubtitle" class="consent-subtitle">Accept the Privacy Notice and Terms before opening your workspace.</p>
-          <div id="signedInAs" class="signed-in-as"></div>
-          <div class="signup-options">
-            <label class="check-row"><input id="privacyAccept" type="checkbox"><span><span id="privacyAcceptText">I accept the Privacy Notice and Terms.</span> <a href="./privacy.html" target="_blank">Privacy</a> · <a href="./terms.html" target="_blank">Terms</a></span></label>
-            <label class="check-row"><input id="ownerReviewOptIn" type="checkbox"><span id="ownerReviewText">Optional: allow the owner to review my stored chat content for support and quality.</span></label>
-          </div>
-          <button id="consentContinue" class="button primary auth-submit" type="button">Continue to my workspace</button>
-          <button id="useAnotherGoogle" class="button ghost consent-switch" type="button">Use another Google account</button>
-          <div id="authMessageConsent" class="auth-message" aria-hidden="true"></div>
-        </div>
+        <div id="authStatus" class="v20-auth-status" role="status" aria-live="polite"></div>
       </div>
-
-      <p class="auth-copyright">© <span id="year"></span> Suhail Medical Dictionary · Created by Suhail Saeedy</p>
+      <div class="v20-mobile-visual" aria-hidden="true">
+        <img src="./assets/images/v12/detail-heart-dark.webp" alt=""><span>Explore · Learn · Apply</span>
+      </div>
     </section>
 
-    <section class="auth-art-panel" aria-hidden="true">
-      <div class="auth-art-quote">“Better Knowledge<br>Brighter Tomorrow.”</div>
-      <div class="auth-3d-scene">
-        <div class="auth-orbit-heart"><img src="./assets/images/v16/login-heart-light.webp" alt=""></div>
-        <div class="auth-art-glow"></div>
-        <div class="auth-float-card c1"><b>Explore</b><span>Learn</span><span>Apply</span></div>
-        <div class="auth-float-card c2"><b>Cardiology</b><span>Anatomy · Pathology</span></div>
-        <div class="auth-float-card c3"><b>Real Knowledge</b><span>Real impact. Healthier people.</span></div>
-        <div class="auth-robot"><img src="./assets/images/v16/robot-light.webp" alt=""></div>
-        <div class="auth-ai-card"><b>Your AI Learning Companion</b><span>Explore concepts</span><span>Get clarifications</span><span>Study smarter</span></div>
-      </div>
+    <section class="v20-visual-panel" aria-hidden="true">
+      <div class="v20-quote">“Better Knowledge<br>Brighter Tomorrow.”</div>
+      <div class="v20-heart-platform"><span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span><img src="./assets/images/v12/detail-heart-dark.webp" alt=""></div>
+      <div class="v20-anatomy-silhouette"><img src="./assets/images/medical-3d/anatomy.svg" alt=""></div>
+      <div class="v20-float-card card-a"><b>Explore</b><span>Learn · Apply</span></div>
+      <div class="v20-float-card card-b"><b>Human Anatomy</b><span>Clinical terms · 3D systems</span></div>
+      <div class="v20-float-card card-c"><b>Medical Knowledge</b><span>Anytime · Anywhere</span></div>
+      <div class="v20-robot"><img src="./assets/images/v16/robot-dark.webp" alt=""><div><b>Suhail AI</b><span>Study companion</span></div></div>
     </section>
   </main>
-  <script>
-'use strict';
-(()=>{
-const UI={
- en:{openDictionary:'Open Dictionary',forStudents:'For medical students',heroTitle:'Understand medical terminology faster.',heroText:'Search by specialty, switch explanations between languages, hear pronunciation, select terms for print/PDF, study with AI, and keep the dictionary offline.',startLearning:'Start Learning',openAI:'Open AI Assistant'},
- ps:{openDictionary:'ډیکشنري خلاصه کړه',forStudents:'د طب محصلینو لپاره',heroTitle:'طبي اصطلاحات په اسانه او چټکه توګه زده کړئ.',heroText:'د څانګې له مخې لټون، څو ژبې، تلفظ، چاپ/PDF، AI زده کړه او افلاین ډیکشنري.',startLearning:'زده کړه پیل کړه',openAI:'AI مرستیال خلاص کړه'},
- prs:{openDictionary:'دیکشنری را باز کنید',forStudents:'برای محصلان طب',heroTitle:'اصطلاحات طبی را سریع‌تر و آسان‌تر بیاموزید.',heroText:'جستجو بر اساس بخش، چند زبان، تلفظ، چاپ/PDF، یادگیری با AI و استفاده آفلاین.',startLearning:'شروع یادگیری',openAI:'دستیار AI را باز کنید'},
- fa:{openDictionary:'باز کردن فرهنگ',forStudents:'برای دانشجویان پزشکی',heroTitle:'اصطلاحات پزشکی را سریع‌تر درک کنید.',heroText:'جستجو بر اساس تخصص، چند زبان، تلفظ، چاپ/PDF، یادگیری با AI و فرهنگ آفلاین.',startLearning:'شروع یادگیری',openAI:'باز کردن دستیار AI'},
- tr:{openDictionary:'Sözlüğü Aç',forStudents:'Tıp öğrencileri için',heroTitle:'Tıbbi terminolojiyi daha hızlı anlayın.',heroText:'Uzmanlığa göre arayın, dilleri değiştirin, telaffuzu dinleyin, PDF oluşturun, AI ile çalışın ve çevrimdışı kullanın.',startLearning:'Öğrenmeye Başla',openAI:'AI Asistanını Aç'},
- ar:{openDictionary:'فتح القاموس',forStudents:'لطلبة الطب',heroTitle:'افهم المصطلحات الطبية بسرعة أكبر.',heroText:'ابحث حسب التخصص، بدّل اللغة، استمع للنطق، اطبع/صدّر PDF، ادرس بالذكاء الاصطناعي واستخدم القاموس دون اتصال.',startLearning:'ابدأ التعلم',openAI:'فتح مساعد الذكاء الاصطناعي'},
- zh:{openDictionary:'打开词典',forStudents:'面向医学生',heroTitle:'更快理解医学术语。',heroText:'按专业搜索、切换语言、收听发音、打印/PDF、使用 AI 学习，并可离线使用词典。',startLearning:'开始学习',openAI:'打开 AI 助手'}
-};
-function applyTheme(){const sel=document.querySelector('#themeSelect');const saved=localStorage.getItem('smd-theme')||'dark';document.body.dataset.theme=saved;if(sel){sel.value=saved;sel.addEventListener('change',()=>{localStorage.setItem('smd-theme',sel.value);document.body.dataset.theme=sel.value;});}}
-function applyUI(lang){const dict=UI[lang]||UI.en;document.documentElement.lang=lang;document.documentElement.dir=['ps','prs','fa','ar'].includes(lang)?'rtl':'ltr';document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=dict[el.dataset.i18n]||el.textContent;});}
-function init(){applyTheme();const l=document.querySelector('#uiLanguage');if(l){const saved=localStorage.getItem('smd-ui-lang')||'en';l.value=saved;applyUI(saved);l.addEventListener('change',()=>{localStorage.setItem('smd-ui-lang',l.value);applyUI(l.value);});}const y=document.querySelector('#year');if(y)y.textContent=new Date().getFullYear();if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});}
-init();
-})();
-const SMDAuth=(()=>{
-const CONFIG={
-  supabaseUrl: 'https://qdfylefkkkyjwtqqiuye.supabase.co',
-  supabaseAnonKey: 'sb_publishable_CQwb8FIM4lLL27T8xZGqCQ_sGT4phu7',
-  aiWorkerUrl: '',
-  appName: 'Suhail Medical Dictionary',
-  meshVersion: '2026',
-  autoApplyUpdates: true,
-  uiVersion: '19.0.0'
-};
-// v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
-// so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
-const AUTH_STORAGE_KEY='smd-auth-v5';
-const OLD_STORAGE_KEYS=['smd-auth-v4','smd-auth-v3-3'];
-const DEFAULT_TIMEOUT=8000;
 
-function withTimeout(promise,ms=DEFAULT_TIMEOUT,label='Request'){
-  let timer;
-  return Promise.race([
-    promise,
-    new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(`${label} timed out. Please retry.`)),ms);})
-  ]).finally(()=>clearTimeout(timer));
-}
-function apiBase(){return String(CONFIG.supabaseUrl||'').replace(/\/$/,'');}
-function configured(){return /^https:\/\//.test(apiBase())&&String(CONFIG.supabaseAnonKey||'').length>10;}
-function jsonParse(raw){try{return JSON.parse(raw);}catch{return null;}}
-function readStoredSession(){
-  try{
-    const direct=jsonParse(localStorage.getItem(AUTH_STORAGE_KEY));
-    if(direct?.access_token&&direct?.user)return direct;
-    for(const key of OLD_STORAGE_KEYS){
-      const legacy=jsonParse(localStorage.getItem(key));
-      if(legacy?.access_token&&legacy?.user){
-        try{localStorage.setItem(AUTH_STORAGE_KEY,JSON.stringify(legacy));}catch{}
-        return legacy;
-      }
-    }
-  }catch{}
-  return null;
-}
-function peekSession(){
-  const s=readStoredSession();
-  if(!s?.access_token||!s?.user?.id)return null;
-  const now=Math.floor(Date.now()/1000);
-  if(s.expires_at && Number(s.expires_at)<=now-10)return null;
-  return s;
-}
-function saveSession(session){
-  if(!session?.access_token||!session?.user)throw new Error('The sign-in response was incomplete.');
-  localStorage.setItem(AUTH_STORAGE_KEY,JSON.stringify(session));
-  for(const key of OLD_STORAGE_KEYS){try{localStorage.removeItem(key);}catch{}}
-  return session;
-}
-function clearLocalAuth(){
-  try{localStorage.removeItem(AUTH_STORAGE_KEY);}catch{}
-  for(const key of OLD_STORAGE_KEYS){try{localStorage.removeItem(key);}catch{}}
-  try{sessionStorage.removeItem('smd-oauth-inflight');}catch{}
-}
-function decodeJwtUser(token){
-  try{
-    const part=token.split('.')[1];
-    const normalized=part.replace(/-/g,'+').replace(/_/g,'/').padEnd(Math.ceil(part.length/4)*4,'=');
-    const payload=JSON.parse(decodeURIComponent(Array.from(atob(normalized),c=>`%${c.charCodeAt(0).toString(16).padStart(2,'0')}`).join('')));
-    if(!payload?.sub)return null;
-    return {id:payload.sub,email:payload.email||'',aud:payload.aud,role:payload.role||'authenticated',app_metadata:payload.app_metadata||{},user_metadata:payload.user_metadata||{}};
-  }catch{return null;}
-}
-function authHeaders(token,extra={}){
-  const h={'apikey':CONFIG.supabaseAnonKey,...extra};
-  if(token)h.Authorization=`Bearer ${token}`;
-  return h;
-}
-async function parseResponse(res){
-  const text=await res.text();
-  const body=text?jsonParse(text):null;
-  if(!res.ok){
-    const err=new Error(body?.msg||body?.message||body?.error_description||body?.error||`Request failed (${res.status}).`);
-    err.status=res.status;err.code=body?.code||body?.error_code||'';err.details=body?.details||'';
-    throw err;
-  }
-  return body;
-}
-async function fetchUser(accessToken){
-  const res=await withTimeout(fetch(`${apiBase()}/auth/v1/user`,{headers:authHeaders(accessToken)}),7000,'Verifying your Google session');
-  return parseResponse(res);
-}
-async function captureOAuthCallback(){
-  if(!configured()||typeof location==='undefined')return null;
-  const raw=location.hash?.startsWith('#')?location.hash.slice(1):'';
-  if(!raw)return null;
-  const p=new URLSearchParams(raw);
-  const oauthError=p.get('error_description')||p.get('error');
-  if(oauthError){
-    history.replaceState(null,'',location.pathname+location.search);
-    throw new Error(oauthError);
-  }
-  const access=p.get('access_token');
-  if(!access)return null;
-  let user=null;
-  try{user=await fetchUser(access);}catch{user=decodeJwtUser(access);}
-  if(!user?.id)throw new Error('Google sign-in completed, but the user session could not be read.');
-  const expiresIn=Number(p.get('expires_in')||3600);
-  const expiresAt=Number(p.get('expires_at')||0)||Math.floor(Date.now()/1000)+expiresIn;
-  const session={
-    access_token:access,
-    refresh_token:p.get('refresh_token')||'',
-    token_type:p.get('token_type')||'bearer',
-    expires_in:expiresIn,
-    expires_at:expiresAt,
-    provider_token:p.get('provider_token')||undefined,
-    provider_refresh_token:p.get('provider_refresh_token')||undefined,
-    user
-  };
-  saveSession(session);
-  history.replaceState(null,'',location.pathname+location.search);
-  return session;
-}
-async function refreshSession(session){
-  if(!session?.refresh_token)return null;
-  const res=await withTimeout(fetch(`${apiBase()}/auth/v1/token?grant_type=refresh_token`,{
-    method:'POST',headers:authHeaders(null,{'content-type':'application/json'}),body:JSON.stringify({refresh_token:session.refresh_token})
-  }),8000,'Refreshing your session');
-  const data=await parseResponse(res);
-  const user=data.user||decodeJwtUser(data.access_token);
-  if(!data.access_token||!user?.id)return null;
-  return saveSession({...data,user,expires_at:data.expires_at||Math.floor(Date.now()/1000)+Number(data.expires_in||3600)});
-}
-async function currentSession(){
-  if(!configured())return null;
-  const callback=await captureOAuthCallback();
-  if(callback)return callback;
-  const session=readStoredSession();
-  if(!session)return null;
-  const now=Math.floor(Date.now()/1000);
-  if(!navigator.onLine)return {...session,offline_cached:true};
-  if(!session.expires_at||Number(session.expires_at)>now+45)return session;
-  try{return await refreshSession(session);}catch{clearLocalAuth();return null;}
-}
-async function signInWithGoogle(redirectTo){
-  if(!configured())throw new Error('Google sign-in is not configured.');
-  sessionStorage.setItem('smd-oauth-inflight','1');
-  const u=new URL(`${apiBase()}/auth/v1/authorize`);
-  u.searchParams.set('provider','google');
-  u.searchParams.set('redirect_to',redirectTo);
-  // GoTrue forwards supported provider query params to Google.
-  u.searchParams.set('prompt','select_account');
-  location.assign(u.toString());
-  return {url:u.toString()};
-}
-async function signOut(){
-  const session=readStoredSession();
-  clearLocalAuth();
-  if(session?.access_token&&navigator.onLine){
-    try{await withTimeout(fetch(`${apiBase()}/auth/v1/logout?scope=local`,{method:'POST',headers:authHeaders(session.access_token)}),3500,'Signing out');}catch{}
-  }
-}
+  <footer class="v20-login-footer"><span>© <b id="year"></b> Suhail Medical Dictionary</span><nav><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./about.html">About</a></nav></footer>
 
-class RestBuilder{
-  constructor(table){this.table=table;this.method='GET';this.body=null;this.filters=[];this.params=new URLSearchParams();this.wantRepresentation=false;}
-  select(cols='*'){this.params.set('select',cols||'*');if(this.method!=='GET')this.wantRepresentation=true;return this;}
-  insert(value){this.method='POST';this.body=value;return this;}
-  update(value){this.method='PATCH';this.body=value;return this;}
-  delete(){this.method='DELETE';return this;}
-  eq(col,value){this.filters.push([col,`eq.${value}`]);return this;}
-  order(col,{ascending=true}={}){this.params.set('order',`${col}.${ascending?'asc':'desc'}`);return this;}
-  async single(){const r=await this._execute();if(r.error)return r;const arr=Array.isArray(r.data)?r.data:[];if(arr.length!==1)return {data:null,error:new Error(arr.length?'Expected one row.':'No row found.')};return {data:arr[0],error:null};}
-  async maybeSingle(){const r=await this._execute();if(r.error)return r;const arr=Array.isArray(r.data)?r.data:[];return {data:arr[0]||null,error:null};}
-  then(resolve,reject){return this._execute().then(resolve,reject);}
-  async _execute(){
-    try{
-      const session=await currentSession();
-      const url=new URL(`${apiBase()}/rest/v1/${encodeURIComponent(this.table)}`);
-      for(const [k,v] of this.params)url.searchParams.set(k,v);
-      for(const [k,v] of this.filters)url.searchParams.append(k,v);
-      const headers=authHeaders(session?.access_token,{});
-      const opts={method:this.method,headers};
-      if(this.method!=='GET'&&this.body!==null){headers['content-type']='application/json';opts.body=JSON.stringify(this.body);}
-      if(this.method==='POST'||this.method==='PATCH')headers.Prefer=this.wantRepresentation?'return=representation':'return=minimal';
-      const res=await withTimeout(fetch(url.toString(),opts),9000,'Cloud data request');
-      if(!res.ok)await parseResponse(res);
-      if(res.status===204)return {data:null,error:null};
-      const text=await res.text();const data=text?jsonParse(text):null;
-      return {data,error:null};
-    }catch(error){return {data:null,error};}
-  }
-}
-class RestClient{
-  constructor(){
-    this.auth={
-      getSession:async()=>({data:{session:await currentSession()},error:null}),
-      getUser:async()=>{const s=await currentSession();return {data:{user:s?.user||null},error:null};},
-      signOut:async()=>{await signOut();return {error:null};}
-    };
-  }
-  from(table){return new RestBuilder(table);}
-  async rpc(name,args={}){
-    try{
-      const session=await currentSession();
-      const res=await withTimeout(fetch(`${apiBase()}/rest/v1/rpc/${encodeURIComponent(name)}`,{
-        method:'POST',headers:authHeaders(session?.access_token,{'content-type':'application/json'}),body:JSON.stringify(args||{})
-      }),9000,'Cloud account request');
-      const data=await parseResponse(res);
-      return {data,error:null};
-    }catch(error){return {data:null,error};}
-  }
-}
-let client=null;
-async function getSupabase(){
-  if(!configured())return null;
-  if(!client)client=new RestClient();
-  return client;
-}
-async function getMyProfile(){
-  const sb=await getSupabase();const sess=await currentSession();if(!sb||!sess)return null;
-  const {data,error}=await sb.from('profiles').select('email,is_owner,allow_owner_review,privacy_ack_at').eq('id',sess.user.id).single();
-  if(error)return null;return data;
-}
-async function setOwnerReviewConsent(value){
-  const sb=await getSupabase();if(!sb)throw new Error('Cloud account is unavailable.');
-  const {error}=await sb.rpc('set_owner_review_consent',{p_allow:!!value});if(error)throw error;return !!value;
-}
-async function logEvent(type,metadata={}){
-  try{
-    const sb=await getSupabase(),sess=await currentSession();if(!sb||!sess?.user)return;
-    await sb.from('user_events').insert({user_id:sess.user.id,event_type:type,metadata,user_agent:navigator.userAgent.slice(0,500)});
-    await sb.rpc('touch_last_seen');
-  }catch{}
-}
+  <div class="modal fade" id="localAccountModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content v20-consent-modal">
+      <div class="modal-header"><h5 class="modal-title">Sign in with Other email</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body"><p>This email is stored only on this device in Zero-Cost Mode. No password, paid API, or cloud account is required.</p><label class="form-label w-100"><span>Email</span><input id="localEmailInput" class="form-control mt-2" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com"></label><div id="localAccountStatus" class="v20-auth-status"></div></div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button><button id="localAccountContinue" type="button" class="btn btn-primary">Continue locally</button></div>
+    </div></div>
+  </div>
 
-return {peekSession,currentSession,signInWithGoogle,signOut,getSupabase,getMyProfile,setOwnerReviewConsent,logEvent};
-})();
-(()=>{
-const CONFIG={
-  supabaseUrl: 'https://qdfylefkkkyjwtqqiuye.supabase.co',
-  supabaseAnonKey: 'sb_publishable_CQwb8FIM4lLL27T8xZGqCQ_sGT4phu7',
-  aiWorkerUrl: '',
-  appName: 'Suhail Medical Dictionary',
-  meshVersion: '2026',
-  autoApplyUpdates: true,
-  uiVersion: '19.0.0'
-};
-const {currentSession,signInWithGoogle,signOut,getMyProfile,setOwnerReviewConsent,logEvent}=SMDAuth;
-const $=s=>document.querySelector(s);
-const RTL=new Set(['ps','prs','fa','ar']);
-const TEXT={
- en:{welcome:'Secure medical learning',title:'Welcome Back',sub:'Sign in with Google to continue your medical learning journey. Your Google password stays with Google.',google:'Sign in with Google',working:'Opening Google…',needConfig:'Google sign-in is not configured yet. The owner must connect Supabase and Google OAuth first.',securityTitle:'Your Google password stays with Google.',securityBody:'This website never asks for, receives, or stores your Google password.',consentTitle:'One-time account setup',consentSub:'Accept the Privacy Notice and Terms before opening your workspace.',accept:'I accept the Privacy Notice and Terms.',review:'Optional: allow the owner to review my stored chat content for support and quality.',continue:'Continue to my workspace',another:'Use another Google account',signed:'Signed in as',returning:'A Google account is already signed in on this device.',continueCurrent:'Continue with this account'},
- ps:{welcome:'ښه راغلاست',title:'د Google حساب وټاکئ',sub:'هغه Google حساب وټاکئ چې غواړئ له همدې سره سیستم وکاروئ. نوی پاسورډ ته اړتیا نشته.',google:'Google حساب وټاکئ',working:'Google پرانیستل کېږي…',needConfig:'Google Login لا نه دی تنظیم شوی. Owner باید لومړی Supabase او Google OAuth وصل کړي.',securityTitle:'ستاسو د Google پاسورډ له Google سره پاتې کېږي.',securityBody:'دا ویب‌سایټ ستاسو د Google پاسورډ نه غواړي، نه یې ترلاسه کوي او نه یې ذخیره کوي.',consentTitle:'د حساب یو ځل تنظیم',consentSub:'Workspace ته له ننوتلو مخکې Privacy Notice او Terms ومنئ.',accept:'زه Privacy Notice او Terms منم.',review:'اختیاري: Owner ته اجازه ورکوم چې د Support او Quality لپاره زما ذخیره شوي Chatونه وګوري.',continue:'خپل Workspace ته دوام',another:'بل Google حساب استعمالول',signed:'داخل شوی حساب',returning:'په دې وسیله کې یو Google حساب لا داخل دی.',continueCurrent:'په همدې حساب دوام'},
- prs:{welcome:'خوش آمدید',title:'حساب Google را انتخاب کنید',sub:'حساب Google مورد نظر را انتخاب کنید. نیازی به ساختن رمز جدید نیست.',google:'انتخاب حساب Google',working:'Google باز می‌شود…',needConfig:'ورود Google هنوز تنظیم نشده است.',securityTitle:'رمز Google شما نزد Google می‌ماند.',securityBody:'این وب‌سایت رمز Google شما را نمی‌خواهد، دریافت نمی‌کند و ذخیره نمی‌کند.',consentTitle:'تنظیم یک‌باره حساب',consentSub:'پیش از ورود، Privacy Notice و Terms را بپذیرید.',accept:'Privacy Notice و Terms را می‌پذیرم.',review:'اختیاری: اجازه بررسی چت‌های ذخیره‌شده برای پشتیبانی و کیفیت.',continue:'ادامه به فضای من',another:'استفاده از حساب Google دیگر',signed:'حساب واردشده',returning:'یک حساب Google در این دستگاه وارد شده است.',continueCurrent:'ادامه با همین حساب'},
- fa:{welcome:'خوش آمدید',title:'حساب Google را انتخاب کنید',sub:'حساب Google مورد نظر را انتخاب کنید. نیازی به ساخت رمز جدید نیست.',google:'انتخاب حساب Google',working:'در حال باز کردن Google…',needConfig:'ورود Google هنوز تنظیم نشده است.',securityTitle:'رمز Google شما نزد Google می‌ماند.',securityBody:'این وب‌سایت رمز Google شما را درخواست، دریافت یا ذخیره نمی‌کند.',consentTitle:'راه‌اندازی یک‌باره حساب',consentSub:'پیش از ورود، Privacy Notice و Terms را بپذیرید.',accept:'Privacy Notice و Terms را می‌پذیرم.',review:'اختیاری: اجازه بررسی چت‌های ذخیره‌شده برای پشتیبانی و کیفیت.',continue:'ادامه به فضای من',another:'استفاده از حساب Google دیگر',signed:'حساب واردشده',returning:'یک حساب Google در این دستگاه وارد شده است.',continueCurrent:'ادامه با همین حساب'},
- tr:{welcome:'Hoş geldiniz',title:'Google hesabı seçin',sub:'Kullanmak istediğiniz Google hesabını seçin. Yeni parola gerekmez.',google:'Google hesabı seç',working:'Google açılıyor…',needConfig:'Google girişi henüz yapılandırılmadı.',securityTitle:'Google parolanız Google’da kalır.',securityBody:'Bu site Google parolanızı istemez, almaz veya saklamaz.',consentTitle:'Tek seferlik hesap kurulumu',consentSub:'Çalışma alanını açmadan önce Gizlilik Bildirimi ve Koşulları kabul edin.',accept:'Gizlilik Bildirimi ve Koşulları kabul ediyorum.',review:'İsteğe bağlı: destek ve kalite için kayıtlı sohbetlerimin incelenmesine izin ver.',continue:'Çalışma alanıma devam et',another:'Başka bir Google hesabı kullan',signed:'Giriş yapılan hesap',returning:'Bu cihazda bir Google hesabı zaten açık.',continueCurrent:'Bu hesapla devam et'},
- ar:{welcome:'مرحباً',title:'اختر حساب Google',sub:'اختر حساب Google الذي تريد استخدامه. لا حاجة لإنشاء كلمة مرور جديدة.',google:'اختيار حساب Google',working:'جارٍ فتح Google…',needConfig:'تسجيل الدخول عبر Google غير مُعد بعد.',securityTitle:'كلمة مرور Google تبقى لدى Google.',securityBody:'هذا الموقع لا يطلب كلمة مرور Google ولا يستلمها ولا يخزنها.',consentTitle:'إعداد الحساب لمرة واحدة',consentSub:'اقبل إشعار الخصوصية والشروط قبل فتح مساحة الدراسة.',accept:'أوافق على إشعار الخصوصية والشروط.',review:'اختياري: السماح للمالك بمراجعة المحادثات المحفوظة للدعم والجودة.',continue:'المتابعة إلى مساحتي',another:'استخدام حساب Google آخر',signed:'الحساب المسجل',returning:'يوجد حساب Google مسجل على هذا الجهاز.',continueCurrent:'المتابعة بهذا الحساب'},
- zh:{welcome:'欢迎',title:'选择 Google 账号',sub:'选择你想使用的 Google 账号，无需创建新密码。',google:'选择 Google 账号',working:'正在打开 Google…',needConfig:'Google 登录尚未配置。',securityTitle:'你的 Google 密码只由 Google 保管。',securityBody:'本网站不会请求、接收或存储你的 Google 密码。',consentTitle:'一次性账户设置',consentSub:'进入学习空间前，请接受隐私声明和条款。',accept:'我接受隐私声明和条款。',review:'可选：允许站点所有者为支持和质量目的查看我保存的聊天。',continue:'进入我的学习空间',another:'使用其他 Google 账号',signed:'已登录账号',returning:'此设备已有 Google 账号登录。',continueCurrent:'使用此账号继续'}
-};
-function lang(){return localStorage.getItem('smd-ui-lang')||'en';}
-function t(){return TEXT[lang()]||TEXT.en;}
-function applyLanguage(code){localStorage.setItem('smd-ui-lang',code);document.documentElement.lang=code;document.documentElement.dir=RTL.has(code)?'rtl':'ltr';$('#loginLanguage').value=code;render();}
-function render(){const x=t();$('#authKicker').textContent=x.welcome;$('#authTitle').textContent=x.title;$('#authSubtitle').textContent=x.sub;$('#googleButtonText').textContent=x.google;$('#securityTitle').textContent=x.securityTitle;$('#securityBody').textContent=x.securityBody;$('#consentTitle').textContent=x.consentTitle;$('#consentSubtitle').textContent=x.consentSub;$('#privacyAcceptText').textContent=x.accept;$('#ownerReviewText').textContent=x.review;$('#consentContinue').textContent=x.continue;$('#useAnotherGoogle').textContent=x.another;$('#returningTitle').textContent=x.returning;$('#continueCurrent').textContent=x.continueCurrent;$('#returningAnother').textContent=x.another;}
-function showMessage(msg,type='info'){for(const id of ['#authMessage','#authMessageConsent','#returningMessage']){const el=$(id);if(!el)continue;el.textContent=msg;el.className=`auth-message ${type}`;}}
-function showGoogle(){ $('#returningPanel').classList.add('hidden');$('#consentPanel').classList.add('hidden');$('#googleSignInPanel').classList.remove('hidden'); }
-function showConsent(session){const x=t();$('#googleSignInPanel').classList.add('hidden');$('#returningPanel').classList.add('hidden');$('#consentPanel').classList.remove('hidden');$('#signedInAs').textContent=`${x.signed}: ${session.user.email||''}`;}
-function showReturning(session){const x=t();$('#googleSignInPanel').classList.add('hidden');$('#consentPanel').classList.add('hidden');$('#returningPanel').classList.remove('hidden');$('#returningEmail').textContent=`${x.signed}: ${session.user.email||''}`;}
-async function loadProfileWithRetry(){for(let i=0;i<6;i++){const p=await getMyProfile();if(p)return p;await new Promise(r=>setTimeout(r,300));}return null;}
-async function proceedSession(session,{fromOAuth=false}={}){const profile=await loadProfileWithRetry();if(profile?.privacy_ack_at){if(fromOAuth){logEvent('login',{provider:'google'}).catch(()=>{});location.replace('./app.html');return;}showReturning(session);return;}if(!profile&&!fromOAuth){showReturning(session);return;}showConsent(session);}
-async function init(){
- $('#year').textContent=new Date().getFullYear();applyLanguage(lang());
- $('#loginLanguage').addEventListener('change',e=>applyLanguage(e.target.value));
- $('#googleSignIn').addEventListener('click',()=>startGoogle({resetLocal:true}));
- $('#consentContinue').addEventListener('click',saveConsent);
- $('#useAnotherGoogle').addEventListener('click',()=>startGoogle({resetLocal:true}));
- $('#returningAnother').addEventListener('click',()=>startGoogle({resetLocal:true}));
- $('#continueCurrent').addEventListener('click',async()=>{location.replace('./app.html');});
- if(!CONFIG.supabaseUrl||!CONFIG.supabaseAnonKey){showMessage(t().needConfig,'warning');return;}
- try{
-   const s=await currentSession();
-   if(s){const fromOAuth=sessionStorage.getItem('smd-oauth-inflight')==='1';sessionStorage.removeItem('smd-oauth-inflight');await proceedSession(s,{fromOAuth});}
-   else showGoogle();
- }catch(err){showGoogle();showMessage(err.message||'Sign-in could not be completed.','warning');}
-}
-async function startGoogle({resetLocal=false}={}){
- if(!CONFIG.supabaseUrl||!CONFIG.supabaseAnonKey){showMessage(t().needConfig,'warning');return;}
- const btn=$('#googleSignIn');if(btn)btn.disabled=true;$('#googleButtonText').textContent=t().working;showMessage('');
- try{
-   if(resetLocal)await signOut();
-   const redirectTo=new URL('./index.html',window.location.href).href.split('#')[0].split('?')[0];
-   await signInWithGoogle(redirectTo);
- }catch(err){showGoogle();showMessage(err.message||'Google sign-in could not be started.','error');if(btn)btn.disabled=false;render();}
-}
-async function saveConsent(){
- if(!$('#privacyAccept').checked){showMessage(t().accept,'warning');return;}
- const btn=$('#consentContinue');btn.disabled=true;showMessage('');
- try{await setOwnerReviewConsent($('#ownerReviewOptIn').checked);logEvent('signup_or_consent',{provider:'google',privacyAccepted:true,ownerReview:$('#ownerReviewOptIn').checked}).catch(()=>{});location.replace('./app.html');}
- catch(err){showMessage(err.message||'Account setup could not be completed.','error');btn.disabled=false;}
-}
-init();
+  <div class="modal fade" id="consentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered"><div class="modal-content v20-consent-modal">
+      <div class="modal-header"><h5 class="modal-title">One-time account setup</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button></div>
+      <div class="modal-body"><p id="consentEmail"></p><label class="form-check"><input id="privacyAccept" class="form-check-input" type="checkbox"><span class="form-check-label">I accept the <a href="./privacy.html" target="_blank" rel="noopener noreferrer">Privacy Notice</a> and <a href="./terms.html" target="_blank" rel="noopener noreferrer">Terms</a>.</span></label><label class="form-check mt-3"><input id="ownerReviewOptIn" class="form-check-input" type="checkbox"><span class="form-check-label">Optional: allow stored chat review for support and quality.</span></label><div id="consentStatus" class="v20-auth-status"></div></div>
+      <div class="modal-footer"><button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Cancel</button><button id="consentContinue" type="button" class="btn btn-primary">Continue</button></div>
+    </div></div>
+  </div>
 
-})();
-
-</script>
-  <script src="./assets/js/v16-ui.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v17-login.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v18-final-integration.js?v=19.0.0"></script>
-  <script src="./assets/js/v18-phase7-polish.js?v=19.0.0"></script>
-  <script src="./assets/js/v18-phase8-final.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v19-core.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v19-login.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v19-mobile.js?v=19.0.0" defer></script>
+  <script src="./assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script type="module" src="./assets/js/v20-login.js?v=20.16.0"></script>
+  <script src="./assets/js/pwa.js?v=20.16.0" defer></script>
 </body>
 </html>

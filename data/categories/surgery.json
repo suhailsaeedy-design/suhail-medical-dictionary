@@ -22,6 +22,69 @@
     "localized_term": {
       "ps": "اپنډيسایټس",
       "fa": "آپاندیسیت"
-    }
+    },
+    "reference_module": "conditions",
+    "reference_query": "Appendicitis",
+    "related_term_ids": [
+      "basic-anat-abdomen"
+    ]
+  },
+  {
+    "id": "p11-inguinal-hernia",
+    "term": "Inguinal Hernia",
+    "category": "surgery",
+    "category_label": "Surgery",
+    "synonyms": [],
+    "definition": {
+      "en": "Protrusion of abdominal contents through a weak area of the inguinal region."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Conditions",
+    "reference_module": "conditions",
+    "reference_query": "Inguinal Hernia",
+    "related_term_ids": [
+      "basic-anat-abdomen"
+    ]
+  },
+  {
+    "id": "p14-tooth-extraction",
+    "term": "Tooth Extraction",
+    "category": "surgery",
+    "category_label": "Surgery",
+    "synonyms": [],
+    "definition": {
+      "en": "Removal of a tooth from its socket by an appropriately qualified clinician."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Tooth Extraction",
+    "related_term_ids": [
+      "p13-tooth",
+      "p14-dental-alveolus"
+    ]
+  },
+  {
+    "id": "p11-umbilical-hernia",
+    "term": "Umbilical Hernia",
+    "category": "surgery",
+    "category_label": "Surgery",
+    "synonyms": [],
+    "definition": {
+      "en": "Protrusion of abdominal tissue through or near the umbilical opening."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Conditions",
+    "reference_module": "conditions",
+    "reference_query": "Umbilical Hernia",
+    "related_term_ids": [
+      "basic-anat-abdomen"
+    ]
   }
 ]

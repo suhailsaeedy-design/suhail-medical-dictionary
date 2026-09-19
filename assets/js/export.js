@@ -1,5 +1,5 @@
 const LIBS={
-  pdf:'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js',
+  pdf:'',
   zip:'./assets/vendor/jszip.min.js'
 };
 const loaded=new Map();
@@ -17,12 +17,12 @@ function loadScript(src,globalName,timeoutMs=15000){
   }).catch(err=>{loaded.delete(src);throw err;});
   loaded.set(src,p);return p;
 }
-async function ensurePdf(){return loadScript(LIBS.pdf,'html2pdf',18000);}
+async function ensurePdf(){return null;}
 async function ensureZip(){return loadScript(LIBS.zip,'JSZip',8000);}
 export async function preloadExportLibraries(){
   const out={pdf:false,zip:false};
   try{await ensureZip();out.zip=true;}catch{}
-  try{await ensurePdf();out.pdf=true;}catch{}
+  try{out.pdf=!!(await ensurePdf());}catch{}
   return out;
 }
 const RTL=new Set(['ps','prs','fa','ar']);

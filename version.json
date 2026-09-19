@@ -1,5 +1,8 @@
 {
-  "version": "19.0.0-final-verified",
-  "channel": "stable",
-  "name": "Suhail Medical Dictionary v19 Final Verified"
+  "version": "20.16.0",
+  "channel": "final-qa-release",
+  "name": "Suhail Medical Dictionary v20 Final QA Release",
+  "build": "2026-09-19-phase17-final-qa",
+  "release_id": "20260919220845",
+  "releasedAt": "2026-09-19T22:08:45Z"
 }

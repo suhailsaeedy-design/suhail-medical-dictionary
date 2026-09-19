@@ -22,6 +22,259 @@
     "localized_term": {
       "ps": "کمخوني",
       "fa": "کم‌خونی"
-    }
+    },
+    "reference_module": "conditions",
+    "reference_query": "Anemia",
+    "related_term_ids": [
+      "smd-dx-007",
+      "gloss-erythrocyte",
+      "ref-procedures-peripheral-blood-smear",
+      "ref-procedures-reticulocyte-count"
+    ]
+  },
+  {
+    "id": "gloss-embolism",
+    "term": "Embolism",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [],
+    "definition": {
+      "en": "Obstruction of a blood vessel by material traveling through the circulation."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary",
+    "related_term_ids": [
+      "ref-pulmonary-embolism",
+      "anat3d-pulmonary-artery",
+      "ref-deep-vein-thrombosis",
+      "ref-procedures-ct-angiography"
+    ]
+  },
+  {
+    "id": "gloss-erythrocyte",
+    "term": "Erythrocyte",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [],
+    "definition": {
+      "en": "A red blood cell specialized for transport of respiratory gases."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary",
+    "related_term_ids": [
+      "D000740",
+      "smd-dx-007",
+      "ref-procedures-peripheral-blood-smear",
+      "ref-procedures-reticulocyte-count"
+    ]
+  },
+  {
+    "id": "p11-hemophilia",
+    "term": "Hemophilia",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [],
+    "definition": {
+      "en": "An inherited bleeding disorder caused by deficiency of specific blood-clotting factors."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Conditions",
+    "reference_module": "conditions",
+    "reference_query": "Hemophilia",
+    "related_term_ids": [
+      "basic-anat-blood",
+      "gloss-hemorrhage"
+    ]
+  },
+  {
+    "id": "gloss-hemorrhage",
+    "term": "Hemorrhage",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [],
+    "definition": {
+      "en": "Bleeding due to escape of blood from the circulatory system."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary",
+    "related_term_ids": [
+      "D020521",
+      "basic-anat-brain",
+      "gloss-ischemia",
+      "ref-procedures-carotid-ultrasound"
+    ]
+  },
+  {
+    "id": "gloss-hemostasis",
+    "term": "Hemostasis",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [],
+    "definition": {
+      "en": "Physiologic processes that limit bleeding after blood-vessel injury."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "ref-iron-deficiency-anemia",
+    "term": "Iron Deficiency Anemia",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [
+      "IDA"
+    ],
+    "definition": {
+      "en": "Anemia caused by insufficient iron available for normal hemoglobin production."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Clinical Reference educational summary",
+    "reference_module": "conditions",
+    "reference_query": "Iron Deficiency Anemia",
+    "related_term_ids": [
+      "D000740",
+      "smd-dx-007"
+    ]
+  },
+  {
+    "id": "ref-leukemia",
+    "term": "Leukemia",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [],
+    "definition": {
+      "en": "A group of cancers affecting blood-forming tissues and abnormal white blood cell production."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Clinical Reference educational summary",
+    "reference_module": "conditions",
+    "reference_query": "Leukemia",
+    "related_term_ids": [
+      "smd-imm-010"
+    ]
+  },
+  {
+    "id": "gloss-leukocyte",
+    "term": "Leukocyte",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [],
+    "definition": {
+      "en": "A white blood cell involved in immune defense and inflammation."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "ref-lymphoma",
+    "term": "Lymphoma",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [],
+    "definition": {
+      "en": "A group of cancers arising from lymphocytes in the lymphatic system."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Clinical Reference educational summary",
+    "reference_module": "conditions",
+    "reference_query": "Lymphoma",
+    "related_term_ids": [
+      "smd-imm-007",
+      "p12-lymph-node"
+    ]
+  },
+  {
+    "id": "gloss-plasma",
+    "term": "Plasma",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [],
+    "definition": {
+      "en": "The liquid component of blood in which cells and dissolved substances are suspended."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "ref-sickle-cell-disease",
+    "term": "Sickle Cell Disease",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [
+      "SCD"
+    ],
+    "definition": {
+      "en": "An inherited hemoglobin disorder in which abnormal hemoglobin can change red blood cell shape and function."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Clinical Reference educational summary",
+    "reference_module": "conditions",
+    "reference_query": "Sickle Cell Disease",
+    "related_term_ids": [
+      "smd-dx-007"
+    ]
+  },
+  {
+    "id": "gloss-thrombosis",
+    "term": "Thrombosis",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [],
+    "definition": {
+      "en": "Formation of a blood clot within a blood vessel."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary",
+    "related_term_ids": [
+      "ref-deep-vein-thrombosis",
+      "basic-anat-vein",
+      "ref-pulmonary-embolism",
+      "ref-procedures-venous-ultrasound"
+    ]
+  },
+  {
+    "id": "p11-vitamin-b12-deficiency-anemia",
+    "term": "Vitamin B12 Deficiency Anemia",
+    "category": "hematology",
+    "category_label": "Hematology",
+    "synonyms": [],
+    "definition": {
+      "en": "Anemia associated with inadequate vitamin B12 availability and impaired DNA synthesis in developing blood cells."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Conditions",
+    "reference_module": "conditions",
+    "reference_query": "Vitamin B12 Deficiency Anemia",
+    "related_term_ids": [
+      "D000740",
+      "gloss-erythrocyte",
+      "smd-dx-007"
+    ]
   }
 ]

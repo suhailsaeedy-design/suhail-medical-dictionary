@@ -1,28 +1,64 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./assets/icons/icon-192.png"><link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=19.0.0"><title>Offline Packs · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-desktop.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-mobile.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-final-integration.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-desktop.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-mobile.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-final-integration.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-phase8-final.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v19-core.css?v=19.0.0">
-  <link rel="stylesheet" href="./assets/css/v19-phase4-offline-admin.css?v=19.0.0">
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071d33">
+  <meta name="description" content="Offline packs and PWA controls for Suhail Medical Dictionary.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icons/icon-192.png">
+  <title>Offline Packs · Suhail Medical Dictionary</title>
+  <link rel="stylesheet" href="./assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20.16.0">
+  <link rel="stylesheet" href="./assets/css/v20-shell.css?v=20.16.0">
+  <link rel="stylesheet" href="./assets/css/v20-offline.css?v=20.16.0">
+  <link rel="stylesheet" href="./assets/css/v20-release.css?v=20.16.0">
 </head>
-<body class="workspace-page" data-build="19.0.0" data-theme="clinical">
-<div class="med-app-shell">
-<aside class="med-sidebar" aria-label="Primary navigation"><a class="med-brand" href="./app.html"><span class="med-brand-mark"><img src="./assets/images/logo-book.svg" alt=""></span><span><strong>Suhail</strong><small>Medical Dictionary</small></span></a><nav class="med-nav"><a class="med-nav-item" href="./app.html#dashboard"><span class="nav-ico">⌂</span><span>Dashboard</span></a><a class="med-nav-item" href="./app.html#dictionary"><span class="nav-ico">▣</span><span>Dictionary</span></a><a class="med-nav-item" href="./ai.html"><span class="nav-ico">✦</span><span>AI Study</span></a><a class="med-nav-item" href="./app.html?view=selected"><span class="nav-ico">◇</span><span>Selected</span></a><a class="med-nav-item active" href="./offline.html"><span class="nav-ico">⇩</span><span>Offline Packs</span></a><a class="med-nav-item" href="./app.html?view=bookmarks"><span class="nav-ico">★</span><span>Bookmarks</span></a><a class="med-nav-item" href="./app.html?view=history"><span class="nav-ico">◷</span><span>History</span></a><span class="med-nav-separator"></span><a class="med-nav-item" href="./about.html"><span class="nav-ico">ⓘ</span><span>About</span></a><a class="med-nav-item" href="./app.html#settings"><span class="nav-ico">⚙</span><span>Settings</span></a></nav><div class="med-side-promo"><div class="promo-orb"><span>⇩</span></div><strong>Study anywhere</strong><small>Save the dictionary once, then keep core terminology available even when the network is unavailable.</small><a href="./app.html" class="promo-button">Dictionary <span>→</span></a></div></aside>
-<div class="med-main"><header class="med-topbar"><div class="global-search-wrap"><span class="search-glyph">⌕</span><input class="global-search" value="Offline Packs & Updates" readonly><kbd>Offline</kbd></div><div class="med-top-actions"><span class="status-chip" id="networkStatus"><i></i>Online</span><select id="themeSelect" class="control compact top-select"><option value="clinical">☀ Light</option><option value="ocean">◉ Blue</option><option value="dark">☾ Midnight</option><option value="forest">❖ Emerald</option><option value="violet">✦ Violet</option><option value="sand">◇ Pearl</option></select><a class="med-account" href="./app.html" style="text-decoration:none"><span class="avatar-dot"></span><span class="account-lines"><b>Workspace</b><small>Back to Dictionary</small></span><span class="account-chevron">↗</span></a></div></header>
-<main class="v19-offline-main"><div id="v19OfflineRoot"></div></main></div></div>
-<script>(()=>{const s=document.querySelector('#themeSelect');const v=localStorage.getItem('smd-theme')||'clinical';document.body.dataset.theme=v;s.value=v;s.addEventListener('change',()=>{document.body.dataset.theme=s.value;localStorage.setItem('smd-theme',s.value)});})();</script>
-  <script src="./assets/js/v16-ui.js?v=19.0.0" defer></script>
-<nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation"><a class="mobile-nav-home" href="./app.html"><span>Home</span></a><a class="mobile-nav-ai" href="./ai.html"><span>AI Study</span></a><a class="mobile-nav-selected" href="./app.html?view=selected"><span>Selected</span></a><a class="active mobile-nav-offline" href="./offline.html"><span>Offline</span></a><a class="mobile-nav-more" href="./about.html"><span>More</span></a></nav>
-  <script src="./assets/js/v17-final-integration.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v18-final-integration.js?v=19.0.0"></script>
-  <script src="./assets/js/v19-core.js?v=19.0.0" defer></script>
-  <script src="./assets/js/v19-phase4-offline-admin.js?v=19.0.0" defer></script>
-</body></html>
+<body class="workspace-page v20-offline-page" data-build="20.16.0" data-theme="dark">
+  <a class="v20-skip-link" href="#main-content">Skip to main content</a>
+  <div class="med-app-shell">
+    <aside class="med-sidebar" aria-label="Primary navigation">
+      <a class="med-brand" href="./app.html"><span class="med-brand-mark"><img src="./assets/images/logo-book.svg" alt=""></span><span><strong>Suhail</strong><small>Medical Dictionary</small></span></a>
+      <nav class="med-nav">
+        <a class="med-nav-item" href="./app.html#dashboard"><span class="nav-ico"><i class="bi bi-house-door"></i></span><span>Dashboard</span></a>
+        <a class="med-nav-item" href="./app.html#dictionary"><span class="nav-ico"><i class="bi bi-journal-medical"></i></span><span>Dictionary</span></a>
+        <a class="med-nav-item" href="./app.html#clinical-reference"><span class="nav-ico"><i class="bi bi-clipboard2-pulse"></i></span><span>Clinical Reference</span></a>
+        <a class="med-nav-item" href="./anatomy.html"><span class="nav-ico"><i class="bi bi-box"></i></span><span>3D Anatomy</span></a>
+        <a class="med-nav-item" href="./ai.html"><span class="nav-ico"><i class="bi bi-stars"></i></span><span>AI Study</span></a>
+        <a class="med-nav-item active" href="./offline.html"><span class="nav-ico"><i class="bi bi-cloud-arrow-down"></i></span><span>Offline Packs</span></a>
+        <span class="med-nav-separator"></span>
+        <a class="med-nav-item" href="./about.html"><span class="nav-ico"><i class="bi bi-info-circle"></i></span><span>About</span></a>
+        <a class="med-nav-item" href="./app.html#settings"><span class="nav-ico"><i class="bi bi-gear"></i></span><span>Settings</span></a>
+      </nav>
+      <button class="med-nav-item v19-sidebar-install" type="button" data-install-app><span class="nav-ico"><i class="bi bi-download"></i></span><span>Install App</span></button>
+      <div class="med-side-promo"><strong>Study anywhere</strong><small>Download only the packs you need. The bundled Study Engine also works offline; optional cloud AI is never required.</small><a href="./app.html" class="promo-button">Dictionary <span>→</span></a></div>
+      <div class="v17-sidebar-quote">Your offline library.<small>Suhail Medical Dictionary<br>v20.16.0</small></div>
+    </aside>
+
+    <div class="med-main">
+      <header class="med-topbar">
+        <div class="global-search-wrap"><span class="search-glyph"><i class="bi bi-cloud-arrow-down"></i></span><input class="global-search" value="Offline Packs & App Updates" readonly aria-label="Offline Packs and App Updates"><kbd>Offline</kbd></div>
+        <div class="med-top-actions">
+          <span class="status-chip" id="networkStatus"><i></i><span>Checking…</span></span>
+          <select id="themeSelect" class="control compact top-select" aria-label="Theme"><option value="clinical">☀ Light</option><option value="dark">☾ Midnight</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option></select>
+          <button class="v19-install-button" type="button" data-install-app><i class="bi bi-download"></i><b>Install App</b></button>
+          <a class="med-account" href="./app.html" style="text-decoration:none"><span class="avatar-dot">●</span><span class="account-lines"><b>Workspace</b><small>Back to Dictionary</small></span><span class="account-chevron">↗</span></a>
+        </div>
+      </header>
+      <main id="main-content" class="med-content v20-offline-main"><div id="v20OfflineRoot"></div></main>
+    </div>
+  </div>
+
+  <nav class="mobile-bottom-nav v20-mobile-nav" aria-label="Mobile navigation">
+    <a data-v20-mobile="home" href="./app.html#dashboard"><i class="bi bi-house-door"></i><span>Home</span></a>
+    <a data-v20-mobile="dictionary" href="./app.html#dictionary"><i class="bi bi-journal-medical"></i><span>Dictionary</span></a>
+    <a data-v20-mobile="anatomy" href="./anatomy.html"><i class="bi bi-box"></i><span>3D Anatomy</span></a>
+    <a data-v20-mobile="ai" href="./ai.html"><i class="bi bi-stars"></i><span>AI Study</span></a>
+    <button class="active" data-v20-mobile="more" type="button"><i class="bi bi-grid"></i><span>More</span></button>
+  </nav>
+  <script src="./assets/js/v20-offline.js?v=20.16.0" defer></script>
+  <script src="./assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/v20-shell.js?v=20.16.0" defer></script>
+</body>
+</html>
