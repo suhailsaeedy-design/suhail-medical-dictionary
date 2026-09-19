@@ -1,17 +1,14 @@
-# GitHub ته د Suhail Medical Dictionary v17.0 Final پورته کول
+# GitHub ته د Suhail Medical Dictionary v18.0 Final پورته کول
 
-1. `Suhail_Medical_Dictionary_v17.0_Final.zip` Extract کړه.
-2. خپل موجود `suhail-medical-dictionary` repository folder خلاص کړه.
-3. `.git` فولډر مه Delete کوه.
-4. نور زاړه project files/folders د v17 Final فایلونو سره Replace کړه.
-5. باید `index.html`, `app.html`, `ai.html`, `.github`, `assets`, `data`, `scripts`, `supabase`, او `cloudflare-worker` مستقیم repository root کې وي.
-6. GitHub Desktop خلاص کړه.
-7. Summary کې ولیکه:
-   `Suhail Medical Dictionary v17.0 final real-code reference rebuild`
-8. `Commit to main` ووهه.
-9. `Push origin` ووهه.
-10. GitHub → Actions کې deployment شین ✅ کېدو ته انتظار وکړه.
-11. Website په `Ctrl + Shift + R` سره Hard Refresh کړه.
+د موجود repository د Replace کولو لپاره:
 
-## مهم
-GitHub source کې starter dataset ساتل شوی. Production workflow د NLM MeSH 2026 بشپړ Descriptor dataset import/build کوي.
+1. Final ZIP extract کړه.
+2. خپل موجود local GitHub repository خلاص کړه.
+3. `.git` فولډر وساته؛ د project پخواني فایلونه د v18 Final فایلونو سره Replace کړه.
+4. GitHub Desktop خلاص کړه او ټول changes review کړه.
+5. Commit Summary: `Suhail Medical Dictionary v18.0 final reference-matched real-code build`
+6. `Commit to main` او بیا `Push origin` وکړه.
+7. GitHub کې Actions tab وګوره؛ Pages workflow باید `verify_project.py` او `build_release.py --import-mesh` پرمخ یوسي.
+8. Deployment وروسته public GitHub Pages site refresh کړه.
+
+که Google Login redirect بدل شوی وي، Supabase/Google Cloud کې د GitHub Pages URL هماغسې صحیح وساته.

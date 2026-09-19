@@ -518,7 +518,7 @@ body[data-theme="dark"] .admin-gate,body[data-theme="dark"] .table-card,body[dat
     box-shadow:0 0 0 1px rgba(61,189,255,.12),0 0 28px rgba(0,136,255,.24),inset 0 1px rgba(255,255,255,.10)!important;
   }
   .med-sidebar::after{
-    content:"Knowledge heals\A beyond boundaries.\A\A Suhail Medical Dictionary\A v17.0.0";
+    content:"Knowledge heals\A beyond boundaries.\A\A Suhail Medical Dictionary\A v18.0.0";
     white-space:pre;
     display:block;
     flex:0 0 auto;
@@ -790,7 +790,7 @@ body[data-theme="dark"] .admin-gate,body[data-theme="dark"] .table-card,body[dat
   .term-card{height:158px!important;min-height:158px!important}
 }
 
-/* ==========================================================================\n   v17.0.0 FINAL REFERENCE-MATCH PASS\n   Real HTML/CSS components only. Approved screenshots are NOT used as\n   full-page backgrounds, overlays, click maps, or fake interactive screens.\n   ========================================================================== */
+/* ==========================================================================\n   v18.0.0 FINAL REFERENCE-MATCH PASS\n   Real HTML/CSS components only. Approved screenshots are NOT used as\n   full-page backgrounds, overlays, click maps, or fake interactive screens.\n   ========================================================================== */
 
 @media (min-width:1181px){
   /* Hero artwork must occupy the full right half like the approved desktop. */

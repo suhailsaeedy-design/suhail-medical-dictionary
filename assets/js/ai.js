@@ -1,5 +1,5 @@
-import {CONFIG} from './config.js?v=17.0.0';
-import {getSupabase,currentSession,peekSession} from './auth.js?v=17.0.0';
+import {CONFIG} from './config.js?v=18.0.0';
+import {getSupabase,currentSession,peekSession} from './auth.js?v=18.0.0';
 
 let workerConfigPromise=null;
 

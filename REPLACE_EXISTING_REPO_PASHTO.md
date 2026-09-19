@@ -1,31 +1,14 @@
-# موجود GitHub Repository د v17.0 Final سره Replace کول
+# موجود GitHub Repository د v18.0 Final سره Replace کول
 
-دا لارښود د هماغه موجود `suhail-medical-dictionary` Repository لپاره دی.
+دا package د موجود `suhail-medical-dictionary` repository د source فایلونو د بدلولو لپاره تیار شوی.
 
-## `.git` مه حذفوه
-مثال:
-`D:\GitHub\suhail-medical-dictionary`
+1. خپل موجود repository په GitHub Desktop کې خلاص کړه.
+2. **`.git` فولډر مه پاکوه او مه یې Replace کوه.**
+3. د repository نور پخواني project فایلونه پاک/بدل کړه او د دې v18 Final package محتويات د repository root ته copy کړه.
+4. ډاډ ترلاسه کړه چې `.github/workflows/deploy-pages.yml`، `assets/`، `scripts/`، `supabase/` او HTML فایلونه موجود دي.
+5. GitHub Desktop کې changes وګوره.
+6. Summary ولیکه: `Suhail Medical Dictionary v18.0 final reference-matched real-code build`
+7. Commit او Push origin وکړه.
+8. GitHub Actions/Pages deployment بشپړېدو ته انتظار وباسه.
 
-`.git` فولډر د GitHub history/remote اړیکه ساتي. دا مه Delete کوه.
-
-## Replace
-1. Repository folder خلاص کړه.
-2. `.git` پرته زاړه project فایلونه/فولډرونه حذف یا Replace کړه.
-3. د v17 Final ZIP ټول contents مستقیم repository root ته Paste کړه.
-4. GitHub Desktop کې changes وګوره.
-5. Summary:
-   `Suhail Medical Dictionary v17.0 final real-code reference rebuild`
-6. `Commit to main` → `Push origin`.
-7. GitHub Actions deployment شین ✅ کېدو وروسته website Hard Refresh کړه.
-
-## Login
-Login د Google account له لارې Supabase OAuth کاروي. Website د Google password نه غواړي او نه یې ذخیره کوي. د setup لپاره `GOOGLE_LOGIN_SETUP_PASHTO.md` وګوره.
-
-## Dictionary data
-Local repository د development/starter data ساتي. GitHub production build د NLM MeSH 2026 Descriptor XML import کوي.
-
-## Medical visuals
-v17 د term cards، detail، hero او AI لپاره individual project medical artwork assets کاروي. Approved/generated full-page reference screenshots د background، overlay یا fake UI په توګه نه کارول کېږي.
-
-## AI
-Online AI تر هغې live نه دی چې Cloudflare Worker deploy او `ai-config.json`/config کې Worker URL تنظیم نه شي. `CLOUDFLARE_AI_SETUP_PASHTO.md` وګوره.
+مهم: private secrets لکه Google Client Secret، Supabase service-role key، Cloudflare/OpenAI private keys په public repository کې مه اچوه.

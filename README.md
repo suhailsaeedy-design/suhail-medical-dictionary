@@ -1,30 +1,45 @@
-# Suhail Medical Dictionary v17.0
+# Suhail Medical Dictionary v18.0 Final
 
-This release is a real-code rebuild of the approved Suhail Medical Dictionary visual references. The user interface is implemented with HTML, CSS, JavaScript, responsive components, and individual medical artwork assets. Full-page reference screenshots are **not** used as page backgrounds or interaction overlays.
+Suhail Medical Dictionary is a responsive medical-learning web app/PWA with a real HTML/CSS/JavaScript interface, Google account authentication through Supabase, medical-term search and filtering, Selected terms, Bookmarks, History, Offline Packs, PDF/Print actions, AI Study, multilingual/RTL support, Appearance settings, About, and owner/admin pages.
 
-## Visual direction
-- Default **Light** theme: luminous white/blue glass interface, 3D medical artwork, compact dictionary cards, fixed desktop sidebar, and a right-side term detail panel.
-- **Dark / Blue** themes: deep medical-blue neon glass interface with stronger glow, depth, and 3D presentation.
-- Mobile: compact two-column cards, slide-out navigation drawer, bottom navigation, Light/Dark reference-matched term detail screens, and the v17 Ask Suhail AI mobile experience.
-- Pointer/touch: subtle liquid-droplet cursor trail, touch ripple, card lift, and 3D visual motion.
+## v18 design contract
 
-## Functional areas
-- Google/Supabase account authentication
-- Medical dictionary search and category filters
-- Select all for the current filter
-- Selected terms, bookmarks, and history
-- Pronunciation and multilingual content flow
-- Term details and 3D-style visual motion
-- AI Study chats with rename/delete support
-- Print/PDF tools
-- Offline/PWA packs and automatic update flow
-- About, Privacy, Terms, Settings, and owner/admin pages
+- Desktop **Dark** is the master structural design.
+- Desktop **Light** uses the same geometry, spacing, component positions, and responsive behavior, with a bright blue/white palette.
+- Mobile Light and Dark have dedicated responsive treatments matching the approved mobile references.
+- Approved/generated full-page screenshots are visual references only. They are not used as full-page backgrounds, overlays, click maps, or fake screens.
+- UI remains real, interactive HTML/CSS/JavaScript.
 
-## Production dictionary
-GitHub Actions builds the production site with the NLM MeSH 2026 import workflow. The repository includes a compact local starter data set so the source stays manageable; the deployment workflow produces the full production data set.
+## Authentication
 
-## Deployment
-Commit the extracted project contents to the root of the existing `suhail-medical-dictionary` repository, keep the existing `.git` folder, then push `main`. GitHub Actions deploys the `_site` build to GitHub Pages.
+Login remains **Google account only** through Supabase OAuth. The site must never ask for or store a user's Google password. `prompt=select_account` is preserved so users can choose another Google account.
 
-## v17 final status
-Phases 1–5 are complete. The final source includes the real-code desktop Light/Dark workspace, rebuilt desktop/mobile Google login, mobile Home/Search/Drawer navigation, Light/Dark term detail, Ask Suhail AI mobile flow, v17 Settings/About/Offline/Admin/legal integration, RTL content handling, and final PWA/GitHub Pages validation. See `V17_PHASE_STATUS.md` and `FINAL_TEST_REPORT_V17.md`.
+## Data and deployment
+
+Production GitHub Pages builds use NLM MeSH 2026 Descriptor XML through:
+
+`python scripts/build_release.py --import-mesh`
+
+The deployment workflow is `.github/workflows/deploy-pages.yml`.
+
+## Important v18 files
+
+- `assets/css/v18-desktop.css`
+- `assets/css/v18-login.css`
+- `assets/css/v18-mobile.css`
+- `assets/css/v18-detail.css`
+- `assets/css/v18-phase4-ai-settings.css`
+- `assets/css/v18-final-integration.css`
+- `assets/js/v18-desktop.js`
+- `assets/js/v18-mobile.js`
+- `assets/js/v18-detail.js`
+- `assets/js/v18-phase4-ai-settings.js`
+- `assets/js/v18-final-integration.js`
+
+## External services
+
+Google OAuth, Supabase cloud data, the NLM MeSH download during the production build, and the optional AI Worker need reachable external services and correct dashboard configuration. `ai-config.json` is intentionally blank by default until the Cloudflare Worker URL is configured.
+
+## Verification
+
+See `FINAL_TEST_REPORT_V18.md` for the final source/build/browser audit.

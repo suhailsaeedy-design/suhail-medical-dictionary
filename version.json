@@ -1,7 +1,7 @@
 {
-  "version": "17.0.0",
-  "name": "Suhail Medical Dictionary v17.0 — Final Real-Code Reference Rebuild",
+  "version": "18.0.0",
+  "name": "Suhail Medical Dictionary v18.0 Final",
   "released": "2026-09-18",
-  "build": "17.0.0",
-  "notes": "v17 final: integrated desktop/mobile Light/Dark design, responsive Google login, dictionary/detail/AI flows, shared Settings/About/Offline/Admin/legal visual family, RTL content handling, PWA cache audit, and GitHub-replacement packaging. Full-page reference screenshots are not used as UI backgrounds or overlays."
+  "build": "18.0.0",
+  "notes": "Final v18 reference-matched real-code rebuild. Desktop Dark is the master geometry; Desktop Light uses the same geometry with a bright palette. Mobile Light/Dark Home, Search/List, Drawer, Detail, 360-degree interaction, AI Study, Appearance/Settings, About, Offline, Admin, legal pages, RTL content direction, PWA cache, and GitHub Pages build are integrated. Full-page reference screenshots are not used as UI backgrounds, overlays, click maps, or fake screens."
 }

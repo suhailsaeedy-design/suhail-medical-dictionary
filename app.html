@@ -8,19 +8,24 @@
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=17.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=17.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase2-mobile.css?v=17.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase3-detail.css?v=17.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase4-ai-settings.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase2-mobile.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase3-detail.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase4-ai-settings.css?v=18.0.0">
   <title>Dictionary · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=17.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-desktop.css?v=17.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-mobile.css?v=17.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-phase4-detail-ai.css?v=17.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-final-integration.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-desktop.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-mobile.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-phase4-detail-ai.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-final-integration.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-desktop.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-mobile.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-detail.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-phase4-ai-settings.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-final-integration.css?v=18.0.0">
 </head>
-<body data-build="17.0.0" class="workspace-page auth-pending" data-theme="clinical">
+<body data-build="18.0.0" class="workspace-page auth-pending" data-theme="clinical">
   <div id="sessionLoader" class="session-loader"><div class="loader-ring"></div><p>Opening your study workspace…</p></div>
 
   <div class="med-app-shell">
@@ -49,7 +54,7 @@
         <small>✓ Unlimited AI Study<br>✓ Offline Packs<br>✓ Advanced Filters<br>✓ And More...</small>
         <a href="./ai.html" class="promo-button">Go Premium <span>→</span></a>
       </div>
-      <div class="v17-sidebar-quote">Knowledge heals<br>beyond boundaries.<small>Suhail Medical Dictionary<br>v17.0.0</small></div>
+      <div class="v17-sidebar-quote">Knowledge heals<br>beyond boundaries.<small>Suhail Medical Dictionary<br>v18.0.0</small></div>
     </aside>
 
     <div class="med-main">
@@ -225,7 +230,7 @@
     window.setTimeout(function(){
       var loader=document.getElementById('sessionLoader');
       if(!loader || !document.body.classList.contains('auth-pending')) return;
-      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v17.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
+      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v18.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
     },12000);
   </script>
   <script>
@@ -253,7 +258,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '17.0.0'
+  uiVersion: '18.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -480,9 +485,9 @@ const {peekSession,getSupabase,currentSession,signOut,logEvent,getMyProfile,setO
 // Optional features are lazy-loaded only after the core dictionary is allowed to open.
 // A PDF/AI/PWA module failure must never prevent the workspace from starting.
 let aiModulePromise=null, exportModulePromise=null, pwaModulePromise=null;
-const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=17.0.0'));
-const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=17.0.0'));
-const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=17.0.0'));
+const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=18.0.0'));
+const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=18.0.0'));
+const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=18.0.0'));
 async function createChat(...a){return (await aiModule()).createChat(...a);} async function listChats(...a){return (await aiModule()).listChats(...a);} async function loadMessages(...a){return (await aiModule()).loadMessages(...a);} async function renameChat(...a){return (await aiModule()).renameChat(...a);} async function deleteChat(...a){return (await aiModule()).deleteChat(...a);} async function editUserMessage(...a){return (await aiModule()).editUserMessage(...a);} async function askAI(...a){return (await aiModule()).askAI(...a);} async function translateTerm(...a){return (await aiModule()).translateTerm(...a);}
 function printTerms(...a){exportModule().then(m=>m.printTerms(...a)).catch(()=>alert('Print tools could not start. Reload once and retry.'));}
 async function pdfTerms(...a){try{return await (await exportModule()).pdfTerms(...a);}catch{return alert('PDF tools could not start. Use Print → Save as PDF.');}}
@@ -707,6 +712,7 @@ function showDetail(t){
    <button type="button" data-detail-tab="pronunciation">Pronunciation</button>
    <button type="button" data-detail-tab="synonyms">Synonyms (${syns.length})</button>
    <button type="button" data-detail-tab="related">Related</button>
+   <button type="button" data-detail-tab="visuals">Visuals</button>
  </div>
  <div class="detail-overview" data-detail-pane="overview">
    <section class="detail-definition-block"><h3>Definition</h3><p id="detailDefinition" dir="${textDir}">${esc(def)}</p></section>
@@ -722,6 +728,7 @@ function showDetail(t){
  <div class="detail-tab-pane hidden" data-detail-pane="pronunciation"><h3>Pronunciation</h3><p class="microcopy">Hear the English medical term.</p><button class="button soft-button detail-pronounce-large" id="pronounceTerm">🔊 Pronounce ${esc(t.term)}</button></div>
  <div class="detail-tab-pane hidden" data-detail-pane="synonyms"><h3>Synonyms and entry terms</h3><div class="synonym-cloud">${syns.length?syns.map(s=>`<span>${esc(s)}</span>`).join(''):'<p>No additional MeSH entry terms are listed for this concept.</p>'}</div></div>
  <div class="detail-tab-pane hidden" data-detail-pane="related"><h3>Related classification</h3><p class="microcopy">Category: ${category}</p>${trees.length?`<div class="mesh-tree-list">${trees.slice(0,16).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:'<p class="microcopy">No additional MeSH tree numbers are available for this record.</p>'}</div>
+ <div class="detail-tab-pane hidden" data-detail-pane="visuals"><h3>Medical visual</h3><p class="microcopy">Use the 3D visual controls above to study this term from different views.</p></div>
  <div class="detail-actions"><button class="button primary" id="detailAI">✦ <span class="detail-ai-label">AI Study</span></button><button class="button soft-button" id="detailPDF">▤ <span>Export PDF</span></button><button class="button soft-button" id="detailPrint">▣ <span>Print</span></button><button class="button soft-button" id="detailSelect">▮ <span>${state.selected.has(String(t.id))?'Remove':'Add to Selected'}</span></button><button class="button soft-button detail-share-action" id="detailShare">⌯ <span>Share</span></button></div>
  <button type="button" class="detail-offline" id="detailOffline"><div><b>Download Offline Pack</b><small>Keep the dictionary available offline.</small></div><span>⇩</span></button>
  <p class="microcopy detail-source">Source: ${esc(t.source||state.index?.source_note||'Suhail Medical Dictionary')}</p>`;
@@ -783,11 +790,16 @@ init().catch(err=>{console.error(err);$('#termGrid').innerHTML=`<div class="empt
 })();
 
 </script>
-  <script src="./assets/js/v16-ui.js?v=17.0.0" defer></script>
-  <script src="./assets/js/v16-phase4-ui.js?v=17.0.0" defer></script>
-  <script src="./assets/js/v17-desktop.js?v=17.0.0" defer></script>
-  <script src="./assets/js/v17-mobile.js?v=17.0.0" defer></script>
-  <script src="./assets/js/v17-phase4-detail.js?v=17.0.0" defer></script>
-  <script src="./assets/js/v17-final-integration.js?v=17.0.0" defer></script>
+  <script src="./assets/js/v16-ui.js?v=18.0.0" defer></script>
+  <script src="./assets/js/v16-phase4-ui.js?v=18.0.0" defer></script>
+  <script src="./assets/js/v17-desktop.js?v=18.0.0" defer></script>
+  <script src="./assets/js/v17-mobile.js?v=18.0.0" defer></script>
+  <script src="./assets/js/v17-phase4-detail.js?v=18.0.0" defer></script>
+  <script src="./assets/js/v17-final-integration.js?v=18.0.0" defer></script>
+  <script src="./assets/js/v18-desktop.js?v=18.0.0" defer></script>
+  <script src="./assets/js/v18-mobile.js?v=18.0.0" defer></script>
+  <script src="./assets/js/v18-detail.js?v=18.0.0" defer></script>
+  <script src="./assets/js/v18-phase4-ai-settings.js?v=18.0.0" defer></script>
+  <script src="./assets/js/v18-final-integration.js?v=18.0.0"></script>
 </body>
 </html>

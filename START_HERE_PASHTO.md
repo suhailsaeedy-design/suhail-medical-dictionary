@@ -1,26 +1,16 @@
-# له دې ځایه شروع کړه — Suhail Medical Dictionary v17.0 Final
+# له دې ځایه شروع کړه — Suhail Medical Dictionary v18.0 Final
 
-دا ZIP د ستا د موجود `suhail-medical-dictionary` GitHub Repository د Replace کولو لپاره دی.
+دا د **v18.0 Final GitHub Replace-ready source** دی.
 
-## مهم
-- د خپل Repository `.git` فولډر **مه حذفوه**.
-- د v17 ZIP دننه ټول فایلونه/فولډرونه د Repository root ته Copy/Paste کړه.
-- زاړه Project فایلونه بدل/Replace کړه، خو `.git` هماغسې پرېږده.
+مهم ټکي:
 
-## GitHub Desktop
-Summary:
+- Desktop Dark د اصلي layout/master geometry په توګه کارول شوی.
+- Desktop Light د Dark عین geometry لري، خو روښانه blue/white palette لري.
+- Mobile Light/Dark Home، Search/List، Drawer، Detail، 360° interaction، AI Study او Appearance/Settings responsive دي.
+- Login Google/Supabase OAuth-only دی؛ د Google password نه غوښتل کېږي او نه ساتل کېږي.
+- Approved/reference screenshots یوازې د design reference لپاره دي؛ په UI کې full-page background/overlay/fake screen نه دي.
+- Production build د GitHub Pages workflow او NLM MeSH 2026 import architecture ساتي.
 
-`Suhail Medical Dictionary v17.0 final real-code reference rebuild`
+د GitHub موجود repository د Replace کولو لپاره `REPLACE_EXISTING_REPO_PASHTO.md` او `UPLOAD_TO_GITHUB_PASHTO.md` وګوره.
 
-بیا:
-1. `Commit to main`
-2. `Push origin`
-3. GitHub → Actions کې د Pages workflow شین ✅ کېدو ته انتظار وکړه.
-4. Published website خلاص کړه او `Ctrl + Shift + R` ووهه.
-
-## یادونه
-- Default theme = Light.
-- Dark/Blue theme قوي neon medical design لري.
-- Login د Google/Supabase OAuth له لارې دی.
-- Production build د NLM MeSH 2026 بشپړ dataset import کوي.
-- Online AI لپاره Cloudflare Worker URL باید configure شوی وي.
+د ازموینو لپاره `FINAL_TEST_REPORT_V18.md` وګوره.
