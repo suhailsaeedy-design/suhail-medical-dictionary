@@ -4,7 +4,7 @@ import argparse, datetime as dt, os, shutil, subprocess, sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'_site'
-PUBLIC_FILES=['index.html','app.html','ai.html','admin.html','about.html','privacy.html','terms.html','offline.html','manifest.webmanifest','version.json','ai-config.json','sw.js']
+PUBLIC_FILES=['index.html','app.html','anatomy.html','ai.html','admin.html','about.html','privacy.html','terms.html','offline.html','manifest.webmanifest','version.json','ai-config.json','sw.js']
 PUBLIC_DIRS=['assets','data']
 
 def copy_tree():
@@ -30,5 +30,6 @@ def main():
     copy_tree()
     if args.import_mesh:
         subprocess.run([sys.executable,str(ROOT/'scripts'/'import_mesh_2026.py'),'--output-dir',str(OUT/'data')],check=True)
+        subprocess.run([sys.executable,str(ROOT/'scripts'/'build_offline_pack.py'),'--data-dir',str(OUT/'data')],check=True)
     v=stamp(); print(f'Release {v} ready at {OUT}')
 if __name__=='__main__': main()

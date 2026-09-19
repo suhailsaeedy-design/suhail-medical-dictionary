@@ -1,6 +1,6 @@
-import './core.js?v=18.0.0';
-import {CONFIG} from './config.js?v=18.0.0';
-import {currentSession,signInWithGoogle,signOut,getMyProfile,setOwnerReviewConsent,logEvent} from './auth.js?v=18.0.0';
+import './core.js?v=19.0.0';
+import {CONFIG} from './config.js?v=19.0.0';
+import {currentSession,signInWithGoogle,signOut,getMyProfile,setOwnerReviewConsent,logEvent} from './auth.js?v=19.0.0';
 
 const $=s=>document.querySelector(s);
 const RTL=new Set(['ps','prs','fa','ar']);

@@ -31,7 +31,7 @@
   }
 
   function versionStamp(){
-    $$('.v17-sidebar-quote small').forEach(el=>el.innerHTML='Suhail Medical Dictionary<br>v18.0.0');
+    $$('.v17-sidebar-quote small').forEach(el=>el.innerHTML='Suhail Medical Dictionary<br>v19.0.0');
   }
 
   function init(){masterCategories();detailEnhancer();versionStamp();}

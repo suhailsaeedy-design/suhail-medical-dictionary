@@ -8,26 +8,29 @@
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase2-mobile.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase3-detail.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase4-ai-settings.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase2-mobile.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase3-detail.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase4-ai-settings.css?v=19.0.0">
   <title>Dictionary · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-desktop.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-mobile.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-phase4-detail-ai.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-final-integration.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-desktop.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-mobile.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-detail.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-phase4-ai-settings.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-final-integration.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-phase7-polish.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-phase8-final.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-desktop.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-mobile.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-phase4-detail-ai.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-final-integration.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-desktop.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-mobile.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-detail.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-phase4-ai-settings.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-final-integration.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-phase7-polish.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-phase8-final.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v19-core.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v19-mobile.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v19-phase3.css?v=19.0.0">
 </head>
-<body data-build="18.0.0" class="workspace-page auth-pending" data-theme="clinical">
+<body data-build="19.0.0" class="workspace-page auth-pending" data-theme="dark">
   <div id="sessionLoader" class="session-loader"><div class="loader-ring"></div><p>Opening your study workspace…</p></div>
 
   <div class="med-app-shell">
@@ -40,6 +43,7 @@
       <nav class="med-nav">
         <a class="med-nav-item active" href="#dashboard"><span class="nav-ico">⌂</span><span>Dashboard</span></a>
         <a class="med-nav-item" href="#dictionary"><span class="nav-ico">▣</span><span>Dictionary</span><span class="nav-arrow" aria-hidden="true">›</span></a>
+        <a class="med-nav-item v19-anatomy-link" href="./anatomy.html"><span class="nav-ico v19-cube-icon">◇</span><span>3D Anatomy</span></a>
         <a class="med-nav-item" href="./ai.html"><span class="nav-ico">✦</span><span>AI Study</span><span class="nav-badge">New</span></a>
         <button id="selectedButton" class="med-nav-item" type="button"><span class="nav-ico">◇</span><span>Selected</span><b id="selectedCount" class="nav-count">0</b></button>
         <a class="med-nav-item" href="./offline.html"><span class="nav-ico">⇩</span><span>Offline Packs</span></a>
@@ -48,15 +52,18 @@
         <span class="med-nav-separator"></span>
         <a class="med-nav-item" href="./about.html"><span class="nav-ico">ⓘ</span><span>About</span></a>
         <button id="settingsButton" class="med-nav-item" type="button"><span class="nav-ico">⚙</span><span>Settings</span></button>
+        <a id="adminSidebarLink" class="med-nav-item hidden" href="./admin.html"><span class="nav-ico">▦</span><span>Admin Panel</span></a>
       </nav>
+
+      <button class="med-nav-item v19-sidebar-install" type="button" data-install-app><span class="nav-ico">⇩</span><span>Install App</span></button>
 
       <div class="med-side-promo">
         <div class="promo-orb" aria-hidden="true"><span>♛</span></div>
         <strong>Upgrade to<br>Suhail Premium</strong>
-        <small>✓ Unlimited AI Study<br>✓ Offline Packs<br>✓ Advanced Filters<br>✓ And More...</small>
+        <small>✓ Unlimited AI Study<br>✓ Offline Packs<br>✓ Interactive 3D Anatomy<br>✓ Offline Medical Library<br>✓ AI Study when online</small>
         <a href="./ai.html" class="promo-button">Go Premium <span>→</span></a>
       </div>
-      <div class="v17-sidebar-quote">Knowledge heals<br>beyond boundaries.<small>Suhail Medical Dictionary<br>v18.0.0</small></div>
+      <div class="v17-sidebar-quote">Knowledge heals<br>beyond boundaries.<small>Suhail Medical Dictionary<br>v19.0.0</small></div>
     </aside>
 
     <div class="med-main">
@@ -70,6 +77,7 @@
           <span id="networkStatus" class="status-chip"><i></i>Online</span>
           <select id="contentLanguage" class="control compact top-select" aria-label="Dictionary language"><option value="en">🌐 English</option><option value="ps">پښتو</option><option value="prs">دري</option><option value="fa">فارسی</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="zh">中文</option></select>
           <select id="themeSelect" class="control compact top-select" aria-label="Theme"><option value="clinical">☾ Light</option><option value="dark">◐ Dark</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option></select>
+          <button id="v19InstallApp" class="v19-install-button" type="button" data-install-app><span>⇩</span><b>Install App</b></button>
           <a id="adminLink" class="icon-link hidden" href="./admin.html" title="Owner admin">Admin</a>
           <div class="account-wrap">
             <button id="accountButton" class="med-account" type="button" aria-haspopup="menu" aria-expanded="false"><span class="avatar-dot">●</span><span class="account-lines"><b>Account</b><small>Medical Learner</small></span><span class="account-chevron" aria-hidden="true">▾</span></button>
@@ -86,14 +94,14 @@
         <section id="dashboard" class="med-hero">
           <div class="hero-copy">
             <span class="section-kicker">Explore · Learn · Apply</span>
-            <h1>Medical <span>Dictionary</span></h1>
+            <h1><em>Suhail</em> Medical <span>Dictionary</span></h1>
             <p class="hero-tagline">Trusted medical knowledge for a healthier tomorrow.<br>Simple. Accurate. Always with you.</p>
             <p id="resultSummary" class="hero-counts">Loading terms…</p>
             <div class="hero-stats" aria-label="Dictionary highlights">
-              <div class="hero-stat"><i class="stat-icon shield">◇</i><strong>50K+</strong><span>Medical Terms</span></div>
-              <div class="hero-stat"><i class="stat-icon stetho">♧</i><strong>200+</strong><span>Specialties</span></div>
-              <div class="hero-stat"><i class="stat-icon globe">◎</i><strong>15+</strong><span>Languages</span></div>
-              <div class="hero-stat"><i class="stat-icon cap">◆</i><strong>100%</strong><span>Free to Learn</span></div>
+              <div class="hero-stat"><i class="stat-icon shield">◇</i><strong id="heroTermStat">—</strong><span>Medical Terms</span></div>
+              <div class="hero-stat"><i class="stat-icon stetho">♧</i><strong id="heroSpecialtyStat">—</strong><span>Specialties</span></div>
+              <div class="hero-stat"><i class="stat-icon globe">◎</i><strong>7</strong><span>Languages</span></div>
+              <div class="hero-stat"><i class="stat-icon cap">◇</i><strong>3D</strong><span>Interactive Anatomy</span></div>
             </div>
           </div>
           <div class="hero-art" aria-hidden="true">
@@ -232,7 +240,7 @@
     window.setTimeout(function(){
       var loader=document.getElementById('sessionLoader');
       if(!loader || !document.body.classList.contains('auth-pending')) return;
-      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v18.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
+      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v19.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
     },12000);
   </script>
   <script>
@@ -247,7 +255,7 @@ const UI={
  ar:{openDictionary:'فتح القاموس',forStudents:'لطلبة الطب',heroTitle:'افهم المصطلحات الطبية بسرعة أكبر.',heroText:'ابحث حسب التخصص، بدّل اللغة، استمع للنطق، اطبع/صدّر PDF، ادرس بالذكاء الاصطناعي واستخدم القاموس دون اتصال.',startLearning:'ابدأ التعلم',openAI:'فتح مساعد الذكاء الاصطناعي'},
  zh:{openDictionary:'打开词典',forStudents:'面向医学生',heroTitle:'更快理解医学术语。',heroText:'按专业搜索、切换语言、收听发音、打印/PDF、使用 AI 学习，并可离线使用词典。',startLearning:'开始学习',openAI:'打开 AI 助手'}
 };
-function applyTheme(){const sel=document.querySelector('#themeSelect');const saved=localStorage.getItem('smd-theme')||'clinical';document.body.dataset.theme=saved;if(sel){sel.value=saved;sel.addEventListener('change',()=>{localStorage.setItem('smd-theme',sel.value);document.body.dataset.theme=sel.value;});}}
+function applyTheme(){const sel=document.querySelector('#themeSelect');const saved=localStorage.getItem('smd-theme')||'dark';document.body.dataset.theme=saved;if(sel){sel.value=saved;sel.addEventListener('change',()=>{localStorage.setItem('smd-theme',sel.value);document.body.dataset.theme=sel.value;});}}
 function applyUI(lang){const dict=UI[lang]||UI.en;document.documentElement.lang=lang;document.documentElement.dir=['ps','prs','fa','ar'].includes(lang)?'rtl':'ltr';document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=dict[el.dataset.i18n]||el.textContent;});}
 function init(){applyTheme();const l=document.querySelector('#uiLanguage');if(l){const saved=localStorage.getItem('smd-ui-lang')||'en';l.value=saved;applyUI(saved);l.addEventListener('change',()=>{localStorage.setItem('smd-ui-lang',l.value);applyUI(l.value);});}const y=document.querySelector('#year');if(y)y.textContent=new Date().getFullYear();if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update()).catch(()=>{});}
 init();
@@ -260,7 +268,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '18.0.0'
+  uiVersion: '19.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -386,6 +394,7 @@ async function currentSession(){
   const session=readStoredSession();
   if(!session)return null;
   const now=Math.floor(Date.now()/1000);
+  if(!navigator.onLine)return {...session,offline_cached:true};
   if(!session.expires_at||Number(session.expires_at)>now+45)return session;
   try{return await refreshSession(session);}catch{clearLocalAuth();return null;}
 }
@@ -487,9 +496,9 @@ const {peekSession,getSupabase,currentSession,signOut,logEvent,getMyProfile,setO
 // Optional features are lazy-loaded only after the core dictionary is allowed to open.
 // A PDF/AI/PWA module failure must never prevent the workspace from starting.
 let aiModulePromise=null, exportModulePromise=null, pwaModulePromise=null;
-const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=18.0.0'));
-const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=18.0.0'));
-const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=18.0.0'));
+const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=19.0.0'));
+const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=19.0.0'));
+const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=19.0.0'));
 async function createChat(...a){return (await aiModule()).createChat(...a);} async function listChats(...a){return (await aiModule()).listChats(...a);} async function loadMessages(...a){return (await aiModule()).loadMessages(...a);} async function renameChat(...a){return (await aiModule()).renameChat(...a);} async function deleteChat(...a){return (await aiModule()).deleteChat(...a);} async function editUserMessage(...a){return (await aiModule()).editUserMessage(...a);} async function askAI(...a){return (await aiModule()).askAI(...a);} async function translateTerm(...a){return (await aiModule()).translateTerm(...a);}
 function printTerms(...a){exportModule().then(m=>m.printTerms(...a)).catch(()=>alert('Print tools could not start. Reload once and retry.'));}
 async function pdfTerms(...a){try{return await (await exportModule()).pdfTerms(...a);}catch{return alert('PDF tools could not start. Use Print → Save as PDF.');}}
@@ -516,7 +525,7 @@ async function init(){
  const loader=document.querySelector('#sessionLoader');if(loader)loader.remove();
  // Validate/refresh in the background. Private cloud calls remain protected by Supabase RLS.
  currentSession().then(s=>{if(!s){signOut().finally(()=>location.replace('./index.html'));}}).catch(()=>{});
- document.body.dataset.theme=localStorage.getItem('smd-theme')||'clinical';
+ document.body.dataset.theme=localStorage.getItem('smd-theme')||'dark';
  $('#contentLanguage').value=state.lang;setDir();
  $('#contentLanguage').addEventListener('change',()=>{state.lang=$('#contentLanguage').value;localStorage.setItem('smd-content-lang',state.lang);setDir();renderTerms();if(state.active)showDetail(state.active);});
  $('#themeSelect').value=document.body.dataset.theme;$('#themeSelect').addEventListener('change',e=>{document.body.dataset.theme=e.target.value;localStorage.setItem('smd-theme',e.target.value);});
@@ -660,7 +669,7 @@ function renderTerms(){
  }
  const total=base.length,fullCount=Number(state.index?.term_count||state.index?.terms?.length||total),searchable=Number(state.index?.searchable_name_count||fullCount);
  let summary;if(state.selectedMode)summary=`${total.toLocaleString()} selected terms`;else if(state.specialMode==='bookmarks')summary=`${total.toLocaleString()} bookmarked terms`;else if(state.specialMode==='history')summary=`${total.toLocaleString()} recently viewed terms`;else summary=`${total.toLocaleString()} matching terms · ${fullCount.toLocaleString()} official MeSH concepts · ${searchable.toLocaleString()} searchable names`;
- $('#resultSummary').textContent=summary;const rc=$('#resultsCountLabel');if(rc)rc.textContent=state.specialMode==='bookmarks'?`${total.toLocaleString()} bookmarks`:state.specialMode==='history'?`${total.toLocaleString()} recent terms`:`${total.toLocaleString()} terms found`;syncCategoryChips();syncNavModes();updateBookmarksCount();updateSelectAllControl(base);if(!total)grid.innerHTML='<div class="empty-state">No matching terms.</div>';
+ $('#resultSummary').textContent=summary;const rc=$('#resultsCountLabel');if(rc)rc.textContent=state.specialMode==='bookmarks'?`${total.toLocaleString()} bookmarks`:state.specialMode==='history'?`${total.toLocaleString()} recent terms`:`${total.toLocaleString()} terms found`;const toolbar=document.querySelector('.results-toolbar');if(toolbar)toolbar.dataset.v19Total=`${fullCount.toLocaleString()} terms`;const hs=$('#heroTermStat');if(hs)hs.textContent=fullCount>=1000?`${Math.floor(fullCount/1000)}K+`:fullCount.toLocaleString();const hc=$('#heroSpecialtyStat');if(hc)hc.textContent=Number(state.categories?.length||0).toLocaleString();syncCategoryChips();syncNavModes();updateBookmarksCount();updateSelectAllControl(base);if(!total)grid.innerHTML='<div class="empty-state">No matching terms.</div>';
 }
 async function loadCategory(id){
  if(categoryCache.has(id))return categoryCache.get(id);const c=state.categories.find(x=>x.id===id);if(!c)return[];const files=(c.files||[c.file]).filter(Boolean);const all=[];
@@ -792,18 +801,21 @@ init().catch(err=>{console.error(err);$('#termGrid').innerHTML=`<div class="empt
 })();
 
 </script>
-  <script src="./assets/js/v16-ui.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v16-phase4-ui.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v17-desktop.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v17-mobile.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v17-phase4-detail.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v17-final-integration.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v18-desktop.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v18-mobile.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v18-detail.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v18-phase4-ai-settings.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v18-final-integration.js?v=18.0.0"></script>
-  <script src="./assets/js/v18-phase7-polish.js?v=18.0.0"></script>
-  <script src="./assets/js/v18-phase8-final.js?v=18.0.0" defer></script>
+  <script src="./assets/js/v16-ui.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v16-phase4-ui.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v17-desktop.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v17-mobile.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v17-phase4-detail.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v17-final-integration.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v18-desktop.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v18-mobile.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v18-detail.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v18-phase4-ai-settings.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v18-final-integration.js?v=19.0.0"></script>
+  <script src="./assets/js/v18-phase7-polish.js?v=19.0.0"></script>
+  <script src="./assets/js/v18-phase8-final.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v19-core.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v19-mobile.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v19-phase3.js?v=19.0.0" defer></script>
 </body>
 </html>

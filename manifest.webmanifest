@@ -1,14 +1,14 @@
 {
   "id": "./index.html",
-  "name": "Suhail Medical Dictionary",
-  "short_name": "Suhail Med",
-  "description": "Multilingual medical dictionary and study assistant for medical students.",
+  "name": "Suhail Medical Dictionary & 3D Anatomy",
+  "short_name": "Suhail Medical",
+  "description": "Medical dictionary, interactive 3D anatomy, offline learning and AI study assistant.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#f3f9ff",
-  "theme_color": "#126bf3",
+  "background_color": "#031524",
+  "theme_color": "#071d33",
   "categories": [
     "education",
     "medical"
@@ -25,6 +25,41 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dictionary",
+      "short_name": "Dictionary",
+      "url": "./app.html#dictionary",
+      "icons": [
+        {
+          "src": "./assets/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "3D Anatomy",
+      "short_name": "3D Anatomy",
+      "url": "./anatomy.html",
+      "icons": [
+        {
+          "src": "./assets/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Offline Packs",
+      "short_name": "Offline",
+      "url": "./offline.html",
+      "icons": [
+        {
+          "src": "./assets/icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }

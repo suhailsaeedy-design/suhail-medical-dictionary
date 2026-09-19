@@ -1,12 +1,12 @@
-import './core.js?v=18.0.0';
-import {getSupabase,currentSession,signOut,logEvent,getMyProfile,setOwnerReviewConsent} from './auth.js?v=18.0.0';
+import './core.js?v=19.0.0';
+import {getSupabase,currentSession,signOut,logEvent,getMyProfile,setOwnerReviewConsent} from './auth.js?v=19.0.0';
 
 // Optional features are lazy-loaded only after the core dictionary is allowed to open.
 // A PDF/AI/PWA module failure must never prevent the workspace from starting.
 let aiModulePromise=null, exportModulePromise=null, pwaModulePromise=null;
-const aiModule=()=>aiModulePromise||(aiModulePromise=import('./ai.js?v=18.0.0'));
-const exportModule=()=>exportModulePromise||(exportModulePromise=import('./export.js?v=18.0.0'));
-const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./pwa.js?v=18.0.0'));
+const aiModule=()=>aiModulePromise||(aiModulePromise=import('./ai.js?v=19.0.0'));
+const exportModule=()=>exportModulePromise||(exportModulePromise=import('./export.js?v=19.0.0'));
+const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./pwa.js?v=19.0.0'));
 async function createChat(...a){return (await aiModule()).createChat(...a);} async function listChats(...a){return (await aiModule()).listChats(...a);} async function loadMessages(...a){return (await aiModule()).loadMessages(...a);} async function renameChat(...a){return (await aiModule()).renameChat(...a);} async function deleteChat(...a){return (await aiModule()).deleteChat(...a);} async function editUserMessage(...a){return (await aiModule()).editUserMessage(...a);} async function askAI(...a){return (await aiModule()).askAI(...a);} async function translateTerm(...a){return (await aiModule()).translateTerm(...a);}
 function printTerms(...a){exportModule().then(m=>m.printTerms(...a)).catch(()=>alert('Print tools could not start. Reload once and retry.'));}
 async function pdfTerms(...a){try{return await (await exportModule()).pdfTerms(...a);}catch{return alert('PDF tools could not start. Use Print → Save as PDF.');}}
@@ -32,7 +32,7 @@ async function init(){
  if(!requiredSession){location.replace('./index.html');return;}
  document.body.classList.remove('auth-pending');document.body.classList.add('auth-ready');
  const loader=document.querySelector('#sessionLoader');if(loader)loader.remove();
- document.body.dataset.theme=localStorage.getItem('smd-theme')||'clinical';
+ document.body.dataset.theme=localStorage.getItem('smd-theme')||'dark';
  $('#contentLanguage').value=state.lang;setDir();
  $('#contentLanguage').addEventListener('change',()=>{state.lang=$('#contentLanguage').value;localStorage.setItem('smd-content-lang',state.lang);setDir();renderTerms();if(state.active)showDetail(state.active);});
  $('#themeSelect').value=document.body.dataset.theme;$('#themeSelect').addEventListener('change',e=>{document.body.dataset.theme=e.target.value;localStorage.setItem('smd-theme',e.target.value);});
@@ -64,7 +64,7 @@ function renderTerms(){
   card.addEventListener('click',async e=>{if(e.target.tagName==='INPUT')return;const full=await getTerm(item);state.active=full;showDetail(full);$$('.term-card').forEach(x=>x.classList.remove('active'));card.classList.add('active');});
   const cb=card.querySelector('input');cb.addEventListener('change',async()=>{const full=await getTerm(item);cb.checked?state.selected.set(item.id,full):state.selected.delete(item.id);updateSelectedCount();if(state.selectedMode)renderTerms();});grid.appendChild(card);
  }
- const total=base.length,fullCount=Number(state.index?.term_count||state.index?.terms?.length||total),searchable=Number(state.index?.searchable_name_count||fullCount);$('#resultSummary').textContent=state.selectedMode?`${total.toLocaleString()} selected terms`:`${total.toLocaleString()} matching terms · ${fullCount.toLocaleString()} official MeSH concepts · ${searchable.toLocaleString()} searchable names`;if(!total)grid.innerHTML='<div class="empty-state">No matching terms.</div>';
+ const total=base.length,fullCount=Number(state.index?.term_count||state.index?.terms?.length||total),searchable=Number(state.index?.searchable_name_count||fullCount);$('#resultSummary').textContent=state.selectedMode?`${total.toLocaleString()} selected terms`:`${total.toLocaleString()} matching terms · ${fullCount.toLocaleString()} official MeSH concepts · ${searchable.toLocaleString()} searchable names`;const toolbar=document.querySelector('.results-toolbar');if(toolbar)toolbar.dataset.v19Total=`${fullCount.toLocaleString()} terms`;const hs=$('#heroTermStat');if(hs)hs.textContent=fullCount>=1000?`${Math.floor(fullCount/1000)}K+`:fullCount.toLocaleString();const hc=$('#heroSpecialtyStat');if(hc)hc.textContent=Number(state.categories?.length||0).toLocaleString();if(!total)grid.innerHTML='<div class="empty-state">No matching terms.</div>';
 }
 async function loadCategory(id){
  if(categoryCache.has(id))return categoryCache.get(id);const c=state.categories.find(x=>x.id===id);if(!c)return[];const files=(c.files||[c.file]).filter(Boolean);const all=[];

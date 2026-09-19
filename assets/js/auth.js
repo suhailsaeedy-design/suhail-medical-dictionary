@@ -1,4 +1,4 @@
-import {CONFIG} from './config.js?v=18.0.0';
+import {CONFIG} from './config.js?v=19.0.0';
 
 // v4 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -111,6 +111,7 @@ export async function currentSession(){
   const session=readStoredSession();
   if(!session)return null;
   const now=Math.floor(Date.now()/1000);
+  if(!navigator.onLine)return {...session,offline_cached:true};
   if(!session.expires_at||Number(session.expires_at)>now+45)return session;
   try{return await refreshSession(session);}catch{clearLocalAuth();return null;}
 }

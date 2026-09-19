@@ -35,7 +35,7 @@ def main():
                 Path(name).unlink(missing_ok=True)
                 if r.returncode: failures.append(f'{p.name} inline script #{i+1}: {r.stderr.strip()}')
         except Exception as e: failures.append(f'{p.name}: {e}')
-    for p in [ROOT/'manifest.webmanifest',ROOT/'version.json',ROOT/'data'/'index.json',*sorted((ROOT/'data'/'categories').glob('*.json'))]:
+    for p in [ROOT/'manifest.webmanifest',ROOT/'version.json',ROOT/'data'/'index.json',ROOT/'data'/'packs.json',ROOT/'data'/'offline'/'manifest.json',ROOT/'data'/'anatomy'/'manifest.json',*sorted((ROOT/'data'/'offline'/'search').glob('*.json')),*sorted((ROOT/'data'/'categories').glob('*.json'))]:
         try: json.loads(p.read_text(encoding='utf-8'))
         except Exception as e: failures.append(f'{p}: invalid JSON: {e}')
     for p in [*sorted((ROOT/'assets'/'js').glob('*.js')),ROOT/'sw.js',ROOT/'cloudflare-worker'/'src'/'index.js']:
@@ -50,6 +50,20 @@ def main():
                 target=(p.parent/clean).resolve()
                 if not target.exists(): failures.append(f'{p}: missing local module {ref}')
         except Exception as e: failures.append(f'{p}: import validation failed: {e}')
+    packs=json.loads((ROOT/'data'/'packs.json').read_text(encoding='utf-8'))
+    for pack in packs.get('packs',[]):
+        for ref in pack.get('urls',[]):
+            if not ref.startswith('./'): continue
+            target=(ROOT/ref[2:]).resolve()
+            if not target.exists(): failures.append(f"Offline pack {pack.get('id')}: missing {ref}")
+    anatomy=json.loads((ROOT/'data'/'anatomy'/'manifest.json').read_text(encoding='utf-8'))
+    for layer,data in anatomy.get('layers',{}).items():
+        for lod,ref in data.get('lods',{}).items():
+            target=(ROOT/ref[2:]).resolve() if ref.startswith('./') else ROOT/ref
+            if not target.exists(): failures.append(f"Anatomy {layer}/{lod}: missing {ref}")
+    for key,data in anatomy.get('regions',{}).items():
+        ref=data.get('url',''); target=(ROOT/ref[2:]).resolve() if ref.startswith('./') else ROOT/ref
+        if not target.exists(): failures.append(f"Anatomy region {key}: missing {ref}")
     index=json.loads((ROOT/'data'/'index.json').read_text(encoding='utf-8'))
     for c in index.get('categories',[]):
         files=c.get('files') or ([c.get('file')] if c.get('file') else [])

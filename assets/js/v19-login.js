@@ -1,0 +1,1 @@
+(()=>{'use strict';document.addEventListener('DOMContentLoaded',()=>{const o=document.querySelector('.auth-online');if(o){const sync=()=>{o.innerHTML=`<i></i> ${navigator.onLine?'Online':'Offline'}`};sync();addEventListener('online',sync);addEventListener('offline',sync)}})})();

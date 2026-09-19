@@ -1,7 +1,5 @@
 {
-  "version": "18.0.0",
-  "name": "Suhail Medical Dictionary v18.0 Final",
-  "released": "2026-09-18",
-  "build": "18.0.0",
-  "notes": "Final v18 reference-matched real-code rebuild. Desktop Dark is the master geometry; Desktop Light uses the same geometry with a bright palette. Mobile Light/Dark Home, Search/List, Drawer, Detail, 360-degree interaction, AI Study, Appearance/Settings, About, Offline, Admin, legal pages, RTL content direction, PWA cache, and GitHub Pages build are integrated. Full-page reference screenshots are not used as UI backgrounds, overlays, click maps, or fake screens."
+  "version": "19.0.0-final-verified",
+  "channel": "stable",
+  "name": "Suhail Medical Dictionary v19 Final Verified"
 }

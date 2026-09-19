@@ -1,5 +1,5 @@
-import {CONFIG} from './config.js?v=18.0.0';
-import {getSupabase,currentSession,peekSession} from './auth.js?v=18.0.0';
+import {CONFIG} from './config.js?v=19.0.0';
+import {getSupabase,currentSession,peekSession} from './auth.js?v=19.0.0';
 
 let workerConfigPromise=null;
 
@@ -31,7 +31,7 @@ export async function getAIServiceStatus(){
   try{
     const r=await fetch(`${url}/health`,{cache:'no-store'});
     const data=await r.json().catch(()=>({}));
-    return {configured:true,online:r.ok,workerUrl:url,model:data.model||'',message:r.ok?'AI service online':(data.error||`AI service error (${r.status})`)};
+    return {configured:true,online:r.ok,workerUrl:url,provider:data.provider||'Cloudflare Workers AI',model:data.model||'',freeOnly:data.freeOnly!==false,freeAllocationNeuronsPerDay:Number(data.freeAllocationNeuronsPerDay||10000),requiresModelApiKey:!!data.requiresModelApiKey,database:data.database||'Supabase PostgreSQL',message:r.ok?'Free AI online':(data.error||`AI service error (${r.status})`)};
   }catch(err){
     return {configured:true,online:false,workerUrl:url,message:err?.message||'AI service unavailable'};
   }
@@ -101,6 +101,8 @@ async function worker(path,body){
   const data=await r.json().catch(()=>({}));
   if(!r.ok){
     if(r.status===401)throw new Error('Your Google session expired. Sign in again and retry.');
+    if(r.status===429)throw new Error(data.error||'The free AI allowance for today has been reached. No paid fallback is enabled; try again after the quota resets.');
+    if(r.status===503)throw new Error(data.error||'The free AI service is temporarily unavailable. No paid model will be used.');
     throw new Error(data.error||`AI request failed (${r.status}).`);
   }
   return data;

@@ -24,6 +24,8 @@ jobs:
           python-version: "3.12"
       - name: Verify source files and local module paths
         run: python scripts/verify_project.py
+      - name: Run final release audit
+        run: python scripts/final_audit.py
       - name: Build production site with NLM MeSH 2026
         run: python scripts/build_release.py --import-mesh
       - uses: actions/configure-pages@v5

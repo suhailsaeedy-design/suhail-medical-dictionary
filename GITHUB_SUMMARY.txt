@@ -1,1 +1,1 @@
-Suhail Medical Dictionary v18.0 final refined reference-matched real-code build
+Suhail Medical Dictionary v19 Final — PWA, 3D Anatomy, Supabase DB, free-only Cloudflare AI, Admin health/usage

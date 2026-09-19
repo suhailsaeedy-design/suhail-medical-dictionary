@@ -1,8 +1,22 @@
 {
-  "dataset": "Suhail Medical Dictionary Reference Starter",
-  "version": "18.0.0",
-  "source_note": "Reference starter data; GitHub production build imports official NLM MeSH 2026.",
+  "dataset": "Suhail Medical Dictionary Bundled Starter",
+  "version": "19.0.0",
+  "term_count": 24,
+  "searchable_name_count": 54,
+  "source_note": "Bundled offline starter summaries. Production GitHub build automatically imports the complete official NLM MeSH 2026 Descriptor vocabulary.",
+  "content_note": "This ZIP includes a compact offline starter set for immediate use. The included GitHub Pages build workflow replaces this starter index with the complete MeSH 2026 descriptor dataset during production deployment.",
+  "production_dataset": "NLM Medical Subject Headings (MeSH) 2026 Descriptor vocabulary",
+  "production_import": "scripts/import_mesh_2026.py",
   "categories": [
+    {
+      "id": "anatomy",
+      "label": "Anatomy & Physiology",
+      "count": 4,
+      "file": "anatomy.json",
+      "files": [
+        "anatomy.json"
+      ]
+    },
     {
       "id": "cardiology",
       "label": "Cardiology",
@@ -22,21 +36,21 @@
       ]
     },
     {
-      "id": "pulmonology",
-      "label": "Pulmonology",
-      "count": 2,
-      "file": "pulmonology.json",
-      "files": [
-        "pulmonology.json"
-      ]
-    },
-    {
       "id": "hematology",
       "label": "Hematology",
       "count": 1,
       "file": "hematology.json",
       "files": [
         "hematology.json"
+      ]
+    },
+    {
+      "id": "neurology",
+      "label": "Neurology",
+      "count": 1,
+      "file": "neurology.json",
+      "files": [
+        "neurology.json"
       ]
     },
     {
@@ -49,6 +63,24 @@
       ]
     },
     {
+      "id": "pharmacology",
+      "label": "Pharmacology",
+      "count": 4,
+      "file": "pharmacology.json",
+      "files": [
+        "pharmacology.json"
+      ]
+    },
+    {
+      "id": "pulmonology",
+      "label": "Pulmonology",
+      "count": 2,
+      "file": "pulmonology.json",
+      "files": [
+        "pulmonology.json"
+      ]
+    },
+    {
       "id": "surgery",
       "label": "Surgery",
       "count": 1,
@@ -56,66 +88,16 @@
       "files": [
         "surgery.json"
       ]
-    },
-    {
-      "id": "neurology",
-      "label": "Neurology",
-      "count": 1,
-      "file": "neurology.json",
-      "files": [
-        "neurology.json"
-      ]
     }
   ],
   "terms": [
     {
-      "id": "D006973",
-      "term": "Hypertension",
-      "category": "cardiology",
-      "category_label": "Cardiology",
+      "id": "pharm-004",
+      "term": "Adverse effect",
+      "category": "pharmacology",
+      "category_label": "Pharmacology",
       "synonyms": [
-        "High blood pressure",
-        "Essential hypertension",
-        "Arterial hypertension"
-      ]
-    },
-    {
-      "id": "D003920",
-      "term": "Diabetes Mellitus",
-      "category": "endocrinology",
-      "category_label": "Endocrinology",
-      "synonyms": [
-        "Diabetes",
-        "Diabetes mellitus"
-      ]
-    },
-    {
-      "id": "D011014",
-      "term": "Pneumonia",
-      "category": "pulmonology",
-      "category_label": "Pulmonology",
-      "synonyms": [
-        "Lung infection",
-        "Pneumonitis"
-      ]
-    },
-    {
-      "id": "D009203",
-      "term": "Myocardial Infarction",
-      "category": "cardiology",
-      "category_label": "Cardiology",
-      "synonyms": [
-        "Heart attack",
-        "Acute myocardial infarction"
-      ]
-    },
-    {
-      "id": "D001249",
-      "term": "Asthma",
-      "category": "pulmonology",
-      "category_label": "Pulmonology",
-      "synonyms": [
-        "Bronchial asthma"
+        "Adverse drug effect"
       ]
     },
     {
@@ -128,32 +110,12 @@
       ]
     },
     {
-      "id": "D050723",
-      "term": "Fracture",
-      "category": "orthopedics",
-      "category_label": "Orthopedics",
-      "synonyms": [
-        "Bone fracture",
-        "Broken bone"
-      ]
-    },
-    {
       "id": "D001064",
       "term": "Appendicitis",
       "category": "surgery",
       "category_label": "Surgery",
       "synonyms": [
         "Inflammation of appendix"
-      ]
-    },
-    {
-      "id": "D020521",
-      "term": "Stroke",
-      "category": "neurology",
-      "category_label": "Neurology",
-      "synonyms": [
-        "Cerebrovascular accident",
-        "CVA"
       ]
     },
     {
@@ -167,13 +129,12 @@
       ]
     },
     {
-      "id": "D006333",
-      "term": "Heart Failure",
-      "category": "cardiology",
-      "category_label": "Cardiology",
+      "id": "D001249",
+      "term": "Asthma",
+      "category": "pulmonology",
+      "category_label": "Pulmonology",
       "synonyms": [
-        "Cardiac failure",
-        "Congestive heart failure"
+        "Bronchial asthma"
       ]
     },
     {
@@ -186,13 +147,35 @@
       ]
     },
     {
-      "id": "D010493",
-      "term": "Pericarditis",
-      "category": "cardiology",
-      "category_label": "Cardiology",
+      "id": "pharm-001",
+      "term": "Bioavailability",
+      "category": "pharmacology",
+      "category_label": "Pharmacology",
+      "synonyms": []
+    },
+    {
+      "id": "pharm-003",
+      "term": "Contraindication",
+      "category": "pharmacology",
+      "category_label": "Pharmacology",
+      "synonyms": []
+    },
+    {
+      "id": "D003920",
+      "term": "Diabetes Mellitus",
+      "category": "endocrinology",
+      "category_label": "Endocrinology",
       "synonyms": [
-        "Pericardial inflammation"
+        "Diabetes",
+        "Diabetes mellitus"
       ]
+    },
+    {
+      "id": "anat-004",
+      "term": "Distal",
+      "category": "anatomy",
+      "category_label": "Anatomy & Physiology",
+      "synonyms": []
     },
     {
       "id": "D004696",
@@ -201,6 +184,74 @@
       "category_label": "Cardiology",
       "synonyms": [
         "Infective endocarditis"
+      ]
+    },
+    {
+      "id": "anat-002",
+      "term": "Epithelium",
+      "category": "anatomy",
+      "category_label": "Anatomy & Physiology",
+      "synonyms": [
+        "Epithelial tissue"
+      ]
+    },
+    {
+      "id": "D050723",
+      "term": "Fracture",
+      "category": "orthopedics",
+      "category_label": "Orthopedics",
+      "synonyms": [
+        "Bone fracture",
+        "Broken bone"
+      ]
+    },
+    {
+      "id": "pharm-002",
+      "term": "Half-life",
+      "category": "pharmacology",
+      "category_label": "Pharmacology",
+      "synonyms": [
+        "Elimination half-life"
+      ]
+    },
+    {
+      "id": "D006333",
+      "term": "Heart Failure",
+      "category": "cardiology",
+      "category_label": "Cardiology",
+      "synonyms": [
+        "Cardiac failure",
+        "Congestive heart failure"
+      ]
+    },
+    {
+      "id": "anat-001",
+      "term": "Homeostasis",
+      "category": "anatomy",
+      "category_label": "Anatomy & Physiology",
+      "synonyms": [
+        "Physiologic balance"
+      ]
+    },
+    {
+      "id": "D008052",
+      "term": "Hyperlipidemia",
+      "category": "cardiology",
+      "category_label": "Cardiology",
+      "synonyms": [
+        "Dyslipidemia",
+        "High blood lipids"
+      ]
+    },
+    {
+      "id": "D006973",
+      "term": "Hypertension",
+      "category": "cardiology",
+      "category_label": "Cardiology",
+      "synonyms": [
+        "High blood pressure",
+        "Essential hypertension",
+        "Arterial hypertension"
       ]
     },
     {
@@ -213,17 +264,50 @@
       ]
     },
     {
-      "id": "D008052",
-      "term": "Hyperlipidemia",
+      "id": "D009203",
+      "term": "Myocardial Infarction",
       "category": "cardiology",
       "category_label": "Cardiology",
       "synonyms": [
-        "Dyslipidemia",
-        "High blood lipids"
+        "Heart attack",
+        "Acute myocardial infarction"
+      ]
+    },
+    {
+      "id": "D010493",
+      "term": "Pericarditis",
+      "category": "cardiology",
+      "category_label": "Cardiology",
+      "synonyms": [
+        "Pericardial inflammation"
+      ]
+    },
+    {
+      "id": "D011014",
+      "term": "Pneumonia",
+      "category": "pulmonology",
+      "category_label": "Pulmonology",
+      "synonyms": [
+        "Lung infection",
+        "Pneumonitis"
+      ]
+    },
+    {
+      "id": "anat-003",
+      "term": "Proximal",
+      "category": "anatomy",
+      "category_label": "Anatomy & Physiology",
+      "synonyms": []
+    },
+    {
+      "id": "D020521",
+      "term": "Stroke",
+      "category": "neurology",
+      "category_label": "Neurology",
+      "synonyms": [
+        "Cerebrovascular accident",
+        "CVA"
       ]
     }
-  ],
-  "term_count": 31110,
-  "searchable_name_count": 267012,
-  "content_note": "The local starter set mirrors the approved reference design; production deployment imports the complete MeSH dataset."
+  ]
 }

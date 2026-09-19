@@ -9,17 +9,20 @@
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=19.0.0">
   <title>Sign in · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-login.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-login.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-final-integration.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-phase7-polish.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-phase8-final.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-login.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-login.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-final-integration.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-phase7-polish.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v18-phase8-final.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v19-core.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v19-login.css?v=19.0.0">
+  <link rel="stylesheet" href="./assets/css/v19-mobile.css?v=19.0.0">
 </head>
-<body data-build="18.0.0" class="auth-page" data-theme="dark">
+<body data-build="19.0.0" class="auth-page" data-theme="dark">
   <main class="auth-layout">
     <div class="auth-top-controls" aria-label="Login page controls">
       <span class="auth-online"><i></i> Online</span>
@@ -33,6 +36,7 @@
         <option value="zh">中文</option>
       </select></label>
       <button id="authThemeToggle" class="auth-theme-toggle" type="button" aria-label="Toggle appearance"><span aria-hidden="true">☾</span><b>Dark</b></button>
+      <button class="v19-login-install" type="button" data-install-app><span>⇩</span><b>Install App</b></button>
     </div>
 
     <section class="auth-brand-panel">
@@ -92,6 +96,8 @@
             <span id="googleButtonText">Choose a Google account</span>
             <span class="google-arrow" aria-hidden="true">→</span>
           </button>
+          <a class="v19-offline-entry" href="./offline.html"><span>⇩</span><div><b>Offline Medical Library</b><small>Dictionary + saved anatomy work without internet</small></div><span>→</span></a>
+          <button class="v19-card-install" type="button" data-install-app><span>⇩</span><b>Install as PWA</b><small>Use the app from your home screen and keep offline content ready</small></button>
           <div id="authMessage" class="auth-message" role="status" aria-live="polite"></div>
           <div class="auth-divider"><span>Secure sign in</span></div>
           <div class="auth-security-note">
@@ -170,7 +176,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '18.0.0'
+  uiVersion: '19.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -296,6 +302,7 @@ async function currentSession(){
   const session=readStoredSession();
   if(!session)return null;
   const now=Math.floor(Date.now()/1000);
+  if(!navigator.onLine)return {...session,offline_cached:true};
   if(!session.expires_at||Number(session.expires_at)>now+45)return session;
   try{return await refreshSession(session);}catch{clearLocalAuth();return null;}
 }
@@ -400,7 +407,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '18.0.0'
+  uiVersion: '19.0.0'
 };
 const {currentSession,signInWithGoogle,signOut,getMyProfile,setOwnerReviewConsent,logEvent}=SMDAuth;
 const $=s=>document.querySelector(s);
@@ -459,10 +466,13 @@ init();
 })();
 
 </script>
-  <script src="./assets/js/v16-ui.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v17-login.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v18-final-integration.js?v=18.0.0"></script>
-  <script src="./assets/js/v18-phase7-polish.js?v=18.0.0"></script>
-  <script src="./assets/js/v18-phase8-final.js?v=18.0.0" defer></script>
+  <script src="./assets/js/v16-ui.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v17-login.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v18-final-integration.js?v=19.0.0"></script>
+  <script src="./assets/js/v18-phase7-polish.js?v=19.0.0"></script>
+  <script src="./assets/js/v18-phase8-final.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v19-core.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v19-login.js?v=19.0.0" defer></script>
+  <script src="./assets/js/v19-mobile.js?v=19.0.0" defer></script>
 </body>
 </html>

@@ -1,0 +1,657 @@
+{
+  "version": "19.0.0",
+  "kind": "illustrative-anatomy-starter",
+  "medical_precision": "educational illustration only; not diagnostic",
+  "layers": {
+    "skeleton": {
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "lods": {
+        "low": "./assets/models/anatomy/low/skeleton.obj",
+        "standard": "./assets/models/anatomy/standard/skeleton.obj",
+        "hd": "./assets/models/anatomy/hd/skeleton.obj",
+        "ultra": "./assets/models/anatomy/ultra/skeleton.obj"
+      },
+      "regions": [
+        "skeleton:skull",
+        "skeleton:jaw",
+        "skeleton:spine",
+        "skeleton:sternum",
+        "skeleton:rib_cage",
+        "skeleton:shoulders",
+        "skeleton:upper_arm",
+        "skeleton:forearm",
+        "skeleton:hand",
+        "skeleton:pelvis",
+        "skeleton:thigh",
+        "skeleton:knee",
+        "skeleton:lower_leg",
+        "skeleton:foot"
+      ],
+      "bytes": {
+        "low": 944645,
+        "standard": 3193186,
+        "hd": 10572592,
+        "ultra": 31474022
+      }
+    },
+    "muscles": {
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "lods": {
+        "low": "./assets/models/anatomy/low/muscles.obj",
+        "standard": "./assets/models/anatomy/standard/muscles.obj",
+        "hd": "./assets/models/anatomy/hd/muscles.obj",
+        "ultra": "./assets/models/anatomy/ultra/muscles.obj"
+      },
+      "regions": [
+        "muscles:head_neck",
+        "muscles:trapezius",
+        "muscles:chest",
+        "muscles:abdomen",
+        "muscles:back",
+        "muscles:deltoid",
+        "muscles:biceps",
+        "muscles:forearm_muscles",
+        "muscles:gluteal",
+        "muscles:quadriceps",
+        "muscles:hamstrings",
+        "muscles:calf"
+      ],
+      "bytes": {
+        "low": 320373,
+        "standard": 1268344,
+        "hd": 4962366,
+        "ultra": 18222965
+      }
+    },
+    "organs": {
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "lods": {
+        "low": "./assets/models/anatomy/low/organs.obj",
+        "standard": "./assets/models/anatomy/standard/organs.obj",
+        "hd": "./assets/models/anatomy/hd/organs.obj",
+        "ultra": "./assets/models/anatomy/ultra/organs.obj"
+      },
+      "regions": [
+        "organs:brain",
+        "organs:left_lung",
+        "organs:right_lung",
+        "organs:heart",
+        "organs:liver",
+        "organs:stomach",
+        "organs:pancreas",
+        "organs:left_kidney",
+        "organs:right_kidney",
+        "organs:spleen",
+        "organs:bladder",
+        "organs:intestines"
+      ],
+      "bytes": {
+        "low": 362999,
+        "standard": 1299306,
+        "hd": 5191393,
+        "ultra": 20304988
+      }
+    },
+    "systems": {
+      "color": [
+        0.2,
+        0.72,
+        1.0,
+        1
+      ],
+      "lods": {
+        "low": "./assets/models/anatomy/low/systems.obj",
+        "standard": "./assets/models/anatomy/standard/systems.obj",
+        "hd": "./assets/models/anatomy/hd/systems.obj",
+        "ultra": "./assets/models/anatomy/ultra/systems.obj"
+      },
+      "regions": [
+        "systems:brain_nerves",
+        "systems:spinal_cord",
+        "systems:cardiovascular",
+        "systems:peripheral_nerves",
+        "systems:lymphatic"
+      ],
+      "bytes": {
+        "low": 275768,
+        "standard": 685746,
+        "hd": 2336702,
+        "ultra": 7018142
+      }
+    }
+  },
+  "regions": {
+    "skeleton:skull": {
+      "layer": "skeleton",
+      "name": "Skull",
+      "url": "./assets/models/anatomy/regions/skeleton-skull.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 79201
+    },
+    "skeleton:jaw": {
+      "layer": "skeleton",
+      "name": "Jaw",
+      "url": "./assets/models/anatomy/regions/skeleton-jaw.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 18972
+    },
+    "skeleton:spine": {
+      "layer": "skeleton",
+      "name": "Spine",
+      "url": "./assets/models/anatomy/regions/skeleton-spine.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 91611
+    },
+    "skeleton:sternum": {
+      "layer": "skeleton",
+      "name": "Sternum",
+      "url": "./assets/models/anatomy/regions/skeleton-sternum.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 34837
+    },
+    "skeleton:rib_cage": {
+      "layer": "skeleton",
+      "name": "Rib Cage",
+      "url": "./assets/models/anatomy/regions/skeleton-rib_cage.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 1590977
+    },
+    "skeleton:shoulders": {
+      "layer": "skeleton",
+      "name": "Shoulders",
+      "url": "./assets/models/anatomy/regions/skeleton-shoulders.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 70997
+    },
+    "skeleton:upper_arm": {
+      "layer": "skeleton",
+      "name": "Upper Arm",
+      "url": "./assets/models/anatomy/regions/skeleton-upper_arm.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 71255
+    },
+    "skeleton:forearm": {
+      "layer": "skeleton",
+      "name": "Forearm",
+      "url": "./assets/models/anatomy/regions/skeleton-forearm.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 145583
+    },
+    "skeleton:hand": {
+      "layer": "skeleton",
+      "name": "Hand",
+      "url": "./assets/models/anatomy/regions/skeleton-hand.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 39299
+    },
+    "skeleton:pelvis": {
+      "layer": "skeleton",
+      "name": "Pelvis",
+      "url": "./assets/models/anatomy/regions/skeleton-pelvis.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 253096
+    },
+    "skeleton:thigh": {
+      "layer": "skeleton",
+      "name": "Thigh",
+      "url": "./assets/models/anatomy/regions/skeleton-thigh.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 71835
+    },
+    "skeleton:knee": {
+      "layer": "skeleton",
+      "name": "Knee",
+      "url": "./assets/models/anatomy/regions/skeleton-knee.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 164275
+    },
+    "skeleton:lower_leg": {
+      "layer": "skeleton",
+      "name": "Lower Leg",
+      "url": "./assets/models/anatomy/regions/skeleton-lower_leg.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 146653
+    },
+    "skeleton:foot": {
+      "layer": "skeleton",
+      "name": "Foot",
+      "url": "./assets/models/anatomy/regions/skeleton-foot.obj",
+      "color": [
+        0.8,
+        0.92,
+        1.0,
+        1
+      ],
+      "bytes": 164134
+    },
+    "muscles:head_neck": {
+      "layer": "muscles",
+      "name": "Head Neck",
+      "url": "./assets/models/anatomy/regions/muscles-head_neck.obj",
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "bytes": 79203
+    },
+    "muscles:trapezius": {
+      "layer": "muscles",
+      "name": "Trapezius",
+      "url": "./assets/models/anatomy/regions/muscles-trapezius.obj",
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "bytes": 79322
+    },
+    "muscles:chest": {
+      "layer": "muscles",
+      "name": "Chest",
+      "url": "./assets/models/anatomy/regions/muscles-chest.obj",
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "bytes": 162451
+    },
+    "muscles:abdomen": {
+      "layer": "muscles",
+      "name": "Abdomen",
+      "url": "./assets/models/anatomy/regions/muscles-abdomen.obj",
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "bytes": 79081
+    },
+    "muscles:back": {
+      "layer": "muscles",
+      "name": "Back",
+      "url": "./assets/models/anatomy/regions/muscles-back.obj",
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "bytes": 79575
+    },
+    "muscles:deltoid": {
+      "layer": "muscles",
+      "name": "Deltoid",
+      "url": "./assets/models/anatomy/regions/muscles-deltoid.obj",
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "bytes": 163058
+    },
+    "muscles:biceps": {
+      "layer": "muscles",
+      "name": "Biceps",
+      "url": "./assets/models/anatomy/regions/muscles-biceps.obj",
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "bytes": 71127
+    },
+    "muscles:forearm_muscles": {
+      "layer": "muscles",
+      "name": "Forearm Muscles",
+      "url": "./assets/models/anatomy/regions/muscles-forearm_muscles.obj",
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "bytes": 71126
+    },
+    "muscles:gluteal": {
+      "layer": "muscles",
+      "name": "Gluteal",
+      "url": "./assets/models/anatomy/regions/muscles-gluteal.obj",
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "bytes": 164728
+    },
+    "muscles:quadriceps": {
+      "layer": "muscles",
+      "name": "Quadriceps",
+      "url": "./assets/models/anatomy/regions/muscles-quadriceps.obj",
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "bytes": 71671
+    },
+    "muscles:hamstrings": {
+      "layer": "muscles",
+      "name": "Hamstrings",
+      "url": "./assets/models/anatomy/regions/muscles-hamstrings.obj",
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "bytes": 72089
+    },
+    "muscles:calf": {
+      "layer": "muscles",
+      "name": "Calf",
+      "url": "./assets/models/anatomy/regions/muscles-calf.obj",
+      "color": [
+        0.92,
+        0.24,
+        0.3,
+        1
+      ],
+      "bytes": 71936
+    },
+    "organs:brain": {
+      "layer": "organs",
+      "name": "Brain",
+      "url": "./assets/models/anatomy/regions/organs-brain.obj",
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "bytes": 79197
+    },
+    "organs:left_lung": {
+      "layer": "organs",
+      "name": "Left Lung",
+      "url": "./assets/models/anatomy/regions/organs-left_lung.obj",
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "bytes": 79492
+    },
+    "organs:right_lung": {
+      "layer": "organs",
+      "name": "Right Lung",
+      "url": "./assets/models/anatomy/regions/organs-right_lung.obj",
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "bytes": 78844
+    },
+    "organs:heart": {
+      "layer": "organs",
+      "name": "Heart",
+      "url": "./assets/models/anatomy/regions/organs-heart.obj",
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "bytes": 202049
+    },
+    "organs:liver": {
+      "layer": "organs",
+      "name": "Liver",
+      "url": "./assets/models/anatomy/regions/organs-liver.obj",
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "bytes": 78928
+    },
+    "organs:stomach": {
+      "layer": "organs",
+      "name": "Stomach",
+      "url": "./assets/models/anatomy/regions/organs-stomach.obj",
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "bytes": 79236
+    },
+    "organs:pancreas": {
+      "layer": "organs",
+      "name": "Pancreas",
+      "url": "./assets/models/anatomy/regions/organs-pancreas.obj",
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "bytes": 78898
+    },
+    "organs:left_kidney": {
+      "layer": "organs",
+      "name": "Left Kidney",
+      "url": "./assets/models/anatomy/regions/organs-left_kidney.obj",
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "bytes": 79929
+    },
+    "organs:right_kidney": {
+      "layer": "organs",
+      "name": "Right Kidney",
+      "url": "./assets/models/anatomy/regions/organs-right_kidney.obj",
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "bytes": 79283
+    },
+    "organs:spleen": {
+      "layer": "organs",
+      "name": "Spleen",
+      "url": "./assets/models/anatomy/regions/organs-spleen.obj",
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "bytes": 79449
+    },
+    "organs:bladder": {
+      "layer": "organs",
+      "name": "Bladder",
+      "url": "./assets/models/anatomy/regions/organs-bladder.obj",
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "bytes": 79650
+    },
+    "organs:intestines": {
+      "layer": "organs",
+      "name": "Intestines",
+      "url": "./assets/models/anatomy/regions/organs-intestines.obj",
+      "color": [
+        0.91,
+        0.4,
+        0.3,
+        1
+      ],
+      "bytes": 202134
+    },
+    "systems:brain_nerves": {
+      "layer": "systems",
+      "name": "Brain Nerves",
+      "url": "./assets/models/anatomy/regions/systems-brain_nerves.obj",
+      "color": [
+        0.2,
+        0.72,
+        1.0,
+        1
+      ],
+      "bytes": 79197
+    },
+    "systems:spinal_cord": {
+      "layer": "systems",
+      "name": "Spinal Cord",
+      "url": "./assets/models/anatomy/regions/systems-spinal_cord.obj",
+      "color": [
+        0.2,
+        0.72,
+        1.0,
+        1
+      ],
+      "bytes": 35245
+    },
+    "systems:cardiovascular": {
+      "layer": "systems",
+      "name": "Cardiovascular",
+      "url": "./assets/models/anatomy/regions/systems-cardiovascular.obj",
+      "color": [
+        0.2,
+        0.72,
+        1.0,
+        1
+      ],
+      "bytes": 107242
+    },
+    "systems:peripheral_nerves": {
+      "layer": "systems",
+      "name": "Peripheral Nerves",
+      "url": "./assets/models/anatomy/regions/systems-peripheral_nerves.obj",
+      "color": [
+        0.2,
+        0.72,
+        1.0,
+        1
+      ],
+      "bytes": 306089
+    },
+    "systems:lymphatic": {
+      "layer": "systems",
+      "name": "Lymphatic",
+      "url": "./assets/models/anatomy/regions/systems-lymphatic.obj",
+      "color": [
+        0.2,
+        0.72,
+        1.0,
+        1
+      ],
+      "bytes": 119859
+    }
+  },
+  "total_bytes": 114386350
+}

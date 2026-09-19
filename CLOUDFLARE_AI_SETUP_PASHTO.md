@@ -1,6 +1,6 @@
 # د Suhail Medical Dictionary د AI او ژباړې وروستی Setup
 
-دا پروژه د Dictionary لپاره په GitHub Pages کې Static پاتې کېږي. حقیقي AI Chat او د نشتو ژباړو تولید د Cloudflare Worker + Workers AI له لارې کېږي.
+دا پروژه د Dictionary لپاره په GitHub Pages کې Static پاتې کېږي. حقیقي AI Chat او د نشتو ژباړو تولید د Cloudflare Worker + Workers AI **Free plan** له لارې کېږي. دا build paid AI fallback نه لري.
 
 ## مهم امنیتي اصل
 `SUPABASE_SERVICE_ROLE_KEY` هېڅکله GitHub، `config.js`، `ai-config.json` یا Browser code ته مه اچوه. دا یوازې د Cloudflare Worker د **Secret** په توګه وساته.
@@ -26,8 +26,8 @@ Public variable:
 - `SUPABASE_URL` = `https://qdfylefkkkyjwtqqiuye.supabase.co`
 - `SUPABASE_ANON_KEY` = ستا Supabase Publishable/Anon key
 - `ALLOWED_ORIGINS` = `https://suhailsaeedy-design.github.io`
-- `AI_DAILY_USER_LIMIT` = `30`
-- `TRANSLATION_DAILY_USER_LIMIT` = `30`
+- `AI_DAILY_USER_LIMIT` = `20`
+- `TRANSLATION_DAILY_USER_LIMIT` = `20`
 
 Secret:
 - `SUPABASE_SERVICE_ROLE_KEY` = د Supabase Service Role key
@@ -55,3 +55,7 @@ Secret:
 - Missing Pashto/Dari/Persian/Turkish/Arabic/Chinese translations تولیدېږي.
 - ژباړه په Supabase cache کې ساتل کېږي، نو بل ځل بیا AI مصرف نه کوي.
 - د Browser په IndexedDB کې هم translation ساتل کېږي څو وروسته Offline وکارول شي.
+
+
+## Free-only حالت
+Worker د `@cf/zai-org/glm-4.7-flash` model کاروي. Browser ته model API key نه ورکول کېږي. که وړیا quota ختم شي، AI error ښيي او paid model ته نه ځي.
