@@ -9,13 +9,12 @@
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v15-reference-fixed.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=16.0.0">
   <title>Sign in · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-exact-reference.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-reference-match.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-exact-reference.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=16.0.0">
 </head>
-<body data-build="18.0.0" class="auth-page" data-theme="clinical">
+<body data-build="16.0.0" class="auth-page" data-theme="clinical">
   <main class="auth-layout">
     <section class="auth-brand-panel">
       <div class="auth-brand-top">
@@ -23,7 +22,7 @@
           <img src="./assets/images/logo-book.svg" class="brand-logo" alt="">
           <span>Suhail Medical Dictionary</span>
         </a>
-        <span class="secure-chip">Knowledge for a healthier tomorrow</span>
+        <span class="secure-chip">Secure student workspace</span>
       </div>
 
       <div class="auth-brand-copy">
@@ -38,17 +37,20 @@
         </div>
       </div>
 
-      <div class="auth-3d-scene" aria-hidden="true">
-        <div class="auth-orbit-heart"><img src="./assets/images/v15/login-heart-light.webp" alt=""></div>
-        <div class="auth-float-card c1">Explore · Learn · Apply</div>
-        <div class="auth-float-card c2">Medical knowledge, beautifully organized</div>
-        <div class="auth-float-card c3">Multilingual · Offline-ready · Private</div>
-      </div>
-
       <div class="auth-brand-footer">
         <a href="./about.html">About creator</a>
         <a href="./privacy.html">Privacy</a>
         <a href="./terms.html">Terms</a>
+      </div>
+    </section>
+
+    <section class="auth-art-panel" aria-hidden="true">
+      <div class="auth-3d-scene">
+        <div class="auth-orbit-heart"><img src="./assets/images/v16/login-heart-light.webp" alt=""></div>
+        <div class="auth-art-glow"></div>
+        <div class="auth-float-card c1"><b>Learn</b><span>Understand</span><span>Apply</span></div>
+        <div class="auth-float-card c2"><b>Knowledge</b><span>heals beyond boundaries.</span></div>
+        <div class="auth-float-card c3"><b>Medical Knowledge</b><span>for a brighter world.</span></div>
       </div>
     </section>
 
@@ -59,9 +61,10 @@
       </div>
 
       <div class="auth-card">
+        <div class="auth-card-brand" aria-label="Suhail Medical Dictionary"><img src="./assets/images/logo-book.svg" alt=""><div><strong>Suhail</strong><small>Medical Dictionary</small></div></div>
         <div class="auth-card-header">
           <div>
-            <span id="authKicker" class="auth-kicker dark">Welcome back</span>
+            <span id="authKicker" class="auth-kicker dark">Secure medical learning</span>
             <h2 id="authTitle">Welcome Back</h2>
             <p id="authSubtitle">Sign in with Google to continue your medical learning journey. Your Google password stays with Google.</p>
           </div>
@@ -141,7 +144,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '18.0.0'
+  uiVersion: '16.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -371,13 +374,13 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '18.0.0'
+  uiVersion: '16.0.0'
 };
 const {currentSession,signInWithGoogle,signOut,getMyProfile,setOwnerReviewConsent,logEvent}=SMDAuth;
 const $=s=>document.querySelector(s);
 const RTL=new Set(['ps','prs','fa','ar']);
 const TEXT={
- en:{welcome:'Welcome back',title:'Welcome Back',sub:'Sign in with Google to continue your medical learning journey. Your Google password stays with Google.',google:'Sign in with Google',working:'Opening Google…',needConfig:'Google sign-in is not configured yet. The owner must connect Supabase and Google OAuth first.',securityTitle:'Your Google password stays with Google.',securityBody:'This website never asks for, receives, or stores your Google password.',consentTitle:'One-time account setup',consentSub:'Accept the Privacy Notice and Terms before opening your workspace.',accept:'I accept the Privacy Notice and Terms.',review:'Optional: allow the owner to review my stored chat content for support and quality.',continue:'Continue to my workspace',another:'Use another Google account',signed:'Signed in as',returning:'A Google account is already signed in on this device.',continueCurrent:'Continue with this account'},
+ en:{welcome:'Secure medical learning',title:'Welcome Back',sub:'Sign in with Google to continue your medical learning journey. Your Google password stays with Google.',google:'Sign in with Google',working:'Opening Google…',needConfig:'Google sign-in is not configured yet. The owner must connect Supabase and Google OAuth first.',securityTitle:'Your Google password stays with Google.',securityBody:'This website never asks for, receives, or stores your Google password.',consentTitle:'One-time account setup',consentSub:'Accept the Privacy Notice and Terms before opening your workspace.',accept:'I accept the Privacy Notice and Terms.',review:'Optional: allow the owner to review my stored chat content for support and quality.',continue:'Continue to my workspace',another:'Use another Google account',signed:'Signed in as',returning:'A Google account is already signed in on this device.',continueCurrent:'Continue with this account'},
  ps:{welcome:'ښه راغلاست',title:'د Google حساب وټاکئ',sub:'هغه Google حساب وټاکئ چې غواړئ له همدې سره سیستم وکاروئ. نوی پاسورډ ته اړتیا نشته.',google:'Google حساب وټاکئ',working:'Google پرانیستل کېږي…',needConfig:'Google Login لا نه دی تنظیم شوی. Owner باید لومړی Supabase او Google OAuth وصل کړي.',securityTitle:'ستاسو د Google پاسورډ له Google سره پاتې کېږي.',securityBody:'دا ویب‌سایټ ستاسو د Google پاسورډ نه غواړي، نه یې ترلاسه کوي او نه یې ذخیره کوي.',consentTitle:'د حساب یو ځل تنظیم',consentSub:'Workspace ته له ننوتلو مخکې Privacy Notice او Terms ومنئ.',accept:'زه Privacy Notice او Terms منم.',review:'اختیاري: Owner ته اجازه ورکوم چې د Support او Quality لپاره زما ذخیره شوي Chatونه وګوري.',continue:'خپل Workspace ته دوام',another:'بل Google حساب استعمالول',signed:'داخل شوی حساب',returning:'په دې وسیله کې یو Google حساب لا داخل دی.',continueCurrent:'په همدې حساب دوام'},
  prs:{welcome:'خوش آمدید',title:'حساب Google را انتخاب کنید',sub:'حساب Google مورد نظر را انتخاب کنید. نیازی به ساختن رمز جدید نیست.',google:'انتخاب حساب Google',working:'Google باز می‌شود…',needConfig:'ورود Google هنوز تنظیم نشده است.',securityTitle:'رمز Google شما نزد Google می‌ماند.',securityBody:'این وب‌سایت رمز Google شما را نمی‌خواهد، دریافت نمی‌کند و ذخیره نمی‌کند.',consentTitle:'تنظیم یک‌باره حساب',consentSub:'پیش از ورود، Privacy Notice و Terms را بپذیرید.',accept:'Privacy Notice و Terms را می‌پذیرم.',review:'اختیاری: اجازه بررسی چت‌های ذخیره‌شده برای پشتیبانی و کیفیت.',continue:'ادامه به فضای من',another:'استفاده از حساب Google دیگر',signed:'حساب واردشده',returning:'یک حساب Google در این دستگاه وارد شده است.',continueCurrent:'ادامه با همین حساب'},
  fa:{welcome:'خوش آمدید',title:'حساب Google را انتخاب کنید',sub:'حساب Google مورد نظر را انتخاب کنید. نیازی به ساخت رمز جدید نیست.',google:'انتخاب حساب Google',working:'در حال باز کردن Google…',needConfig:'ورود Google هنوز تنظیم نشده است.',securityTitle:'رمز Google شما نزد Google می‌ماند.',securityBody:'این وب‌سایت رمز Google شما را درخواست، دریافت یا ذخیره نمی‌کند.',consentTitle:'راه‌اندازی یک‌باره حساب',consentSub:'پیش از ورود، Privacy Notice و Terms را بپذیرید.',accept:'Privacy Notice و Terms را می‌پذیرم.',review:'اختیاری: اجازه بررسی چت‌های ذخیره‌شده برای پشتیبانی و کیفیت.',continue:'ادامه به فضای من',another:'استفاده از حساب Google دیگر',signed:'حساب واردشده',returning:'یک حساب Google در این دستگاه وارد شده است.',continueCurrent:'ادامه با همین حساب'},
@@ -430,8 +433,6 @@ init();
 })();
 
 </script>
-  <script src="./assets/js/v15-reference-fixed.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v16-exact-reference.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v18-exact-reference.js?v=18.0.0"></script>
+  <script src="./assets/js/v16-ui.js?v=16.0.0" defer></script>
 </body>
 </html>

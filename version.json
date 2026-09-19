@@ -1,5 +1,7 @@
 {
-  "version": "18.0.0",
-  "build": "2026-09-18-exact-reference-real-code-v18",
-  "notes": "Exact-reference calibrated real-code rebuild. No full-page screenshot backgrounds or overlays."
+  "version": "16.0.0",
+  "name": "Suhail Medical Dictionary v16.0 Final — Reference-Matched Real-Code UI",
+  "released": "2026-09-18",
+  "build": "16.0.0",
+  "notes": "Final v16 real-code UI audit complete. Approved screenshots are visual references only and are not shipped as full-page backgrounds, overlays, click maps, or fake UI."
 }

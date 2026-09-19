@@ -12,7 +12,3 @@
 9. Website په Hard Refresh سره خلاص کړه: `Ctrl + Shift + R`.
 
 یادونه: د Source ZIP دننه starter medical terms دي. GitHub Actions د Production build پر مهال د NLM MeSH 2026 بشپړ dataset import کوي.
-
-
-## د دې نسخې GitHub Summary
-`Suhail Medical Dictionary v16 exact reference real-code rebuild`

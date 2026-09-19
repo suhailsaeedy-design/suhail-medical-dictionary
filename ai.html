@@ -9,18 +9,18 @@
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v15-reference-fixed.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase4-ai-settings.css?v=16.0.0">
   <title>AI Study · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-exact-reference.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-reference-match.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-exact-reference.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=16.0.0">
 </head>
-<body data-build="18.0.0" class="ai-page workspace-page ai-page" data-theme="clinical">
+<body data-build="16.0.0" class="ai-page workspace-page ai-page" data-theme="clinical">
   <div class="med-app-shell">
     <aside class="med-sidebar" aria-label="Primary navigation">
       <a class="med-brand" href="./app.html" aria-label="Suhail Medical Dictionary home">
         <span class="med-brand-mark"><img src="./assets/images/logo-book.svg" alt=""></span>
-        <span><strong>Suhail Medical<br>Dictionary</strong><small>Medical study workspace</small></span>
+        <span><strong>Suhail</strong><small>Medical Dictionary</small></span>
       </a>
       <nav class="med-nav">
         <a class="med-nav-item" href="./app.html#dashboard"><span class="nav-ico">⌂</span><span>Dashboard</span></a>
@@ -66,13 +66,20 @@
 
       <main class="ai-page-content">
         <section class="ai-page-intro panel-card">
-          <div><span class="section-kicker">Interactive learning assistant</span><h1>Study, explain, compare, and review.</h1><p>Ask questions about selected dictionary terms or create a new private medical study chat. AI responses are educational and should be checked against trusted academic sources.</p></div>
-          <a class="button soft-button" href="./app.html">＋ Add terms from Dictionary</a>
+          <div class="ai-intro-copy"><span class="section-kicker">Interactive learning assistant</span><h1><span class="ai-desktop-title">Study, explain, compare, and review.</span><span class="ai-mobile-title">Ask Suhail AI</span></h1><p>Ask questions about selected dictionary terms or create a new private medical study chat. AI responses are educational and should be checked against trusted academic sources.</p></div>
+          <div class="ai-quick-prompts" aria-label="Quick study prompts">
+            <button type="button" data-ai-prompt="Explain this simply">✧ Explain simply</button>
+            <button type="button" data-ai-prompt="Compare this with a related condition">▧ Compare with…</button>
+            <button type="button" data-ai-prompt="Explain the clinical use">⌁ Clinical use</button>
+            <button type="button" data-ai-prompt="Give me clear examples">◈ Give examples</button>
+          </div>
+          <a class="button soft-button ai-add-terms" href="./app.html">＋ Add terms from Dictionary</a>
         </section>
 
         <div class="ai-layout ai-page-layout panel-card">
           <aside class="chat-list-panel">
-            <div class="chat-list-header"><div><b>Chats</b><small>Saved to your account</small></div><button id="newChat" class="round-button" title="New chat" type="button">＋</button></div>
+            <div class="chat-list-header"><div><b>Chats</b><small>Saved to your account</small></div><button id="newChat" class="round-button ai-new-chat" title="New chat" type="button"><span aria-hidden="true">＋</span><b>New Chat</b></button></div>
+            <div class="ai-conversation-search"><span aria-hidden="true">⌕</span><input id="chatSearchInput" type="search" placeholder="Search your conversations…" autocomplete="off"></div>
             <div id="authHint" class="auth-hint">Loading your private chat history…</div>
             <div id="privacyAccountRow" class="privacy-toggle hidden"><label><input type="checkbox" id="reviewConsentToggle"> Allow owner to review my chat content for support/quality</label><small id="privacyAccountStatus">You can change this anytime.</small></div>
             <div id="chatList" class="chat-list"></div>
@@ -88,11 +95,14 @@
       </main>
     </div>
   </div>
-  <nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation"><a href="./app.html">Dictionary</a><a href="./app.html?view=selected">Selected</a><a class="active" href="./ai.html">AI</a><a href="./offline.html">Offline</a></nav>
-  <script type="module" src="./assets/js/ai-page.js?v=18.0.0"></script>
-  <script src="./assets/js/v15-reference-fixed.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v16-exact-reference.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v17-reference-match.js?v=18.0.0"></script>
-  <script src="./assets/js/v18-exact-reference.js?v=18.0.0"></script>
+  <script>
+  (()=>{
+    document.querySelectorAll('[data-ai-prompt]').forEach(btn=>btn.addEventListener('click',()=>{const input=document.getElementById('chatInput');if(!input)return;input.value=btn.dataset.aiPrompt||'';input.focus();input.scrollIntoView({behavior:'smooth',block:'center'});}));
+  })();
+  </script>
+  <nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation"><a href="./app.html">Home</a><a class="active" href="./ai.html">AI Study</a><a href="./app.html?view=selected">Selected</a><a href="./offline.html">Offline</a><a href="./app.html#settings">More</a></nav>
+  <script type="module" src="./assets/js/ai-page.js?v=16.0.0"></script>
+  <script src="./assets/js/v16-ui.js?v=16.0.0" defer></script>
+  <script src="./assets/js/v16-phase4-ui.js?v=16.0.0" defer></script>
 </body>
 </html>

@@ -8,26 +8,28 @@
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v15-reference-fixed.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase2-mobile.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase3-detail.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase4-ai-settings.css?v=16.0.0">
   <title>Dictionary · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-exact-reference.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v17-reference-match.css?v=18.0.0">
-  <link rel="stylesheet" href="./assets/css/v18-exact-reference.css?v=18.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=16.0.0">
 </head>
-<body data-build="18.0.0" class="workspace-page auth-pending" data-theme="clinical">
+<body data-build="16.0.0" class="workspace-page auth-pending" data-theme="clinical">
   <div id="sessionLoader" class="session-loader"><div class="loader-ring"></div><p>Opening your study workspace…</p></div>
 
   <div class="med-app-shell">
     <aside class="med-sidebar" aria-label="Primary navigation">
       <a class="med-brand" href="./app.html" aria-label="Suhail Medical Dictionary home">
         <span class="med-brand-mark"><img src="./assets/images/logo-book.svg" alt=""></span>
-        <span><strong>Suhail Medical<br>Dictionary</strong><small>Medical study workspace</small></span>
+        <span><strong>Suhail</strong><small>Medical Dictionary</small></span>
       </a>
 
       <nav class="med-nav">
         <a class="med-nav-item" href="#dashboard"><span class="nav-ico">⌂</span><span>Dashboard</span></a>
         <a class="med-nav-item active" href="#dictionary"><span class="nav-ico">▣</span><span>Dictionary</span></a>
-        <a class="med-nav-item" href="./ai.html"><span class="nav-ico">✦</span><span>AI Study</span><em class="nav-new">New</em></a>
+        <a class="med-nav-item" href="./ai.html"><span class="nav-ico">✦</span><span>AI Study</span></a>
         <button id="selectedButton" class="med-nav-item" type="button"><span class="nav-ico">◇</span><span>Selected</span><b id="selectedCount" class="nav-count">0</b></button>
         <a class="med-nav-item" href="./offline.html"><span class="nav-ico">⇩</span><span>Offline Packs</span></a>
         <button id="bookmarksButton" class="med-nav-item" type="button"><span class="nav-ico">★</span><span>Bookmarks</span><b id="bookmarksCount" class="nav-count">0</b></button>
@@ -39,9 +41,9 @@
 
       <div class="med-side-promo">
         <div class="promo-orb" aria-hidden="true"><span>🩺</span></div>
-        <strong>Suhail Study Suite</strong>
-        <small>✓ Study chats<br>✓ Offline packs<br>✓ Advanced filters<br>✓ PDF & print tools</small>
-        <a href="./ai.html" class="promo-button">Open Study Suite <span>→</span></a>
+        <strong>Advanced Study Tools</strong>
+        <small>Private study chats · Offline packs · PDF exports · Advanced filters.</small>
+        <a href="./ai.html" class="promo-button">Open Study Tools <span>→</span></a>
       </div>
     </aside>
 
@@ -72,7 +74,7 @@
         <section id="dashboard" class="med-hero">
           <div class="hero-copy">
             <span class="section-kicker">Explore · Learn · Apply</span>
-            <h1>Medical Dictionary</h1>
+            <h1>Medical <span>Dictionary</span></h1>
             <p class="hero-tagline">Trusted medical knowledge for a healthier tomorrow. Simple, accurate, and always within reach.</p>
             <p id="resultSummary" class="hero-counts">Loading terms…</p>
             <div class="hero-stats" aria-label="Dictionary highlights">
@@ -83,15 +85,12 @@
             </div>
           </div>
           <div class="hero-art" aria-hidden="true">
-            <img src="./assets/images/v15/hero-art-light.webp" alt="" data-v15-hero-art>
+            <img src="./assets/images/v16/hero-art-light.webp" alt="" data-v16-hero-art>
           </div>
         </section>
 
-        <!-- Search/filter panel is intentionally nested in the results column so its top edge aligns with the detail panel, matching the approved reference. -->
-        <section class="med-work-area">
-          <div class="results-column">
-            <section class="med-search-panel panel-card">
-              <div class="med-search-row">
+        <section class="med-search-panel panel-card">
+          <div class="med-search-row">
             <div class="hero-search"><span>⌕</span><input id="heroSearchMirror" class="control" placeholder="Search for a medical term or synonym..."></div>
             <button id="heroSearchButton" class="button primary hero-search-button" type="button"><span>⌕</span> Search</button>
             <div class="specialty-select-wrap"><span>🩺</span><select id="categorySelect" class="control"><option value="all">All Categories</option></select></div>
@@ -105,9 +104,11 @@
             <button type="button" class="category-chip" data-category-chip="neurology"><span>⌘</span>Neurology</button>
             <button type="button" class="category-chip" data-category-chip="orthopedics"><span>◇</span>Orthopedics</button>
             <button type="button" class="category-chip" data-category-chip="surgery"><span>✂</span>Surgery</button>
-              </div>
-            </section>
+          </div>
+        </section>
 
+        <section class="med-work-area">
+          <div class="results-column">
             <div class="results-toolbar">
               <strong id="resultsCountLabel">Medical terms</strong>
               <div class="results-controls">
@@ -154,21 +155,72 @@
   </div>
 
   <div id="settingsOverlay" class="settings-overlay hidden" aria-hidden="true">
-    <section class="settings-card" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
-      <div class="settings-card-head"><div><span class="section-kicker">Preferences</span><h2 id="settingsTitle">Settings</h2></div><button id="closeSettingsButton" class="round-button" type="button" aria-label="Close settings">×</button></div>
-      <label class="settings-field"><span>Dictionary language</span><select id="settingsLanguage" class="control"><option value="en">English</option><option value="ps">پښتو</option><option value="prs">دري</option><option value="fa">فارسی</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="zh">中文</option></select></label>
-      <label class="settings-field"><span>Theme</span><select id="settingsTheme" class="control"><option value="clinical">Light</option><option value="dark">Dark</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option></select></label>
-      <div class="settings-links"><a href="./about.html">About</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./offline.html">Offline packs</a></div>
+    <section class="settings-card appearance-card" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+      <div class="settings-card-head appearance-head">
+        <button id="closeSettingsButton" class="round-button appearance-back" type="button" aria-label="Close settings">‹</button>
+        <div><h2 id="settingsTitle">Appearance</h2><p>Choose your preferred theme</p></div>
+        <button class="appearance-sun" type="button" aria-label="Appearance preview">☼</button>
+      </div>
+
+      <div class="appearance-theme-grid" role="radiogroup" aria-label="Theme">
+        <button type="button" class="appearance-theme-card" data-theme-choice="clinical" role="radio" aria-checked="false"><span class="theme-preview light-preview"><i></i></span><b>Light</b><small>Clean & Bright</small></button>
+        <button type="button" class="appearance-theme-card" data-theme-choice="ocean" role="radio" aria-checked="false"><span class="theme-preview blue-preview"><i></i></span><b>Blue</b><small>Default</small></button>
+        <button type="button" class="appearance-theme-card" data-theme-choice="dark" role="radio" aria-checked="false"><span class="theme-preview midnight-preview"><i></i></span><b>Midnight</b><small>Deep & Calm</small></button>
+      </div>
+
+      <div class="appearance-section">
+        <h3>Background Style</h3>
+        <div class="appearance-background-grid" role="radiogroup" aria-label="Background style">
+          <button type="button" data-bg-choice="nebula" role="radio" aria-checked="false"><span class="bg-preview nebula"></span><small>Nebula</small></button>
+          <button type="button" data-bg-choice="bubbles" role="radio" aria-checked="false"><span class="bg-preview bubbles"></span><small>Bubbles</small></button>
+          <button type="button" data-bg-choice="aurora" role="radio" aria-checked="false"><span class="bg-preview aurora"></span><small>Aurora</small></button>
+          <button type="button" data-bg-choice="minimal" role="radio" aria-checked="false"><span class="bg-preview minimal"></span><small>Minimal</small></button>
+        </div>
+      </div>
+
+      <div class="appearance-section accent-section">
+        <h3>Accent Color</h3>
+        <div class="appearance-accent-row" role="radiogroup" aria-label="Accent color">
+          <button type="button" data-accent-choice="blue" aria-label="Blue" role="radio" aria-checked="false"></button>
+          <button type="button" data-accent-choice="violet" aria-label="Violet" role="radio" aria-checked="false"></button>
+          <button type="button" data-accent-choice="cyan" aria-label="Cyan" role="radio" aria-checked="false"></button>
+          <button type="button" data-accent-choice="green" aria-label="Green" role="radio" aria-checked="false"></button>
+          <button type="button" data-accent-choice="amber" aria-label="Amber" role="radio" aria-checked="false"></button>
+          <button type="button" data-accent-choice="pink" aria-label="Pink" role="radio" aria-checked="false"></button>
+        </div>
+      </div>
+
+      <div class="appearance-toggles">
+        <label><span><i>☼</i>Animations & Effects</span><input id="appearanceAnimations" type="checkbox" checked><b></b></label>
+        <label><span><i>⌘</i>3D Model Glow</span><input id="appearanceGlow" type="checkbox" checked><b></b></label>
+        <label><span><i>⊙</i>Reduce Motion</span><input id="appearanceReduceMotion" type="checkbox"><b></b></label>
+      </div>
+
+      <button id="appearanceApply" class="appearance-apply" type="button">Apply Theme</button>
+
+      <div class="appearance-secondary">
+        <label class="settings-field"><span>Dictionary language</span><select id="settingsLanguage" class="control"><option value="en">English</option><option value="ps">پښتو</option><option value="prs">دري</option><option value="fa">فارسی</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="zh">中文</option></select></label>
+        <label class="settings-field"><span>More themes</span><select id="settingsTheme" class="control"><option value="clinical">Light</option><option value="dark">Dark</option><option value="ocean">Blue</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option></select></label>
+        <div class="settings-links"><a href="./about.html">About</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./offline.html">Offline packs</a></div>
+      </div>
     </section>
   </div>
 
-  <nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation"><button id="mobileDictionaryButton" type="button">Dictionary</button><button id="mobileSelectedButton" type="button">Selected</button><a id="mobileAIButton" href="./ai.html">AI</a><a href="./offline.html">Offline</a></nav>
+  <nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation">
+    <button id="mobileDictionaryButton" class="active mobile-nav-home" type="button"><span>Home</span></button>
+    <a id="mobileAIButton" class="mobile-nav-ai" href="./ai.html"><span>AI Study</span></a>
+    <button id="mobileSelectedButton" class="mobile-nav-selected" type="button"><span>Selected</span></button>
+    <button id="mobileBookmarksButton" class="mobile-nav-bookmarks" type="button"><span>Bookmarks</span></button>
+    <button id="mobileHistoryButton" class="mobile-nav-history" type="button"><span>History</span></button>
+    <a class="mobile-nav-offline" href="./offline.html"><span>Offline</span></a>
+    <button id="mobileMoreButton" class="mobile-nav-more" type="button"><span>More</span></button>
+  </nav>
   <script>
     // Independent boot watchdog: even if a module/CDN fails, never leave users on an endless spinner.
     window.setTimeout(function(){
       var loader=document.getElementById('sessionLoader');
       if(!loader || !document.body.classList.contains('auth-pending')) return;
-      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v18.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
+      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v16.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
     },12000);
   </script>
   <script>
@@ -196,7 +248,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '18.0.0'
+  uiVersion: '16.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -423,9 +475,9 @@ const {peekSession,getSupabase,currentSession,signOut,logEvent,getMyProfile,setO
 // Optional features are lazy-loaded only after the core dictionary is allowed to open.
 // A PDF/AI/PWA module failure must never prevent the workspace from starting.
 let aiModulePromise=null, exportModulePromise=null, pwaModulePromise=null;
-const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=18.0.0'));
-const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=18.0.0'));
-const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=18.0.0'));
+const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=16.0.0'));
+const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=16.0.0'));
+const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=16.0.0'));
 async function createChat(...a){return (await aiModule()).createChat(...a);} async function listChats(...a){return (await aiModule()).listChats(...a);} async function loadMessages(...a){return (await aiModule()).loadMessages(...a);} async function renameChat(...a){return (await aiModule()).renameChat(...a);} async function deleteChat(...a){return (await aiModule()).deleteChat(...a);} async function editUserMessage(...a){return (await aiModule()).editUserMessage(...a);} async function askAI(...a){return (await aiModule()).askAI(...a);} async function translateTerm(...a){return (await aiModule()).translateTerm(...a);}
 function printTerms(...a){exportModule().then(m=>m.printTerms(...a)).catch(()=>alert('Print tools could not start. Reload once and retry.'));}
 async function pdfTerms(...a){try{return await (await exportModule()).pdfTerms(...a);}catch{return alert('PDF tools could not start. Use Print → Save as PDF.');}}
@@ -457,6 +509,7 @@ async function init(){
  $('#contentLanguage').addEventListener('change',()=>{state.lang=$('#contentLanguage').value;localStorage.setItem('smd-content-lang',state.lang);setDir();renderTerms();if(state.active)showDetail(state.active);});
  $('#themeSelect').value=document.body.dataset.theme;$('#themeSelect').addEventListener('change',e=>{document.body.dataset.theme=e.target.value;localStorage.setItem('smd-theme',e.target.value);});
  const res=await fetch('./data/index.json',{cache:'no-cache'});if(!res.ok)throw new Error(`Dictionary index failed (${res.status})`);state.index=await res.json();state.categories=state.index.categories||[];populateCategories();filter();bindUI();
+ if(window.innerWidth>820&&state.filtered[0]){try{const first=await getTerm(state.filtered[0]);state.active=first;showDetail(first);renderTerms();}catch{}}
  initAuth(requiredSession).catch(err=>{console.warn('Cloud account initialization:',err);});
  registerInstall();initPWA({categories:state.categories}).catch(()=>{});exportModule().then(m=>m.preloadExportLibraries?.()).catch(()=>{});
 }
@@ -499,6 +552,9 @@ function bindUI(){
  $('#listViewButton')?.addEventListener('click',()=>setView('list'));
  $('#mobileDictionaryButton')?.addEventListener('click',()=>{resetSpecial();renderTerms();document.querySelector('#dictionary')?.scrollIntoView({behavior:'smooth'});});
  $('#mobileSelectedButton')?.addEventListener('click',()=>$('#selectedButton')?.click());
+ $('#mobileBookmarksButton')?.addEventListener('click',()=>$('#bookmarksButton')?.click());
+ $('#mobileHistoryButton')?.addEventListener('click',()=>$('#historyButton')?.click());
+ $('#mobileMoreButton')?.addEventListener('click',()=>document.querySelector('.mobile-menu-button')?.click());
  document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();search?.focus();}if(e.key==='Escape'){closeAccountMenu();closeSettings();closeDetail();}});
  updateBookmarksCount();syncNavModes();setView(state.view);
  const requested=new URLSearchParams(location.search).get('view');
@@ -523,6 +579,7 @@ function visualAsset(item){
 }
 function visualTheme(){return ['dark','ocean'].includes(document.body.dataset.theme)?'dark':'light';}
 function visualUrl(item){return `./assets/images/v12/${visualAsset(item)}-${visualTheme()}.webp`;}
+function detailVisualUrl(item){return visualAsset(item)==='heart'?`./assets/images/v12/detail-heart-${visualTheme()}.webp`:visualUrl(item);}
 function syncCategoryChips(){document.querySelectorAll('[data-category-chip]').forEach(b=>b.classList.toggle('active',b.dataset.categoryChip===state.category));}
 function readBookmarkIds(){
  let ids=[];try{ids=JSON.parse(localStorage.getItem('smd-bookmarks')||'[]');if(!Array.isArray(ids))ids=[];}catch{ids=[];}
@@ -543,6 +600,8 @@ function syncNavModes(){
  $('#historyButton')?.classList.toggle('active',state.specialMode==='history');
  $('#mobileDictionaryButton')?.classList.toggle('active',!state.selectedMode&&!state.specialMode);
  $('#mobileSelectedButton')?.classList.toggle('active',state.selectedMode);
+ $('#mobileBookmarksButton')?.classList.toggle('active',state.specialMode==='bookmarks');
+ $('#mobileHistoryButton')?.classList.toggle('active',state.specialMode==='history');
 }
 function setView(view){state.view=view==='list'?'list':'grid';const grid=$('#termGrid');grid?.classList.toggle('list-view',state.view==='list');$('#gridViewButton')?.classList.toggle('active',state.view==='grid');$('#listViewButton')?.classList.toggle('active',state.view==='list');try{localStorage.setItem('smd-term-view',state.view);}catch{}}
 function currentBaseTerms(){
@@ -571,7 +630,7 @@ async function selectAllCurrentFilter(){
  else{for(const x of base){const id=String(x.id);if(!state.selected.has(id)&&!state.selected.has(x.id))state.selected.set(id,x);}}
  updateSelectedCount();renderTerms();
 }
-function closeDetail(){const panel=$('#detailPanel');if(!panel)return;panel.classList.remove('open');state.active=null;$$('.term-card').forEach(x=>x.classList.remove('active'));if(window.innerWidth<821)panel.scrollTop=0;}
+function closeDetail(){const panel=$('#detailPanel');if(!panel)return;panel.classList.remove('open');document.body.classList.remove('detail-open');state.active=null;$$('.term-card').forEach(x=>x.classList.remove('active'));if(window.innerWidth<821)panel.scrollTop=0;}
 function renderTerms(){
  const grid=$('#termGrid');if(!grid)return;grid.innerHTML='';
  let base=currentBaseTerms();
@@ -616,18 +675,64 @@ function displayTerm(t,lang=state.lang){return t.localized_term?.[lang]||t.term;
 function showDetail(t){
  const l=state.lang,txt=LANG_TEXT[l]||LANG_TEXT.en,has=!!t.definition?.[l],rtl=RTL.has(l),textDir=rtl?'rtl':'ltr';
  const translatedName=displayTerm(t,l),def=has?t.definition[l]:(l==='en'?(t.definition?.en||'Definition not available.'):txt.loading),exp=has?(t.explanation?.[l]||''):(l==='en'?(t.explanation?.en||''):txt.loading);
- const originalLine=l!=='en'&&translatedName!==t.term?`<div class="original-term">English: ${esc(t.term)}</div>`:'';const syns=(t.synonyms||[]);const meshId=t.id||'—',bookmarked=isBookmarked(t.id),trees=(t.mesh_tree_numbers||[]);
- $('#detailPanel').innerHTML=`<div class="detail-visual-wrap"><div class="detail-visual-stage" data-angle="0"><img class="detail-visual" data-v12-asset="${visualAsset(t)}" src="${visualUrl(t)}" alt="" aria-hidden="true"></div><span class="detail-rotate-hint">↻ drag / 360°</span><button type="button" id="detailCloseButton" class="detail-close" aria-label="Close details" title="Close">×</button><button type="button" class="detail-bookmark${bookmarked?' saved':''}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button></div><div class="detail-title-block" dir="${textDir}"><h2 id="detailTermName">${esc(translatedName)}</h2>${originalLine}<span class="tag">${esc(t.category_label||categoryLabel(t.category))}</span></div><div class="detail-tabs"><button type="button" class="active" data-detail-tab="overview">Overview</button><button type="button" data-detail-tab="synonyms">Synonyms (${syns.length})</button><button type="button" data-detail-tab="related">Related</button><button type="button" data-detail-tab="study">Study</button></div><div data-detail-pane="overview"><div class="detail-info-list"><div class="detail-info-row"><span class="detail-info-icon">▤</span><b>${esc(txt.meaning)}</b><p id="detailDefinition" dir="${textDir}">${esc(def)}</p></div><div class="detail-info-row"><span class="detail-info-icon">🔊</span><b>Pronunciation</b><p>${esc(t.term)}</p><button class="pronounce" id="pronounceTerm" title="Pronounce English medical term">🔊</button></div>${syns.length?`<div class="detail-info-row"><span class="detail-info-icon">⌁</span><b>${esc(txt.synonyms)}</b><div class="synonyms">${syns.slice(0,8).map(s=>`<span>${esc(s)}</span>`).join('')}${syns.length>8?`<span>+${syns.length-8} more</span>`:''}</div></div>`:''}<div class="detail-info-row"><span class="detail-info-icon">▦</span><b>Category</b><p>${esc(t.category_label||categoryLabel(t.category))}</p></div><div class="detail-info-row"><span class="detail-info-icon">⌘</span><b>MeSH ID</b><p>${esc(meshId)}</p></div></div><div class="detail-explanation"><b>${esc(txt.explanation)}</b><p id="detailExplanation" dir="${textDir}">${esc(exp)}</p>${!has&&l!=='en'?`<p id="translationStatus" class="microcopy">${esc(txt.status)}</p>`:''}</div></div><div class="detail-tab-pane hidden" data-detail-pane="synonyms"><h3>Synonyms and entry terms</h3><div class="synonym-cloud">${syns.length?syns.map(s=>`<span>${esc(s)}</span>`).join(''):'<p>No additional MeSH entry terms are listed for this concept.</p>'}</div></div><div class="detail-tab-pane hidden" data-detail-pane="related"><h3>Related classification</h3><p class="microcopy">Category: ${esc(t.category_label||categoryLabel(t.category))}</p>${trees.length?`<div class="mesh-tree-list">${trees.slice(0,16).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:'<p class="microcopy">No additional MeSH tree numbers are available for this record.</p>'}</div><div class="detail-tab-pane hidden" data-detail-pane="study"><h3>Study this term</h3><p class="microcopy">Use pronunciation, selected-term study, PDF export, and the AI study workspace for this concept.</p></div><div class="detail-actions"><button class="button primary" id="detailAI">✦ AI Study</button><button class="button soft-button" id="detailPDF">Export PDF</button><button class="button soft-button" id="detailPrint">Print</button><button class="button soft-button" id="detailSelect">${state.selected.has(String(t.id))?'Remove':'Add to Selected'}</button></div><button type="button" class="detail-offline" id="detailOffline"><div><b>Download for offline use</b><small>Open Offline Packs to save the complete dictionary on this device.</small></div><span>⇩</span></button><p class="microcopy detail-source">Source: ${esc(t.source||state.index?.source_note||'Suhail Medical Dictionary')}</p>`;
- $('#detailPanel').classList.add('open');
+ const originalLine=l!=='en'&&translatedName!==t.term?`<div class="original-term">English: ${esc(t.term)}</div>`:'';const syns=(t.synonyms||[]);const meshId=t.mesh_id||t.id||'—',bookmarked=isBookmarked(t.id),trees=(t.mesh_tree_numbers||[]);
+ const category=esc(t.category_label||categoryLabel(t.category));
+ const alsoKnown=syns[0]?esc(syns[0]):esc(t.term);
+ $('#detailPanel').innerHTML=`
+ <div class="detail-visual-wrap">
+   <div class="detail-visual-stage" data-angle="0"><img class="detail-visual" data-v12-asset="${visualAsset(t)}" src="${detailVisualUrl(t)}" alt="" aria-hidden="true"></div>
+   <span class="detail-rotate-hint">↻ drag / 360°</span>
+   <button type="button" id="detailCloseButton" class="detail-close" aria-label="Close details" title="Close">×</button>
+   <button type="button" class="detail-bookmark${bookmarked?' saved':''}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button>
+   <button type="button" id="detailShareFloat" class="detail-share-float" aria-label="Share term" title="Share">↗</button>
+ </div>
+ <div class="detail-title-block" dir="${textDir}">
+   <div class="detail-heading-row">
+     <div class="detail-heading-copy">
+       <div class="detail-name-line"><h2 id="detailTermName">${esc(translatedName)}</h2><span class="detail-verified">● Verified</span></div>${originalLine}
+       <div class="detail-kicker-row"><span class="tag">${category}</span></div>
+       <div class="detail-submeta">${category}${syns.length?` · ${syns.length} synonyms`:''}</div>
+     </div>
+     <button type="button" class="detail-title-sound" id="detailTitlePronounce" aria-label="Pronounce ${esc(t.term)}">🔊</button>
+   </div>
+   <p class="detail-shortline">${esc(def)}</p>
+ </div>
+ <div class="detail-tabs">
+   <button type="button" class="active" data-detail-tab="overview">Overview</button>
+   <button type="button" data-detail-tab="pronunciation">Pronunciation</button>
+   <button type="button" data-detail-tab="synonyms">Synonyms (${syns.length})</button>
+   <button type="button" data-detail-tab="related">Related</button>
+ </div>
+ <div class="detail-overview" data-detail-pane="overview">
+   <section class="detail-definition-block"><h3>Definition</h3><p id="detailDefinition" dir="${textDir}">${esc(def)}</p></section>
+   <section class="detail-clinical-note"><span>♧</span><p id="detailExplanation" dir="${textDir}">${esc(exp||'Use this definition together with pronunciation, related terms, and trusted medical references while studying.')}</p></section>
+   <section class="detail-synonym-section"><small>Also known as</small><div>${syns.length?syns.slice(0,5).map(s=>`<span>${esc(s)}</span>`).join(''):`<span>${esc(t.term)}</span>`}</div></section>
+   <div class="detail-meta-tiles">
+     <div><small>Also known as</small><b>${alsoKnown}</b></div>
+     <div><small>MeSH ID</small><b>${esc(meshId)}</b></div>
+     <div class="detail-category-tile"><small>Category</small><b>${category}</b></div>
+   </div>
+   ${!has&&l!=='en'?`<p id="translationStatus" class="microcopy detail-translation-status">${esc(txt.status)}</p>`:''}
+ </div>
+ <div class="detail-tab-pane hidden" data-detail-pane="pronunciation"><h3>Pronunciation</h3><p class="microcopy">Hear the English medical term.</p><button class="button soft-button detail-pronounce-large" id="pronounceTerm">🔊 Pronounce ${esc(t.term)}</button></div>
+ <div class="detail-tab-pane hidden" data-detail-pane="synonyms"><h3>Synonyms and entry terms</h3><div class="synonym-cloud">${syns.length?syns.map(s=>`<span>${esc(s)}</span>`).join(''):'<p>No additional MeSH entry terms are listed for this concept.</p>'}</div></div>
+ <div class="detail-tab-pane hidden" data-detail-pane="related"><h3>Related classification</h3><p class="microcopy">Category: ${category}</p>${trees.length?`<div class="mesh-tree-list">${trees.slice(0,16).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`:'<p class="microcopy">No additional MeSH tree numbers are available for this record.</p>'}</div>
+ <div class="detail-actions"><button class="button primary" id="detailAI">✦ <span class="detail-ai-label">AI Study</span></button><button class="button soft-button" id="detailPDF">▤ <span>Export PDF</span></button><button class="button soft-button" id="detailPrint">▣ <span>Print</span></button><button class="button soft-button" id="detailSelect">▮ <span>${state.selected.has(String(t.id))?'Remove':'Add to Selected'}</span></button><button class="button soft-button detail-share-action" id="detailShare">⌯ <span>Share</span></button></div>
+ <button type="button" class="detail-offline" id="detailOffline"><div><b>Download Offline Pack</b><small>Keep the dictionary available offline.</small></div><span>⇩</span></button>
+ <p class="microcopy detail-source">Source: ${esc(t.source||state.index?.source_note||'Suhail Medical Dictionary')}</p>`;
+ $('#detailPanel').classList.add('open');document.body.classList.add('detail-open');
+ const shareDetail=async()=>{const shareText=`${t.term}\n${t.definition?.en||def}`;try{if(navigator.share){await navigator.share({title:`${t.term} · Suhail Medical Dictionary`,text:shareText,url:location.href});return;}if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(`${shareText}\n${location.href}`);alert('Term details copied to clipboard.');return;}}catch(err){if(err?.name==='AbortError')return;}alert('Sharing is not available in this browser.');};
  $('#pronounceTerm')?.addEventListener('click',()=>pronounce(t.term));
+ $('#detailTitlePronounce')?.addEventListener('click',()=>pronounce(t.term));
  $('#detailSelect')?.addEventListener('click',async()=>{await toggleSelection(t);showDetail(t);renderTerms();});
  $('#detailAI')?.addEventListener('click',()=>openAIPage([t]));
  $('#detailPDF')?.addEventListener('click',()=>{const fallback=window.open('','_blank');if(fallback)fallback.document.write('<title>Preparing PDF…</title><p style="font-family:Arial;padding:24px">Preparing term PDF…</p>');pdfTerms(t.term,[t],state.lang,`${safeName(t.term)}.pdf`,fallback);});
  $('#detailPrint')?.addEventListener('click',()=>{const popup=window.open('','_blank');if(popup)popup.document.write('<title>Preparing print…</title><p style="font-family:Arial;padding:24px">Preparing medical term…</p>');printTerms(t.term,[t],state.lang,popup);});
+ $('#detailShare')?.addEventListener('click',shareDetail);$('#detailShareFloat')?.addEventListener('click',shareDetail);
  $('#detailOffline')?.addEventListener('click',()=>location.assign('./offline.html'));
  $('#detailCloseButton')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();closeDetail();});
  const detailBm=$('#detailPanel .detail-bookmark');detailBm?.addEventListener('click',()=>{const on=!isBookmarked(t.id);setBookmarked(t.id,on);detailBm.classList.toggle('saved',on);detailBm.textContent=on?'♥':'♡';renderTerms();});
- document.querySelectorAll('[data-detail-tab]').forEach(btn=>btn.addEventListener('click',()=>{const tab=btn.dataset.detailTab;document.querySelectorAll('[data-detail-tab]').forEach(x=>x.classList.toggle('active',x===btn));document.querySelectorAll('[data-detail-pane]').forEach(x=>x.classList.toggle('hidden',x.dataset.detailPane!==tab));}));
+ document.querySelectorAll('[data-detail-tab]').forEach(btn=>btn.addEventListener('click',()=>{const tab=btn.dataset.detailTab;document.querySelectorAll('[data-detail-tab]').forEach(x=>x.classList.toggle('active',x===btn));document.querySelectorAll('[data-detail-pane]').forEach(x=>x.classList.toggle('hidden',x.dataset.detailPane!==tab));if(tab==='pronunciation')setTimeout(()=>$('#pronounceTerm')?.focus(),0);}));
  if(!has&&l!=='en')loadMissingTranslation(t,l);
 }
 async function loadMissingTranslation(t,lang){const status=$('#translationStatus');try{const local=await getLocalTranslation(t.id,lang);if(local){applyTranslation(t,lang,local);if(status)status.textContent='Saved translation available offline on this device.';return;}const sb=await getSupabase();if(sb&&navigator.onLine){const {data}=await sb.from('term_translation_cache').select('term_name,definition,explanation,reviewed').eq('term_id',t.id).eq('language',lang).maybeSingle();if(data?.definition){applyTranslation(t,lang,data);await saveLocalTranslation(t.id,lang,data);if(status)status.textContent=data.reviewed?'Reviewed shared translation.':'Shared AI-assisted translation · medical review recommended.';return;}}const sess=peekSession()||await currentSession();if(!sess){if(status)status.textContent=navigator.onLine?'Your Google session needs to be refreshed before generating a new translation.':'No saved translation on this device. Connect once to load it.';return;}if(!navigator.onLine){if(status)status.textContent='No saved translation on this device. Translation generation needs internet.';return;}if(status)status.textContent=(LANG_TEXT[lang]||LANG_TEXT.en).loading;const x=await translateTerm({termId:t.id,term:t.term,definition:t.definition?.en||'',explanation:t.explanation?.en||'',language:lang});applyTranslation(t,lang,x);await saveLocalTranslation(t.id,lang,x);if(status)status.textContent=x.reviewed?'Reviewed translation.':(x.cached?'Cached AI-assisted translation · medical review recommended.':'AI-assisted translation · saved for offline use on this device.');}catch(err){if(status)status.textContent=`Translation unavailable: ${err.message}`;}}
@@ -673,9 +778,7 @@ init().catch(err=>{console.error(err);$('#termGrid').innerHTML=`<div class="empt
 })();
 
 </script>
-  <script src="./assets/js/v15-reference-fixed.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v16-exact-reference.js?v=18.0.0" defer></script>
-  <script src="./assets/js/v17-reference-match.js?v=18.0.0"></script>
-  <script src="./assets/js/v18-exact-reference.js?v=18.0.0"></script>
+  <script src="./assets/js/v16-ui.js?v=16.0.0" defer></script>
+  <script src="./assets/js/v16-phase4-ui.js?v=16.0.0" defer></script>
 </body>
 </html>

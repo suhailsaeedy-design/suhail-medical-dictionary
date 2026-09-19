@@ -1,7 +1,3 @@
-# Suhail Medical Dictionary v18.0
-
-This release is a **real-code rebuild** calibrated against the approved desktop, mobile and login references. The screenshots are design references only; no complete screenshot is used as a page background, overlay, iframe or click-map. The visible interface is live HTML/CSS/JavaScript, with isolated medical illustration assets used inside individual components.
-
 # Suhail Medical Dictionary v16.0
 
 This release is a real-code rebuild of the approved Suhail Medical Dictionary visual references. The user interface is implemented with HTML, CSS, JavaScript, responsive components, and individual medical artwork assets. Full-page reference screenshots are **not** used as page backgrounds or interaction overlays.
@@ -29,3 +25,6 @@ GitHub Actions builds the production site with the NLM MeSH 2026 import workflow
 
 ## Deployment
 Commit the extracted project contents to the root of the existing `suhail-medical-dictionary` repository, keep the existing `.git` folder, then push `main`. GitHub Actions deploys the `_site` build to GitHub Pages.
+
+## Final v16 audit
+The final package includes `V16_PHASE_STATUS.md` and `FINAL_TEST_REPORT_V16.md`. The final audit fixed desktop/mobile visibility regressions, updated PWA precache coverage, and passed local desktop/mobile Light/Dark browser regression checks before packaging.
