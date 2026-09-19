@@ -1,6 +1,5 @@
 {
-  "version": "13.0.0",
-  "name": "Suhail Medical Dictionary v13 Pixel-Locked Reference",
-  "released": "2026-09-18",
-  "build": "13.0.0"
+  "version": "18.0.0",
+  "build": "2026-09-18-exact-reference-real-code-v18",
+  "notes": "Exact-reference calibrated real-code rebuild. No full-page screenshot backgrounds or overlays."
 }

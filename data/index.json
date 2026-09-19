@@ -1,6 +1,6 @@
 {
   "dataset": "Suhail Medical Dictionary Reference Starter",
-  "version": "13.0.0",
+  "version": "14.0.0",
   "source_note": "Reference starter data; GitHub production build imports official NLM MeSH 2026.",
   "categories": [
     {

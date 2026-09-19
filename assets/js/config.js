@@ -6,5 +6,5 @@ export const CONFIG = {
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '13.0.0'
+  uiVersion: '14.0.0'
 };
