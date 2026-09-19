@@ -11,13 +11,21 @@
 
   function applyPreferences(){
     const t=savedTheme(),l=savedLanguage();
+    const bg=localStorage.getItem('smd-bg-style')||'bubbles';
+    const accent=localStorage.getItem('smd-accent')||'blue';
     document.body.dataset.theme=t;
+    document.body.dataset.bgStyle=bg;
+    document.body.dataset.accent=accent;
     document.body.dataset.contentDir=RTL.has(l)?'rtl':'ltr';
+    document.body.classList.toggle('effects-off',localStorage.getItem('smd-animations')==='0');
+    document.body.classList.toggle('model-glow-off',localStorage.getItem('smd-model-glow')==='0');
+    document.body.classList.toggle('reduce-motion',localStorage.getItem('smd-reduce-motion')==='1');
     document.documentElement.lang=l;
     /* Keep app chrome LTR so RTL content does not mirror the approved shell. */
     document.documentElement.dir='ltr';
     const meta=$('meta[name="theme-color"]');
-    if(meta)meta.content=['dark','ocean'].includes(t)?'#031d43':'#1679ef';
+    const themeColor={dark:'#031d43',ocean:'#063f82',forest:'#215f43',violet:'#55408f',sand:'#8b632f',clinical:'#1679ef'};
+    if(meta)meta.content=themeColor[t]||themeColor.clinical;
   }
 
   function syncControls(){
@@ -99,15 +107,39 @@
     if($('.admin-shell'))document.body.classList.add('v17-admin-page','v18-admin-page');
   }
 
+  function preserveSidebarLabels(){
+    if(isMobile())return;
+    $$('.med-nav-item').forEach(item=>{
+      [...item.children].forEach((child,index)=>{
+        if(index>0&&child.matches('span')){
+          child.style.removeProperty('display');
+          child.style.removeProperty('visibility');
+          child.style.removeProperty('opacity');
+        }
+      });
+    });
+  }
+
+  function installPreferenceSync(){
+    if(window.__v18PreferenceSyncInstalled)return;
+    window.__v18PreferenceSyncInstalled=true;
+    addEventListener('storage',e=>{
+      if(!e.key||e.key.startsWith('smd-')){applyPreferences();syncControls();preserveSidebarLabels();}
+    });
+    new MutationObserver(()=>preserveSidebarLabels()).observe(document.documentElement,{attributes:true,attributeFilter:['class','style']});
+  }
+
   function init(){
     applyPreferences();
     markPageClasses();
     syncControls();
     desktopCleanup();
+    preserveSidebarLabels();
+    installPreferenceSync();
     appDesktopNav();
     settingsDeepLink();
     networkStatus();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
-  addEventListener('resize',()=>{desktopCleanup();appDesktopNav();},{passive:true});
+  addEventListener('resize',()=>{desktopCleanup();preserveSidebarLabels();appDesktopNav();},{passive:true});
 })();

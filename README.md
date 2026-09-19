@@ -1,3 +1,5 @@
+# Suhail Medical Dictionary v18.0 — Final Refined
+
 # Suhail Medical Dictionary v18.0 Final
 
 Suhail Medical Dictionary is a responsive medical-learning web app/PWA with a real HTML/CSS/JavaScript interface, Google account authentication through Supabase, medical-term search and filtering, Selected terms, Bookmarks, History, Offline Packs, PDF/Print actions, AI Study, multilingual/RTL support, Appearance settings, About, and owner/admin pages.
@@ -43,3 +45,12 @@ Google OAuth, Supabase cloud data, the NLM MeSH download during the production b
 ## Verification
 
 See `FINAL_TEST_REPORT_V18.md` for the final source/build/browser audit.
+
+## Phase 7 polish layer
+
+The current v18 correction build also includes:
+
+- `assets/css/v18-phase7-polish.css`
+- `assets/js/v18-phase7-polish.js`
+
+This layer fixes desktop button geometry, full-fit term artwork, sidebar icons/premium block, real 3D card/detail interactions, hero artwork framing, tighter reference-style login composition, desktop inner scrolling, and true fixed mobile topbars.

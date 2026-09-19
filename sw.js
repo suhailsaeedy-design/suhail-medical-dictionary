@@ -3,6 +3,8 @@ const STATIC_CACHE=`${VERSION}-static`;
 const DATA_CACHE=`${VERSION}-data`;
 const RUNTIME_CACHE=`${VERSION}-runtime`;
 const CORE=[
+  './assets/js/v18-phase8-final.js',
+  './assets/css/v18-phase8-final.css',
   './','./index.html','./app.html','./ai.html','./admin.html','./about.html','./privacy.html','./terms.html','./offline.html',
   './manifest.webmanifest','./version.json','./ai-config.json','./assets/css/styles.css','./assets/css/v16-foundation.css','./assets/css/v16-reference-base.css','./assets/css/v16-reference-match.css','./assets/css/v16-phase2-mobile.css','./assets/css/v16-phase3-detail.css','./assets/css/v16-phase4-ai-settings.css','./assets/css/v16-final-audit.css','./assets/css/v17-desktop.css',
   './assets/css/v17-mobile.css','./assets/css/v17-login.css','./assets/css/v17-phase4-detail-ai.css','./assets/css/v17-final-integration.css','./assets/css/v18-desktop.css','./assets/css/v18-login.css','./assets/css/v18-mobile.css','./assets/css/v18-detail.css','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/images/suhail-saeedy.webp',
@@ -11,9 +13,9 @@ const CORE=[
   './assets/images/medical-3d/anatomy.svg','./assets/images/medical-3d/capsule.svg','./assets/images/medical-3d/dna.svg','./assets/images/medical-3d/heart.svg','./assets/images/medical-3d/hero-books.svg','./assets/images/medical-3d/kidneys.svg','./assets/images/medical-3d/lungs.svg','./assets/images/medical-3d/membrane.svg','./assets/images/medical-3d/microbe.svg','./assets/images/medical-3d/molecule-a.svg','./assets/images/medical-3d/molecule-b.svg','./assets/images/medical-3d/neuron.svg','./assets/images/medical-3d/protein.svg','./assets/images/logo-book.svg','./assets/images/reference3d/login-anatomy.webp','./assets/images/reference3d/hero-light.webp','./assets/images/reference3d/hero-dark.webp','./assets/images/reference3d/heart.webp','./assets/images/reference3d/pancreas.webp','./assets/images/reference3d/lungs.webp','./assets/images/reference3d/lungs2.webp','./assets/images/reference3d/heart-neural.webp','./assets/images/reference3d/blood.webp','./assets/images/reference3d/knee.webp','./assets/images/reference3d/intestine.webp','./assets/images/v12/heart-light.webp','./assets/images/v12/pancreas-light.webp','./assets/images/v12/lungs-light.webp','./assets/images/v12/lungs2-light.webp','./assets/images/v12/heart_neural-light.webp','./assets/images/v12/blood-light.webp','./assets/images/v12/knee-light.webp','./assets/images/v12/intestine-light.webp','./assets/images/v12/heart-dark.webp','./assets/images/v12/pancreas-dark.webp','./assets/images/v12/lungs-dark.webp','./assets/images/v12/lungs2-dark.webp','./assets/images/v12/heart_neural-dark.webp','./assets/images/v12/blood-dark.webp','./assets/images/v12/knee-dark.webp','./assets/images/v12/intestine-dark.webp','./assets/images/v12/hero-light.webp','./assets/images/v12/hero-dark.webp','./assets/images/v16/hero-art-light.webp','./assets/images/v16/hero-art-dark.webp','./assets/images/v16/hero-mobile-light.webp','./assets/images/v16/hero-mobile-dark.webp','./assets/images/v16/login-heart-light.webp','./assets/images/v16/robot-light.webp','./assets/images/v16/robot-dark.webp',
   './data/index.json',
   './assets/css/v18-phase4-ai-settings.css',
-  './assets/css/v18-final-integration.css',
+  './assets/css/v18-final-integration.css','./assets/css/v18-phase7-polish.css',
   './assets/js/v18-phase4-ai-settings.js',
-  './assets/js/v18-final-integration.js',
+  './assets/js/v18-final-integration.js','./assets/js/v18-phase7-polish.js',
 ];
 const CACHEABLE_CDNS=['cdn.jsdelivr.net','cdnjs.cloudflare.com'];
 self.addEventListener('install',event=>event.waitUntil((async()=>{

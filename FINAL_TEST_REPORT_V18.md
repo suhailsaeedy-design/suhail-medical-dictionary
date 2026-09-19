@@ -1,101 +1,33 @@
-# Suhail Medical Dictionary v18.0 — Final Test Report
+# Suhail Medical Dictionary v18.0 — Final Refined Test Report
 
-Final audit performed against the v18 source after all integration fixes.
+## Final visual pass
+- Desktop Dark remains the master geometry.
+- Desktop Light uses the same geometry with a bright palette.
+- Hero is a continuous medical scene rather than a hard text/image split.
+- Category strip no longer leaks hidden search controls.
+- Card artwork uses complete `contain` fitting with a larger visual region.
+- Long real-world medical term titles are safely clamped in the detail header.
+- Detail content scrolls internally when necessary.
+- Detail buttons use a deterministic two-row layout with no overlap.
+- Desktop sidebar and term grid expose scrollbars when content/viewport height requires them.
+- Login spacing, icon treatment, glass card, left knowledge area and right heart/anatomy/AI scene received the final reference-fidelity pass.
+- Mobile topbar remains fixed while scrolling.
+- Phase 6 global theme/About/sidebar fixes and Phase 7 3D/animation fixes are retained.
 
-## Static and build checks
+## Functional/security architecture retained
+- Google OAuth through Supabase remains the real sign-in flow.
+- The visible email/password rows are visual reference elements only; the project does not collect Google passwords.
+- Dictionary search/filter/select/bookmark/history, AI Study, PDF/Print, offline/PWA, themes, RTL and responsive behavior remain wired to the existing application logic.
 
-- `python scripts/verify_project.py` — PASS
-- Active JavaScript `node --check` — PASS
-- Inline JavaScript syntax — PASS
-- JSON parsing — PASS
-- CSS parsing/balance — PASS
-- HTML local file references — PASS
-- Service-worker precache local references — PASS
-- `python scripts/build_release.py` — PASS
-- Production `_site` generation — PASS
+## Verification completed
+- scripts/verify_project.py: PASS
+- scripts/build_release.py: PASS
+- JavaScript syntax checks: PASS
+- JSON parsing: PASS
+- CSS parsing: PASS
+- HTML local-reference scan: PASS
+- PWA precache includes Phase 8 CSS/JS: PASS
+- Exact hash matches to uploaded full-page reference screenshots inside project assets: 0
+- ZIP integrity: PASS
 
-## Desktop browser audit
-
-Tested at 1672×941 and 1366×768 in Light and Dark.
-
-- page JavaScript errors: 0
-- horizontal overflow: 0
-- mobile-only scaffolding on desktop: 0
-- Dictionary is the default active navigation item
-- main order verified: Hero → Search/Category strip → Terms/Detail work area → Ask Suhail AI strip
-- Light and Dark key geometry matched within the browser audit tolerance (≤1.1 px)
-
-At 1672×941 the verified shared geometry was approximately:
-- Hero: x 266, y 80, w 1390, h 232
-- Search/category: x 266, y 320, w 1390, h 50
-- Work area: x 266, y 378, w 1390, h 473
-- AI strip: x 266, y 859, w 1390, h 70
-
-## Login browser audit
-
-Tested at 1672×941 and 390×844.
-
-- Google sign-in button visible — PASS
-- password input fields: 0 — PASS
-- horizontal overflow: 0 — PASS
-- page JavaScript errors: 0 — PASS
-
-## Mobile Home/Search/Drawer audit
-
-Tested at 361×905, 390×844, and 430×932 in Light and Dark.
-
-- horizontal overflow: 0 in every tested state
-- page JavaScript errors: 0
-- Light bottom nav: 4 visible items
-- Dark bottom nav: 5 visible items
-- Search/list state — PASS
-- Drawer open/close — PASS
-
-## Mobile Detail audit
-
-Tested Light and Dark at 361×905, 390×844, and 430×932.
-
-- detail open/close — PASS
-- Overview/Synonyms tab switching — PASS
-- Action Sheet open/close — PASS
-- Added-to-Selected success dialog — PASS
-- Dark 360° drag/rotate interaction — PASS
-- horizontal overflow: 0
-- page JavaScript errors: 0
-
-## AI Study and Appearance audit
-
-AI/Settings tested at mobile sizes and AI also at desktop width.
-
-- New Chat — PASS
-- mobile AI navigation drawer — PASS
-- chat menu — PASS
-- theme/background/accent selection — PASS
-- Apply Theme/localStorage persistence — PASS
-- Reduce Motion persistence — PASS
-- horizontal overflow: 0
-- page JavaScript errors: 0
-
-## Secondary pages
-
-About, Offline, Admin, Privacy, and Terms were checked in desktop Light and mobile Dark conditions.
-
-- horizontal overflow: 0
-- page JavaScript errors: 0
-
-## RTL audit
-
-Pashto content preference tested at 390×844.
-
-- shell direction remains LTR: PASS
-- content direction marker becomes RTL: PASS
-- horizontal overflow: 0
-- page JavaScript errors: 0
-
-## Reference-image integrity
-
-Approved/generated full-page reference screenshots are not used as UI backgrounds, overlays, click maps, or fake screens. Exact reference-image hash comparison against project files found 0 matches.
-
-## External-service limitation
-
-Google OAuth, Supabase cloud behavior, NLM network download, and the optional AI Worker require live external services and correct dashboard configuration; those network-dependent services cannot be fully validated by an offline/local source audit alone.
+Note: this environment's managed Chromium policy blocked a fresh Phase-8 local browser navigation. The final pass was therefore checked by static/build validation plus comparison against the previously captured Phase-7 browser renders and the supplied references. Earlier Phase 7 browser interaction tests remain retained in the codebase changes they validated.
