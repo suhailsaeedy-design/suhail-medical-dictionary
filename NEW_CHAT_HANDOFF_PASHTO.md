@@ -3,7 +3,7 @@
 ## 1) پروژه څه ده؟
 دا **Suhail Medical Dictionary** ده: یو responsive medical-learning web app / PWA چې د طبي اصطلاحاتو Dictionary، Google account login، هر user ته جلا cloud data، AI Study، Selected terms، Bookmarks، History، Offline packs، PDF/Print، څو ژبې، themes، About او Settings لري.
 
-**اوسنی Final source:** `Suhail Medical Dictionary v16.0 — Reference-Fixed Real-Code Rebuild`
+**اوسنی Final source:** `Suhail Medical Dictionary v17.0 — Final Real-Code Reference Rebuild`
 
 مهم اصل: د approved design screenshots **یوازې visual references** دي. هیڅ screenshot باید د full-page background، overlay، click-map یا fake UI په توګه ونه کارول شي. ټول UI باید حقیقي HTML/CSS/JavaScript components وي.
 
@@ -163,7 +163,7 @@ Google OAuth provider is configured in Supabase dashboard and Google Cloud. Redi
 
 ---
 
-## 8) Current v16 technical status
+## 8) Current v17 Final technical status
 Before final packaging these checks were run successfully:
 
 - `python scripts/verify_project.py` — PASS
@@ -173,7 +173,7 @@ Before final packaging these checks were run successfully:
 - `_site/index.html` and `_site/app.html` generated — PASS
 - no active `v13-pixel-lock`, screenshot overlay, or full-page reference-image mechanism found — PASS
 
-The v16 version/cache references were normalized to `16.0.0` before the final package.
+The final v17 version/cache references are normalized to `17.0.0`.
 
 External-service behavior cannot be fully validated offline. Google OAuth, Supabase cloud data, NLM download during GitHub build, and AI Worker require reachable external services and correct dashboard configuration.
 
@@ -195,16 +195,16 @@ When continuing this project:
 
 ---
 
-## 10) What the owner wants next
-The major remaining goal is **visual refinement against the approved reference designs** while keeping the app fully functional. The owner wants the real UI to look extremely close to those designs, especially:
+## 10) Current final goal
+v17 Final is the GitHub-replacement source. Future changes should be incremental refinements or bug fixes against this source; do not rebuild from guesses. Preserve the real-code reference-matched design and existing functionality. Do visual matching with real components, not screenshots.
 
-- login composition
-- desktop light dictionary
-- desktop neon/dark dictionary
-- mobile home/dictionary list
-- mobile side drawer
-- mobile term detail
-- AI Study screen
-- theme/appearance screen
+---
 
-Do visual matching with real components, not screenshots.
+## v17 Final status
+- Phase 1: Desktop Light/Dark — بشپړ
+- Phase 2: Desktop/Mobile Google Login — بشپړ
+- Phase 3: Mobile Home/Search/Drawer/Bottom Navigation — بشپړ
+- Phase 4: Mobile Term Detail + Ask Suhail AI — بشپړ
+- Phase 5: Settings/About/Offline/Admin/legal integration, RTL/PWA/GitHub-ready audit — بشپړ
+
+Final integration files include `assets/css/v17-final-integration.css` and `assets/js/v17-final-integration.js`. Approved/generated screenshots are not used as full-page backgrounds, overlays, click maps, or fake UI.

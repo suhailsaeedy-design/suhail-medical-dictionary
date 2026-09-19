@@ -9,12 +9,15 @@
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=16.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=17.0.0">
   <title>About · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-desktop.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-mobile.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-final-integration.css?v=17.0.0">
 </head>
-<body class="about-workspace workspace-page" data-build="16.0.0" data-theme="clinical">
+<body class="about-workspace workspace-page" data-build="17.0.0" data-theme="clinical">
   <div class="med-app-shell">
     <aside class="med-sidebar" aria-label="Primary navigation">
       <a class="med-brand" href="./app.html"><span class="med-brand-mark"><img src="./assets/images/logo-book.svg" alt=""></span><span><strong>Suhail</strong><small>Medical Dictionary</small></span></a>
@@ -43,7 +46,7 @@
         <div class="global-search-wrap"><span class="search-glyph">⌕</span><input class="global-search" value="About Suhail Medical Dictionary" readonly aria-label="Current page"><kbd>About</kbd></div>
         <div class="med-top-actions">
           <span class="status-chip"><i></i>Online</span>
-          <select id="contentLanguage" class="control compact top-select" aria-label="Language"><option>🌐 English</option><option>پښتو</option><option>دري</option><option>فارسی</option><option>Türkçe</option><option>العربية</option><option>中文</option></select>
+          <select id="contentLanguage" class="control compact top-select" aria-label="Language"><option value="en">🌐 English</option><option value="ps">پښتو</option><option value="prs">دري</option><option value="fa">فارسی</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="zh">中文</option></select>
           <select id="themeSelect" class="control compact top-select" aria-label="Theme"><option value="clinical">☀ Light</option><option value="ocean">◉ Blue</option><option value="dark">☾ Midnight</option><option value="forest">❖ Emerald</option><option value="violet">✦ Violet</option><option value="sand">◇ Pearl</option></select>
           <a class="med-account" href="./app.html" style="text-decoration:none"><span class="avatar-dot"></span><span class="account-lines"><b>Suhail Saeedy</b><small>Creator</small></span><span class="account-chevron">↗</span></a>
         </div>
@@ -84,7 +87,8 @@
   <script>
   (()=>{const s=document.querySelector('#themeSelect');const v=localStorage.getItem('smd-theme')||'clinical';document.body.dataset.theme=v;s.value=v;s.addEventListener('change',()=>{document.body.dataset.theme=s.value;localStorage.setItem('smd-theme',s.value)});})();
   </script>
-  <script src="./assets/js/v16-ui.js?v=16.0.0" defer></script>
-<nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation"><a href="./app.html">Home</a><a href="./ai.html">AI Study</a><a href="./app.html?view=selected">Selected</a><a href="./offline.html">Offline</a><a class="active" href="./about.html">More</a></nav>
+  <script src="./assets/js/v16-ui.js?v=17.0.0" defer></script>
+<nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation"><a class="mobile-nav-home" href="./app.html"><span>Home</span></a><a class="mobile-nav-ai" href="./ai.html"><span>AI Study</span></a><a class="mobile-nav-selected" href="./app.html?view=selected"><span>Selected</span></a><a class="mobile-nav-offline" href="./offline.html"><span>Offline</span></a><a class="active mobile-nav-more" href="./about.html"><span>More</span></a></nav>
+  <script src="./assets/js/v17-final-integration.js?v=17.0.0" defer></script>
 </body>
 </html>

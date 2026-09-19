@@ -1,7 +1,7 @@
 {
-  "version": "16.0.0",
-  "name": "Suhail Medical Dictionary v16.0 Final — Reference-Matched Real-Code UI",
+  "version": "17.0.0",
+  "name": "Suhail Medical Dictionary v17.0 — Final Real-Code Reference Rebuild",
   "released": "2026-09-18",
-  "build": "16.0.0",
-  "notes": "Final v16 real-code UI audit complete. Approved screenshots are visual references only and are not shipped as full-page backgrounds, overlays, click maps, or fake UI."
+  "build": "17.0.0",
+  "notes": "v17 final: integrated desktop/mobile Light/Dark design, responsive Google login, dictionary/detail/AI flows, shared Settings/About/Offline/Admin/legal visual family, RTL content handling, PWA cache audit, and GitHub-replacement packaging. Full-page reference screenshots are not used as UI backgrounds or overlays."
 }

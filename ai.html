@@ -9,13 +9,17 @@
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=16.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=16.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase4-ai-settings.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase4-ai-settings.css?v=17.0.0">
   <title>AI Study · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-desktop.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-mobile.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-phase4-detail-ai.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-final-integration.css?v=17.0.0">
 </head>
-<body data-build="16.0.0" class="ai-page workspace-page ai-page" data-theme="clinical">
+<body data-build="17.0.0" class="ai-page workspace-page ai-page" data-theme="clinical">
   <div class="med-app-shell">
     <aside class="med-sidebar" aria-label="Primary navigation">
       <a class="med-brand" href="./app.html" aria-label="Suhail Medical Dictionary home">
@@ -44,6 +48,7 @@
 
     <div class="med-main">
       <header class="med-topbar ai-topbar">
+        <button id="aiMobileChatsButton" class="v17-ai-mobile-chats-button" type="button" aria-label="Open saved chats" aria-expanded="false"></button>
         <div class="ai-page-heading">
           <span class="section-kicker">Private study workspace</span>
           <strong>Medical Study Assistant</strong>
@@ -77,9 +82,11 @@
         </section>
 
         <div class="ai-layout ai-page-layout panel-card">
-          <aside class="chat-list-panel">
+          <aside class="chat-list-panel" id="aiMobileChatsDrawer" aria-label="Saved AI chats">
+            <button id="aiMobileChatsClose" class="v17-ai-mobile-close" type="button" aria-label="Close saved chats">×</button>
             <div class="chat-list-header"><div><b>Chats</b><small>Saved to your account</small></div><button id="newChat" class="round-button ai-new-chat" title="New chat" type="button"><span aria-hidden="true">＋</span><b>New Chat</b></button></div>
             <div class="ai-conversation-search"><span aria-hidden="true">⌕</span><input id="chatSearchInput" type="search" placeholder="Search your conversations…" autocomplete="off"></div>
+            <button id="aiMobileNewChat" class="v17-ai-mobile-new-chat" type="button">＋ New Chat</button>
             <div id="authHint" class="auth-hint">Loading your private chat history…</div>
             <div id="privacyAccountRow" class="privacy-toggle hidden"><label><input type="checkbox" id="reviewConsentToggle"> Allow owner to review my chat content for support/quality</label><small id="privacyAccountStatus">You can change this anytime.</small></div>
             <div id="chatList" class="chat-list"></div>
@@ -88,7 +95,14 @@
             <div class="chat-toolbar"><div><strong id="chatTitle">Medical Study Assistant</strong><small id="chatContextLabel">No dictionary terms selected as context.</small></div><div class="chat-toolbar-actions"><button id="renameChat" class="text-button" type="button">Rename</button><button id="deleteChat" class="text-button danger-text" type="button">Delete</button><button id="clearContext" class="text-button" type="button">Clear context</button></div></div>
             <div id="contextChips" class="ai-context-chips"></div>
             <div id="messageList" class="message-list"><div class="assistant-note">Educational AI assistant. Verify important medical facts with trusted references and instructors.</div></div>
-            <form id="chatForm" class="chat-composer"><textarea id="chatInput" class="control" rows="2" placeholder="Ask a medical study question…"></textarea><button type="button" id="micButton" class="round-button" title="Voice input">🎙</button><button type="submit" class="button primary">Send</button></form>
+            <form id="chatForm" class="chat-composer"><textarea id="chatInput" class="control" rows="2" placeholder="Ask anything about medicine…"></textarea><button type="button" id="micButton" class="round-button" title="Voice input">🎙</button><button type="submit" class="button primary">Send</button></form>
+            <div class="v17-ai-example-list" aria-label="Example AI questions">
+              <strong>Try these examples</strong>
+              <button type="button" data-ai-example="What causes hypertension?">What causes hypertension?</button>
+              <button type="button" data-ai-example="What is the difference between type 1 and type 2 diabetes?">Difference between type 1 and type 2 diabetes?</button>
+              <button type="button" data-ai-example="What are common symptoms of pneumonia?">Symptoms of pneumonia?</button>
+              <button type="button" data-ai-example="Explain common drug classes used for hypertension study purposes.">Drug classes for hypertension</button>
+            </div>
             <div class="chat-options"><label><input type="checkbox" id="speakReply" checked> Speak reply</label><label><input type="checkbox" id="liveVoiceToggle"> Live voice</label><span id="aiStatus" class="muted"></span></div>
           </section>
         </div>
@@ -100,9 +114,12 @@
     document.querySelectorAll('[data-ai-prompt]').forEach(btn=>btn.addEventListener('click',()=>{const input=document.getElementById('chatInput');if(!input)return;input.value=btn.dataset.aiPrompt||'';input.focus();input.scrollIntoView({behavior:'smooth',block:'center'});}));
   })();
   </script>
-  <nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation"><a href="./app.html">Home</a><a class="active" href="./ai.html">AI Study</a><a href="./app.html?view=selected">Selected</a><a href="./offline.html">Offline</a><a href="./app.html#settings">More</a></nav>
-  <script type="module" src="./assets/js/ai-page.js?v=16.0.0"></script>
-  <script src="./assets/js/v16-ui.js?v=16.0.0" defer></script>
-  <script src="./assets/js/v16-phase4-ui.js?v=16.0.0" defer></script>
+  <div id="aiMobileChatsBackdrop" class="v17-ai-mobile-backdrop" aria-hidden="true"></div>
+  <nav class="mobile-bottom-nav v6-mobile-nav" aria-label="Mobile navigation"><a class="mobile-nav-home" href="./app.html"><span>Home</span></a><a class="active mobile-nav-ai" href="./ai.html"><span>AI Study</span></a><a class="mobile-nav-bookmarks" href="./app.html?view=bookmarks"><span>Bookmarks</span></a><a class="mobile-nav-offline" href="./offline.html"><span>Offline</span></a><a class="mobile-nav-more" href="./app.html#settings"><span>More</span></a></nav>
+  <script type="module" src="./assets/js/ai-page.js?v=17.0.0"></script>
+  <script src="./assets/js/v16-ui.js?v=17.0.0" defer></script>
+  <script src="./assets/js/v16-phase4-ui.js?v=17.0.0" defer></script>
+  <script src="./assets/js/v17-phase4-ai-mobile.js?v=17.0.0" defer></script>
+  <script src="./assets/js/v17-final-integration.js?v=17.0.0" defer></script>
 </body>
 </html>

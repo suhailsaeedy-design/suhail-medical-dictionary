@@ -1,46 +1,31 @@
-# موجود Public Repository د نوې نسخې سره بدلول
+# موجود GitHub Repository د v17.0 Final سره Replace کول
 
 دا لارښود د هماغه موجود `suhail-medical-dictionary` Repository لپاره دی.
 
-## مهم: `.git` مه حذفوه
-
-په خپل کمپیوټر کې د Repository فولډر خلاص کړه، مثال:
-
+## `.git` مه حذفوه
+مثال:
 `D:\GitHub\suhail-medical-dictionary`
 
-که Windows hidden files ښکاره کړي، هلته `.git` فولډر د GitHub Desktop اړیکه ساتي. **دا فولډر مه حذفوه.**
+`.git` فولډر د GitHub history/remote اړیکه ساتي. دا مه Delete کوه.
 
-## زاړه فایلونه بدلول
+## Replace
+1. Repository folder خلاص کړه.
+2. `.git` پرته زاړه project فایلونه/فولډرونه حذف یا Replace کړه.
+3. د v17 Final ZIP ټول contents مستقیم repository root ته Paste کړه.
+4. GitHub Desktop کې changes وګوره.
+5. Summary:
+   `Suhail Medical Dictionary v17.0 final real-code reference rebuild`
+6. `Commit to main` → `Push origin`.
+7. GitHub Actions deployment شین ✅ کېدو وروسته website Hard Refresh کړه.
 
-1. GitHub Desktop بندول ضروري نه دي، خو د فایلونو د Copy پر مهال دې Repository همدا وي.
-2. د Repository له اصلي فولډر څخه ټول زاړه Project فایلونه او فولډرونه حذف کړه، خو `.git` مه حذفوه.
-3. د نوې ZIP دننه ټول فایلونه/فولډرونه مستقیم همدې Repository root ته Paste کړه.
-4. باید `index.html`, `app.html`, `.github`, `assets`, `data`, `scripts`, `supabase`, `cloudflare-worker` مستقیم root کې وي.
-5. GitHub Desktop ته راشه. Deleted او Added/Modified فایلونه به ښکاره شي.
-6. Summary کې ولیکه: `Replace site with v5.0 full dictionary and language update`
-7. `Commit to main` ووهه.
-8. `Push origin` ووهه.
-9. GitHub → Actions کې `Build and deploy Suhail Medical Dictionary` وګوره. شین ✅ چې شي، GitHub Pages خپله نوې نسخه Publish کوي.
+## Login
+Login د Google account له لارې Supabase OAuth کاروي. Website د Google password نه غواړي او نه یې ذخیره کوي. د setup لپاره `GOOGLE_LOGIN_SETUP_PASHTO.md` وګوره.
 
-## Full Dictionary
+## Dictionary data
+Local repository د development/starter data ساتي. GitHub production build د NLM MeSH 2026 Descriptor XML import کوي.
 
-Repository source کې یو کوچنی starter dataset ساتل شوی، خو GitHub Action د Publish پر مهال د NLM رسمي MeSH 2026 Descriptor XML download کوي. Production build د لږ تر لږه 25,000 descriptors safety check لري؛ که بشپړ data import نه شي، build fail کېږي او demo data د بشپړ Dictionary په نوم نه Publish کېږي.
+## Medical visuals
+v17 د term cards، detail، hero او AI لپاره individual project medical artwork assets کاروي. Approved/generated full-page reference screenshots د background، overlay یا fake UI په توګه نه کارول کېږي.
 
-## Login مهم دی
-
-v5.0 کې Login اجباري دی. Public Website لومړی `index.html` کې **Continue with Google** ښيي. نوی password نه جوړېږي. د واقعي Google Sign-in لپاره Supabase + Google OAuth باید configure شي. بشپړ ګامونه په `GOOGLE_LOGIN_SETUP_PASHTO.md` کې دي.
-
-## ژبې او ژباړه
-
-Production MeSH source English دی. د Pashto/Dari/Persian/Turkish/Arabic/Chinese لپاره Missing term name, definition او explanation د AI Worker له لارې د اړتیا پر مهال ژباړل کېږي، Supabase shared cache ته ځي او د User په device کې هم offline cache کېږي.
-
-په Pashto کې که د medical term طبیعي/معیاري پښتو معادل نه وي او اصطلاح اساساً نوم، eponym، acronym، drug/Latin/scientific name وي، AI ته هدایت شوی چې جعلي معنا جوړ نه کړي؛ د انګلیسي نوم مناسب پښتو-لیکل شوی/Transliterated شکل وکاروي، او definition/explanation پښتو کړي.
-
-## د لغاتو عکسونه
-
-Dictionary term cards او term detail کې د لغتونو یا اړوندو شیانو عکسونه نشته او نه Import کېږي. یوازې د About Creator پاڼه د Creator عکس لري.
-
-
-## Google Login
-
-د Google-only Login لپاره `GOOGLE_LOGIN_SETUP_PASHTO.md` وګورئ.
+## AI
+Online AI تر هغې live نه دی چې Cloudflare Worker deploy او `ai-config.json`/config کې Worker URL تنظیم نه شي. `CLOUDFLARE_AI_SETUP_PASHTO.md` وګوره.

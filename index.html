@@ -9,86 +9,95 @@
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=16.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=17.0.0">
   <title>Sign in · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-login.css?v=17.0.0">
 </head>
-<body data-build="16.0.0" class="auth-page" data-theme="clinical">
+<body data-build="17.0.0" class="auth-page" data-theme="dark">
   <main class="auth-layout">
+    <div class="auth-top-controls" aria-label="Login page controls">
+      <span class="auth-online"><i></i> Online</span>
+      <label class="auth-language-top"><span aria-hidden="true">◎</span><select id="loginLanguage" aria-label="Language">
+        <option value="en">English</option>
+        <option value="ps">پښتو</option>
+        <option value="prs">دري</option>
+        <option value="fa">فارسی</option>
+        <option value="tr">Türkçe</option>
+        <option value="ar">العربية</option>
+        <option value="zh">中文</option>
+      </select></label>
+      <button id="authThemeToggle" class="auth-theme-toggle" type="button" aria-label="Toggle appearance"><span aria-hidden="true">☾</span><b>Dark</b></button>
+    </div>
+
     <section class="auth-brand-panel">
       <div class="auth-brand-top">
         <a class="brand brand-light" href="./index.html">
           <img src="./assets/images/logo-book.svg" class="brand-logo" alt="">
-          <span>Suhail Medical Dictionary</span>
+          <span><strong>Suhail</strong><small>Medical Dictionary</small></span>
         </a>
-        <span class="secure-chip">Secure student workspace</span>
       </div>
 
       <div class="auth-brand-copy">
-        <span class="auth-kicker">Explore · Learn · Apply</span>
-        <h1>Suhail<br><span>Medical Dictionary</span></h1>
-        <p>Trusted medical knowledge for a healthier tomorrow. Simple. Accurate. Always with you.</p>
-        <div class="auth-benefits">
-          <div><span>01</span><b>Medical Terms</b><small>Extensive terminology reference.</small></div>
-          <div><span>02</span><b>Specialties</b><small>Organized medical categories.</small></div>
-          <div><span>03</span><b>Languages</b><small>Multilingual learning support.</small></div>
-          <div><span>04</span><b>Free to Learn</b><small>Core learning tools available to everyone.</small></div>
+        <span class="auth-kicker">Trusted medical knowledge</span>
+        <h1>Knowledge<br>Heals Beyond<br><span>Boundaries.</span></h1>
+        <p>Trusted medical knowledge. Simple. Accurate. Always with you.</p>
+        <div class="auth-benefits" aria-label="Platform highlights">
+          <div><span aria-hidden="true">▣</span><b>50K+</b><small>Medical Terms</small></div>
+          <div><span aria-hidden="true">⌁</span><b>200+</b><small>Specialties</small></div>
+          <div><span aria-hidden="true">◎</span><b>15+</b><small>Languages</small></div>
+          <div><span aria-hidden="true">◇</span><b>100%</b><small>Free to Learn</small></div>
         </div>
+        <blockquote class="auth-brand-quote">A healthier tomorrow through knowledge.</blockquote>
       </div>
 
       <div class="auth-brand-footer">
-        <a href="./about.html">About creator</a>
         <a href="./privacy.html">Privacy</a>
         <a href="./terms.html">Terms</a>
-      </div>
-    </section>
-
-    <section class="auth-art-panel" aria-hidden="true">
-      <div class="auth-3d-scene">
-        <div class="auth-orbit-heart"><img src="./assets/images/v16/login-heart-light.webp" alt=""></div>
-        <div class="auth-art-glow"></div>
-        <div class="auth-float-card c1"><b>Learn</b><span>Understand</span><span>Apply</span></div>
-        <div class="auth-float-card c2"><b>Knowledge</b><span>heals beyond boundaries.</span></div>
-        <div class="auth-float-card c3"><b>Medical Knowledge</b><span>for a brighter world.</span></div>
+        <a href="./about.html">About</a>
       </div>
     </section>
 
     <section class="auth-form-panel">
       <div class="auth-mobile-brand">
-        <img src="./assets/images/logo-book.svg" class="brand-logo" alt="">
-        <div><strong>Suhail Medical Dictionary</strong><small>Medical study platform</small></div>
+        <a href="./index.html" class="auth-mobile-brand-logo"><img src="./assets/images/logo-book.svg" alt=""><span><strong>Suhail</strong><small>Medical Dictionary</small></span></a>
+      </div>
+
+      <div class="auth-mobile-hero" aria-hidden="true">
+        <div><span>Explore · Learn · Apply</span><strong>Medical Knowledge</strong><small>Right in your hand.</small></div>
+        <img src="./assets/images/v16/login-heart-light.webp" alt="">
       </div>
 
       <div class="auth-card">
-        <div class="auth-card-brand" aria-label="Suhail Medical Dictionary"><img src="./assets/images/logo-book.svg" alt=""><div><strong>Suhail</strong><small>Medical Dictionary</small></div></div>
+        <div class="auth-card-brand" aria-label="Suhail Medical Dictionary">
+          <img src="./assets/images/logo-book.svg" alt="">
+          <div><strong>Suhail</strong><small>Medical Dictionary</small></div>
+        </div>
         <div class="auth-card-header">
           <div>
-            <span id="authKicker" class="auth-kicker dark">Secure medical learning</span>
-            <h2 id="authTitle">Welcome Back</h2>
-            <p id="authSubtitle">Sign in with Google to continue your medical learning journey. Your Google password stays with Google.</p>
+            <span id="authKicker" class="auth-kicker dark">Welcome</span>
+            <h2 id="authTitle">Continue with Google</h2>
+            <p id="authSubtitle">Choose the Google account you want to use. Your Google password always stays with Google.</p>
           </div>
-          <select id="loginLanguage" class="control language-control" aria-label="Language">
-            <option value="en">English</option>
-            <option value="ps">پښتو</option>
-            <option value="prs">دري</option>
-            <option value="fa">فارسی</option>
-            <option value="tr">Türkçe</option>
-            <option value="ar">العربية</option>
-            <option value="zh">中文</option>
-          </select>
         </div>
 
         <div id="googleSignInPanel" class="google-signin-panel">
           <button id="googleSignIn" class="google-signin-button" type="button">
             <span class="google-mark" aria-hidden="true">G</span>
-            <span id="googleButtonText">Continue with Google</span>
+            <span id="googleButtonText">Choose a Google account</span>
+            <span class="google-arrow" aria-hidden="true">→</span>
           </button>
           <div id="authMessage" class="auth-message" role="status" aria-live="polite"></div>
-          <div class="auth-divider"><span>Account security</span></div>
+          <div class="auth-divider"><span>Secure sign in</span></div>
           <div class="auth-security-note">
             <span class="shield-icon">✓</span>
             <p><b id="securityTitle">Your Google password stays with Google.</b><br><span id="securityBody">This website never asks for, receives, or stores your Google password.</span></p>
+          </div>
+          <div class="auth-trust-row" aria-label="Trust information">
+            <div><span>⌾</span><b>Secure & Private</b></div>
+            <div><span>♙</span><b>Your own cloud data</b></div>
+            <div><span>♡</span><b>Free to learn</b></div>
           </div>
         </div>
 
@@ -118,6 +127,19 @@
 
       <p class="auth-copyright">© <span id="year"></span> Suhail Medical Dictionary · Created by Suhail Saeedy</p>
     </section>
+
+    <section class="auth-art-panel" aria-hidden="true">
+      <div class="auth-art-quote">“Better Knowledge<br>Brighter Tomorrow.”</div>
+      <div class="auth-3d-scene">
+        <div class="auth-orbit-heart"><img src="./assets/images/v16/login-heart-light.webp" alt=""></div>
+        <div class="auth-art-glow"></div>
+        <div class="auth-float-card c1"><b>Explore</b><span>Learn</span><span>Apply</span></div>
+        <div class="auth-float-card c2"><b>Cardiology</b><span>Anatomy · Pathology</span></div>
+        <div class="auth-float-card c3"><b>Real Knowledge</b><span>Real impact. Healthier people.</span></div>
+        <div class="auth-robot"><img src="./assets/images/v16/robot-light.webp" alt=""></div>
+        <div class="auth-ai-card"><b>Your AI Learning Companion</b><span>Explore concepts</span><span>Get clarifications</span><span>Study smarter</span></div>
+      </div>
+    </section>
   </main>
   <script>
 'use strict';
@@ -144,7 +166,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '16.0.0'
+  uiVersion: '17.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -374,7 +396,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '16.0.0'
+  uiVersion: '17.0.0'
 };
 const {currentSession,signInWithGoogle,signOut,getMyProfile,setOwnerReviewConsent,logEvent}=SMDAuth;
 const $=s=>document.querySelector(s);
@@ -433,6 +455,7 @@ init();
 })();
 
 </script>
-  <script src="./assets/js/v16-ui.js?v=16.0.0" defer></script>
+  <script src="./assets/js/v16-ui.js?v=17.0.0" defer></script>
+  <script src="./assets/js/v17-login.js?v=17.0.0" defer></script>
 </body>
 </html>

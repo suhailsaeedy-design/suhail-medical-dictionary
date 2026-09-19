@@ -8,15 +8,19 @@
   <link rel="icon" href="./assets/icons/icon-192.png">
   <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=16.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=16.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase2-mobile.css?v=16.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase3-detail.css?v=16.0.0">
-  <link rel="stylesheet" href="./assets/css/v16-phase4-ai-settings.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-foundation.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-reference-match.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase2-mobile.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase3-detail.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-phase4-ai-settings.css?v=17.0.0">
   <title>Dictionary · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=16.0.0">
+  <link rel="stylesheet" href="./assets/css/v16-final-audit.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-desktop.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-mobile.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-phase4-detail-ai.css?v=17.0.0">
+  <link rel="stylesheet" href="./assets/css/v17-final-integration.css?v=17.0.0">
 </head>
-<body data-build="16.0.0" class="workspace-page auth-pending" data-theme="clinical">
+<body data-build="17.0.0" class="workspace-page auth-pending" data-theme="clinical">
   <div id="sessionLoader" class="session-loader"><div class="loader-ring"></div><p>Opening your study workspace…</p></div>
 
   <div class="med-app-shell">
@@ -27,9 +31,9 @@
       </a>
 
       <nav class="med-nav">
-        <a class="med-nav-item" href="#dashboard"><span class="nav-ico">⌂</span><span>Dashboard</span></a>
-        <a class="med-nav-item active" href="#dictionary"><span class="nav-ico">▣</span><span>Dictionary</span></a>
-        <a class="med-nav-item" href="./ai.html"><span class="nav-ico">✦</span><span>AI Study</span></a>
+        <a class="med-nav-item active" href="#dashboard"><span class="nav-ico">⌂</span><span>Dashboard</span></a>
+        <a class="med-nav-item" href="#dictionary"><span class="nav-ico">▣</span><span>Dictionary</span><span class="nav-arrow" aria-hidden="true">›</span></a>
+        <a class="med-nav-item" href="./ai.html"><span class="nav-ico">✦</span><span>AI Study</span><span class="nav-badge">New</span></a>
         <button id="selectedButton" class="med-nav-item" type="button"><span class="nav-ico">◇</span><span>Selected</span><b id="selectedCount" class="nav-count">0</b></button>
         <a class="med-nav-item" href="./offline.html"><span class="nav-ico">⇩</span><span>Offline Packs</span></a>
         <button id="bookmarksButton" class="med-nav-item" type="button"><span class="nav-ico">★</span><span>Bookmarks</span><b id="bookmarksCount" class="nav-count">0</b></button>
@@ -40,11 +44,12 @@
       </nav>
 
       <div class="med-side-promo">
-        <div class="promo-orb" aria-hidden="true"><span>🩺</span></div>
-        <strong>Advanced Study Tools</strong>
-        <small>Private study chats · Offline packs · PDF exports · Advanced filters.</small>
-        <a href="./ai.html" class="promo-button">Open Study Tools <span>→</span></a>
+        <div class="promo-orb" aria-hidden="true"><span>♛</span></div>
+        <strong>Upgrade to<br>Suhail Premium</strong>
+        <small>✓ Unlimited AI Study<br>✓ Offline Packs<br>✓ Advanced Filters<br>✓ And More...</small>
+        <a href="./ai.html" class="promo-button">Go Premium <span>→</span></a>
       </div>
+      <div class="v17-sidebar-quote">Knowledge heals<br>beyond boundaries.<small>Suhail Medical Dictionary<br>v17.0.0</small></div>
     </aside>
 
     <div class="med-main">
@@ -75,13 +80,13 @@
           <div class="hero-copy">
             <span class="section-kicker">Explore · Learn · Apply</span>
             <h1>Medical <span>Dictionary</span></h1>
-            <p class="hero-tagline">Trusted medical knowledge for a healthier tomorrow. Simple, accurate, and always within reach.</p>
+            <p class="hero-tagline">Trusted medical knowledge for a healthier tomorrow.<br>Simple. Accurate. Always with you.</p>
             <p id="resultSummary" class="hero-counts">Loading terms…</p>
             <div class="hero-stats" aria-label="Dictionary highlights">
-              <div class="hero-stat"><strong>50K+</strong><span>Medical Terms</span></div>
-              <div class="hero-stat"><strong>200+</strong><span>Specialties</span></div>
-              <div class="hero-stat"><strong>15+</strong><span>Languages</span></div>
-              <div class="hero-stat"><strong>100%</strong><span>Free to Learn</span></div>
+              <div class="hero-stat"><i class="stat-icon shield">◇</i><strong>50K+</strong><span>Medical Terms</span></div>
+              <div class="hero-stat"><i class="stat-icon stetho">♧</i><strong>200+</strong><span>Specialties</span></div>
+              <div class="hero-stat"><i class="stat-icon globe">◎</i><strong>15+</strong><span>Languages</span></div>
+              <div class="hero-stat"><i class="stat-icon cap">◆</i><strong>100%</strong><span>Free to Learn</span></div>
             </div>
           </div>
           <div class="hero-art" aria-hidden="true">
@@ -143,8 +148,8 @@
 
         <section class="study-assistant-strip panel-card" aria-label="Medical study assistant">
           <div class="study-bot" aria-hidden="true">✦</div>
-          <div><strong>Medical Study Assistant</strong><small>Ask for definitions, comparisons, examples, and study explanations in your selected language.</small></div>
-          <a class="assistant-ask" href="./ai.html"><span>Ask anything about medicine…</span><b>→</b></a>
+          <div><strong>Ask Suhail AI</strong><small>Get instant answers, explanations, and study help from our AI medical assistant.</small></div>
+          <a class="assistant-ask" href="./ai.html"><span>Ask anything about medicine…</span><b>→</b></a><em class="v17-assistant-quote">“A smarter way<br>to learn medicine.”</em>
         </section>
 
         <div class="pwa-actions v6-pwa"><span class="version-chip">v<span id="appVersion">—</span></span><button id="updateAppButton" class="button primary compact hidden">Update app</button><button id="installButton" class="button soft-button compact hidden">Install</button></div>
@@ -220,7 +225,7 @@
     window.setTimeout(function(){
       var loader=document.getElementById('sessionLoader');
       if(!loader || !document.body.classList.contains('auth-pending')) return;
-      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v16.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
+      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v17.0.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
     },12000);
   </script>
   <script>
@@ -248,7 +253,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '16.0.0'
+  uiVersion: '17.0.0'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -475,9 +480,9 @@ const {peekSession,getSupabase,currentSession,signOut,logEvent,getMyProfile,setO
 // Optional features are lazy-loaded only after the core dictionary is allowed to open.
 // A PDF/AI/PWA module failure must never prevent the workspace from starting.
 let aiModulePromise=null, exportModulePromise=null, pwaModulePromise=null;
-const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=16.0.0'));
-const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=16.0.0'));
-const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=16.0.0'));
+const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=17.0.0'));
+const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=17.0.0'));
+const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=17.0.0'));
 async function createChat(...a){return (await aiModule()).createChat(...a);} async function listChats(...a){return (await aiModule()).listChats(...a);} async function loadMessages(...a){return (await aiModule()).loadMessages(...a);} async function renameChat(...a){return (await aiModule()).renameChat(...a);} async function deleteChat(...a){return (await aiModule()).deleteChat(...a);} async function editUserMessage(...a){return (await aiModule()).editUserMessage(...a);} async function askAI(...a){return (await aiModule()).askAI(...a);} async function translateTerm(...a){return (await aiModule()).translateTerm(...a);}
 function printTerms(...a){exportModule().then(m=>m.printTerms(...a)).catch(()=>alert('Print tools could not start. Reload once and retry.'));}
 async function pdfTerms(...a){try{return await (await exportModule()).pdfTerms(...a);}catch{return alert('PDF tools could not start. Use Print → Save as PDF.');}}
@@ -641,7 +646,7 @@ function renderTerms(){
   const card=document.createElement('article');card.className='term-card'+(state.active?.id===item.id?' active':'');const checked=state.selected.has(String(item.id))||state.selected.has(item.id),bookmarked=isBookmarked(item.id);
   if(checked)card.classList.add('selected');card.innerHTML=`<label class="term-check"><input type="checkbox" ${checked?'checked':''} aria-label="Select ${esc(item.term)}"><span></span></label><button type="button" class="term-bookmark${bookmarked?' saved':''}" title="${bookmarked?'Remove bookmark':'Bookmark'}" aria-label="${bookmarked?'Remove bookmark':'Bookmark'}">${bookmarked?'♥':'♡'}</button><div class="term-visual" role="button" tabindex="0" aria-label="Select this term"><div class="term-visual-stage"><img loading="lazy" data-v12-asset="${visualAsset(item)}" src="${visualUrl(item)}" alt="" aria-hidden="true"></div></div><div class="term-main"><div class="term-name">${esc(item.term)}</div><div class="term-meta"><span class="tag">${esc(item.category_label||categoryLabel(item.category))}</span>${item.synonyms?.length?`<span>${item.synonyms.length} synonym${item.synonyms.length>1?'s':''}</span>`:''}</div></div>`;
   card.addEventListener('click',async e=>{if(e.target.closest('.term-check')||e.target.closest('.term-bookmark')||e.target.closest('.term-visual'))return;const full=await getTerm(item);state.active=full;rememberHistory(full);showDetail(full);$$('.term-card').forEach(x=>x.classList.remove('active'));card.classList.add('active');});
-  const cb=card.querySelector('input');cb.addEventListener('change',async()=>{await toggleSelection(item,cb.checked);if(state.selectedMode)renderTerms();else updateSelectAllControl();});
+  const cb=card.querySelector('input');cb.addEventListener('change',async()=>{await toggleSelection(item,cb.checked);card.classList.toggle('selected',cb.checked);if(state.selectedMode)renderTerms();else updateSelectAllControl();});
   const visual=card.querySelector('.term-visual');const selectFromVisual=async(e)=>{e.preventDefault();e.stopPropagation();await toggleSelection(item);cb.checked=state.selected.has(String(item.id))||state.selected.has(item.id);card.classList.toggle('selected',cb.checked);updateSelectAllControl();};visual?.addEventListener('click',selectFromVisual);visual?.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){selectFromVisual(e);}});
   const bm=card.querySelector('.term-bookmark');bm.onclick=()=>{const on=!isBookmarked(item.id);setBookmarked(item.id,on);if(state.specialMode==='bookmarks')renderTerms();else{bm.classList.toggle('saved',on);bm.textContent=on?'♥':'♡';bm.title=on?'Remove bookmark':'Bookmark';}};
   grid.appendChild(card);
@@ -778,7 +783,11 @@ init().catch(err=>{console.error(err);$('#termGrid').innerHTML=`<div class="empt
 })();
 
 </script>
-  <script src="./assets/js/v16-ui.js?v=16.0.0" defer></script>
-  <script src="./assets/js/v16-phase4-ui.js?v=16.0.0" defer></script>
+  <script src="./assets/js/v16-ui.js?v=17.0.0" defer></script>
+  <script src="./assets/js/v16-phase4-ui.js?v=17.0.0" defer></script>
+  <script src="./assets/js/v17-desktop.js?v=17.0.0" defer></script>
+  <script src="./assets/js/v17-mobile.js?v=17.0.0" defer></script>
+  <script src="./assets/js/v17-phase4-detail.js?v=17.0.0" defer></script>
+  <script src="./assets/js/v17-final-integration.js?v=17.0.0" defer></script>
 </body>
 </html>

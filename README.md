@@ -1,11 +1,11 @@
-# Suhail Medical Dictionary v16.0
+# Suhail Medical Dictionary v17.0
 
 This release is a real-code rebuild of the approved Suhail Medical Dictionary visual references. The user interface is implemented with HTML, CSS, JavaScript, responsive components, and individual medical artwork assets. Full-page reference screenshots are **not** used as page backgrounds or interaction overlays.
 
 ## Visual direction
 - Default **Light** theme: luminous white/blue glass interface, 3D medical artwork, compact dictionary cards, fixed desktop sidebar, and a right-side term detail panel.
 - **Dark / Blue** themes: deep medical-blue neon glass interface with stronger glow, depth, and 3D presentation.
-- Mobile: compact two-column cards, slide-out navigation drawer, bottom navigation, and a bottom-sheet term detail panel.
+- Mobile: compact two-column cards, slide-out navigation drawer, bottom navigation, Light/Dark reference-matched term detail screens, and the v17 Ask Suhail AI mobile experience.
 - Pointer/touch: subtle liquid-droplet cursor trail, touch ripple, card lift, and 3D visual motion.
 
 ## Functional areas
@@ -26,5 +26,5 @@ GitHub Actions builds the production site with the NLM MeSH 2026 import workflow
 ## Deployment
 Commit the extracted project contents to the root of the existing `suhail-medical-dictionary` repository, keep the existing `.git` folder, then push `main`. GitHub Actions deploys the `_site` build to GitHub Pages.
 
-## Final v16 audit
-The final package includes `V16_PHASE_STATUS.md` and `FINAL_TEST_REPORT_V16.md`. The final audit fixed desktop/mobile visibility regressions, updated PWA precache coverage, and passed local desktop/mobile Light/Dark browser regression checks before packaging.
+## v17 final status
+Phases 1–5 are complete. The final source includes the real-code desktop Light/Dark workspace, rebuilt desktop/mobile Google login, mobile Home/Search/Drawer navigation, Light/Dark term detail, Ask Suhail AI mobile flow, v17 Settings/About/Offline/Admin/legal integration, RTL content handling, and final PWA/GitHub Pages validation. See `V17_PHASE_STATUS.md` and `FINAL_TEST_REPORT_V17.md`.
