@@ -1,0 +1,62 @@
+{
+  "version": "20.17.1",
+  "kind": "learning-reference",
+  "items": [
+    {
+      "id": "dictionary",
+      "title": "Dictionary review",
+      "description": "Search a term, read its definition, synonyms and explanation, then bookmark it for later review.",
+      "href": "./app.html#dictionary",
+      "offline": true
+    },
+    {
+      "id": "anatomy",
+      "title": "3D anatomy review",
+      "description": "Use the local WebGL anatomy workspace to inspect body layers, named structures and saved views.",
+      "href": "./anatomy.html",
+      "offline": true
+    },
+    {
+      "id": "conditions",
+      "title": "Conditions review",
+      "description": "Browse short educational condition summaries by specialty.",
+      "href": "./app.html#clinical-reference",
+      "offline": true
+    },
+    {
+      "id": "procedures",
+      "title": "Procedures review",
+      "description": "Review high-level descriptions of common diagnostic and clinical procedures.",
+      "href": "./app.html#clinical-reference",
+      "offline": true
+    },
+    {
+      "id": "formula-tools",
+      "title": "Physiology formula tools",
+      "description": "Use numeric formula tools without diagnostic interpretation.",
+      "href": "./app.html#clinical-reference",
+      "offline": true
+    },
+    {
+      "id": "offline-study",
+      "title": "Offline Study Engine",
+      "description": "Create local explanations, comparisons, flashcards, quizzes and summaries from bundled reference data with no cloud service.",
+      "href": "./ai.html",
+      "offline": true
+    },
+    {
+      "id": "saved-review",
+      "title": "Bookmarks & saved views",
+      "description": "Revisit bookmarked dictionary terms and saved anatomy views on this device.",
+      "href": "./app.html#dictionary",
+      "offline": true
+    },
+    {
+      "id": "optional-cloud-ai",
+      "title": "Optional free cloud AI",
+      "description": "When a free provider is configured, the study workspace can optionally request generative answers. The app never enables a paid fallback.",
+      "href": "./ai.html",
+      "offline": false
+    }
+  ]
+}

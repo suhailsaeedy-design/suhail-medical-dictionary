@@ -1,0 +1,3 @@
+Suhail Medical Dictionary v20.17.2
+GitHub Pages direct static deploy
+admin-login.html included at repository root

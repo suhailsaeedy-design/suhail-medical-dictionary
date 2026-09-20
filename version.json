@@ -1,0 +1,8 @@
+{
+  "version": "20.17.2",
+  "channel": "final-qa-release",
+  "name": "Suhail Medical Dictionary v20.17.2 Deployment Fixed",
+  "build": "2026-09-20-v20.17.2-github-pages-deploy-fix",
+  "release_id": "20260920-v20172",
+  "releasedAt": "2026-09-20T09:20:00Z"
+}

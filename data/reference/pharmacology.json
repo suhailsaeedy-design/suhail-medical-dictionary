@@ -1,0 +1,873 @@
+{
+  "version": "20.17.1",
+  "kind": "pharmacology-concepts",
+  "scope": "General pharmacology vocabulary only. No dosing, purchasing, or medication-use instructions are included.",
+  "items": [
+    {
+      "id": "bioavailability",
+      "name": "Bioavailability",
+      "group": "Pharmacokinetics",
+      "summary": "The fraction of an administered substance that reaches systemic circulation in an available form.",
+      "related_terms": [
+        "Absorption",
+        "Pharmacokinetics"
+      ]
+    },
+    {
+      "id": "half-life",
+      "name": "Half-life",
+      "group": "Pharmacokinetics",
+      "summary": "The time required for the measured amount or concentration of a substance to decrease by half under defined conditions.",
+      "related_terms": [
+        "Elimination",
+        "Clearance"
+      ]
+    },
+    {
+      "id": "contraindication",
+      "name": "Contraindication",
+      "group": "Medication safety",
+      "summary": "A circumstance in which a medicine, procedure, or intervention should not be used because the potential risk is considered unacceptable.",
+      "related_terms": [
+        "Precaution",
+        "Risk"
+      ]
+    },
+    {
+      "id": "adverse-effect",
+      "name": "Adverse effect",
+      "group": "Medication safety",
+      "summary": "An unwanted or harmful effect associated with a medicine or other intervention.",
+      "related_terms": [
+        "Side effect",
+        "Safety"
+      ]
+    },
+    {
+      "id": "interaction",
+      "name": "Drug interaction",
+      "group": "Medication safety",
+      "summary": "A change in effect or exposure that can occur when a medicine is combined with another substance or clinical factor.",
+      "related_terms": [
+        "Contraindication",
+        "Adverse effect",
+        "Pharmacokinetics",
+        "Pharmacodynamics"
+      ]
+    },
+    {
+      "id": "therapeutic-index",
+      "name": "Therapeutic index",
+      "group": "Pharmacodynamics",
+      "summary": "A conceptual comparison between amounts associated with desired effects and amounts associated with harmful effects.",
+      "related_terms": [
+        "Therapeutic window",
+        "Toxicology"
+      ]
+    },
+    {
+      "id": "agonist",
+      "name": "Agonist",
+      "group": "Pharmacodynamics",
+      "summary": "A substance that binds to a receptor and activates a biological response.",
+      "related_terms": [
+        "Receptor",
+        "Antagonist"
+      ]
+    },
+    {
+      "id": "antagonist",
+      "name": "Antagonist",
+      "group": "Pharmacodynamics",
+      "summary": "A substance that binds to a receptor and reduces or blocks activation by an agonist.",
+      "related_terms": [
+        "Receptor",
+        "Agonist"
+      ]
+    },
+    {
+      "id": "clearance",
+      "name": "Clearance",
+      "group": "Pharmacokinetics",
+      "summary": "A pharmacokinetic measure describing the apparent volume of fluid cleared of a substance per unit time.",
+      "related_terms": [
+        "Elimination",
+        "Half-life"
+      ]
+    },
+    {
+      "id": "route-administration",
+      "name": "Route of administration",
+      "group": "Foundations",
+      "summary": "The general pathway by which a medicine or intervention is introduced into the body; this entry is definitional and does not provide use instructions.",
+      "related_terms": [
+        "Bioavailability",
+        "Absorption"
+      ]
+    },
+    {
+      "id": "absorption",
+      "name": "Absorption",
+      "group": "Pharmacokinetics",
+      "summary": "Movement of a substance from its site of administration into the bloodstream.",
+      "related_terms": []
+    },
+    {
+      "id": "distribution",
+      "name": "Distribution",
+      "group": "Pharmacokinetics",
+      "summary": "Reversible movement of a substance between the bloodstream and body tissues.",
+      "related_terms": []
+    },
+    {
+      "id": "metabolism",
+      "name": "Drug Metabolism",
+      "group": "Pharmacokinetics",
+      "summary": "Chemical modification of a substance by the body, often involving enzymes in the liver or other tissues.",
+      "related_terms": []
+    },
+    {
+      "id": "elimination",
+      "name": "Elimination",
+      "group": "Pharmacokinetics",
+      "summary": "Removal of a substance or its metabolites from the body.",
+      "related_terms": []
+    },
+    {
+      "id": "volume-distribution",
+      "name": "Volume of Distribution",
+      "group": "Pharmacokinetics",
+      "summary": "A proportionality concept relating the amount of a substance in the body to its measured plasma concentration.",
+      "related_terms": [
+        "Distribution",
+        "Plasma concentration"
+      ]
+    },
+    {
+      "id": "pharmacodynamics",
+      "name": "Pharmacodynamics",
+      "group": "Pharmacodynamics",
+      "summary": "The study of biochemical and physiological effects of substances and how concentration relates to effect.",
+      "related_terms": []
+    },
+    {
+      "id": "receptor",
+      "name": "Receptor",
+      "group": "Pharmacodynamics",
+      "summary": "A cellular molecule that can bind signaling molecules or substances and influence a biological response.",
+      "related_terms": []
+    },
+    {
+      "id": "partial-agonist",
+      "name": "Partial Agonist",
+      "group": "Pharmacodynamics",
+      "summary": "A receptor ligand that activates a receptor but produces less maximal response than a full agonist under comparable conditions.",
+      "related_terms": []
+    },
+    {
+      "id": "affinity",
+      "name": "Affinity",
+      "group": "Pharmacodynamics",
+      "summary": "The tendency of a molecule to bind to a particular receptor or target.",
+      "related_terms": []
+    },
+    {
+      "id": "potency",
+      "name": "Potency",
+      "group": "Pharmacodynamics",
+      "summary": "A concept describing the amount or concentration needed to produce a defined effect; it does not by itself indicate overall benefit or safety.",
+      "related_terms": []
+    },
+    {
+      "id": "efficacy",
+      "name": "Efficacy",
+      "group": "Pharmacodynamics",
+      "summary": "The maximum biological response that a substance can produce in a defined system.",
+      "related_terms": []
+    },
+    {
+      "id": "first-pass",
+      "name": "First-Pass Metabolism",
+      "group": "Pharmacokinetics",
+      "summary": "Metabolism that can occur in the intestinal wall and liver before some orally absorbed substances reach systemic circulation.",
+      "related_terms": [
+        "Bioavailability",
+        "Metabolism"
+      ]
+    },
+    {
+      "id": "protein-binding",
+      "name": "Protein Binding",
+      "group": "Pharmacokinetics",
+      "summary": "Reversible association of a substance with proteins in blood or tissues.",
+      "related_terms": []
+    },
+    {
+      "id": "steady-state",
+      "name": "Steady State",
+      "group": "Pharmacokinetics",
+      "summary": "A condition in which average input and elimination rates are balanced over time in a repeated-exposure model.",
+      "related_terms": []
+    },
+    {
+      "id": "tolerance",
+      "name": "Drug Tolerance",
+      "group": "Response Concepts",
+      "summary": "A reduced response to the same exposure after repeated use of some substances.",
+      "related_terms": [
+        "Pharmacodynamics",
+        "Adaptation"
+      ]
+    },
+    {
+      "id": "tachyphylaxis",
+      "name": "Tachyphylaxis",
+      "group": "Response Concepts",
+      "summary": "A rapidly developing reduction in response after repeated or continuous exposure to some substances.",
+      "related_terms": [
+        "Tolerance",
+        "Pharmacodynamics"
+      ]
+    },
+    {
+      "id": "prodrug",
+      "name": "Prodrug",
+      "group": "Drug Design",
+      "summary": "A compound administered in a form that is converted in the body to an active substance.",
+      "related_terms": [
+        "Metabolism",
+        "Bioactivation"
+      ]
+    },
+    {
+      "id": "pharmacogenomics",
+      "name": "Pharmacogenomics",
+      "group": "Precision Medicine",
+      "summary": "The study of how genetic variation can influence responses to medicines.",
+      "related_terms": [
+        "Genetics",
+        "Drug response"
+      ]
+    },
+    {
+      "id": "first-pass-effect",
+      "name": "First-Pass Effect",
+      "group": "Pharmacokinetics",
+      "summary": "Pre-systemic metabolism that can reduce the amount of an orally absorbed substance reaching systemic circulation.",
+      "related_terms": [
+        "Bioavailability",
+        "Metabolism"
+      ]
+    },
+    {
+      "id": "enzyme-induction",
+      "name": "Enzyme Induction",
+      "group": "Drug Metabolism",
+      "summary": "An increase in activity or expression of metabolic enzymes that can alter substance clearance.",
+      "related_terms": [
+        "Metabolism",
+        "Drug interaction"
+      ]
+    },
+    {
+      "id": "enzyme-inhibition",
+      "name": "Enzyme Inhibition",
+      "group": "Drug Metabolism",
+      "summary": "A reduction in activity of metabolic enzymes that can alter substance clearance.",
+      "related_terms": [
+        "Metabolism",
+        "Drug interaction"
+      ]
+    },
+    {
+      "id": "receptor-agonist",
+      "name": "Receptor Agonist",
+      "group": "Pharmacodynamics",
+      "summary": "A ligand that activates a receptor and promotes a biological response.",
+      "related_terms": [
+        "Receptor",
+        "Ligand"
+      ]
+    },
+    {
+      "id": "inverse-agonist",
+      "name": "Inverse Agonist",
+      "group": "Pharmacodynamics",
+      "summary": "A ligand that reduces constitutive receptor activity below its baseline level.",
+      "related_terms": [
+        "Receptor",
+        "Antagonist"
+      ]
+    },
+    {
+      "id": "competitive-antagonist",
+      "name": "Competitive Antagonist",
+      "group": "Pharmacodynamics",
+      "summary": "A receptor antagonist that competes with an agonist at the same binding site.",
+      "related_terms": [
+        "Antagonist",
+        "Receptor"
+      ]
+    },
+    {
+      "id": "idiosyncratic-reaction",
+      "name": "Idiosyncratic Reaction",
+      "group": "Drug Safety",
+      "summary": "An unusual and unpredictable response that is not explained by the usual pharmacologic effect.",
+      "related_terms": [
+        "Adverse drug reaction"
+      ]
+    },
+    {
+      "id": "deprescribing-concept",
+      "name": "Deprescribing Concept",
+      "group": "Medication Safety",
+      "summary": "A structured clinical process of reviewing and reducing medicines when appropriate under professional supervision.",
+      "related_terms": [
+        "Medication review"
+      ]
+    },
+    {
+      "id": "dose-response-relationship",
+      "name": "Dose–Response Relationship",
+      "group": "Pharmacodynamics",
+      "summary": "The relationship between the amount or concentration of a substance and the magnitude of a measured biological response.",
+      "related_terms": [
+        "Potency",
+        "Efficacy"
+      ]
+    },
+    {
+      "id": "receptor-selectivity",
+      "name": "Receptor Selectivity",
+      "group": "Pharmacodynamics",
+      "summary": "The tendency of a substance to affect certain receptor targets more strongly than others.",
+      "related_terms": [
+        "Receptor",
+        "Affinity"
+      ]
+    },
+    {
+      "id": "loading-dose-concept",
+      "name": "Loading Dose Concept",
+      "group": "Pharmacokinetics",
+      "summary": "A pharmacokinetic concept describing an initial amount designed to approach a target concentration more rapidly; this entry is terminology only, not a dosing instruction.",
+      "related_terms": [
+        "Volume of Distribution",
+        "Half-life"
+      ]
+    },
+    {
+      "id": "maintenance-dose-concept",
+      "name": "Maintenance Dose Concept",
+      "group": "Pharmacokinetics",
+      "summary": "A pharmacokinetic concept describing repeated or continuous input intended to replace eliminated substance; this entry is terminology only, not a dosing instruction.",
+      "related_terms": [
+        "Clearance",
+        "Steady State"
+      ]
+    },
+    {
+      "id": "therapeutic-drug-monitoring",
+      "name": "Therapeutic Drug Monitoring",
+      "group": "Clinical Pharmacology",
+      "summary": "Measurement and interpretation of selected drug concentrations when clinically appropriate.",
+      "related_terms": [
+        "Therapeutic index",
+        "Steady State"
+      ]
+    },
+    {
+      "id": "drug-receptor-binding",
+      "name": "Drug–Receptor Binding",
+      "group": "Pharmacodynamics",
+      "summary": "Interaction between a drug molecule and a molecular receptor target.",
+      "related_terms": [
+        "Receptor",
+        "Affinity",
+        "Agonist",
+        "Antagonist"
+      ]
+    },
+    {
+      "id": "saturation-kinetics",
+      "name": "Saturation Kinetics",
+      "group": "Pharmacokinetics",
+      "summary": "Nonlinear behavior that can occur when a biological process approaches its capacity.",
+      "related_terms": [
+        "Elimination",
+        "Metabolism"
+      ]
+    },
+    {
+      "id": "renal-clearance",
+      "name": "Renal Clearance",
+      "group": "Pharmacokinetics",
+      "summary": "The contribution of kidney processes to removal of a substance from plasma.",
+      "related_terms": [
+        "Clearance",
+        "Kidney"
+      ]
+    },
+    {
+      "id": "hepatic-clearance",
+      "name": "Hepatic Clearance",
+      "group": "Pharmacokinetics",
+      "summary": "The contribution of liver uptake, metabolism, and excretion to removal of a substance from blood.",
+      "related_terms": [
+        "Clearance",
+        "Liver"
+      ],
+      "anatomy_region": "organs:liver"
+    },
+    {
+      "id": "active-metabolite",
+      "name": "Active Metabolite",
+      "group": "Drug Metabolism",
+      "summary": "A metabolite that retains biological activity after a parent substance has been transformed.",
+      "related_terms": [
+        "Drug Metabolism",
+        "Prodrug"
+      ]
+    },
+    {
+      "id": "pharmacovigilance",
+      "name": "Pharmacovigilance",
+      "group": "Medication Safety",
+      "summary": "The science and activities related to detecting, assessing, understanding, and preventing adverse effects or other medicine-related problems.",
+      "related_terms": [
+        "Adverse effect",
+        "Drug interaction"
+      ]
+    },
+    {
+      "id": "medication-reconciliation",
+      "name": "Medication Reconciliation",
+      "group": "Medication Safety",
+      "summary": "A structured process for comparing medication information across transitions of care to reduce discrepancies; this is a concept description, not medication advice.",
+      "related_terms": [
+        "Medication Safety",
+        "Drug interaction"
+      ]
+    },
+    {
+      "id": "precaution",
+      "name": "Precaution",
+      "group": "Medication Safety",
+      "summary": "A factor requiring additional consideration or monitoring before or during use of a medicine or intervention.",
+      "related_terms": [
+        "Contraindication",
+        "Adverse effect"
+      ]
+    },
+    {
+      "id": "drug-excretion",
+      "name": "Drug Excretion",
+      "group": "Pharmacokinetics",
+      "summary": "Removal of a drug or its metabolites from the body through routes such as urine or bile.",
+      "related_terms": [
+        "Kidney",
+        "Clearance"
+      ]
+    },
+    {
+      "id": "therapeutic-window",
+      "name": "Therapeutic Window",
+      "group": "Clinical Pharmacology",
+      "summary": "A conceptual concentration or exposure range between insufficient effect and unacceptable toxicity for a medicine; this entry is terminology only.",
+      "related_terms": [
+        "Therapeutic index",
+        "Dose–Response Relationship"
+      ]
+    },
+    {
+      "id": "tolerance",
+      "name": "Tolerance",
+      "group": "Pharmacodynamics",
+      "summary": "Reduced response to a substance after repeated exposure, such that the same exposure can produce less effect over time.",
+      "related_terms": [
+        "Tachyphylaxis",
+        "Dose–Response Relationship"
+      ]
+    },
+    {
+      "id": "drug-synergism",
+      "name": "Drug Synergism",
+      "group": "Drug Interactions",
+      "summary": "A conceptual interaction in which combined effects exceed what would be expected from simple addition.",
+      "related_terms": [
+        "Drug interaction",
+        "Additive Effect"
+      ]
+    },
+    {
+      "id": "additive-effect",
+      "name": "Additive Effect",
+      "group": "Drug Interactions",
+      "summary": "A conceptual interaction in which combined effects approximate the sum of individual effects.",
+      "related_terms": [
+        "Drug interaction",
+        "Drug Synergism"
+      ]
+    },
+    {
+      "id": "drug-antagonism",
+      "name": "Drug Antagonism",
+      "group": "Drug Interactions",
+      "summary": "A conceptual interaction in which one substance reduces or opposes the effect of another.",
+      "related_terms": [
+        "Antagonist",
+        "Drug interaction"
+      ]
+    },
+    {
+      "id": "protein-binding",
+      "name": "Plasma Protein Binding",
+      "group": "Pharmacokinetics",
+      "summary": "Reversible association of a drug with proteins in plasma, which can influence the unbound fraction available for distribution.",
+      "related_terms": [
+        "Distribution",
+        "Albumin"
+      ]
+    },
+    {
+      "id": "blood-brain-barrier",
+      "name": "Blood–Brain Barrier",
+      "group": "Pharmacokinetics",
+      "summary": "Specialized vascular and cellular barrier properties that restrict movement of many substances between blood and brain tissue.",
+      "related_terms": [
+        "Brain",
+        "Distribution"
+      ],
+      "anatomy_region": "organs:brain"
+    },
+    {
+      "id": "enteral-route",
+      "name": "Enteral Route Concept",
+      "group": "Routes of Administration",
+      "summary": "Administration through the gastrointestinal tract; this entry describes route terminology and does not provide use instructions.",
+      "related_terms": [
+        "Gastrointestinal tract",
+        "Absorption"
+      ]
+    },
+    {
+      "id": "parenteral-route",
+      "name": "Parenteral Route Concept",
+      "group": "Routes of Administration",
+      "summary": "Administration by routes that bypass the gastrointestinal tract; this entry describes terminology only and does not provide procedural instructions.",
+      "related_terms": [
+        "Bioavailability",
+        "Absorption"
+      ]
+    },
+    {
+      "id": "topical-route",
+      "name": "Topical Route Concept",
+      "group": "Routes of Administration",
+      "summary": "Application to a body surface for local or systemic exposure; terminology only, not product-use guidance.",
+      "related_terms": [
+        "Skin",
+        "Absorption"
+      ]
+    },
+    {
+      "id": "drug-formulation",
+      "name": "Drug Formulation",
+      "group": "Pharmaceutics",
+      "summary": "The physical and chemical form in which a medicinal substance is prepared with excipients for a dosage form.",
+      "related_terms": [
+        "Bioavailability",
+        "Drug Delivery"
+      ]
+    },
+    {
+      "id": "receptor-agonism",
+      "name": "Receptor Agonism",
+      "group": "Pharmacodynamics",
+      "summary": "Activation of a receptor by a ligand that produces a biological response.",
+      "related_terms": [
+        "Receptor",
+        "Pharmacodynamics"
+      ]
+    },
+    {
+      "id": "receptor-antagonism",
+      "name": "Receptor Antagonism",
+      "group": "Pharmacodynamics",
+      "summary": "Binding that reduces or blocks receptor activation by an agonist.",
+      "related_terms": [
+        "Receptor",
+        "Pharmacodynamics"
+      ]
+    },
+    {
+      "id": "partial-agonism",
+      "name": "Partial Agonism",
+      "group": "Pharmacodynamics",
+      "summary": "Receptor activation that produces a lower maximal response than a full agonist in the same system.",
+      "related_terms": [
+        "Receptor Agonism",
+        "Dose–Response Relationship"
+      ]
+    },
+    {
+      "id": "competitive-antagonism",
+      "name": "Competitive Antagonism",
+      "group": "Pharmacodynamics",
+      "summary": "Antagonism in which agonist and antagonist compete for the same or overlapping receptor binding site.",
+      "related_terms": [
+        "Receptor Antagonism",
+        "Receptor"
+      ]
+    },
+    {
+      "id": "steady-state-concentration",
+      "name": "Steady-State Concentration",
+      "group": "Pharmacokinetics",
+      "summary": "A state in which the average rate of input and elimination are balanced under defined conditions.",
+      "related_terms": [
+        "Elimination",
+        "Half-life"
+      ]
+    },
+    {
+      "id": "receptor-affinity",
+      "name": "Receptor Affinity",
+      "group": "Pharmacodynamics",
+      "summary": "A concept describing the tendency of a ligand to bind to a receptor.",
+      "related_terms": [
+        "Receptor",
+        "Ligand"
+      ]
+    },
+    {
+      "id": "intrinsic-activity",
+      "name": "Intrinsic Activity",
+      "group": "Pharmacodynamics",
+      "summary": "A concept describing the ability of a receptor-bound ligand to activate a signaling response.",
+      "related_terms": [
+        "Receptor Agonism",
+        "Efficacy"
+      ]
+    },
+    {
+      "id": "drug-potency",
+      "name": "Drug Potency",
+      "group": "Pharmacodynamics",
+      "summary": "A comparative concept describing the amount or concentration associated with a defined effect under specified conditions.",
+      "related_terms": [
+        "Dose–Response Relationship",
+        "Efficacy"
+      ]
+    },
+    {
+      "id": "drug-efficacy",
+      "name": "Drug Efficacy",
+      "group": "Pharmacodynamics",
+      "summary": "The maximal response a drug can produce in a defined biological system.",
+      "related_terms": [
+        "Dose–Response Relationship",
+        "Intrinsic Activity"
+      ]
+    },
+    {
+      "id": "bioequivalence",
+      "name": "Bioequivalence",
+      "group": "Clinical Pharmacology",
+      "summary": "A comparative concept evaluating whether drug products show sufficiently similar exposure under defined study conditions.",
+      "related_terms": [
+        "Bioavailability",
+        "Pharmacokinetics"
+      ]
+    },
+    {
+      "id": "drug-transporter",
+      "name": "Drug Transporter",
+      "group": "Pharmacokinetics",
+      "summary": "A membrane transport protein that can influence movement of drugs across biological barriers.",
+      "related_terms": [
+        "Absorption",
+        "Distribution"
+      ]
+    },
+    {
+      "id": "ocular-bioavailability",
+      "name": "Ocular Bioavailability",
+      "group": "Clinical Pharmacology",
+      "summary": "The fraction of an applied substance that becomes available at or within ocular tissues under defined conditions.",
+      "related_terms": [
+        "Bioavailability",
+        "Eye",
+        "Bioavailability",
+        "Eye"
+      ]
+    },
+    {
+      "id": "topical-route",
+      "name": "Topical Route",
+      "group": "Pharmacology",
+      "summary": "Administration to a body surface or localized tissue surface.",
+      "related_terms": [
+        "Route of Administration",
+        "Route of Administration"
+      ]
+    },
+    {
+      "id": "local-delivery",
+      "name": "Local Drug Delivery",
+      "group": "Pharmacology",
+      "summary": "Delivery intended to concentrate exposure near a target site rather than throughout the body.",
+      "related_terms": [
+        "Route of Administration",
+        "Distribution",
+        "Route of Administration",
+        "Distribution"
+      ]
+    },
+    {
+      "id": "mucosal-absorption",
+      "name": "Mucosal Absorption",
+      "group": "Pharmacokinetics",
+      "summary": "Movement of a substance across a mucosal surface into local tissue or circulation.",
+      "related_terms": [
+        "Absorption",
+        "Bioavailability",
+        "Absorption",
+        "Bioavailability"
+      ]
+    },
+    {
+      "id": "tear-film-clearance",
+      "name": "Tear-Film Clearance",
+      "group": "Ocular Pharmacokinetics",
+      "summary": "Removal of material from the ocular surface through tear turnover and drainage.",
+      "related_terms": [
+        "Tear Film",
+        "Nasolacrimal Duct",
+        "Tear Film",
+        "Nasolacrimal Duct"
+      ]
+    },
+    {
+      "id": "ion-trapping",
+      "name": "Ion Trapping",
+      "group": "Pharmacokinetics",
+      "summary": "Differential accumulation of ionizable substances across compartments with differing pH.",
+      "related_terms": [
+        "Distribution",
+        "pKa",
+        "Distribution",
+        "pKa"
+      ]
+    },
+    {
+      "id": "protein-binding-displacement",
+      "name": "Protein-Binding Displacement",
+      "group": "Pharmacokinetics",
+      "summary": "Change in the fraction of a bound substance when competition alters binding to carrier proteins.",
+      "related_terms": [
+        "Protein Binding",
+        "Free Drug Fraction",
+        "Protein Binding",
+        "Free Drug Fraction"
+      ]
+    },
+    {
+      "id": "local-tissue-exposure",
+      "name": "Local Tissue Exposure",
+      "group": "Clinical Pharmacology",
+      "summary": "The concentration-time exposure of a substance within a defined local tissue compartment.",
+      "related_terms": [
+        "Distribution",
+        "Local Drug Delivery",
+        "Distribution",
+        "Local Drug Delivery"
+      ]
+    },
+    {
+      "id": "ocular-surface-residence-time",
+      "name": "Ocular Surface Residence Time",
+      "group": "Ocular Pharmacokinetics",
+      "summary": "The duration a substance remains available on the ocular surface before clearance.",
+      "related_terms": [
+        "Tear Film",
+        "Tear-Film Clearance",
+        "Tear Film",
+        "Tear-Film Clearance"
+      ]
+    },
+    {
+      "id": "corneal-permeability",
+      "name": "Corneal Permeability",
+      "group": "Ocular Pharmacokinetics",
+      "summary": "The capacity of a substance to cross corneal tissue under defined conditions.",
+      "related_terms": [
+        "Cornea",
+        "Absorption",
+        "Cornea",
+        "Absorption"
+      ]
+    },
+    {
+      "id": "blood-retinal-barrier",
+      "name": "Blood-Retinal Barrier",
+      "group": "Ocular Pharmacology",
+      "summary": "Physiologic barrier properties that regulate movement of substances between blood and retinal tissues.",
+      "related_terms": [
+        "Retina",
+        "Distribution",
+        "Retina",
+        "Distribution"
+      ]
+    },
+    {
+      "id": "salivary-excretion",
+      "name": "Salivary Excretion",
+      "group": "Pharmacokinetics",
+      "summary": "Transfer of some substances from circulation into saliva.",
+      "related_terms": [
+        "Salivary Gland",
+        "Elimination",
+        "Salivary Gland",
+        "Elimination"
+      ]
+    },
+    {
+      "id": "local-mucosal-delivery",
+      "name": "Local Mucosal Delivery",
+      "group": "Clinical Pharmacology",
+      "summary": "Delivery directed to a mucosal surface or nearby tissue compartment.",
+      "related_terms": [
+        "Mucosal Absorption",
+        "Local Drug Delivery",
+        "Mucosal Absorption",
+        "Local Drug Delivery"
+      ]
+    },
+    {
+      "id": "tissue-partitioning",
+      "name": "Tissue Partitioning",
+      "group": "Pharmacokinetics",
+      "summary": "Distribution of a substance between blood and tissue compartments according to physicochemical properties and binding.",
+      "related_terms": [
+        "Distribution",
+        "Protein Binding",
+        "Distribution",
+        "Protein Binding"
+      ]
+    },
+    {
+      "id": "compartment-model",
+      "name": "Compartment Model",
+      "group": "Pharmacokinetics",
+      "summary": "A mathematical representation that approximates movement of a substance between defined body compartments.",
+      "related_terms": [
+        "Distribution",
+        "Half-Life",
+        "Distribution",
+        "Half-Life"
+      ]
+    }
+  ]
+}
