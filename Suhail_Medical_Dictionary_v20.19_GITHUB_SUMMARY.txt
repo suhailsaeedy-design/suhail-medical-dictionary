@@ -1,0 +1,5 @@
+Summary:
+Release v20.19.2 Aqua Glass - Redesign Login and full medical workspace
+
+Description:
+Reference-inspired Aqua Glass redesign built with real HTML, CSS, JavaScript and Bootstrap: liquid-glass two-button Login with no email/password fields, deep-blue medical background with DNA/anatomy/heart/books/AI visuals, neon glass Sidebar/Topbar/cards, Dictionary hero and term grid matching the new visual direction, Clinical Reference moved below the main Dictionary workspace, responsive mobile drawer/bottom navigation, and preserved Privacy consent, Google chooser, Admin separation, PWA/offline, AI Study and 206-bone Anatomy functionality.

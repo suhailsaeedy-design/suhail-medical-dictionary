@@ -1,0 +1,79 @@
+name: Deploy Suhail Medical Dictionary v20.19.2
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify required production files
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in index.html app.html anatomy.html ai.html admin-login.html admin.html offline.html manifest.webmanifest sw.js version.json; do
+            test -f "$f" || { echo "Missing required file: $f"; exit 1; }
+          done
+          test -d assets || { echo "Missing assets directory"; exit 1; }
+          test -d data || { echo "Missing data directory"; exit 1; }
+          grep -q '20.19.2' version.json
+          ! grep -q 'Enter your email address' index.html
+          ! grep -q 'Enter your password' index.html
+          ! grep -q '>Dashboard<' app.html
+          ! grep -q '>Admin Panel<' app.html
+
+      - name: Run v20.19.2 responsive QA verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile verify_v2019_aqua.py
+          python verify_v2019_aqua.py
+          python -m py_compile verify_v20191_unified.py
+          python verify_v20191_unified.py
+          python -m py_compile verify_v20192_responsive.py
+          python verify_v20192_responsive.py
+          for f in assets/js/*.js sw.js; do node --check "$f"; done
+          python - <<'PYJSON'
+import json
+from pathlib import Path
+for p in list(Path('.').rglob('*.json')) + list(Path('.').rglob('*.webmanifest')):
+    json.loads(p.read_text(encoding='utf-8'))
+print('JSON/webmanifest syntax PASS')
+PYJSON
+
+      - name: Prepare static Pages artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf _pages
+          mkdir _pages
+          cp -a index.html app.html anatomy.html ai.html admin-login.html admin.html offline.html about.html privacy.html terms.html manifest.webmanifest sw.js version.json ai-config.json .nojekyll DEPLOY_VERSION.txt assets data _pages/
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _pages
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

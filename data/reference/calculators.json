@@ -1,0 +1,184 @@
+{
+  "version": "20.19.2",
+  "kind": "educational-calculators",
+  "scope": "Educational numeric tools only; outputs are not diagnostic or treatment recommendations.",
+  "calculators": [
+    {
+      "id": "mean-arterial-pressure",
+      "name": "Mean Arterial Pressure (approx.)",
+      "short_name": "MAP",
+      "description": "Approximates mean arterial pressure from systolic and diastolic pressure.",
+      "formula": "DBP + (SBP - DBP) / 3",
+      "inputs": [
+        {
+          "id": "sbp",
+          "label": "Systolic pressure",
+          "unit": "mmHg",
+          "min": 1,
+          "max": 400
+        },
+        {
+          "id": "dbp",
+          "label": "Diastolic pressure",
+          "unit": "mmHg",
+          "min": 1,
+          "max": 300
+        }
+      ],
+      "output_unit": "mmHg",
+      "source_label": "NCBI Bookshelf — Physiology, Mean Arterial Pressure",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK538226/",
+      "note": "Common approximation; the relationship can vary with heart rate and waveform shape. No clinical interpretation is provided."
+    },
+    {
+      "id": "pulse-pressure",
+      "name": "Pulse Pressure",
+      "short_name": "PP",
+      "description": "Calculates the arithmetic difference between systolic and diastolic pressure.",
+      "formula": "SBP - DBP",
+      "inputs": [
+        {
+          "id": "sbp",
+          "label": "Systolic pressure",
+          "unit": "mmHg",
+          "min": 1,
+          "max": 400
+        },
+        {
+          "id": "dbp",
+          "label": "Diastolic pressure",
+          "unit": "mmHg",
+          "min": 1,
+          "max": 300
+        }
+      ],
+      "output_unit": "mmHg",
+      "source_label": "NCBI Bookshelf — Cardiovascular Physiology",
+      "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK493197/",
+      "note": "Arithmetic calculation only; no clinical interpretation is provided."
+    },
+    {
+      "id": "temperature-conversion",
+      "name": "Temperature Conversion",
+      "short_name": "°C / °F",
+      "description": "Converts temperature between Celsius and Fahrenheit.",
+      "formula": "°F = (°C × 9/5) + 32; °C = (°F - 32) × 5/9",
+      "inputs": [
+        {
+          "id": "temperature",
+          "label": "Temperature",
+          "unit": "value",
+          "min": -200,
+          "max": 1000
+        },
+        {
+          "id": "scale",
+          "label": "Input scale",
+          "type": "select",
+          "options": [
+            "C",
+            "F"
+          ]
+        }
+      ],
+      "output_unit": "converted scale",
+      "source_label": "Exact unit conversion",
+      "source_url": "",
+      "note": "Unit conversion only."
+    },
+    {
+      "id": "cardiac-output",
+      "name": "Cardiac Output (physiology formula)",
+      "short_name": "CO",
+      "description": "Multiplies heart rate by stroke volume to illustrate the basic cardiac-output relationship.",
+      "formula": "Heart rate × Stroke volume / 1000",
+      "inputs": [
+        {
+          "id": "heart_rate",
+          "label": "Heart rate",
+          "unit": "beats/min",
+          "min": 1,
+          "max": 300
+        },
+        {
+          "id": "stroke_volume",
+          "label": "Stroke volume",
+          "unit": "mL/beat",
+          "min": 1,
+          "max": 300
+        }
+      ],
+      "output_unit": "L/min",
+      "source_label": "General cardiovascular physiology relationship",
+      "source_url": "",
+      "note": "Educational physiology formula only; no clinical interpretation or treatment recommendation is provided."
+    },
+    {
+      "id": "minute-ventilation",
+      "name": "Minute Ventilation (physiology formula)",
+      "short_name": "VE",
+      "description": "Multiplies respiratory rate by tidal volume to illustrate total air moved per minute.",
+      "formula": "Respiratory rate × Tidal volume / 1000",
+      "inputs": [
+        {
+          "id": "respiratory_rate",
+          "label": "Respiratory rate",
+          "unit": "breaths/min",
+          "min": 1,
+          "max": 100
+        },
+        {
+          "id": "tidal_volume",
+          "label": "Tidal volume",
+          "unit": "mL/breath",
+          "min": 1,
+          "max": 3000
+        }
+      ],
+      "output_unit": "L/min",
+      "source_label": "General respiratory physiology relationship",
+      "source_url": "",
+      "note": "Educational physiology formula only; no diagnosis or treatment interpretation is provided."
+    },
+    {
+      "id": "heart-cycle-duration",
+      "name": "Cardiac Cycle Duration",
+      "short_name": "Cycle time",
+      "description": "Converts heart rate to the approximate duration of one cardiac cycle.",
+      "formula": "60 / heart rate",
+      "inputs": [
+        {
+          "id": "heart_rate",
+          "label": "Heart rate",
+          "unit": "beats/min",
+          "min": 1,
+          "max": 300
+        }
+      ],
+      "output_unit": "seconds/beat",
+      "source_label": "Basic physiology relationship",
+      "source_url": "",
+      "note": "Educational arithmetic only; no clinical interpretation is provided."
+    },
+    {
+      "id": "respiratory-cycle-duration",
+      "name": "Respiratory Cycle Duration",
+      "short_name": "Breath cycle",
+      "description": "Converts respiratory rate to the approximate duration of one breathing cycle.",
+      "formula": "60 / respiratory rate",
+      "inputs": [
+        {
+          "id": "respiratory_rate",
+          "label": "Respiratory rate",
+          "unit": "breaths/min",
+          "min": 1,
+          "max": 120
+        }
+      ],
+      "output_unit": "seconds/breath",
+      "source_label": "Basic physiology relationship",
+      "source_url": "",
+      "note": "Educational arithmetic only; no clinical interpretation is provided."
+    }
+  ]
+}
