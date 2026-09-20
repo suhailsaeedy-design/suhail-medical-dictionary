@@ -1,6 +1,0 @@
-SUHAIL ILLUSTRATIVE 3D ANATOMY STARTER PACK
-Generated locally for Suhail Medical Dictionary v19.
-Purpose: interactive educational UI, orientation and software testing.
-Not clinically precise. Not for diagnosis, surgery planning or measurement.
-This directory does NOT contain BodyParts3D data.
-See /BODY_PARTS3D_IMPORT_GUIDE.md for the optional validated external-data import path.
