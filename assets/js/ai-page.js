@@ -1,5 +1,5 @@
-import {currentSession,peekSession,signOut,getMyProfile,setOwnerReviewConsent,logEvent} from './auth.js?v=20.16.0';
-import {createChat,listChats,loadMessages,renameChat,deleteChat,editUserMessage,askAI,getAIServiceStatus} from './ai.js?v=20.16.0';
+import {currentSession,peekSession,signOut,getMyProfile,setOwnerReviewConsent,logEvent} from './auth.js?v=20.17.1';
+import {createChat,listChats,loadMessages,renameChat,deleteChat,editUserMessage,askAI,getAIServiceStatus} from './ai.js?v=20.17.1';
 
 const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -18,12 +18,12 @@ const esc=(v='')=>String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'
 async function init(){
   state.session=peekSession()||await currentSession().catch(()=>null);
   if(!state.session){location.replace('./index.html');return;}
-  const theme=localStorage.getItem('smd-theme')||'dark';
+  const theme=localStorage.getItem('smd-theme')||'clinical';
   document.body.dataset.theme=theme;
   if($('#themeSelect'))$('#themeSelect').value=theme;
   if($('#contentLanguage'))$('#contentLanguage').value=state.lang;
   bindUI();updateAccount();loadPendingContext();setStudyMode(state.mode,false);
-  await Promise.allSettled([loadProfile(),refreshChats(),checkBackend(),logEvent('ai_page_open',{build:'20.16.0'})]);
+  await Promise.allSettled([loadProfile(),refreshChats(),checkBackend(),logEvent('ai_page_open',{build:'20.17.1'})]);
   if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).catch(()=>{});
 }
 

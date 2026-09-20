@@ -15,7 +15,7 @@ if(nav && !$('.med-nav-item[href*="anatomy.html"]',nav)){
 }
 
 const iconMap=[
- ['dashboard','bi-house-door'],['dictionary','bi-journal-medical'],['clinical reference','bi-clipboard2-pulse'],['anatomy','bi-box'],['ai','bi-stars'],
+['dictionary','bi-journal-medical'],['clinical reference','bi-clipboard2-pulse'],['anatomy','bi-box'],['ai','bi-stars'],
  ['selected','bi-bookmark-check'],['offline','bi-cloud-arrow-down'],['bookmark','bi-bookmark'],
  ['history','bi-clock-history'],['about','bi-info-circle'],['setting','bi-gear'],['admin','bi-grid-1x2']
 ];
@@ -49,12 +49,12 @@ function installCanonicalMobileNav(){
  mobile.className='mobile-bottom-nav v20-mobile-nav';
  mobile.setAttribute('aria-label','Mobile navigation');
  mobile.innerHTML=`
-   <a data-v20-mobile="home" href="./app.html#dashboard"><i class="bi bi-house-door"></i><span>Home</span></a>
    <a data-v20-mobile="dictionary" href="./app.html#dictionary"><i class="bi bi-journal-medical"></i><span>Dictionary</span></a>
    <a data-v20-mobile="anatomy" href="./anatomy.html"><i class="bi bi-box"></i><span>3D Anatomy</span></a>
    <a data-v20-mobile="ai" href="./ai.html"><i class="bi bi-stars"></i><span>AI Study</span></a>
+   <a data-v20-mobile="offline" href="./offline.html"><i class="bi bi-cloud-arrow-down"></i><span>Offline</span></a>
    <button data-v20-mobile="more" type="button"><i class="bi bi-grid"></i><span>More</span></button>`;
- const current=path==='anatomy.html'?'anatomy':path==='ai.html'?'ai':path==='app.html'?'dictionary':null;
+ const current=path==='anatomy.html'?'anatomy':path==='ai.html'?'ai':path==='offline.html'?'offline':path==='app.html'?'dictionary':null;
  if(current)mobile.querySelector(`[data-v20-mobile="${current}"]`)?.classList.add('active');
  mobile.querySelector('[data-v20-mobile="more"]')?.addEventListener('click',openDrawer);
 }

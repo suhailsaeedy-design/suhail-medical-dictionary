@@ -19,7 +19,7 @@ function applyAbout(){
 const select=document.querySelector('#contentLanguage');
 const theme=document.querySelector('#themeSelect');
 const savedLang=localStorage.getItem('smd-content-lang')||'en';
-const savedTheme=localStorage.getItem('smd-theme')||'dark';
+const savedTheme=localStorage.getItem('smd-theme')||'clinical';
 if(select)select.value=savedLang;
 if(theme)theme.value=savedTheme;
 document.body.dataset.theme=savedTheme;

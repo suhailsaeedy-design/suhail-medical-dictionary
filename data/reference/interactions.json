@@ -1,5 +1,5 @@
 {
-  "version": "20.16.0",
+  "version": "20.17.1",
   "kind": "interaction-checker-contract",
   "status": "guarded",
   "scope": "Architecture and validation contract only. No actionable medication-pair database is bundled in this educational release.",

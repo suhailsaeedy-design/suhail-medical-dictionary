@@ -1,4 +1,4 @@
-import {CONFIG} from './config.js?v=20.16.0';
+import {CONFIG} from './config.js?v=20.17.1';
 
 // v4 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -23,7 +23,7 @@ export function getSavedLocalProfile(){const p=localProfile();return p?.email?{.
 function saveLocalProfile(profile){localStorage.setItem(LOCAL_PROFILE_KEY,JSON.stringify(profile));return profile;}
 function localSessionFromProfile(profile){if(!profile?.email)return null;return {access_token:`local-free:${profile.id}`,refresh_token:'',token_type:'local',expires_at:4102444800,local_only:true,user:{id:profile.id,email:profile.email,role:'authenticated',app_metadata:{provider:'local'},user_metadata:{name:profile.name||profile.email.split('@')[0],full_name:profile.name||profile.email.split('@')[0]}}};}
 function localId(email){let h=2166136261;for(const ch of String(email).toLowerCase()){h^=ch.charCodeAt(0);h=Math.imul(h,16777619);}return `local-${(h>>>0).toString(16)}`;}
-export async function signInLocal(email){const clean=String(email||'').trim().toLowerCase();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(clean))throw new Error('Enter a valid email address.');const old=localProfile();const p=saveLocalProfile({id:localId(clean),email:clean,name:clean.split('@')[0],created_at:old?.email===clean?old.created_at:new Date().toISOString(),privacy_ack_at:old?.email===clean?old.privacy_ack_at:null,allow_owner_review:false,is_owner:true,mode:'local-free'});const sess=localSessionFromProfile(p);saveSession(sess);return sess;}
+export async function signInLocal(email){const clean=String(email||'').trim().toLowerCase();if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(clean))throw new Error('Enter a valid email address.');const old=localProfile();const p=saveLocalProfile({id:localId(clean),email:clean,name:clean.split('@')[0],created_at:old?.email===clean?old.created_at:new Date().toISOString(),privacy_ack_at:old?.email===clean?old.privacy_ack_at:null,allow_owner_review:false,is_owner:false,mode:'local-free'});const sess=localSessionFromProfile(p);saveSession(sess);return sess;}
 export function getLocalEvents(){try{return JSON.parse(localStorage.getItem(LOCAL_EVENTS_KEY)||'[]');}catch{return[];}}
 function jsonParse(raw){try{return JSON.parse(raw);}catch{return null;}}
 function readStoredSession(){
@@ -203,7 +203,7 @@ export async function getSupabase(){
 }
 export async function getMyProfile(){
   const sess=await currentSession();if(!sess)return null;
-  if(sess.local_only){const p=localProfile()||{};return {email:sess.user.email,is_owner:true,allow_owner_review:false,privacy_ack_at:p.privacy_ack_at||null,local_only:true};}
+  if(sess.local_only){const p=localProfile()||{};return {email:sess.user.email,is_owner:false,allow_owner_review:false,privacy_ack_at:p.privacy_ack_at||null,local_only:true};}
   const sb=await getSupabase();if(!sb)return null;
   const {data,error}=await sb.from('profiles').select('email,is_owner,allow_owner_review,privacy_ack_at').eq('id',sess.user.id).single();
   if(error)return null;return data;

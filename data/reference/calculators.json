@@ -1,5 +1,5 @@
 {
-  "version": "20.16.0",
+  "version": "20.17.1",
   "kind": "educational-calculators",
   "scope": "Educational numeric tools only; outputs are not diagnostic or treatment recommendations.",
   "calculators": [

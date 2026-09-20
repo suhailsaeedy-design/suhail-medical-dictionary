@@ -1,274 +1,243 @@
-<!doctype html>
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content="Offline-first medical dictionary, clinical reference, interactive 3D anatomy and local study tools.">
-  <meta name="theme-color" content="#0a2a4a">
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" href="./assets/icons/icon-192.png">
-  <link rel="apple-touch-icon" href="./assets/icons/icon-192.png">
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20.16.0">
-  <link rel="stylesheet" href="./assets/css/v20-dictionary-foundation.css?v=20.16.0">
-  <title>Dictionary · Suhail Medical Dictionary</title>
-  <link rel="stylesheet" href="./assets/vendor/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="./assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="./assets/css/v20-shell.css?v=20.16.0">
-  <link rel="stylesheet" href="./assets/css/v20-dictionary.css?v=20.16.0">
-  <link rel="stylesheet" href="./assets/css/v20-reference.css?v=20.16.0">
-  <link rel="stylesheet" href="./assets/css/v20-release.css?v=20.16.0">
-</head>
-<body data-build="20.16.0" class="workspace-page auth-pending" data-theme="dark">
-  <a class="v20-skip-link" href="#dictionary">Skip to main content</a>
-  <div id="sessionLoader" class="session-loader"><div class="loader-ring"></div><p>Opening your study workspace…</p></div>
-
-  <div class="med-app-shell">
-    <aside class="med-sidebar" aria-label="Primary navigation">
-      <a class="med-brand" href="./app.html" aria-label="Suhail Medical Dictionary home">
-        <span class="med-brand-mark"><img src="./assets/images/logo-book.svg" alt=""></span>
-        <span><strong>Suhail</strong><small>Medical Dictionary</small></span>
-      </a>
-
-      <nav class="med-nav">
-        <a class="med-nav-item active" href="#dashboard"><span class="nav-ico">⌂</span><span>Dashboard</span></a>
-        <a class="med-nav-item" href="#dictionary"><span class="nav-ico">▣</span><span>Dictionary</span><span class="nav-arrow" aria-hidden="true">›</span></a>
-        <a class="med-nav-item v20-reference-link" href="#clinical-reference"><span class="nav-ico"><i class="bi bi-clipboard2-pulse" aria-hidden="true"></i></span><span>Clinical Reference</span></a>
-        <a class="med-nav-item v19-anatomy-link" href="./anatomy.html"><span class="nav-ico v19-cube-icon">◇</span><span>3D Anatomy</span></a>
-        <a class="med-nav-item" href="./ai.html"><span class="nav-ico">✦</span><span>AI Study</span><span class="nav-badge">New</span></a>
-        <button id="selectedButton" class="med-nav-item" type="button"><span class="nav-ico">◇</span><span>Selected</span><b id="selectedCount" class="nav-count">0</b></button>
-        <a class="med-nav-item" href="./offline.html"><span class="nav-ico">⇩</span><span>Offline Packs</span></a>
-        <button id="bookmarksButton" class="med-nav-item" type="button"><span class="nav-ico">★</span><span>Bookmarks</span><b id="bookmarksCount" class="nav-count">0</b></button>
-        <button id="historyButton" class="med-nav-item" type="button"><span class="nav-ico">◷</span><span>History</span></button>
-        <span class="med-nav-separator"></span>
-        <a class="med-nav-item" href="./about.html"><span class="nav-ico">ⓘ</span><span>About</span></a>
-        <button id="settingsButton" class="med-nav-item" type="button"><span class="nav-ico">⚙</span><span>Settings</span></button>
-        <a id="adminSidebarLink" class="med-nav-item hidden" href="./admin.html"><span class="nav-ico">▦</span><span>Admin Panel</span></a>
-      </nav>
-
-      <button class="med-nav-item v19-sidebar-install" type="button" data-install-app><span class="nav-ico">⇩</span><span>Install App</span></button>
-
-      <div class="med-side-promo v20-study-card">
-        <div class="v20-study-card-icon" aria-hidden="true"><i class="bi bi-cloud-check"></i></div>
-        <strong>Offline-ready<br>medical study</strong>
-        <small>Dictionary, saved 3D anatomy and downloaded packs stay available offline. AI Study requires internet.</small>
-        <a href="./offline.html" class="promo-button">Manage Offline Packs <span>→</span></a>
-      </div>
-      <div class="v17-sidebar-quote">Knowledge heals<br>beyond boundaries.<small>Suhail Medical Dictionary<br>v20.16.0</small></div>
-    </aside>
-
-    <div class="med-main">
-      <header class="med-topbar">
-        <div class="global-search-wrap">
-          <span class="search-glyph">⌕</span>
-          <input id="searchInput" class="global-search" placeholder="Search medical terms, conditions, anatomy, or concepts..." autocomplete="off" aria-label="Search medical dictionary">
-          <kbd>Ctrl K</kbd>
-        </div>
-        <div class="med-top-actions">
-          <span id="networkStatus" class="status-chip"><i></i>Online</span>
-          <select id="contentLanguage" class="control compact top-select" aria-label="Dictionary language"><option value="en">🌐 English</option><option value="ps">پښتو</option><option value="prs">دري</option><option value="fa">فارسی</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="zh">中文</option></select>
-          <select id="themeSelect" class="control compact top-select" aria-label="Theme"><option value="clinical">☾ Light</option><option value="dark">◐ Dark</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option></select>
-          <button id="v19InstallApp" class="v19-install-button" type="button" data-install-app><span>⇩</span><b>Install App</b></button>
-          <a id="adminLink" class="icon-link hidden" href="./admin.html" title="Owner admin">Admin</a>
-          <div class="account-wrap">
-            <button id="accountButton" class="med-account" type="button" aria-haspopup="menu" aria-expanded="false"><span class="avatar-dot">●</span><span class="account-lines"><b>Account</b><small>Medical Learner</small></span><span class="account-chevron" aria-hidden="true">▾</span></button>
-            <div id="accountMenu" class="account-menu hidden" role="menu" aria-label="Account menu">
-              <div class="account-menu-user"><span class="account-menu-avatar">●</span><div><strong id="accountMenuName">Account</strong><small id="accountMenuEmail">Local / optional cloud account</small></div></div>
-              <button id="switchAccountButton" class="account-menu-action" type="button" role="menuitem">↻ Use another email</button>
-              <button id="signOutButton" class="account-menu-action danger" type="button" role="menuitem">⇥ Sign out</button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <main id="dictionary" class="med-content">
-        <section id="dashboard" class="med-hero">
-          <div class="hero-copy">
-            <span class="section-kicker">Explore · Learn · Apply</span>
-            <h1><em>Suhail</em> Medical <span>Dictionary</span></h1>
-            <p class="hero-tagline">Trusted medical knowledge for a healthier tomorrow.<br>Simple. Accurate. Always with you.</p>
-            <p id="resultSummary" class="hero-counts">Loading terms…</p>
-            <div class="hero-stats" aria-label="Dictionary highlights">
-              <div class="hero-stat"><i class="stat-icon shield">◇</i><strong id="heroTermStat">—</strong><span>Medical Terms</span></div>
-              <div class="hero-stat"><i class="stat-icon stetho">♧</i><strong id="heroSpecialtyStat">—</strong><span>Specialties</span></div>
-              <div class="hero-stat"><i class="stat-icon globe">◎</i><strong>7</strong><span>Languages</span></div>
-              <div class="hero-stat"><i class="stat-icon cap">◇</i><strong>3D</strong><span>Interactive Anatomy</span></div>
-            </div>
-          </div>
-          <div class="hero-art" aria-hidden="true">
-            <img loading="lazy" decoding="async" src="./assets/images/v16/hero-art-light.webp" alt="" data-v16-hero-art>
-          </div>
-        </section>
-
-        <section id="clinical-reference" class="v20-clinical-reference panel-card" aria-labelledby="clinicalReferenceTitle">
-          <div class="v20-reference-head">
-            <div>
-              <span class="section-kicker">Clinical Reference</span>
-              <h2 id="clinicalReferenceTitle">Find the right medical reference path</h2>
-              <p>Original Suhail workspace structure for conditions, medicines, procedures, study tools and upcoming clinical utilities.</p>
-            </div>
-            <a class="v20-reference-anatomy" href="./anatomy.html"><i class="bi bi-box"></i><span>Open 3D Anatomy</span></a>
-          </div>
-          <div id="clinicalReferenceGrid" class="v20-reference-grid" aria-live="polite">
-            <div class="v20-reference-loading">Loading clinical reference modules…</div>
-          </div>
-          <section id="clinicalReferenceWorkspace" class="v20-reference-workspace" aria-hidden="true" hidden>
-            <header class="v20-reference-workspace-head">
-              <div><span class="section-kicker">Phase 9 Clinical Reference</span><h3>Clinical learning tools</h3><p>Expanded conditions, procedure/test reference cards, pharmacology concepts, seven source-bounded formula tools and a safety-gated interaction data contract.</p></div>
-              <button id="referenceWorkspaceClose" class="v20-reference-workspace-close" type="button" aria-label="Close clinical reference workspace">×</button>
-            </header>
-            <nav class="v20-reference-tabs" aria-label="Clinical reference modules" role="tablist">
-              <button type="button" data-ref-tab="conditions" role="tab" aria-selected="true">Conditions</button>
-              <button type="button" data-ref-tab="pharmacology" role="tab" aria-selected="false">Pharmacology</button>
-              <button type="button" data-ref-tab="procedures" role="tab" aria-selected="false">Procedures</button>
-              <button type="button" data-ref-tab="calculators" role="tab" aria-selected="false">Calculators</button>
-              <button type="button" data-ref-tab="interactions" role="tab" aria-selected="false">Interaction Safety</button>
-              <button type="button" data-ref-tab="learning" role="tab" aria-selected="false">Learning</button>
-            </nav>
-            <div class="v20-reference-tools">
-              <label class="v20-reference-search"><i class="bi bi-search" aria-hidden="true"></i><input id="referenceSearch" type="search" placeholder="Search this reference module…" autocomplete="off"></label>
-              <select id="referenceGroup" class="v20-reference-filter" aria-label="Filter by specialty or group"><option value="all">All groups</option></select>
-              <select id="referenceSort" class="v20-reference-filter" aria-label="Sort reference entries"><option value="name">A–Z</option><option value="group">Group</option></select>
-              <button id="referenceClear" class="v20-reference-clear" type="button">Clear</button>
-              <span id="referenceCount" class="v20-reference-count" aria-live="polite"></span>
-            </div>
-            <div id="referenceWorkspaceContent" class="v20-reference-content" aria-live="polite"></div>
-          </section>
-          <p class="v20-reference-note"><i class="bi bi-shield-check"></i> Educational reference only. Phase 9 expands conditions, procedures, joints, neurovascular references, pharmacology concepts and physiology formula tools. Numeric calculators do not provide diagnosis or treatment interpretation; medication-pair advice remains intentionally safety-gated.</p>
-        </section>
-
-        <section class="med-search-panel panel-card">
-          <div class="med-search-row">
-            <div class="hero-search"><span>⌕</span><input id="heroSearchMirror" class="control" aria-label="Search medical dictionary" placeholder="Search for a medical term or synonym..."></div>
-            <button id="heroSearchButton" class="button primary hero-search-button" type="button"><span>⌕</span> Search</button>
-            <div class="specialty-select-wrap"><span>🩺</span><select id="categorySelect" class="control" aria-label="Filter dictionary by category"><option value="all">All Categories</option></select></div>
-            <button id="advancedFiltersButton" class="advanced-filters-button" type="button">☷ Advanced Filters</button>
-          </div>
-          <div class="category-chip-row" id="categoryChipRow">
-            <button type="button" class="category-chip active" data-category-chip="all"><span>▦</span>All</button>
-            <button type="button" class="category-chip" data-category-chip="cardiology"><span>♡</span>Cardiology</button>
-            <button type="button" class="category-chip" data-category-chip="endocrinology"><span>◒</span>Endocrinology</button>
-            <button type="button" class="category-chip" data-category-chip="pulmonology"><span>◌</span>Pulmonology</button>
-            <button type="button" class="category-chip" data-category-chip="neurology"><span>⌘</span>Neurology</button>
-            <button type="button" class="category-chip" data-category-chip="orthopedics"><span>◇</span>Orthopedics</button>
-            <button type="button" class="category-chip" data-category-chip="surgery"><span>✂</span>Surgery</button>
-          </div>
-        </section>
-
-        <section class="med-work-area">
-          <div class="results-column">
-            <div class="results-toolbar">
-              <strong id="resultsCountLabel" role="status" aria-live="polite">Medical terms</strong>
-              <div class="results-controls">
-                <button id="selectAllFiltered" class="select-all-control" type="button" aria-pressed="false" title="Select all terms in the current filter"><span class="select-all-box" aria-hidden="true"></span><span id="selectAllText">Select all</span></button>
-                <select id="sortSelect" class="sort-pill" aria-label="Sort medical terms"><option value="relevant">Most relevant</option><option value="az">A–Z</option><option value="za">Z–A</option></select>
-                <button id="gridViewButton" class="view-toggle active" type="button" aria-label="Grid view">▦</button><button id="listViewButton" class="view-toggle" type="button" aria-label="List view">☷</button>
-              </div>
-            </div>
-            <div id="termGrid" class="term-grid" aria-live="polite"></div>
-          </div>
-
-          <aside id="detailPanel" class="detail-panel panel-card" aria-live="polite">
-            <div class="empty-state"><div class="empty-icon">＋</div><h2>Select a term</h2><p>Meaning, explanation, pronunciation, synonyms and study actions will appear here.</p></div>
-          </aside>
-        </section>
-
-        <section class="utility-strip panel-card" aria-label="Dictionary tools">
-          <div><strong>Selected-term tools</strong><small>Print, export or study the terms you choose.</small></div>
-          <div class="utility-buttons">
-            <button id="aiSelectedButton" class="button primary">✦ Ask AI about selected</button>
-            <button id="printSelected" class="button soft-button">Print</button>
-            <button id="pdfSelected" class="button soft-button">Selected PDF</button>
-            <button id="pdfCategory" class="button soft-button">Specialty PDF</button>
-            <button id="pdfAllZip" class="button soft-button">All PDFs ZIP</button>
-          </div>
-          <div class="offline-utility">
-            <button id="downloadOfflineButton" class="button soft-button">⇩ Download offline pack</button>
-            <button id="removeOfflineButton" class="text-button">Remove offline data</button>
-            <progress id="offlineProgress" value="0" max="100" hidden></progress><span id="offlineStatus" class="microcopy"></span>
-          </div>
-        </section>
-
-        <section class="study-assistant-strip panel-card" aria-label="Medical study assistant">
-          <div class="study-bot" aria-hidden="true">✦</div>
-          <div><strong>Ask Suhail AI</strong><small>Get instant answers, explanations, and study help from our AI medical assistant.</small></div>
-          <a class="assistant-ask" href="./ai.html"><span>Ask anything about medicine…</span><b>→</b></a><em class="v17-assistant-quote">“A smarter way<br>to learn medicine.”</em>
-        </section>
-
-        <div class="pwa-actions v6-pwa"><span class="version-chip">v<span id="appVersion">—</span></span><button id="updateAppButton" class="button primary compact hidden">Update app</button><button id="installButton" class="button soft-button compact hidden">Install</button></div>
-      </main>
-
-
-    </div>
-  </div>
-
-  <div id="settingsOverlay" class="settings-overlay hidden" aria-hidden="true">
-    <section class="settings-card appearance-card" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
-      <div class="settings-card-head appearance-head">
-        <button id="closeSettingsButton" class="round-button appearance-back" type="button" aria-label="Close settings">‹</button>
-        <div><h2 id="settingsTitle">Appearance</h2><p>Choose your preferred theme</p></div>
-        <button class="appearance-sun" type="button" aria-label="Appearance preview">☼</button>
-      </div>
-
-      <div class="appearance-theme-grid" role="radiogroup" aria-label="Theme">
-        <button type="button" class="appearance-theme-card" data-theme-choice="clinical" role="radio" aria-checked="false"><span class="theme-preview light-preview"><i></i></span><b>Light</b><small>Clean & Bright</small></button>
-        <button type="button" class="appearance-theme-card" data-theme-choice="ocean" role="radio" aria-checked="false"><span class="theme-preview blue-preview"><i></i></span><b>Blue</b><small>Default</small></button>
-        <button type="button" class="appearance-theme-card" data-theme-choice="dark" role="radio" aria-checked="false"><span class="theme-preview midnight-preview"><i></i></span><b>Midnight</b><small>Deep & Calm</small></button>
-      </div>
-
-      <div class="appearance-section">
-        <h3>Background Style</h3>
-        <div class="appearance-background-grid" role="radiogroup" aria-label="Background style">
-          <button type="button" data-bg-choice="nebula" role="radio" aria-checked="false"><span class="bg-preview nebula"></span><small>Nebula</small></button>
-          <button type="button" data-bg-choice="bubbles" role="radio" aria-checked="false"><span class="bg-preview bubbles"></span><small>Bubbles</small></button>
-          <button type="button" data-bg-choice="aurora" role="radio" aria-checked="false"><span class="bg-preview aurora"></span><small>Aurora</small></button>
-          <button type="button" data-bg-choice="minimal" role="radio" aria-checked="false"><span class="bg-preview minimal"></span><small>Minimal</small></button>
-        </div>
-      </div>
-
-      <div class="appearance-section accent-section">
-        <h3>Accent Color</h3>
-        <div class="appearance-accent-row" role="radiogroup" aria-label="Accent color">
-          <button type="button" data-accent-choice="blue" aria-label="Blue" role="radio" aria-checked="false"></button>
-          <button type="button" data-accent-choice="violet" aria-label="Violet" role="radio" aria-checked="false"></button>
-          <button type="button" data-accent-choice="cyan" aria-label="Cyan" role="radio" aria-checked="false"></button>
-          <button type="button" data-accent-choice="green" aria-label="Green" role="radio" aria-checked="false"></button>
-          <button type="button" data-accent-choice="amber" aria-label="Amber" role="radio" aria-checked="false"></button>
-          <button type="button" data-accent-choice="pink" aria-label="Pink" role="radio" aria-checked="false"></button>
-        </div>
-      </div>
-
-      <div class="appearance-toggles">
-        <label><span><i>☼</i>Animations & Effects</span><input id="appearanceAnimations" type="checkbox" checked><b></b></label>
-        <label><span><i>⌘</i>3D Model Glow</span><input id="appearanceGlow" type="checkbox" checked><b></b></label>
-        <label><span><i>⊙</i>Reduce Motion</span><input id="appearanceReduceMotion" type="checkbox"><b></b></label>
-      </div>
-
-      <button id="appearanceApply" class="appearance-apply" type="button">Apply Theme</button>
-
-      <div class="appearance-secondary">
-        <label class="settings-field"><span>Dictionary language</span><select id="settingsLanguage" class="control"><option value="en">English</option><option value="ps">پښتو</option><option value="prs">دري</option><option value="fa">فارسی</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="zh">中文</option></select></label>
-        <label class="settings-field"><span>More themes</span><select id="settingsTheme" class="control"><option value="clinical">Light</option><option value="dark">Dark</option><option value="ocean">Blue</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option></select></label>
-        <div class="settings-links"><a href="./about.html">About</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./offline.html">Offline packs</a></div>
-      </div>
-    </section>
-  </div>
-
-  <nav class="mobile-bottom-nav v20-mobile-nav" aria-label="Mobile navigation">
-    <a data-v20-mobile="home" href="./app.html#dashboard"><i class="bi bi-house-door"></i><span>Home</span></a>
-    <a data-v20-mobile="dictionary" class="active" href="./app.html#dictionary"><i class="bi bi-journal-medical"></i><span>Dictionary</span></a>
-    <a data-v20-mobile="anatomy" href="./anatomy.html"><i class="bi bi-box"></i><span>3D Anatomy</span></a>
-    <a data-v20-mobile="ai" href="./ai.html"><i class="bi bi-stars"></i><span>AI Study</span></a>
-    <button data-v20-mobile="more" type="button"><i class="bi bi-grid"></i><span>More</span></button>
-  </nav>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="Offline-first medical dictionary, clinical reference, interactive 3D anatomy and local study tools." name="description"/>
+<meta content="#0a2a4a" name="theme-color"/>
+<link href="./manifest.webmanifest" rel="manifest"/>
+<link href="./assets/icons/icon-192.png" rel="icon"/>
+<link href="./assets/icons/apple-touch-icon-180.png" rel="apple-touch-icon"/>
+<link href="./assets/css/styles.css?v=20.17.1" rel="stylesheet"/>
+<link href="./assets/css/v20-dictionary-foundation.css?v=20.17.1" rel="stylesheet"/>
+<title>Dictionary · Suhail Medical Dictionary</title>
+<link href="./assets/vendor/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+<link href="./assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet"/>
+<link href="./assets/css/v20-shell.css?v=20.17.1" rel="stylesheet"/>
+<link href="./assets/css/v20-dictionary.css?v=20.17.1" rel="stylesheet"/>
+<link href="./assets/css/v20-reference.css?v=20.17.1" rel="stylesheet"/>
+<link href="./assets/css/v20-release.css?v=20.17.1" rel="stylesheet"/>
+<link href="./assets/css/v20-17-repair.css?v=20.17.1" rel="stylesheet"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="yes" name="mobile-web-app-capable"/><meta content="default" name="apple-mobile-web-app-status-bar-style"/><meta content="Suhail Medical" name="apple-mobile-web-app-title"/></head>
+<body class="workspace-page auth-pending" data-build="20.17.1" data-theme="clinical">
+<a class="v20-skip-link" href="#dictionary">Skip to main content</a>
+<div class="session-loader" id="sessionLoader"><div class="loader-ring"></div><p>Opening your study workspace…</p></div>
+<div class="med-app-shell">
+<aside aria-label="Primary navigation" class="med-sidebar">
+<a aria-label="Suhail Medical Dictionary home" class="med-brand" href="./app.html">
+<span class="med-brand-mark"><img alt="" src="./assets/images/logo-book.svg"/></span>
+<span><strong>Suhail</strong><small>Medical Dictionary</small></span>
+</a>
+<nav class="med-nav">
+<a class="med-nav-item" href="#dictionary"><span class="nav-ico">▣</span><span>Dictionary</span><span aria-hidden="true" class="nav-arrow">›</span></a>
+<a class="med-nav-item v20-reference-link" href="#clinical-reference"><span class="nav-ico"><i aria-hidden="true" class="bi bi-clipboard2-pulse"></i></span><span>Clinical Reference</span></a>
+<a class="med-nav-item v19-anatomy-link" href="./anatomy.html"><span class="nav-ico v19-cube-icon">◇</span><span>3D Anatomy</span></a>
+<a class="med-nav-item" href="./ai.html"><span class="nav-ico">✦</span><span>AI Study</span><span class="nav-badge">New</span></a>
+<button class="med-nav-item" id="selectedButton" type="button"><span class="nav-ico">◇</span><span>Selected</span><b class="nav-count" id="selectedCount">0</b></button>
+<a class="med-nav-item" href="./offline.html"><span class="nav-ico">⇩</span><span>Offline Packs</span></a>
+<button class="med-nav-item" id="bookmarksButton" type="button"><span class="nav-ico">★</span><span>Bookmarks</span><b class="nav-count" id="bookmarksCount">0</b></button>
+<button class="med-nav-item" id="historyButton" type="button"><span class="nav-ico">◷</span><span>History</span></button>
+<span class="med-nav-separator"></span>
+<a class="med-nav-item" href="./about.html"><span class="nav-ico">ⓘ</span><span>About</span></a>
+<button class="med-nav-item" id="settingsButton" type="button"><span class="nav-ico">⚙</span><span>Settings</span></button>
+</nav>
+<button class="med-nav-item v19-sidebar-install" data-install-app="" type="button"><span class="nav-ico">⇩</span><span>Install App</span></button>
+<div class="med-side-promo v20-study-card">
+<div aria-hidden="true" class="v20-study-card-icon"><i class="bi bi-cloud-check"></i></div>
+<strong>Offline-ready<br/>medical study</strong>
+<small>Dictionary, saved 3D anatomy and downloaded packs stay available offline. Local AI Study works offline; optional cloud AI needs internet.</small>
+<a class="promo-button" href="./offline.html">Manage Offline Packs <span>→</span></a>
+</div>
+<div class="v17-sidebar-quote">Knowledge heals<br/>beyond boundaries.<small>Suhail Medical Dictionary<br/>v20.17.1</small></div>
+</aside>
+<div class="med-main">
+<header class="med-topbar">
+<div class="global-search-wrap">
+<span class="search-glyph">⌕</span>
+<input aria-label="Search medical dictionary" autocomplete="off" class="global-search" id="searchInput" placeholder="Search medical terms, conditions, anatomy, or concepts..."/>
+<kbd>Ctrl K</kbd>
+</div>
+<div class="med-top-actions">
+<span class="status-chip" id="networkStatus"><i></i>Online</span>
+<select aria-label="Dictionary language" class="control compact top-select" id="contentLanguage"><option value="en">🌐 English</option><option value="ps">پښتو</option><option value="prs">دري</option><option value="fa">فارسی</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="zh">中文</option></select>
+<select aria-label="Theme" class="control compact top-select" id="themeSelect"><option value="clinical">☾ Light</option><option value="dark">◐ Dark</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option></select>
+<button class="v19-install-button" data-install-app="" id="v19InstallApp" type="button"><span>⇩</span><b>Install App</b></button>
+<div class="account-wrap">
+<button aria-expanded="false" aria-haspopup="menu" class="med-account" id="accountButton" type="button"><span class="avatar-dot">●</span><span class="account-lines"><b>Account</b><small>Medical Learner</small></span><span aria-hidden="true" class="account-chevron">▾</span></button>
+<div aria-label="Account menu" class="account-menu hidden" id="accountMenu" role="menu">
+<div class="account-menu-user"><span class="account-menu-avatar">●</span><div><strong id="accountMenuName">Account</strong><small id="accountMenuEmail">Local / optional cloud account</small></div></div>
+<button class="account-menu-action" id="switchAccountButton" role="menuitem" type="button">↻ Use another email</button>
+<button class="account-menu-action danger" id="signOutButton" role="menuitem" type="button">⇥ Sign out</button>
+</div>
+</div>
+</div>
+</header>
+<main class="med-content" id="dictionary">
+<section class="med-hero" id="dictionary-home">
+<div class="hero-copy">
+<span class="section-kicker">Explore · Learn · Apply</span>
+<h1><em>Suhail</em> Medical <span>Dictionary</span></h1>
+<p class="hero-tagline">Trusted medical knowledge for a healthier tomorrow.<br/>Simple. Accurate. Always with you.</p>
+<p class="hero-counts" id="resultSummary">Loading terms…</p>
+<div aria-label="Dictionary highlights" class="hero-stats">
+<div class="hero-stat"><i class="stat-icon shield">◇</i><strong id="heroTermStat">—</strong><span>Medical Terms</span></div>
+<div class="hero-stat"><i class="stat-icon stetho">♧</i><strong id="heroSpecialtyStat">—</strong><span>Specialties</span></div>
+<div class="hero-stat"><i class="stat-icon globe">◎</i><strong>7</strong><span>Languages</span></div>
+<div class="hero-stat"><i class="stat-icon cap">◇</i><strong>3D</strong><span>Interactive Anatomy</span></div>
+</div>
+</div>
+<div aria-hidden="true" class="hero-art">
+<img alt="" data-v16-hero-art="" decoding="async" loading="lazy" src="./assets/images/v16/hero-art-light.webp"/>
+</div>
+</section>
+<section aria-labelledby="clinicalReferenceTitle" class="v20-clinical-reference panel-card" id="clinical-reference">
+<div class="v20-reference-head">
+<div>
+<span class="section-kicker">Clinical Reference</span>
+<h2 id="clinicalReferenceTitle">Find the right medical reference path</h2>
+<p>Original Suhail workspace structure for conditions, medicines, procedures, study tools and upcoming clinical utilities.</p>
+</div>
+<a class="v20-reference-anatomy" href="./anatomy.html"><i class="bi bi-box"></i><span>Open 3D Anatomy</span></a>
+</div>
+<div aria-live="polite" class="v20-reference-grid" id="clinicalReferenceGrid">
+<div class="v20-reference-loading">Loading clinical reference modules…</div>
+</div>
+<section aria-hidden="true" class="v20-reference-workspace" hidden="" id="clinicalReferenceWorkspace">
+<header class="v20-reference-workspace-head">
+<div><span class="section-kicker">Phase 9 Clinical Reference</span><h3>Clinical learning tools</h3><p>Expanded conditions, procedure/test reference cards, pharmacology concepts, seven source-bounded formula tools and a safety-gated interaction data contract.</p></div>
+<button aria-label="Close clinical reference workspace" class="v20-reference-workspace-close" id="referenceWorkspaceClose" type="button">×</button>
+</header>
+<nav aria-label="Clinical reference modules" class="v20-reference-tabs" role="tablist">
+<button aria-selected="true" data-ref-tab="conditions" role="tab" type="button">Conditions</button>
+<button aria-selected="false" data-ref-tab="pharmacology" role="tab" type="button">Pharmacology</button>
+<button aria-selected="false" data-ref-tab="procedures" role="tab" type="button">Procedures</button>
+<button aria-selected="false" data-ref-tab="calculators" role="tab" type="button">Calculators</button>
+<button aria-selected="false" data-ref-tab="interactions" role="tab" type="button">Interaction Safety</button>
+<button aria-selected="false" data-ref-tab="learning" role="tab" type="button">Learning</button>
+</nav>
+<div class="v20-reference-tools">
+<label class="v20-reference-search"><i aria-hidden="true" class="bi bi-search"></i><input autocomplete="off" id="referenceSearch" placeholder="Search this reference module…" type="search"/></label>
+<select aria-label="Filter by specialty or group" class="v20-reference-filter" id="referenceGroup"><option value="all">All groups</option></select>
+<select aria-label="Sort reference entries" class="v20-reference-filter" id="referenceSort"><option value="name">A–Z</option><option value="group">Group</option></select>
+<button class="v20-reference-clear" id="referenceClear" type="button">Clear</button>
+<span aria-live="polite" class="v20-reference-count" id="referenceCount"></span>
+</div>
+<div aria-live="polite" class="v20-reference-content" id="referenceWorkspaceContent"></div>
+</section>
+<p class="v20-reference-note"><i class="bi bi-shield-check"></i> Educational reference only. Phase 9 expands conditions, procedures, joints, neurovascular references, pharmacology concepts and physiology formula tools. Numeric calculators do not provide diagnosis or treatment interpretation; medication-pair advice remains intentionally safety-gated.</p>
+</section>
+<section class="med-search-panel panel-card">
+<div class="med-search-row">
+<div class="hero-search"><span>⌕</span><input aria-label="Search medical dictionary" class="control" id="heroSearchMirror" placeholder="Search for a medical term or synonym..."/></div>
+<button class="button primary hero-search-button" id="heroSearchButton" type="button"><span>⌕</span> Search</button>
+<div class="specialty-select-wrap"><span>🩺</span><select aria-label="Filter dictionary by category" class="control" id="categorySelect"><option value="all">All Categories</option></select></div>
+<button class="advanced-filters-button" id="advancedFiltersButton" type="button">☷ Advanced Filters</button>
+</div>
+<div class="category-chip-row" id="categoryChipRow">
+<button class="category-chip active" data-category-chip="all" type="button"><span>▦</span>All</button>
+<button class="category-chip" data-category-chip="cardiology" type="button"><span>♡</span>Cardiology</button>
+<button class="category-chip" data-category-chip="endocrinology" type="button"><span>◒</span>Endocrinology</button>
+<button class="category-chip" data-category-chip="pulmonology" type="button"><span>◌</span>Pulmonology</button>
+<button class="category-chip" data-category-chip="neurology" type="button"><span>⌘</span>Neurology</button>
+<button class="category-chip" data-category-chip="orthopedics" type="button"><span>◇</span>Orthopedics</button>
+<button class="category-chip" data-category-chip="surgery" type="button"><span>✂</span>Surgery</button>
+</div>
+</section>
+<section class="med-work-area">
+<div class="results-column">
+<div class="results-toolbar">
+<strong aria-live="polite" id="resultsCountLabel" role="status">Medical terms</strong>
+<div class="results-controls">
+<button aria-pressed="false" class="select-all-control" id="selectAllFiltered" title="Select all terms in the current filter" type="button"><span aria-hidden="true" class="select-all-box"></span><span id="selectAllText">Select all</span></button>
+<select aria-label="Sort medical terms" class="sort-pill" id="sortSelect"><option value="relevant">Most relevant</option><option value="az">A–Z</option><option value="za">Z–A</option></select>
+<button aria-label="Grid view" class="view-toggle active" id="gridViewButton" type="button">▦</button><button aria-label="List view" class="view-toggle" id="listViewButton" type="button">☷</button>
+</div>
+</div>
+<div aria-live="polite" class="term-grid" id="termGrid"></div>
+</div>
+<aside aria-live="polite" class="detail-panel panel-card" id="detailPanel">
+<div class="empty-state"><div class="empty-icon">＋</div><h2>Select a term</h2><p>Meaning, explanation, pronunciation, synonyms and study actions will appear here.</p></div>
+</aside>
+</section>
+<section aria-label="Dictionary tools" class="utility-strip panel-card">
+<div><strong>Selected-term tools</strong><small>Print, export or study the terms you choose.</small></div>
+<div class="utility-buttons">
+<button class="button primary" id="aiSelectedButton">✦ Ask AI about selected</button>
+<button class="button soft-button" id="printSelected">Print</button>
+<button class="button soft-button" id="pdfSelected">Selected PDF</button>
+<button class="button soft-button" id="pdfCategory">Specialty PDF</button>
+<button class="button soft-button" id="pdfAllZip">All PDFs ZIP</button>
+</div>
+<div class="offline-utility">
+<button class="button soft-button" id="downloadOfflineButton">⇩ Download offline pack</button>
+<button class="text-button" id="removeOfflineButton">Remove offline data</button>
+<progress hidden="" id="offlineProgress" max="100" value="0"></progress><span class="microcopy" id="offlineStatus"></span>
+</div>
+</section>
+<section aria-label="Medical study assistant" class="study-assistant-strip panel-card">
+<div aria-hidden="true" class="study-bot">✦</div>
+<div><strong>Ask Suhail AI</strong><small>Get instant answers, explanations, and study help from our AI medical assistant.</small></div>
+<a class="assistant-ask" href="./ai.html"><span>Ask anything about medicine…</span><b>→</b></a><em class="v17-assistant-quote">“A smarter way<br/>to learn medicine.”</em>
+</section>
+<div class="pwa-actions v6-pwa"><span class="version-chip">v<span id="appVersion">—</span></span><button class="button primary compact hidden" id="updateAppButton">Update app</button><button class="button soft-button compact hidden" id="installButton">Install</button></div>
+</main>
+</div>
+</div>
+<div aria-hidden="true" class="settings-overlay hidden" id="settingsOverlay">
+<section aria-labelledby="settingsTitle" aria-modal="true" class="settings-card appearance-card" role="dialog">
+<div class="settings-card-head appearance-head">
+<button aria-label="Close settings" class="round-button appearance-back" id="closeSettingsButton" type="button">‹</button>
+<div><h2 id="settingsTitle">Appearance</h2><p>Choose your preferred theme</p></div>
+<button aria-label="Appearance preview" class="appearance-sun" type="button">☼</button>
+</div>
+<div aria-label="Theme" class="appearance-theme-grid" role="radiogroup">
+<button aria-checked="false" class="appearance-theme-card" data-theme-choice="clinical" role="radio" type="button"><span class="theme-preview light-preview"><i></i></span><b>Light</b><small>Clean &amp; Bright</small></button>
+<button aria-checked="false" class="appearance-theme-card" data-theme-choice="ocean" role="radio" type="button"><span class="theme-preview blue-preview"><i></i></span><b>Blue</b><small>Default</small></button>
+<button aria-checked="false" class="appearance-theme-card" data-theme-choice="dark" role="radio" type="button"><span class="theme-preview midnight-preview"><i></i></span><b>Midnight</b><small>Deep &amp; Calm</small></button>
+</div>
+<div class="appearance-section">
+<h3>Background Style</h3>
+<div aria-label="Background style" class="appearance-background-grid" role="radiogroup">
+<button aria-checked="false" data-bg-choice="nebula" role="radio" type="button"><span class="bg-preview nebula"></span><small>Nebula</small></button>
+<button aria-checked="false" data-bg-choice="bubbles" role="radio" type="button"><span class="bg-preview bubbles"></span><small>Bubbles</small></button>
+<button aria-checked="false" data-bg-choice="aurora" role="radio" type="button"><span class="bg-preview aurora"></span><small>Aurora</small></button>
+<button aria-checked="false" data-bg-choice="minimal" role="radio" type="button"><span class="bg-preview minimal"></span><small>Minimal</small></button>
+</div>
+</div>
+<div class="appearance-section accent-section">
+<h3>Accent Color</h3>
+<div aria-label="Accent color" class="appearance-accent-row" role="radiogroup">
+<button aria-checked="false" aria-label="Blue" data-accent-choice="blue" role="radio" type="button"></button>
+<button aria-checked="false" aria-label="Violet" data-accent-choice="violet" role="radio" type="button"></button>
+<button aria-checked="false" aria-label="Cyan" data-accent-choice="cyan" role="radio" type="button"></button>
+<button aria-checked="false" aria-label="Green" data-accent-choice="green" role="radio" type="button"></button>
+<button aria-checked="false" aria-label="Amber" data-accent-choice="amber" role="radio" type="button"></button>
+<button aria-checked="false" aria-label="Pink" data-accent-choice="pink" role="radio" type="button"></button>
+</div>
+</div>
+<div class="appearance-toggles">
+<label><span><i>☼</i>Animations &amp; Effects</span><input checked="" id="appearanceAnimations" type="checkbox"/><b></b></label>
+<label><span><i>⌘</i>3D Model Glow</span><input checked="" id="appearanceGlow" type="checkbox"/><b></b></label>
+<label><span><i>⊙</i>Reduce Motion</span><input id="appearanceReduceMotion" type="checkbox"/><b></b></label>
+</div>
+<button class="appearance-apply" id="appearanceApply" type="button">Apply Theme</button>
+<div class="appearance-secondary">
+<label class="settings-field"><span>Dictionary language</span><select class="control" id="settingsLanguage"><option value="en">English</option><option value="ps">پښتو</option><option value="prs">دري</option><option value="fa">فارسی</option><option value="tr">Türkçe</option><option value="ar">العربية</option><option value="zh">中文</option></select></label>
+<label class="settings-field"><span>More themes</span><select class="control" id="settingsTheme"><option value="clinical">Light</option><option value="dark">Dark</option><option value="ocean">Blue</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option></select></label>
+<div class="settings-links"><a href="./about.html">About</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./offline.html">Offline packs</a></div>
+</div>
+</section>
+</div>
+<nav aria-label="Mobile navigation" class="mobile-bottom-nav v20-mobile-nav"><a class="active" data-v20-mobile="dictionary" href="./app.html#dictionary"><i class="bi bi-journal-medical"></i><span>Dictionary</span></a><a data-v20-mobile="anatomy" href="./anatomy.html"><i class="bi bi-box"></i><span>3D Anatomy</span></a><a data-v20-mobile="ai" href="./ai.html"><i class="bi bi-stars"></i><span>AI Study</span></a><a data-v20-mobile="offline" href="./offline.html"><i class="bi bi-cloud-arrow-down"></i><span>Offline</span></a><button data-v20-mobile="more" type="button"><i class="bi bi-grid"></i><span>More</span></button></nav>
+<script>
     // Independent boot watchdog: even if a module/CDN fails, never leave users on an endless spinner.
     window.setTimeout(function(){
       var loader=document.getElementById('sessionLoader');
       if(!loader || !document.body.classList.contains('auth-pending')) return;
-      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v20.16.0). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
+      loader.innerHTML='<div class="session-error-card"><h2>Workspace could not start</h2><p>The workspace script did not start (build v20.17.1). Reload once; if needed return to sign in.</p><div class="session-error-actions"><button class="button primary" onclick="location.reload()">Retry</button><a class="button ghost" href="./index.html">Back to sign in</a></div></div>';
     },12000);
   </script>
-  <script>
+<script>
 'use strict';
 (()=>{
 const UI={
@@ -293,7 +262,7 @@ const CONFIG={
   appName: 'Suhail Medical Dictionary',
   meshVersion: '2026',
   autoApplyUpdates: true,
-  uiVersion: '20.16.0'
+  uiVersion: '20.17.1'
 };
 // v5 uses Supabase Auth + PostgREST directly. No remote JavaScript SDK is required,
 // so the workspace cannot be blocked by an SDK CDN or Web Locks/session-init deadlock.
@@ -528,9 +497,9 @@ const {peekSession,getSupabase,currentSession,signOut,logEvent,getMyProfile,setO
 // Optional features are lazy-loaded only after the core dictionary is allowed to open.
 // A PDF/AI/PWA module failure must never prevent the workspace from starting.
 let aiModulePromise=null, exportModulePromise=null, pwaModulePromise=null;
-const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=20.16.0'));
-const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=20.16.0'));
-const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=20.16.0'));
+const aiModule=()=>aiModulePromise||(aiModulePromise=import('./assets/js/ai.js?v=20.17.1'));
+const exportModule=()=>exportModulePromise||(exportModulePromise=import('./assets/js/export.js?v=20.17.1'));
+const pwaModule=()=>pwaModulePromise||(pwaModulePromise=import('./assets/js/pwa.js?v=20.17.1'));
 async function createChat(...a){return (await aiModule()).createChat(...a);} async function listChats(...a){return (await aiModule()).listChats(...a);} async function loadMessages(...a){return (await aiModule()).loadMessages(...a);} async function renameChat(...a){return (await aiModule()).renameChat(...a);} async function deleteChat(...a){return (await aiModule()).deleteChat(...a);} async function editUserMessage(...a){return (await aiModule()).editUserMessage(...a);} async function askAI(...a){return (await aiModule()).askAI(...a);} async function translateTerm(...a){return (await aiModule()).translateTerm(...a);}
 function printTerms(...a){exportModule().then(m=>m.printTerms(...a)).catch(()=>alert('Print tools could not start. Reload once and retry.'));}
 async function pdfTerms(...a){try{return await (await exportModule()).pdfTerms(...a);}catch{return alert('PDF tools could not start. Use Print → Save as PDF.');}}
@@ -631,6 +600,7 @@ function bindUI(){
  if(requested==='selected'){$('#selectedButton')?.click();}
  else if(requested==='bookmarks'){$('#bookmarksButton')?.click();}
  else if(requested==='history'){$('#historyButton')?.click();}
+ else if(requested==='settings'){setTimeout(()=>$('#settingsButton')?.click(),0);}
 }
 
 function filter(){const src=state.index?.terms||[];state.filtered=src.filter(t=>(state.category==='all'||t.category===state.category)&&(!state.query||(`${t.term} ${(t.synonyms||[]).join(' ')}`).toLowerCase().includes(state.query)));renderTerms();}
@@ -857,9 +827,9 @@ init().catch(err=>{console.error(err);$('#termGrid').innerHTML=`<div class="empt
 })();
 
 </script>
-  <script src="./assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="./assets/js/v20-shell.js?v=20.16.0" defer></script>
-  <script src="./assets/js/v20-reference.js?v=20.16.0" defer></script>
-  <script src="./assets/js/v20-dictionary.js?v=20.16.0" defer></script>
-</body>
+<script src="./assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script defer="" src="./assets/js/v20-shell.js?v=20.17.1"></script>
+<script defer="" src="./assets/js/v20-reference.js?v=20.17.1"></script>
+<script defer="" src="./assets/js/v20-dictionary.js?v=20.17.1"></script>
+<script defer="True" src="./assets/js/v20-17-repair.js?v=20.17.1"></script></body>
 </html>

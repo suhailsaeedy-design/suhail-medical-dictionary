@@ -1,4 +1,4 @@
-import {CONFIG} from './config.js?v=20.16.0';
+import {CONFIG} from './config.js?v=20.17.1';
 const $=s=>document.querySelector(s);let refreshing=false,registration=null;
 const EXTERNAL=[];
 export async function initPWA({categories=[]}={}){

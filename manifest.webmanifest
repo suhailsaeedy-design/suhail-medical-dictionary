@@ -3,12 +3,12 @@
   "name": "Suhail Medical Dictionary & 3D Anatomy",
   "short_name": "Suhail Medical",
   "description": "Medical dictionary, interactive 3D anatomy, offline learning and AI study assistant.",
-  "start_url": "./index.html",
+  "start_url": "./index.html?source=pwa",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#031524",
-  "theme_color": "#071d33",
+  "background_color": "#eef7ff",
+  "theme_color": "#f8fcff",
   "categories": [
     "education",
     "medical"
@@ -62,5 +62,9 @@
       ]
     }
   ],
-  "version": "20.16.0"
+  "version": "20.17.1",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ]
 }

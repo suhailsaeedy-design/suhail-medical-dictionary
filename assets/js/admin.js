@@ -1,5 +1,5 @@
-import {getSupabase,currentSession,signOut,getMyProfile,logEvent,getLocalEvents,getSavedLocalProfile} from './auth.js?v=20.16.0';
-import {getAIServiceStatus} from './ai.js?v=20.16.0';
+import {getSupabase,currentSession,signOut,getMyProfile,logEvent,getLocalEvents,getSavedLocalProfile} from './auth.js?v=20.17.1';
+import {getAIServiceStatus} from './ai.js?v=20.17.1';
 
 const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -8,14 +8,16 @@ let users=[];
 let localMode=false;
 
 async function init(){
-  const theme=localStorage.getItem('smd-theme')||'dark';
+  const theme=localStorage.getItem('smd-theme')||'clinical';
   document.body.dataset.theme=theme;if($('#themeSelect'))$('#themeSelect').value=theme;
   bindShell();updateNetwork();await loadLocalContentHealth();
   const sess=await currentSession();
-  if(!sess){location.replace('./index.html');return;}
+  if(!sess){location.replace('./admin-login.html');return;}
   const me=await getMyProfile();
-  if(!me?.is_owner){showGate('Access denied','This page is restricted to the configured owner account.');return;}
   localMode=!!sess.local_only;
+  const localAdminUnlocked=sessionStorage.getItem('smd-admin-unlocked-v1')==='1';
+  if(localMode&&!localAdminUnlocked){location.replace('./admin-login.html');return;}
+  if(!localMode&&!me?.is_owner){showGate('Access denied','This page is restricted to the configured owner account.');return;}
   $('#adminGate')?.classList.add('hidden');$('#adminContent')?.classList.remove('hidden');
   if(localMode){
     setText('adminDbStatus','Local device storage');
@@ -23,17 +25,17 @@ async function init(){
     setText('auditUser','Zero-Cost local mode keeps chats private on this device. Cross-user chat audit is disabled because there is no shared cloud database.');
     const sel=$('#auditChatSelect');if(sel){sel.innerHTML='<option value="">Local privacy mode</option>';sel.disabled=true;}
     if($('#auditMessages'))$('#auditMessages').innerHTML='<div class="v20-admin-empty"><i class="bi bi-device-ssd"></i><span>Local-only mode: chat data stays on this device and is not exposed through an owner audit interface.</span></div>';
-    await Promise.allSettled([loadLocalAdmin(sess),loadAiHealth(null,true),logEvent('admin_page_open',{build:'20.16.0',mode:'local-free'})]);
+    await Promise.allSettled([loadLocalAdmin(sess),loadAiHealth(null,true),logEvent('admin_page_open',{build:'20.17.1',mode:'local-free'})]);
   }else{
     const sb=await getSupabase();
     if(!sb){showGate('Admin unavailable','Cloud account connection is not configured. Use a local Zero-Cost account or configure the optional free cloud service.');return;}
-    await Promise.allSettled([loadAll(sb),logEvent('admin_page_open',{build:'20.16.0',mode:'optional-cloud'})]);
+    await Promise.allSettled([loadAll(sb),logEvent('admin_page_open',{build:'20.17.1',mode:'optional-cloud'})]);
   }
 }
 
 function bindShell(){
   $('#themeSelect')?.addEventListener('change',e=>{document.body.dataset.theme=e.target.value;localStorage.setItem('smd-theme',e.target.value);});
-  $('#adminSignOut')?.addEventListener('click',async()=>{await signOut();location.href='./index.html';});
+  $('#adminSignOut')?.addEventListener('click',async()=>{sessionStorage.removeItem('smd-admin-unlocked-v1');await signOut();location.href='./index.html';});
   $('#refreshAdmin')?.addEventListener('click',async()=>{
     const sess=await currentSession();
     if(sess?.local_only)await loadLocalAdmin(sess);else{const sb=await getSupabase();if(sb)await loadAll(sb);}

@@ -1,5 +1,5 @@
 {
-  "version": "20.16.0",
+  "version": "20.17.1",
   "packs": [
     {
       "id": "core-dictionary",
@@ -27,7 +27,9 @@
         "./data/categories/immunology.json",
         "./data/categories/infectious-disease.json",
         "./data/categories/nephrology-urology.json",
-        "./data/categories/ophthalmology.json"
+        "./data/categories/ophthalmology.json",
+        "./assets/css/v20-17-repair.css",
+        "./assets/js/v20-17-repair.js"
       ]
     },
     {
@@ -64,13 +66,15 @@
         "./assets/js/ai.js",
         "./assets/js/auth.js",
         "./assets/js/config.js",
-        "./assets/js/export.js"
+        "./assets/js/export.js",
+        "./assets/css/v20-17-repair.css",
+        "./assets/js/v20-17-repair.js"
       ]
     },
     {
       "id": "anatomy-core",
       "name": "3D Anatomy Core",
-      "description": "Offline 3D Anatomy core with all 624 selectable schematic models, including detailed eye, teeth/dental morphology, sinonasal drainage, oral neurovascular, skeleton, joints and major systems.",
+      "description": "Offline 3D Anatomy core with 624 selectable schematic models, direct HD male/female whole-body skeleton profiles, click/tap selection, voice labels and anatomy layers.",
       "kind": "anatomy",
       "recommended": true,
       "urls": [
@@ -714,7 +718,10 @@
         "./assets/models/anatomy/regions/sinuses-left_ethmoid_bulla.obj",
         "./assets/models/anatomy/regions/sinuses-right_ethmoid_bulla.obj",
         "./assets/models/anatomy/regions/sinuses-left_superior_meatus.obj",
-        "./assets/models/anatomy/regions/sinuses-right_superior_meatus.obj"
+        "./assets/models/anatomy/regions/sinuses-right_superior_meatus.obj",
+        "./assets/css/v20-17-repair.css",
+        "./assets/models/anatomy/hd/skeleton-male.obj",
+        "./assets/models/anatomy/hd/skeleton-female.obj"
       ],
       "sizeLabel": "11.0 MB source assets"
     },

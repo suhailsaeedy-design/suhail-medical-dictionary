@@ -1,5 +1,5 @@
-const BUILD_VERSION='20260919220845';
-const VERSION=`smd-${/^__BUILD_/.test(BUILD_VERSION)?'20.16.0-source':BUILD_VERSION}`;
+const BUILD_VERSION='20260920085540';
+const VERSION=`smd-${/^__BUILD_/.test(BUILD_VERSION)?'20.17.1-source':BUILD_VERSION}`;
 const STATIC_CACHE=`${VERSION}-static`;
 const DATA_CACHE=`${VERSION}-data`;
 const RUNTIME_CACHE=`${VERSION}-runtime`;
@@ -7,15 +7,16 @@ const CORE=[
   './assets/vendor/bootstrap/bootstrap.min.css','./assets/vendor/bootstrap/bootstrap.bundle.min.js','./assets/vendor/bootstrap-icons/bootstrap-icons.min.css','./assets/vendor/jszip.min.js','./assets/css/styles.css',
   './assets/css/v20-release.css','./assets/css/v20-login.css','./assets/css/v20-shell.css','./assets/css/v20-dictionary.css','./assets/css/v20-reference.css','./assets/css/v20-anatomy.css',
   './assets/css/v20-ai.css','./assets/css/v20-admin.css','./assets/css/v20-about.css','./assets/css/v20-offline.css','./assets/css/v20-legal.css',
-  './assets/css/v20-dictionary-foundation.css','./assets/js/config.js','./assets/js/auth.js',
+  './assets/css/v20-dictionary-foundation.css','./assets/css/v20-17-repair.css','./assets/css/v20-admin-login.css','./assets/js/config.js','./assets/js/auth.js',
   './assets/js/ai.js','./assets/js/ai-page.js','./assets/js/admin.js','./assets/js/about.js','./assets/js/export.js',
   './assets/js/pwa.js','./assets/js/v20-login.js','./assets/js/v20-shell.js','./assets/js/v20-dictionary.js','./assets/js/v20-reference.js',
-  './assets/js/v20-anatomy.js','./assets/js/v20-offline.js','./','./index.html','./app.html',
+  './assets/js/v20-anatomy.js','./assets/js/v20-offline.js','./assets/js/v20-17-repair.js','./assets/js/admin-login.js','./','./index.html','./app.html','./admin-login.html',
   './anatomy.html','./ai.html','./admin.html','./about.html','./privacy.html',
   './terms.html','./offline.html','./manifest.webmanifest','./version.json','./ai-config.json',
   './data/index.json','./data/feature-coverage.json','./data/packs.json','./data/offline/manifest.json','./data/anatomy/manifest.json','./data/anatomy/structures.json','./data/clinical-reference.json',
   './data/reference/diseases.json','./data/reference/pharmacology.json','./data/reference/procedures.json','./data/reference/calculators.json','./data/reference/interactions.json',
-  './data/reference/learning.json','./data/i18n/medical-ui.json','./data/i18n/medical-terms-ps-prs.json','./assets/icons/icon-192.png','./assets/icons/icon-512.png','./assets/images/suhail-saeedy.webp','./assets/models/anatomy/low/skeleton.obj',
+  './data/reference/learning.json','./data/i18n/medical-ui.json','./data/i18n/medical-terms-ps-prs.json','./assets/models/anatomy/hd/skeleton-male.obj','./assets/models/anatomy/hd/skeleton-female.obj','./assets/icons/icon-192.png',
+  './assets/icons/apple-touch-icon-180.png','./assets/icons/icon-512.png','./assets/images/suhail-saeedy.webp','./assets/models/anatomy/low/skeleton.obj',
   './assets/models/anatomy/low/muscles.obj','./assets/models/anatomy/low/organs.obj','./assets/models/anatomy/low/systems.obj','./assets/models/anatomy/low/ligaments.obj','./assets/models/anatomy/low/joints.obj','./assets/models/anatomy/low/nerves.obj','./assets/models/anatomy/low/vessels.obj','./assets/images/logo-book.svg','./assets/images/medical-3d/anatomy.svg',
   './assets/images/medical-3d/capsule.svg','./assets/images/medical-3d/dna.svg','./assets/images/medical-3d/heart.svg','./assets/images/medical-3d/hero-books.svg','./assets/images/medical-3d/kidneys.svg',
   './assets/images/medical-3d/lungs.svg','./assets/images/medical-3d/membrane.svg','./assets/images/medical-3d/microbe.svg','./assets/images/medical-3d/molecule-a.svg','./assets/images/medical-3d/molecule-b.svg',

@@ -1,5 +1,5 @@
-import {CONFIG} from './config.js?v=20.16.0';
-import {currentSession,signInWithGoogle,signInLocal,getSavedLocalProfile,cloudConfigured,signOut,getMyProfile,setOwnerReviewConsent,logEvent} from './auth.js?v=20.16.0';
+import {CONFIG} from './config.js?v=20.17.1';
+import {currentSession,signInWithGoogle,signInLocal,getSavedLocalProfile,cloudConfigured,signOut,getMyProfile,setOwnerReviewConsent,logEvent} from './auth.js?v=20.17.1';
 
 const $=s=>document.querySelector(s);
 const RTL=new Set(['ps','prs','fa','ar']);
@@ -18,7 +18,7 @@ function tx(){return T[lang()]||T.en}
 function setStatus(msg='',type=''){const el=$('#authStatus');el.textContent=msg;el.className='v20-auth-status'+(type?' '+type:'')}
 function updateOnline(){const on=navigator.onLine;$('#loginOnline').classList.toggle('offline',!on);$('#loginOnline').querySelector('span').textContent=on?'Online':'Offline';if(!on&&!session)setStatus(tx().offline,'warning')}
 function applyLanguage(code){localStorage.setItem('smd-ui-lang',code);document.documentElement.lang=code;document.documentElement.dir=RTL.has(code)?'rtl':'ltr';const t=T[code]||T.en;$('#loginTitle').textContent=t.title;$('#loginSubtitle').textContent=t.sub;$('#currentAccountText').textContent=t.current;$('#otherAccountText').textContent=t.other;if(!session)$('#currentEmailText').textContent=t.none}
-function applyTheme(){const stored=localStorage.getItem('smd-theme')||'dark';const theme=stored==='clinical'?'light':'dark';document.body.dataset.theme=theme;$('#loginTheme').querySelector('span').textContent=theme==='dark'?'Dark':'Light';$('#loginTheme').querySelector('i').className=theme==='dark'?'bi bi-moon-stars-fill':'bi bi-sun-fill'}
+function applyTheme(){const stored=localStorage.getItem('smd-theme')||'clinical';const theme=stored==='clinical'?'light':'dark';document.body.dataset.theme=theme;$('#loginTheme').querySelector('span').textContent=theme==='dark'?'Dark':'Light';$('#loginTheme').querySelector('i').className=theme==='dark'?'bi bi-moon-stars-fill':'bi bi-sun-fill'}
 async function loadProfile(){try{return await getMyProfile()}catch{return null}}
 async function routeCurrent(){if(!session){const saved=getSavedLocalProfile();if(saved?.email)session=await signInLocal(saved.email);else return;}if(!profile)profile=await loadProfile();if(profile?.privacy_ack_at){logEvent('login',{provider:session?.local_only?'local':'google',mode:'current'}).catch(()=>{});location.replace('./app.html');return}const modal=bootstrap.Modal.getOrCreateInstance($('#consentModal'));$('#consentEmail').textContent=session.user?.email||'';modal.show()}
 async function startOther(){

@@ -1,8 +1,8 @@
 {
-  "version": "20.16.0",
+  "version": "20.17.1",
   "channel": "final-qa-release",
-  "name": "Suhail Medical Dictionary v20 Final QA Release",
-  "build": "2026-09-19-phase17-final-qa",
-  "release_id": "20260919220845",
-  "releasedAt": "2026-09-19T22:08:45Z"
+  "name": "Suhail Medical Dictionary v20.17.1 Final Verified",
+  "build": "2026-09-20-v20.17.1-final-qa-verified",
+  "release_id": "20260920085540",
+  "releasedAt": "2026-09-20T08:55:40Z"
 }

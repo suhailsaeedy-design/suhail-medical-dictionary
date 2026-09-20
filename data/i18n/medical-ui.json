@@ -1,5 +1,5 @@
 {
-  "version": "20.16.0",
+  "version": "20.17.1",
   "fallback": "en",
   "review_status": "UI labels only; clinical content translations require separate medical review.",
   "locales": {

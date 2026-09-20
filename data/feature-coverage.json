@@ -1,6 +1,6 @@
 {
-  "version": "20.16.0",
-  "generated_for": "Suhail Medical Dictionary v20 Final QA Release",
+  "version": "20.17.1",
+  "generated_for": "Suhail Medical Dictionary v20.17 UI/Anatomy Repair",
   "status_scale": {
     "implemented": "Working local feature exists in this checkpoint.",
     "partial": "Foundation exists, but content/detail coverage is not yet complete.",
@@ -34,7 +34,7 @@
       "id": "anatomy-3d",
       "name": "3D Anatomy",
       "status": "implemented",
-      "details": "Real local OBJ/WebGL viewer with 624 selectable schematic models. Includes retinal/macular and anterior-eye detail, dental morphology, facial/oral nerves and vessels, and deeper sinonasal drainage landmarks. Geometry remains schematic educational anatomy, not a clinically precise dissection atlas.",
+      "details": "Interactive local WebGL anatomy with 624 selectable schematic structures, direct HD whole-body male/female skeleton profiles, click/tap region selection, highlighting, labels, pronunciation, saved views, layers and study presets.",
       "whole_body_lods": 4,
       "isolated_regions": 624,
       "named_structures": 581,
@@ -58,7 +58,8 @@
       "limitations": [
         "The bundled geometry remains schematic educational illustration rather than a clinically precise anatomy atlas.",
         "Not every individual vessel, nerve, muscle, ligament, organ substructure or microscopic structure is modeled separately.",
-        "Not intended for diagnosis, procedural planning or surgery."
+        "Not intended for diagnosis, procedural planning or surgery.",
+        "Whole-body male/female skeleton geometry is procedural educational geometry, not a clinically precise dissection atlas."
       ],
       "coverage_level": "non-exhaustive educational anatomy"
     },

@@ -1,5 +1,5 @@
 {
-  "version": "20.16.0",
+  "version": "20.17.1",
   "kind": "illustrative-anatomy-learning-pack",
   "medical_precision": "Schematic educational geometry for orientation and terminology study; not a clinically precise dissection atlas.",
   "layers": {
@@ -13,7 +13,7 @@
       "lods": {
         "low": "./assets/models/anatomy/low/skeleton.obj",
         "standard": "./assets/models/anatomy/standard/skeleton.obj",
-        "hd": "./assets/models/anatomy/hd/skeleton.obj",
+        "hd": "./assets/models/anatomy/hd/skeleton-male.obj",
         "ultra": "./assets/models/anatomy/ultra/skeleton.obj"
       },
       "regions": [
@@ -202,6 +202,14 @@
         "standard": 5590375,
         "hd": 5590375,
         "ultra": 5590375
+      },
+      "sex_lods": {
+        "male": {
+          "hd": "./assets/models/anatomy/hd/skeleton-male.obj"
+        },
+        "female": {
+          "hd": "./assets/models/anatomy/hd/skeleton-female.obj"
+        }
       }
     },
     "muscles": {

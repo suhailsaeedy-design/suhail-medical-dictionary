@@ -105,7 +105,7 @@ function bindClinicalNav(){
 function syncMobileHash(){
   const hash=location.hash;const mobile=$('.v20-mobile-nav');if(!mobile)return;
   $$('[data-v20-mobile]',mobile).forEach(x=>x.classList.remove('active'));
-  const key=hash==='#dashboard'?'home':'dictionary';$(`[data-v20-mobile="${key}"]`,mobile)?.classList.add('active');
+  const key='dictionary';$(`[data-v20-mobile="${key}"]`,mobile)?.classList.add('active');
 }
 function syncAdminLink(){const top=$('#adminLink'),side=$('#adminSidebarLink');if(!top||!side)return;const sync=()=>side.classList.toggle('hidden',top.classList.contains('hidden'));sync();new MutationObserver(sync).observe(top,{attributes:true,attributeFilter:['class']});}
 

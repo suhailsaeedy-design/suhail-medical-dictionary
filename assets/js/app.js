@@ -38,7 +38,7 @@ async function init(){
  if(!requiredSession){location.replace('./index.html');return;}
  document.body.classList.remove('auth-pending');document.body.classList.add('auth-ready');
  const loader=document.querySelector('#sessionLoader');if(loader)loader.remove();
- document.body.dataset.theme=localStorage.getItem('smd-theme')||'dark';
+ document.body.dataset.theme=localStorage.getItem('smd-theme')||'clinical';
  $('#contentLanguage').value=state.lang;setDir();
  $('#contentLanguage').addEventListener('change',async()=>{state.lang=$('#contentLanguage').value;localStorage.setItem('smd-content-lang',state.lang);setDir();await applyBundledTermNames();renderTerms();if(state.active)showDetail(state.active);});
  $('#themeSelect').value=document.body.dataset.theme;$('#themeSelect').addEventListener('change',e=>{document.body.dataset.theme=e.target.value;localStorage.setItem('smd-theme',e.target.value);});

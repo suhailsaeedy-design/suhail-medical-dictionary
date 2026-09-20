@@ -1,5 +1,5 @@
-import {CONFIG} from './config.js?v=20.16.0';
-import {getSupabase,currentSession,peekSession} from './auth.js?v=20.16.0';
+import {CONFIG} from './config.js?v=20.17.1';
+import {getSupabase,currentSession,peekSession} from './auth.js?v=20.17.1';
 
 let workerConfigPromise=null;
 let localReferencePromise=null;
