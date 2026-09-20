@@ -1,0 +1,102 @@
+/* Suhail Medical Dictionary v20.18.2 — final desktop/mobile layout stabilization */
+:root{--v20182-sidebar:250px;--v20182-top:72px}
+html{scrollbar-gutter:stable;scroll-behavior:smooth}
+body.workspace-page{overflow-x:hidden!important;overflow-y:auto!important;min-height:100dvh!important;background:#eef7ff!important}
+.v2018-drawer-close,.v2018-menu-btn{display:none!important}
+
+/* Desktop shell: sidebar never scrolls away with document content. */
+@media(min-width:821px){
+  .workspace-page .med-app-shell{display:block!important;min-height:100dvh!important;overflow:visible!important}
+  .workspace-page .med-sidebar{position:fixed!important;inset:0 auto 0 0!important;width:var(--v20182-sidebar)!important;min-width:var(--v20182-sidebar)!important;height:100dvh!important;z-index:320!important;padding:14px 13px 14px!important;overflow:hidden!important;overscroll-behavior:none!important;background:linear-gradient(180deg,#fbfdff,#edf8ff)!important}
+  .workspace-page .med-brand{min-height:66px!important;margin-bottom:7px!important;padding:7px 7px 12px!important}
+  .workspace-page .med-nav{gap:2px!important;padding-bottom:4px!important}
+  .workspace-page .med-nav-item{min-height:40px!important;padding:7px 9px!important;font-size:12.5px!important}
+  .workspace-page .med-nav-separator{margin:4px 7px!important}
+  .workspace-page .med-side-promo{margin-top:8px!important;padding:11px 12px!important;border-radius:16px!important}
+  .workspace-page .med-side-promo strong{font-size:13px!important}.workspace-page .med-side-promo small{font-size:9.5px!important;margin-top:5px!important;line-height:1.35!important}
+  .workspace-page .med-side-promo .promo-button{margin-top:7px!important;padding:6px 8px!important;font-size:10px!important}
+  .workspace-page .v17-sidebar-quote{margin:8px 4px 0!important;font-size:9px!important;line-height:1.3!important}
+  .workspace-page .med-main{display:block!important;width:calc(100% - var(--v20182-sidebar))!important;min-height:100dvh!important;height:auto!important;margin-left:var(--v20182-sidebar)!important;overflow:visible!important;background:#eef7ff!important}
+  .workspace-page .med-topbar{position:sticky!important;top:0!important;z-index:250!important;min-height:var(--v20182-top)!important;background:rgba(249,253,255,.97)!important;box-shadow:0 10px 28px rgba(31,79,112,.08)!important}
+  .workspace-page .med-content,.workspace-page .v20-anatomy-content,.workspace-page .v20-ai-main,.workspace-page .v20-offline-main,.workspace-page .v20-about-main{height:auto!important;min-height:calc(100dvh - var(--v20182-top))!important;overflow:visible!important;padding:18px 20px 38px!important;max-width:1600px!important;margin:0 auto!important}
+  .workspace-page .med-content::-webkit-scrollbar{width:10px}
+  .workspace-page .v20-mobile-nav{display:none!important}
+  @media(max-height:760px){.workspace-page .med-sidebar{overflow-y:auto!important}.workspace-page .med-side-promo{display:none!important}}
+}
+
+/* Desktop hero: enough height for title, tag line and all four stats. */
+@media(min-width:821px){
+  .workspace-page #dictionary-home.med-hero,.workspace-page .med-hero{min-height:390px!important;height:auto!important;max-height:none!important;display:grid!important;grid-template-columns:minmax(0,1.1fr) minmax(400px,.9fr)!important;align-items:stretch!important;overflow:hidden!important}
+  .workspace-page .med-hero .hero-copy{min-height:390px!important;max-width:none!important;padding:34px 42px 30px!important;display:flex!important;justify-content:center!important;overflow:visible!important}
+  .workspace-page .med-hero h1{font-size:clamp(48px,4.25vw,68px)!important;line-height:.94!important;margin:10px 0 14px!important;max-width:720px!important}
+  .workspace-page .med-hero .hero-tagline{font-size:16px!important;line-height:1.5!important;max-width:620px!important}
+  .workspace-page .med-hero .hero-stats{grid-template-columns:repeat(4,minmax(112px,1fr))!important;gap:10px!important;max-width:650px!important;margin-top:24px!important}
+  .workspace-page .med-hero .hero-stat{min-height:76px!important;display:grid!important;grid-template-columns:34px minmax(0,1fr)!important;grid-template-rows:auto auto!important;column-gap:9px!important;align-content:center!important;padding:10px 12px!important;border-radius:16px!important}
+  .workspace-page .med-hero .hero-stat::before{display:none!important}.workspace-page .med-hero .stat-icon{grid-row:1/3!important;width:34px!important;height:34px!important;border-radius:10px!important;display:grid!important;place-items:center!important;background:linear-gradient(145deg,#23b7ff,#0c82ea)!important;color:#fff!important;font-style:normal!important;font-size:14px!important;box-shadow:0 6px 14px rgba(16,132,226,.18)!important}
+  .workspace-page .med-hero .hero-stat strong{font-size:18px!important;line-height:1!important}.workspace-page .med-hero .hero-stat span{display:block!important;font-size:9px!important;line-height:1.15!important;color:#68859c!important;white-space:normal!important}
+  .workspace-page .med-hero .hero-art{min-height:390px!important;height:auto!important;align-self:stretch!important;background:#eaf6ff!important}
+  .workspace-page .med-hero .hero-art img{height:100%!important;min-height:390px!important;object-fit:cover!important;object-position:center!important}
+  #clinical-reference{scroll-margin-top:calc(var(--v20182-top) + 14px)!important}
+}
+
+/* Clinical reference overview cards: visible icons, readable copy and stable heights. */
+.workspace-page .v20-clinical-reference{overflow:visible!important}
+.workspace-page .v20-reference-grid{align-items:stretch!important}
+.workspace-page .v20-reference-card{min-height:190px!important;grid-template-columns:50px minmax(0,1fr)!important;grid-template-rows:minmax(0,1fr) auto!important;padding:18px!important;gap:12px!important;overflow:hidden!important}
+.workspace-page .v20-reference-icon{width:50px!important;height:50px!important;border-radius:15px!important;background:linear-gradient(145deg,#dff4ff,#bfe7ff)!important;color:#078bd7!important;border:1px solid #b8dff3!important;font-size:22px!important;box-shadow:inset 0 1px #fff!important}
+.workspace-page .v20-reference-icon i{display:block!important;color:#078bd7!important;opacity:1!important;font-size:22px!important}
+.workspace-page .v20-reference-title h3{font-size:15px!important;line-height:1.25!important}.workspace-page .v20-reference-copy p{font-size:11px!important;line-height:1.55!important}.workspace-page .v20-reference-action{font-size:11px!important;min-height:32px!important}
+
+/* Dictionary results: wider cards, complete images and readable long terms. */
+@media(min-width:1260px){
+  .workspace-page .med-work-area{grid-template-columns:minmax(0,1fr) minmax(360px,400px)!important;gap:16px!important}
+  .workspace-page #termGrid,.workspace-page .term-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:14px!important}
+}
+@media(min-width:1900px){.workspace-page #termGrid,.workspace-page .term-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media(min-width:821px) and (max-width:1259px){.workspace-page #termGrid,.workspace-page .term-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+.workspace-page .term-card{min-height:230px!important;border-radius:17px!important;overflow:hidden!important}
+.workspace-page .term-visual{height:132px!important;background:linear-gradient(145deg,#f1f9ff,#e2f3ff)!important}
+.workspace-page .term-visual-stage{animation:none!important;padding:6px!important}.workspace-page .term-visual-stage img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;filter:saturate(1.08) contrast(1.02)!important;border-radius:10px!important}
+.workspace-page .term-main{padding:12px 13px 13px!important}.workspace-page .term-name{font-size:14px!important;line-height:1.24!important;min-height:52px!important;-webkit-line-clamp:3!important;overflow-wrap:anywhere!important;word-break:break-word!important}
+.workspace-page .term-original-name{display:block!important;font-size:10px!important;line-height:1.25!important;color:#718da3!important;white-space:normal!important;overflow-wrap:anywhere!important;margin-top:4px!important}.workspace-page .term-meta{font-size:10px!important;padding-top:8px!important}.workspace-page .tag{max-width:68%!important}
+.workspace-page .detail-panel{top:calc(var(--v20182-top) + 16px)!important;max-height:calc(100dvh - var(--v20182-top) - 34px)!important;overflow:auto!important;scrollbar-width:thin!important}
+.workspace-page .detail-visual-stage img{object-fit:contain!important;background:#edf8ff!important}
+
+/* Clinical workspace always uses document scrolling; no hidden content. */
+.workspace-page .v20-reference-workspace{overflow:visible!important;scroll-margin-top:calc(var(--v20182-top) + 14px)!important}
+.workspace-page .v20-reference-content{overflow:visible!important}.workspace-page .v20-reference-list{align-items:stretch!important}.workspace-page .v20-reference-entry{min-height:0!important;overflow:visible!important}
+
+/* Medium desktop topbar should not crush the search field. */
+@media(min-width:821px) and (max-width:1180px){
+  .workspace-page .status-chip,.workspace-page .v19-install-button{display:none!important}.workspace-page .med-account{min-width:132px!important}.workspace-page .top-select{max-width:112px!important}.workspace-page .global-search-wrap{flex-basis:320px!important}
+}
+
+/* Login: center the main card higher and remove desktop page scrollbar. */
+@media(min-width:821px){
+  body.v20-login-page{height:100dvh!important;min-height:100dvh!important;overflow:hidden!important}
+  .v20-login-stage{height:100dvh!important;min-height:0!important;padding:78px 30px 42px!important;align-items:center!important;overflow:hidden!important}
+  .v20-auth-zone{align-self:center!important;transform:translateY(-24px)!important}.v20-login-card{max-height:calc(100dvh - 128px)!important;padding:32px 38px 28px!important;overflow:hidden!important}
+  .v20-story-panel{padding-top:12px!important;padding-bottom:12px!important;align-self:center!important}.v20-visual-panel{min-height:0!important;height:calc(100dvh - 125px)!important;max-height:720px!important;align-self:center!important}
+  .v20-login-footer{min-height:38px!important;padding-top:6px!important;padding-bottom:6px!important}
+  @media(max-height:760px){body.v20-login-page{overflow-y:auto!important}.v20-login-stage{height:auto!important;min-height:760px!important;overflow:visible!important}.v20-auth-zone{transform:none!important}}
+}
+
+/* Mobile: clean single-column layout, usable cards and full labels. */
+@media(max-width:820px){
+  html{scrollbar-gutter:auto}.v2018-menu-btn{display:grid!important}.v2018-drawer-close{display:grid!important}
+  body.workspace-page{overflow-y:auto!important;padding-bottom:calc(var(--v2018-mobile-nav) + 20px + env(safe-area-inset-bottom))!important}
+  .workspace-page .med-main{height:auto!important;min-height:100dvh!important;overflow:visible!important}.workspace-page .med-content,.workspace-page .v20-anatomy-content,.workspace-page .v20-ai-main{height:auto!important;overflow:visible!important;padding-top:10px!important}
+  .workspace-page .med-sidebar{overflow-y:auto!important;scrollbar-width:thin!important}
+  .workspace-page .med-hero .hero-copy{min-height:380px!important;padding:22px 18px 18px!important}.workspace-page .med-hero h1{font-size:clamp(37px,10vw,47px)!important;max-width:270px!important}.workspace-page .med-hero .hero-stats{max-width:100%!important}.workspace-page .med-hero .hero-stat{min-height:70px!important}.workspace-page .med-hero .hero-stat span{display:block!important;font-size:8.5px!important;color:#66859e!important}
+  .workspace-page .v20-reference-grid{display:grid!important;grid-template-columns:1fr!important;overflow:visible!important}.workspace-page .v20-reference-card{width:100%!important;min-height:150px!important;grid-template-columns:46px minmax(0,1fr)!important;padding:14px!important}.workspace-page .v20-reference-icon{width:46px!important;height:46px!important}
+  .workspace-page #termGrid,.workspace-page .term-grid{grid-template-columns:1fr!important;gap:10px!important}.workspace-page #termGrid .term-card{display:grid!important;grid-template-columns:118px minmax(0,1fr)!important;min-height:128px!important}.workspace-page #termGrid .term-visual{height:128px!important}.workspace-page #termGrid .term-main{padding:11px 12px!important}.workspace-page #termGrid .term-name{font-size:13px!important;min-height:0!important;-webkit-line-clamp:3!important}.workspace-page #termGrid .term-meta{margin-top:8px!important}
+  .workspace-page .detail-panel{position:static!important;max-height:none!important;overflow:visible!important}
+  .workspace-page .v20-reference-workspace{scroll-margin-top:76px!important}.workspace-page .v20-reference-entry{padding:13px!important}.workspace-page .v20-reference-list{grid-template-columns:1fr!important}
+
+  body.v20-login-page{height:100dvh!important;min-height:100dvh!important;overflow:hidden!important}.v20-login-stage{height:100dvh!important;min-height:0!important;padding:72px 14px 46px!important;display:grid!important;place-items:center!important;overflow:hidden!important}.v20-auth-zone{min-height:0!important;height:auto!important;padding:0!important;align-content:center!important;transform:translateY(-12px)!important}.v20-auth-zone::before,.v20-auth-zone::after{display:none!important}.v20-login-card{width:min(94vw,430px)!important;max-width:430px!important;padding:28px 22px 26px!important;border-radius:28px!important}.v20-card-brand img{width:52px!important}.v20-login-card h2{font-size:32px!important;margin-top:20px!important}.v20-login-card>p{margin-bottom:20px!important}.v20-sign-btn{min-height:82px!important}.v20-login-footer{position:fixed!important;bottom:0!important;left:0!important;right:0!important;min-height:38px!important}
+  @media(max-height:640px){body.v20-login-page{overflow-y:auto!important}.v20-login-stage{height:auto!important;min-height:640px!important;overflow:visible!important}.v20-login-footer{position:relative!important}.v20-auth-zone{transform:none!important}}
+}
+
+/* Explicit scrollbars for long content areas. */
+.workspace-page ::-webkit-scrollbar{width:9px;height:9px}.workspace-page ::-webkit-scrollbar-thumb{background:#92bdd8;border-radius:999px;border:2px solid transparent;background-clip:padding-box}.workspace-page ::-webkit-scrollbar-track{background:transparent}
+body[data-theme="dark"].workspace-page ::-webkit-scrollbar-thumb{background:#245f87;background-clip:padding-box}

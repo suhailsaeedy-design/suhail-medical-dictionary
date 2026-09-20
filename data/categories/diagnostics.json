@@ -1,0 +1,2817 @@
+[
+  {
+    "id": "p11-abdominal-ultrasound",
+    "term": "Abdominal Ultrasound",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Ultrasound examination of abdominal organs using high-frequency sound waves."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Abdominal Ultrasound",
+    "related_term_ids": [
+      "basic-anat-abdomen",
+      "basic-anat-liver",
+      "basic-anat-kidney",
+      "p11-acute-pancreatitis",
+      "smd-imm-006",
+      "p11-gallstone-disease",
+      "smd-gi-008"
+    ]
+  },
+  {
+    "id": "p13-acoustic-reflex-testing",
+    "term": "Acoustic Reflex Testing",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A test that evaluates reflexive middle-ear muscle responses to sound."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Acoustic Reflex Testing"
+  },
+  {
+    "id": "gloss-acute",
+    "term": "Acute",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A term describing a condition with relatively rapid onset or short duration."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "p12-ankle-brachial-index",
+    "term": "Ankle-Brachial Index",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "ABI"
+    ],
+    "definition": {
+      "en": "A comparison of blood-pressure measurements at the ankle and arm used as a vascular assessment."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Ankle-Brachial Index",
+    "related_term_ids": [
+      "basic-anat-artery",
+      "smd-dx-005"
+    ]
+  },
+  {
+    "id": "ref-arterial-blood-gas",
+    "term": "Arterial Blood Gas",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "ABG"
+    ],
+    "definition": {
+      "en": "A laboratory analysis of arterial blood used to measure gases and acid–base variables."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Arterial Blood Gas"
+  },
+  {
+    "id": "ref-audiometry",
+    "term": "Audiometry",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Hearing test"
+    ],
+    "definition": {
+      "en": "Measurement of hearing sensitivity across sound frequencies."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Audiometry",
+    "related_term_ids": [
+      "basic-anat-ear"
+    ]
+  },
+  {
+    "id": "gloss-benign",
+    "term": "Benign",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A term often used for a process that is not malignant and does not invade like cancer."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "ref-biopsy",
+    "term": "Biopsy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Collection of a tissue sample for examination, usually to help characterize a disease process."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Biopsy"
+  },
+  {
+    "id": "ref-blood-culture",
+    "term": "Blood Culture",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Blood culture test"
+    ],
+    "definition": {
+      "en": "A laboratory test in which a blood sample is cultured to look for microorganisms."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Blood Culture",
+    "related_term_ids": [
+      "basic-anat-blood",
+      "smd-id-010"
+    ]
+  },
+  {
+    "id": "smd-dx-010",
+    "term": "Blood Glucose",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Blood sugar"
+    ],
+    "definition": {
+      "en": "The concentration of glucose circulating in the blood."
+    },
+    "explanation": {
+      "en": "Glucose is a major energy source, and its concentration is regulated by multiple hormones and organs."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "ref-blood-glucose-test",
+    "term": "Blood Glucose Test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Blood sugar test"
+    ],
+    "definition": {
+      "en": "Measurement of glucose concentration in a blood sample."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Blood Glucose Test",
+    "related_term_ids": [
+      "gloss-glucose",
+      "D003920"
+    ]
+  },
+  {
+    "id": "smd-dx-005",
+    "term": "Blood Pressure",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "The force of circulating blood against the walls of the arteries."
+    },
+    "explanation": {
+      "en": "Blood pressure is commonly recorded as systolic pressure over diastolic pressure."
+    },
+    "source": "Suhail Medical Dictionary educational summary",
+    "related_term_ids": [
+      "D006973",
+      "ref-blood-pressure-measurement",
+      "basic-anat-artery",
+      "basic-anat-heart"
+    ]
+  },
+  {
+    "id": "ref-blood-pressure-measurement",
+    "term": "Blood Pressure Measurement",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "BP measurement"
+    ],
+    "definition": {
+      "en": "Measurement of arterial pressure, usually reported as systolic and diastolic values."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Blood Pressure Measurement",
+    "related_term_ids": [
+      "smd-dx-005",
+      "basic-anat-artery",
+      "D006973",
+      "basic-anat-heart"
+    ]
+  },
+  {
+    "id": "ref-blood-test",
+    "term": "Blood test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Blood analysis"
+    ],
+    "definition": {
+      "en": "Laboratory analysis performed on a blood sample to measure selected cells, chemicals, proteins, or other markers."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Blood test"
+  },
+  {
+    "id": "smd-dx-006",
+    "term": "Body Temperature",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A measure of the body’s thermal state."
+    },
+    "explanation": {
+      "en": "Core body temperature is tightly regulated and varies with measurement site, time of day, activity, and illness."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "ref-bone-densitometry",
+    "term": "Bone Densitometry",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "DXA",
+      "DEXA"
+    ],
+    "definition": {
+      "en": "Low-dose imaging used to estimate bone mineral density."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Bone Densitometry",
+    "related_term_ids": [
+      "basic-anat-bone",
+      "ref-osteoporosis"
+    ]
+  },
+  {
+    "id": "ref-bone-density-scan",
+    "term": "Bone Density Scan",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "DEXA",
+      "DXA"
+    ],
+    "definition": {
+      "en": "Imaging used to estimate bone mineral density, commonly using dual-energy X-ray absorptiometry."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Bone Density Scan",
+    "related_term_ids": [
+      "basic-anat-bone",
+      "ref-osteoporosis",
+      "D050723"
+    ]
+  },
+  {
+    "id": "p12-brain-mri",
+    "term": "Brain MRI",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Magnetic resonance imaging used to create detailed images of the brain and adjacent structures."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Brain MRI",
+    "related_term_ids": [
+      "basic-anat-brain"
+    ]
+  },
+  {
+    "id": "ref-bronchoscopy",
+    "term": "Bronchoscopy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Airway endoscopy"
+    ],
+    "definition": {
+      "en": "Endoscopic visualization of the trachea and bronchi."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Bronchoscopy"
+  },
+  {
+    "id": "p11-c-reactive-protein-test",
+    "term": "C-Reactive Protein Test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "CRP"
+    ],
+    "definition": {
+      "en": "Measurement of C-reactive protein, a nonspecific marker that can rise during inflammation."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "C-Reactive Protein Test",
+    "related_term_ids": [
+      "smd-imm-006",
+      "basic-anat-blood"
+    ]
+  },
+  {
+    "id": "ref-cardiac-catheterization",
+    "term": "Cardiac Catheterization",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Heart catheterization"
+    ],
+    "definition": {
+      "en": "A catheter-based cardiac procedure used for selected measurements, imaging, or interventions."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Cardiac Catheterization",
+    "related_term_ids": [
+      "basic-anat-heart"
+    ]
+  },
+  {
+    "id": "ref-cardiac-stress-test",
+    "term": "Cardiac Stress Test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Exercise stress test"
+    ],
+    "definition": {
+      "en": "A monitored assessment of cardiovascular response to exercise or another controlled stress method."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Cardiac Stress Test",
+    "related_term_ids": [
+      "basic-anat-heart"
+    ]
+  },
+  {
+    "id": "ref-procedures-carotid-ultrasound",
+    "term": "Carotid Ultrasound",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Ultrasound evaluation of the carotid arteries, commonly including Doppler assessment of blood flow."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Carotid Ultrasound",
+    "related_term_ids": [
+      "ref-doppler-ultrasound",
+      "D020521",
+      "basic-anat-brain",
+      "gloss-ischemia",
+      "gloss-hemorrhage"
+    ]
+  },
+  {
+    "id": "p11-chest-x-ray",
+    "term": "Chest X-Ray",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Chest radiograph"
+    ],
+    "definition": {
+      "en": "Plain radiographic imaging of the chest used to visualize lungs, heart silhouette and thoracic structures."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Chest X-Ray",
+    "related_term_ids": [
+      "basic-anat-lung",
+      "basic-anat-thorax"
+    ]
+  },
+  {
+    "id": "gloss-chronic",
+    "term": "Chronic",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A term describing a condition that persists over a longer period."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "ref-coagulation-tests",
+    "term": "Coagulation Tests",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Clotting tests"
+    ],
+    "definition": {
+      "en": "Laboratory tests used to assess selected parts of the blood-clotting system."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Coagulation Tests",
+    "related_term_ids": [
+      "basic-anat-blood"
+    ]
+  },
+  {
+    "id": "ref-colonoscopy",
+    "term": "Colonoscopy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Lower GI endoscopy"
+    ],
+    "definition": {
+      "en": "Endoscopic examination of the large intestine using a flexible viewing instrument."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Colonoscopy"
+  },
+  {
+    "id": "smd-dx-012",
+    "term": "Complete Blood Count",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "CBC"
+    ],
+    "definition": {
+      "en": "A laboratory test that measures major cellular components of blood."
+    },
+    "explanation": {
+      "en": "A CBC commonly reports red blood cells, hemoglobin, white blood cells, platelets, and related indices."
+    },
+    "source": "Suhail Medical Dictionary educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Complete Blood Count",
+    "related_term_ids": [
+      "smd-imm-010",
+      "smd-dx-008"
+    ]
+  },
+  {
+    "id": "ref-computed-tomography-ct",
+    "term": "Computed Tomography (CT)",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "CT scan"
+    ],
+    "definition": {
+      "en": "Cross-sectional imaging created from multiple X-ray measurements processed by a computer."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Computed Tomography (CT)"
+  },
+  {
+    "id": "p14-cone-beam-ct",
+    "term": "Cone-Beam CT",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "CBCT"
+    ],
+    "definition": {
+      "en": "Three-dimensional x-ray imaging commonly used for selected dental and maxillofacial assessments."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Cone-Beam CT",
+    "related_term_ids": [
+      "anat3d-mandible",
+      "p13-tooth"
+    ]
+  },
+  {
+    "id": "ref-coronary-angiography",
+    "term": "Coronary Angiography",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Imaging of the coronary arteries using contrast material and X-ray-based techniques."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Coronary Angiography",
+    "related_term_ids": [
+      "anat3d-coronary-artery"
+    ]
+  },
+  {
+    "id": "smd-dx-009",
+    "term": "Creatinine",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A waste product generated from normal muscle metabolism and removed mainly by the kidneys."
+    },
+    "explanation": {
+      "en": "Blood creatinine is commonly used with other information to estimate kidney filtration."
+    },
+    "source": "Suhail Medical Dictionary educational summary",
+    "related_term_ids": [
+      "smd-neph-001",
+      "basic-anat-kidney",
+      "ref-renal-function-panel",
+      "ref-urinalysis"
+    ]
+  },
+  {
+    "id": "p12-ct-abdomen-and-pelvis",
+    "term": "CT Abdomen and Pelvis",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Computed tomography imaging of abdominal and pelvic structures."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "CT Abdomen and Pelvis",
+    "related_term_ids": [
+      "basic-anat-abdomen",
+      "basic-anat-pelvis"
+    ]
+  },
+  {
+    "id": "ref-procedures-ct-angiography",
+    "term": "CT Angiography",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "CTA"
+    ],
+    "definition": {
+      "en": "Computed-tomography imaging performed with vascular contrast to visualize blood vessels."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "CT Angiography",
+    "related_term_ids": [
+      "basic-anat-artery",
+      "basic-anat-vein",
+      "ref-pulmonary-embolism",
+      "anat3d-pulmonary-artery",
+      "gloss-embolism",
+      "ref-deep-vein-thrombosis"
+    ]
+  },
+  {
+    "id": "p13-ct-head",
+    "term": "CT Head",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Computed tomography imaging of the skull and intracranial structures."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "CT Head",
+    "related_term_ids": [
+      "basic-anat-skull",
+      "basic-anat-brain"
+    ]
+  },
+  {
+    "id": "p13-ct-paranasal-sinuses",
+    "term": "CT Paranasal Sinuses",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Computed tomography imaging used to visualize the paranasal sinus regions and adjacent facial bones."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "CT Paranasal Sinuses",
+    "related_term_ids": [
+      "p13-paranasal-sinus",
+      "anat3d-frontal-bone"
+    ]
+  },
+  {
+    "id": "ref-cystoscopy",
+    "term": "Cystoscopy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Bladder endoscopy"
+    ],
+    "definition": {
+      "en": "Endoscopic visualization of the urethra and urinary bladder."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Cystoscopy"
+  },
+  {
+    "id": "gloss-dehydration",
+    "term": "Dehydration",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A state in which body water is insufficient relative to physiologic needs."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "p14-dental-examination",
+    "term": "Dental Examination",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A structured assessment of the teeth, gingiva, oral soft tissues and bite relationship."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Dental Examination",
+    "related_term_ids": [
+      "p13-tooth",
+      "p13-gingiva",
+      "p13-oral-cavity"
+    ]
+  },
+  {
+    "id": "p14-dental-prophylaxis",
+    "term": "Dental Prophylaxis",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Dental cleaning"
+    ],
+    "definition": {
+      "en": "Professional cleaning intended to remove selected plaque, deposits and surface staining from teeth."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Dental Prophylaxis",
+    "related_term_ids": [
+      "p13-tooth",
+      "p13-gingiva"
+    ]
+  },
+  {
+    "id": "p14-dental-restoration",
+    "term": "Dental Restoration",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Dental filling"
+    ],
+    "definition": {
+      "en": "A restorative procedure used to repair or replace damaged tooth structure."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Dental Restoration",
+    "related_term_ids": [
+      "p13-tooth",
+      "p13-enamel",
+      "p13-dentin"
+    ]
+  },
+  {
+    "id": "gloss-diagnosis",
+    "term": "Diagnosis",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Identification of a disease or condition based on clinical information."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "ref-doppler-ultrasound",
+    "term": "Doppler Ultrasound",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Doppler study"
+    ],
+    "definition": {
+      "en": "Ultrasound technique that evaluates movement, commonly blood flow within vessels."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Doppler Ultrasound",
+    "related_term_ids": [
+      "basic-anat-artery",
+      "basic-anat-vein",
+      "ref-ultrasound"
+    ]
+  },
+  {
+    "id": "ref-echocardiography",
+    "term": "Echocardiography",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Echocardiogram"
+    ],
+    "definition": {
+      "en": "Ultrasound imaging used to visualize heart structures and motion."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Echocardiography",
+    "related_term_ids": [
+      "ref-ultrasound",
+      "basic-anat-heart"
+    ]
+  },
+  {
+    "id": "ref-electrocardiogram-ecg-ekg",
+    "term": "Electrocardiogram (ECG/EKG)",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "EKG",
+      "ECG"
+    ],
+    "definition": {
+      "en": "A recording of the heart's electrical activity using electrodes placed on the skin."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Electrocardiogram (ECG/EKG)",
+    "related_term_ids": [
+      "basic-anat-heart",
+      "D001145"
+    ]
+  },
+  {
+    "id": "ref-electroencephalography",
+    "term": "Electroencephalography",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "EEG"
+    ],
+    "definition": {
+      "en": "Recording of electrical activity from the brain using scalp electrodes."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Electroencephalography",
+    "related_term_ids": [
+      "basic-anat-brain"
+    ]
+  },
+  {
+    "id": "ref-electroencephalography-eeg",
+    "term": "Electroencephalography (EEG)",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "EEG"
+    ],
+    "definition": {
+      "en": "Recording of electrical activity from the scalp to study brain-wave patterns."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Electroencephalography (EEG)",
+    "related_term_ids": [
+      "basic-anat-brain",
+      "p12-neuron"
+    ]
+  },
+  {
+    "id": "smd-dx-011",
+    "term": "Electrolyte",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A dissolved mineral ion that helps regulate fluid balance, nerve activity, and other physiological processes."
+    },
+    "explanation": {
+      "en": "Important electrolytes include sodium, potassium, chloride, bicarbonate, calcium, and magnesium."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "p11-electromyography",
+    "term": "Electromyography",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "EMG"
+    ],
+    "definition": {
+      "en": "A diagnostic study that records electrical activity in skeletal muscle, commonly interpreted with nerve-conduction testing."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Electromyography",
+    "related_term_ids": [
+      "basic-anat-muscle",
+      "basic-anat-nerve",
+      "ref-nerve-conduction-study"
+    ]
+  },
+  {
+    "id": "ref-electromyography-emg",
+    "term": "Electromyography (EMG)",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "EMG"
+    ],
+    "definition": {
+      "en": "Recording of electrical activity associated with skeletal muscle and peripheral nerve function."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Electromyography (EMG)",
+    "related_term_ids": [
+      "basic-anat-muscle",
+      "basic-anat-nerve"
+    ]
+  },
+  {
+    "id": "ref-electromyography-and-nerve-conduction-studies",
+    "term": "Electromyography and Nerve Conduction Studies",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "EMG",
+      "NCS"
+    ],
+    "definition": {
+      "en": "Tests used to evaluate electrical activity of muscles and peripheral nerve conduction."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Electromyography and Nerve Conduction Studies",
+    "related_term_ids": [
+      "basic-anat-muscle"
+    ]
+  },
+  {
+    "id": "ref-endometriosis",
+    "term": "Endometriosis",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A condition in which tissue similar to endometrial tissue is present outside the uterine cavity."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Clinical Reference educational summary",
+    "reference_module": "conditions",
+    "reference_query": "Endometriosis",
+    "related_term_ids": [
+      "anat3d-uterus",
+      "basic-anat-pelvis"
+    ]
+  },
+  {
+    "id": "ref-endoscopy",
+    "term": "Endoscopy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Visual examination of an internal passage or cavity using an endoscope."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Endoscopy"
+  },
+  {
+    "id": "p11-erythrocyte-sedimentation-rate",
+    "term": "Erythrocyte Sedimentation Rate",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "ESR"
+    ],
+    "definition": {
+      "en": "A nonspecific laboratory measurement related to how rapidly red cells settle in a tube over a defined period."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Erythrocyte Sedimentation Rate",
+    "related_term_ids": [
+      "gloss-erythrocyte",
+      "smd-imm-006"
+    ]
+  },
+  {
+    "id": "ref-exercise-stress-test",
+    "term": "Exercise Stress Test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Treadmill stress test"
+    ],
+    "definition": {
+      "en": "Monitored assessment of cardiovascular responses during controlled physical exercise."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Exercise Stress Test",
+    "related_term_ids": [
+      "basic-anat-heart"
+    ]
+  },
+  {
+    "id": "p13-facial-bone-x-ray",
+    "term": "Facial Bone X-Ray",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Plain radiographic imaging used to visualize selected facial bones."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Facial Bone X-Ray",
+    "related_term_ids": [
+      "p13-facial-skeleton"
+    ]
+  },
+  {
+    "id": "p14-fluorescein-eye-staining",
+    "term": "Fluorescein Eye Staining",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Use of fluorescein dye to highlight selected ocular-surface findings during examination."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Fluorescein Eye Staining",
+    "related_term_ids": [
+      "basic-anat-eye",
+      "smd-eye-008",
+      "p14-tear-film"
+    ]
+  },
+  {
+    "id": "p11-fundus-photography",
+    "term": "Fundus Photography",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Photographic documentation of the retina, optic disc and other posterior eye structures."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Fundus Photography",
+    "related_term_ids": [
+      "smd-eye-007",
+      "smd-eye-010",
+      "basic-anat-eye"
+    ]
+  },
+  {
+    "id": "p14-gonioscopy",
+    "term": "Gonioscopy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Examination of the anterior chamber angle using a specialized lens."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Gonioscopy",
+    "related_term_ids": [
+      "basic-anat-eye",
+      "p15-anterior-chamber"
+    ]
+  },
+  {
+    "id": "ref-gout",
+    "term": "Gout",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "An inflammatory arthritis caused by deposition of monosodium urate crystals in joints and tissues."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Clinical Reference educational summary",
+    "reference_module": "conditions",
+    "reference_query": "Gout",
+    "related_term_ids": [
+      "basic-anat-joint"
+    ]
+  },
+  {
+    "id": "smd-dx-007",
+    "term": "Hemoglobin",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Hb"
+    ],
+    "definition": {
+      "en": "The iron-containing protein in red blood cells that transports oxygen."
+    },
+    "explanation": {
+      "en": "Hemoglobin concentration is commonly measured as part of a complete blood count."
+    },
+    "source": "Suhail Medical Dictionary educational summary",
+    "related_term_ids": [
+      "D000740",
+      "gloss-erythrocyte",
+      "ref-procedures-peripheral-blood-smear",
+      "ref-procedures-reticulocyte-count"
+    ]
+  },
+  {
+    "id": "ref-hemoglobin-a1c-test",
+    "term": "Hemoglobin A1c Test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "HbA1c",
+      "A1C"
+    ],
+    "definition": {
+      "en": "A blood test that reflects average glycemic exposure over the lifespan of circulating red blood cells."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Hemoglobin A1c Test",
+    "related_term_ids": [
+      "gloss-glucose",
+      "smd-dx-007",
+      "D003920",
+      "gloss-insulin",
+      "p11-type-2-diabetes-mellitus"
+    ]
+  },
+  {
+    "id": "ref-holter-monitoring",
+    "term": "Holter Monitoring",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Ambulatory ECG"
+    ],
+    "definition": {
+      "en": "Portable electrocardiographic recording over an extended period."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Holter Monitoring",
+    "related_term_ids": [
+      "D001145"
+    ]
+  },
+  {
+    "id": "ref-procedures-inflammatory-marker-tests",
+    "term": "Inflammatory Marker Tests",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Laboratory tests such as C-reactive protein and erythrocyte sedimentation rate used as nonspecific markers of inflammation."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Inflammatory Marker Tests",
+    "related_term_ids": [
+      "smd-imm-006",
+      "ref-blood-test"
+    ]
+  },
+  {
+    "id": "p13-intraoral-dental-radiograph",
+    "term": "Intraoral Dental Radiograph",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A dental radiograph obtained with the image receptor positioned inside the mouth."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Intraoral Dental Radiograph",
+    "related_term_ids": [
+      "p13-tooth",
+      "p13-alveolar-process"
+    ]
+  },
+  {
+    "id": "ref-joint-aspiration",
+    "term": "Joint Aspiration",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Arthrocentesis"
+    ],
+    "definition": {
+      "en": "Collection of synovial fluid from a joint for diagnostic analysis."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Joint Aspiration",
+    "related_term_ids": [
+      "basic-anat-joint",
+      "gloss-synovial-fluid"
+    ]
+  },
+  {
+    "id": "p12-joint-x-ray",
+    "term": "Joint X-Ray",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Plain radiographic imaging used to visualize bones and alignment around a joint."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Joint X-Ray",
+    "related_term_ids": [
+      "basic-anat-joint",
+      "basic-anat-bone"
+    ]
+  },
+  {
+    "id": "ref-kidney-function-tests",
+    "term": "Kidney Function Tests",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Renal function tests"
+    ],
+    "definition": {
+      "en": "Laboratory tests that evaluate selected markers associated with kidney filtration and function."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Kidney Function Tests",
+    "related_term_ids": [
+      "basic-anat-kidney",
+      "smd-dx-009"
+    ]
+  },
+  {
+    "id": "p11-laryngoscopy",
+    "term": "Laryngoscopy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Visual examination of the larynx using an optical instrument or camera system."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Laryngoscopy"
+  },
+  {
+    "id": "p11-lipid-panel",
+    "term": "Lipid Panel",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A blood test panel that measures selected blood lipids such as cholesterol fractions and triglycerides."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Lipid Panel",
+    "related_term_ids": [
+      "basic-anat-blood"
+    ]
+  },
+  {
+    "id": "ref-liver-function-panel",
+    "term": "Liver Function Panel",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "LFTs"
+    ],
+    "definition": {
+      "en": "A group of blood tests used to assess biochemical markers associated with liver and biliary function."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Liver Function Panel",
+    "related_term_ids": [
+      "basic-anat-liver",
+      "ref-blood-test"
+    ]
+  },
+  {
+    "id": "ref-liver-function-tests",
+    "term": "Liver Function Tests",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "LFTs"
+    ],
+    "definition": {
+      "en": "A group of blood tests measuring selected enzymes, proteins, and other markers associated with liver function or injury."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Liver Function Tests",
+    "related_term_ids": [
+      "basic-anat-liver",
+      "ref-blood-test"
+    ]
+  },
+  {
+    "id": "ref-lumbar-puncture",
+    "term": "Lumbar Puncture",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Spinal tap"
+    ],
+    "definition": {
+      "en": "A clinical procedure used to obtain or measure cerebrospinal fluid from the lower spinal canal."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Lumbar Puncture",
+    "related_term_ids": [
+      "gloss-cerebrospinal-fluid"
+    ]
+  },
+  {
+    "id": "ref-magnetic-resonance-imaging-mri",
+    "term": "Magnetic Resonance Imaging (MRI)",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "MRI"
+    ],
+    "definition": {
+      "en": "Imaging based on magnetic fields and radiofrequency signals to produce detailed internal images."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Magnetic Resonance Imaging (MRI)"
+  },
+  {
+    "id": "gloss-malignant",
+    "term": "Malignant",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A term describing cancerous disease with potential for invasion or spread."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "ref-mammography",
+    "term": "Mammography",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Mammogram"
+    ],
+    "definition": {
+      "en": "Specialized X-ray imaging of breast tissue."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Mammography",
+    "related_term_ids": [
+      "ref-x-ray-imaging"
+    ]
+  },
+  {
+    "id": "ref-procedures-mr-angiography",
+    "term": "MR Angiography",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "MRA"
+    ],
+    "definition": {
+      "en": "Magnetic-resonance imaging techniques used to visualize blood vessels."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "MR Angiography",
+    "related_term_ids": [
+      "basic-anat-artery"
+    ]
+  },
+  {
+    "id": "p12-musculoskeletal-ultrasound",
+    "term": "Musculoskeletal Ultrasound",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Ultrasound imaging used to visualize selected muscles, tendons, ligaments and superficial joints."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Musculoskeletal Ultrasound",
+    "related_term_ids": [
+      "basic-anat-muscle",
+      "gloss-tendon",
+      "gloss-ligament"
+    ]
+  },
+  {
+    "id": "p13-nasal-endoscopy",
+    "term": "Nasal Endoscopy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Endoscopic visualization of the nasal cavity and selected adjacent structures."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Nasal Endoscopy",
+    "related_term_ids": [
+      "p13-nasal-cavity",
+      "p13-nasal-septum"
+    ]
+  },
+  {
+    "id": "ref-nerve-conduction-study",
+    "term": "Nerve Conduction Study",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "NCS"
+    ],
+    "definition": {
+      "en": "Measurement of electrical signal conduction along selected peripheral nerves."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Nerve Conduction Study",
+    "related_term_ids": [
+      "p11-electromyography"
+    ]
+  },
+  {
+    "id": "p13-occlusion",
+    "term": "Occlusion",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "The relationship between upper and lower teeth when they approach or contact."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Phase 13 educational glossary",
+    "related_term_ids": [
+      "p13-tooth",
+      "anat3d-mandible"
+    ]
+  },
+  {
+    "id": "ref-ophthalmoscopy",
+    "term": "Ophthalmoscopy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Fundoscopy"
+    ],
+    "definition": {
+      "en": "Examination of internal eye structures, especially the retina and optic disc, using an ophthalmoscope."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Ophthalmoscopy",
+    "related_term_ids": [
+      "smd-eye-007",
+      "smd-eye-010"
+    ]
+  },
+  {
+    "id": "p11-optical-coherence-tomography",
+    "term": "Optical Coherence Tomography",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "OCT"
+    ],
+    "definition": {
+      "en": "Cross-sectional optical imaging that provides high-resolution views of retinal and other ocular structures."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Optical Coherence Tomography",
+    "related_term_ids": [
+      "smd-eye-007",
+      "basic-anat-eye"
+    ]
+  },
+  {
+    "id": "ref-otoscopy",
+    "term": "Otoscopy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Ear examination"
+    ],
+    "definition": {
+      "en": "Visual examination of the ear canal and tympanic membrane using an otoscope."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Otoscopy",
+    "related_term_ids": [
+      "basic-anat-ear",
+      "anat3d-tympanic-membrane"
+    ]
+  },
+  {
+    "id": "smd-dx-004",
+    "term": "Oxygen Saturation",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "SpO2"
+    ],
+    "definition": {
+      "en": "An estimate of the percentage of hemoglobin in arterial blood carrying oxygen."
+    },
+    "explanation": {
+      "en": "Pulse oximetry provides a noninvasive estimate, although readings can be affected by technical and clinical factors."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "p13-panoramic-dental-radiograph",
+    "term": "Panoramic Dental Radiograph",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Panoramic X-ray"
+    ],
+    "definition": {
+      "en": "A broad radiographic image of the jaws and teeth."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Panoramic Dental Radiograph",
+    "related_term_ids": [
+      "anat3d-mandible",
+      "p13-tooth"
+    ]
+  },
+  {
+    "id": "ref-pap-test",
+    "term": "Pap Test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Pap smear",
+      "Cervical cytology"
+    ],
+    "definition": {
+      "en": "A screening test in which cervical cells are examined for abnormal changes."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Pap Test",
+    "related_term_ids": [
+      "anat3d-cervix"
+    ]
+  },
+  {
+    "id": "p14-paranasal-sinus-imaging-review",
+    "term": "Paranasal Sinus Imaging Review",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Structured interpretation of imaging focused on the paranasal sinuses and adjacent structures."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Paranasal Sinus Imaging Review",
+    "related_term_ids": [
+      "p13-paranasal-sinus",
+      "p13-orbit",
+      "p13-nasal-cavity"
+    ]
+  },
+  {
+    "id": "ref-procedures-patch-testing",
+    "term": "Patch Testing",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A diagnostic skin test used to evaluate delayed contact hypersensitivity to selected substances."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Patch Testing",
+    "related_term_ids": [
+      "smd-imm-001",
+      "smd-derm-001"
+    ]
+  },
+  {
+    "id": "ref-peak-expiratory-flow-measurement",
+    "term": "Peak Expiratory Flow Measurement",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Peak flow"
+    ],
+    "definition": {
+      "en": "Measurement of the highest airflow achieved during a forceful expiration."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Peak Expiratory Flow Measurement"
+  },
+  {
+    "id": "p12-peak-flow-measurement",
+    "term": "Peak Flow Measurement",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Measurement of peak expiratory flow as a simple assessment of airflow."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Peak Flow Measurement",
+    "related_term_ids": [
+      "basic-anat-lung",
+      "D001249"
+    ]
+  },
+  {
+    "id": "p13-periodontal-examination",
+    "term": "Periodontal Examination",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Clinical assessment of the gingiva and tooth-supporting periodontal tissues."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Periodontal Examination",
+    "related_term_ids": [
+      "p13-gingiva",
+      "p13-periodontal-ligament",
+      "p13-tooth"
+    ]
+  },
+  {
+    "id": "ref-procedures-peripheral-blood-smear",
+    "term": "Peripheral Blood Smear",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Microscopic examination of a thin layer of peripheral blood cells."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Peripheral Blood Smear",
+    "related_term_ids": [
+      "basic-anat-blood",
+      "gloss-erythrocyte",
+      "gloss-leukocyte",
+      "smd-dx-008",
+      "D000740",
+      "smd-dx-007",
+      "ref-procedures-reticulocyte-count"
+    ]
+  },
+  {
+    "id": "smd-dx-008",
+    "term": "Platelet",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Thrombocyte"
+    ],
+    "definition": {
+      "en": "A small blood component that plays a central role in clot formation and vessel repair."
+    },
+    "explanation": {
+      "en": "Platelet number and function influence the body’s ability to control bleeding."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "p11-polymerase-chain-reaction-test",
+    "term": "Polymerase Chain Reaction Test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "PCR"
+    ],
+    "definition": {
+      "en": "A molecular laboratory method that amplifies selected nucleic-acid sequences for detection or analysis."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Polymerase Chain Reaction Test",
+    "related_term_ids": [
+      "gloss-virus"
+    ]
+  },
+  {
+    "id": "gloss-prognosis",
+    "term": "Prognosis",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "An estimate of the likely course or outcome of a condition."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "ref-pulmonary-function-testing",
+    "term": "Pulmonary Function Testing",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "PFT",
+      "Spirometry testing"
+    ],
+    "definition": {
+      "en": "A group of measurements used to assess airflow, lung volumes, and gas-transfer function."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Pulmonary Function Testing",
+    "related_term_ids": [
+      "ref-spirometry"
+    ]
+  },
+  {
+    "id": "ref-pulmonary-function-tests",
+    "term": "Pulmonary Function Tests",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "PFTs"
+    ],
+    "definition": {
+      "en": "A group of tests used to measure different aspects of lung volumes, airflow, and gas transfer."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Pulmonary Function Tests",
+    "related_term_ids": [
+      "ref-spirometry"
+    ]
+  },
+  {
+    "id": "smd-dx-002",
+    "term": "Pulse",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Heart rate"
+    ],
+    "definition": {
+      "en": "The rhythmic expansion of an artery produced by each heartbeat."
+    },
+    "explanation": {
+      "en": "Pulse assessment can provide information about heart rate, rhythm, and circulation."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "ref-pulse-oximetry",
+    "term": "Pulse Oximetry",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "SpO2 measurement"
+    ],
+    "definition": {
+      "en": "A noninvasive measurement that estimates peripheral oxygen saturation using a sensor."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Pulse Oximetry",
+    "related_term_ids": [
+      "basic-anat-blood"
+    ]
+  },
+  {
+    "id": "ref-procedures-pure-tone-audiometry",
+    "term": "Pure-Tone Audiometry",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A hearing test measuring the quietest tones detected across selected sound frequencies."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Pure-Tone Audiometry",
+    "related_term_ids": [
+      "basic-anat-ear"
+    ]
+  },
+  {
+    "id": "p11-rapid-antigen-test",
+    "term": "Rapid Antigen Test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A rapid assay designed to detect selected antigens from a clinical specimen."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Rapid Antigen Test",
+    "related_term_ids": [
+      "smd-imm-005",
+      "smd-id-010"
+    ]
+  },
+  {
+    "id": "p14-refraction-test",
+    "term": "Refraction Test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Assessment used to estimate the optical correction needed for refractive error."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Refraction Test",
+    "related_term_ids": [
+      "basic-anat-eye",
+      "smd-eye-004",
+      "smd-eye-005"
+    ]
+  },
+  {
+    "id": "ref-procedures-renal-biopsy",
+    "term": "Renal Biopsy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Kidney biopsy"
+    ],
+    "definition": {
+      "en": "Sampling of kidney tissue for microscopic and laboratory examination."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Renal Biopsy",
+    "related_term_ids": [
+      "basic-anat-kidney",
+      "ref-biopsy"
+    ]
+  },
+  {
+    "id": "ref-renal-function-panel",
+    "term": "Renal Function Panel",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Kidney function tests"
+    ],
+    "definition": {
+      "en": "A group of laboratory measurements used to assess kidney-related biochemical function."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Renal Function Panel",
+    "related_term_ids": [
+      "basic-anat-kidney",
+      "smd-dx-009",
+      "smd-neph-001",
+      "ref-urinalysis"
+    ]
+  },
+  {
+    "id": "ref-renal-ultrasound",
+    "term": "Renal Ultrasound",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Kidney ultrasound"
+    ],
+    "definition": {
+      "en": "Ultrasound examination of the kidneys and nearby urinary structures."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Renal Ultrasound",
+    "related_term_ids": [
+      "basic-anat-kidney",
+      "ref-ultrasound"
+    ]
+  },
+  {
+    "id": "smd-dx-003",
+    "term": "Respiratory Rate",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Breathing rate"
+    ],
+    "definition": {
+      "en": "The number of breaths taken during a defined period of time."
+    },
+    "explanation": {
+      "en": "Respiratory rate is an important vital sign because illness can change breathing frequency."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "ref-procedures-reticulocyte-count",
+    "term": "Reticulocyte Count",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Laboratory measurement of immature red blood cells in peripheral blood."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Reticulocyte Count",
+    "related_term_ids": [
+      "gloss-erythrocyte",
+      "D000740",
+      "smd-dx-007",
+      "ref-procedures-peripheral-blood-smear"
+    ]
+  },
+  {
+    "id": "ref-rheumatoid-arthritis",
+    "term": "Rheumatoid Arthritis",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "RA"
+    ],
+    "definition": {
+      "en": "A chronic autoimmune inflammatory disorder that commonly affects multiple joints."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Clinical Reference educational summary",
+    "reference_module": "conditions",
+    "reference_query": "Rheumatoid Arthritis",
+    "related_term_ids": [
+      "basic-anat-joint",
+      "smd-imm-009"
+    ]
+  },
+  {
+    "id": "p14-root-canal-treatment",
+    "term": "Root Canal Treatment",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A dental treatment involving the internal pulp space and root-canal system of a tooth."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Root Canal Treatment",
+    "related_term_ids": [
+      "p13-dental-pulp",
+      "p14-tooth-root",
+      "p13-tooth"
+    ]
+  },
+  {
+    "id": "p14-salivary-gland-ultrasound",
+    "term": "Salivary Gland Ultrasound",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Ultrasound imaging used to examine selected salivary glands and surrounding soft tissues."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Salivary Gland Ultrasound",
+    "related_term_ids": [
+      "p14-parotid-gland",
+      "p14-submandibular-gland"
+    ]
+  },
+  {
+    "id": "ref-procedures-serum-electrolyte-panel",
+    "term": "Serum Electrolyte Panel",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Laboratory measurement of selected blood electrolytes such as sodium and potassium."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Serum Electrolyte Panel",
+    "related_term_ids": [
+      "smd-dx-011",
+      "basic-anat-blood"
+    ]
+  },
+  {
+    "id": "p11-serum-glucose-test",
+    "term": "Serum Glucose Test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Measurement of glucose concentration in a blood sample."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Serum Glucose Test",
+    "related_term_ids": [
+      "gloss-glucose",
+      "basic-anat-blood",
+      "D003920"
+    ]
+  },
+  {
+    "id": "ref-procedures-sigmoidoscopy",
+    "term": "Sigmoidoscopy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Endoscopic examination of the rectum and distal colon."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Sigmoidoscopy"
+  },
+  {
+    "id": "gloss-sign",
+    "term": "Sign",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "An objective finding observed or measured during assessment."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "ref-procedures-skin-biopsy",
+    "term": "Skin Biopsy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Sampling of skin tissue for microscopic or laboratory assessment."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Skin Biopsy",
+    "related_term_ids": [
+      "basic-anat-skin",
+      "ref-biopsy"
+    ]
+  },
+  {
+    "id": "ref-sleep-study",
+    "term": "Sleep Study",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Polysomnography"
+    ],
+    "definition": {
+      "en": "A monitored study that records physiologic signals during sleep."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Sleep Study",
+    "related_term_ids": [
+      "ref-sleep-apnea"
+    ]
+  },
+  {
+    "id": "ref-slit-lamp-examination",
+    "term": "Slit-Lamp Examination",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Biomicroscopy"
+    ],
+    "definition": {
+      "en": "Microscope-based examination of visible structures of the eye."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Slit-Lamp Examination",
+    "related_term_ids": [
+      "basic-anat-eye",
+      "smd-eye-008"
+    ]
+  },
+  {
+    "id": "p12-spine-mri",
+    "term": "Spine MRI",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Magnetic resonance imaging used to visualize the spinal column, spinal cord and surrounding soft tissues."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Spine MRI",
+    "related_term_ids": [
+      "basic-anat-spine"
+    ]
+  },
+  {
+    "id": "ref-spirometry",
+    "term": "Spirometry",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A pulmonary function test that measures volumes and flow of air during breathing maneuvers."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Spirometry",
+    "related_term_ids": [
+      "basic-anat-lung",
+      "D001249",
+      "gloss-wheeze",
+      "gloss-cough"
+    ]
+  },
+  {
+    "id": "ref-sputum-culture",
+    "term": "Sputum Culture",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Laboratory culture of respiratory secretions to look for microorganisms."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Sputum Culture",
+    "related_term_ids": [
+      "gloss-sputum",
+      "smd-id-010",
+      "D011014",
+      "basic-anat-lung",
+      "gloss-cough",
+      "smd-id-001"
+    ]
+  },
+  {
+    "id": "ref-stool-analysis",
+    "term": "Stool Analysis",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Stool test"
+    ],
+    "definition": {
+      "en": "Laboratory examination of a stool sample for selected chemical, microscopic, or microbiologic findings."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Stool Analysis"
+  },
+  {
+    "id": "p11-stool-culture",
+    "term": "Stool Culture",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Laboratory culture of a stool specimen for selected enteric microorganisms."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Stool Culture",
+    "related_term_ids": [
+      "gloss-bacterium",
+      "smd-id-010"
+    ]
+  },
+  {
+    "id": "gloss-symptom",
+    "term": "Symptom",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "A subjective experience reported by a person, such as pain or dizziness."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "p13-temporomandibular-joint-imaging",
+    "term": "Temporomandibular Joint Imaging",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Imaging assessment of the temporomandibular joint using an appropriate modality."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Temporomandibular Joint Imaging",
+    "related_term_ids": [
+      "anat3d-temporomandibular-joint",
+      "anat3d-mandible"
+    ]
+  },
+  {
+    "id": "ref-thyroid-function-testing",
+    "term": "Thyroid Function Testing",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "TFT"
+    ],
+    "definition": {
+      "en": "Laboratory measurement of thyroid-related hormones used in endocrine assessment."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Thyroid Function Testing",
+    "related_term_ids": [
+      "gloss-hormone"
+    ]
+  },
+  {
+    "id": "ref-thyroid-function-tests",
+    "term": "Thyroid Function Tests",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "TFTs"
+    ],
+    "definition": {
+      "en": "Blood tests that measure thyroid-related hormones to assess thyroid function."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Thyroid Function Tests",
+    "related_term_ids": [
+      "gloss-hormone"
+    ]
+  },
+  {
+    "id": "p14-tonometry",
+    "term": "Tonometry",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Measurement of intraocular pressure using an appropriate instrument."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Tonometry",
+    "related_term_ids": [
+      "basic-anat-eye"
+    ]
+  },
+  {
+    "id": "ref-procedures-tympanometry",
+    "term": "Tympanometry",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Measurement of middle-ear system response while air pressure in the ear canal is varied."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Tympanometry",
+    "related_term_ids": [
+      "anat3d-tympanic-membrane"
+    ]
+  },
+  {
+    "id": "ref-ultrasound",
+    "term": "Ultrasound",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Sonography"
+    ],
+    "definition": {
+      "en": "Imaging that uses high-frequency sound waves to visualize internal structures and motion."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Ultrasound",
+    "related_term_ids": [
+      "ref-echocardiography"
+    ]
+  },
+  {
+    "id": "ref-upper-endoscopy",
+    "term": "Upper Endoscopy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "EGD",
+      "Gastroscopy"
+    ],
+    "definition": {
+      "en": "Endoscopic examination of the upper gastrointestinal tract."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Upper Endoscopy",
+    "related_term_ids": [
+      "basic-anat-stomach"
+    ]
+  },
+  {
+    "id": "p11-upper-gastrointestinal-endoscopy",
+    "term": "Upper Gastrointestinal Endoscopy",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "EGD",
+      "Gastroscopy"
+    ],
+    "definition": {
+      "en": "Endoscopic visualization of the esophagus, stomach and proximal small intestine."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Upper Gastrointestinal Endoscopy",
+    "related_term_ids": [
+      "basic-anat-stomach"
+    ]
+  },
+  {
+    "id": "ref-urinalysis",
+    "term": "Urinalysis",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Urine test"
+    ],
+    "definition": {
+      "en": "Laboratory examination of urine using physical, chemical, and microscopic measurements."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Urinalysis",
+    "related_term_ids": [
+      "basic-anat-kidney",
+      "ref-conditions-kidney-stone-disease",
+      "gloss-urine",
+      "smd-neph-001",
+      "smd-dx-009",
+      "ref-renal-function-panel"
+    ]
+  },
+  {
+    "id": "p11-urine-culture",
+    "term": "Urine Culture",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Laboratory culture of a urine specimen to detect and identify microorganisms."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Urine Culture",
+    "related_term_ids": [
+      "gloss-urine",
+      "gloss-bacterium",
+      "ref-urinalysis"
+    ]
+  },
+  {
+    "id": "ref-procedures-venous-ultrasound",
+    "term": "Venous Ultrasound",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Ultrasound imaging used to evaluate veins and venous blood flow."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Venous Ultrasound",
+    "related_term_ids": [
+      "basic-anat-vein",
+      "ref-deep-vein-thrombosis",
+      "gloss-thrombosis",
+      "ref-pulmonary-embolism"
+    ]
+  },
+  {
+    "id": "ref-visual-acuity-test",
+    "term": "Visual Acuity Test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Eye chart test"
+    ],
+    "definition": {
+      "en": "A standardized assessment of the ability to distinguish visual detail at a set distance."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "Visual Acuity Test",
+    "related_term_ids": [
+      "basic-anat-eye"
+    ]
+  },
+  {
+    "id": "p12-visual-field-test",
+    "term": "Visual Field Test",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Assessment of the area of vision visible while the eye focuses on a central point."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry for offline study; it does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Visual Field Test",
+    "related_term_ids": [
+      "basic-anat-eye"
+    ]
+  },
+  {
+    "id": "ref-procedures-visual-field-testing",
+    "term": "Visual Field Testing",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Assessment of central and peripheral visual-field sensitivity."
+    },
+    "explanation": {
+      "en": "Bundled educational reference entry linked to the Clinical Reference workspace. It does not provide individualized diagnosis, treatment, or dosing advice."
+    },
+    "source": "Suhail Clinical Reference — Procedures",
+    "reference_module": "procedures",
+    "reference_query": "Visual Field Testing",
+    "related_term_ids": [
+      "basic-anat-eye"
+    ]
+  },
+  {
+    "id": "smd-dx-001",
+    "term": "Vital Signs",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [],
+    "definition": {
+      "en": "Basic physiological measurements used to assess essential body functions."
+    },
+    "explanation": {
+      "en": "Common vital signs include temperature, pulse, respiratory rate, blood pressure, and often oxygen saturation."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "ref-x-ray-imaging",
+    "term": "X-ray imaging",
+    "category": "diagnostics",
+    "category_label": "Diagnostics & Clinical Investigation",
+    "synonyms": [
+      "Radiograph"
+    ],
+    "definition": {
+      "en": "Medical imaging that uses ionizing radiation to create projection images of internal structures."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Procedures educational summary",
+    "reference_module": "procedures",
+    "reference_query": "X-ray imaging",
+    "related_term_ids": [
+      "basic-anat-bone"
+    ]
+  }
+]

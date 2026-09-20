@@ -1,0 +1,277 @@
+[
+  {
+    "id": "gloss-bacterium",
+    "term": "Bacterium",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [],
+    "definition": {
+      "en": "A single-celled prokaryotic microorganism."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "smd-id-009",
+    "term": "COVID-19",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [
+      "Coronavirus disease 2019"
+    ],
+    "definition": {
+      "en": "An infectious respiratory illness caused by the SARS-CoV-2 virus."
+    },
+    "explanation": {
+      "en": "Clinical severity ranges from mild illness to severe respiratory and systemic disease."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "smd-id-008",
+    "term": "Dengue",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [
+      "Dengue fever"
+    ],
+    "definition": {
+      "en": "A mosquito-borne viral infection that can cause fever, headache, body aches, and rash."
+    },
+    "explanation": {
+      "en": "Some cases become severe and can affect circulation or bleeding."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "smd-id-001",
+    "term": "Fever",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [
+      "Pyrexia"
+    ],
+    "definition": {
+      "en": "An elevation of body temperature that commonly occurs as part of an immune response."
+    },
+    "explanation": {
+      "en": "Fever is a sign rather than a disease and can occur with infections and many noninfectious conditions."
+    },
+    "source": "Suhail Medical Dictionary educational summary",
+    "related_term_ids": [
+      "D011014",
+      "basic-anat-lung",
+      "gloss-cough",
+      "ref-sputum-culture"
+    ]
+  },
+  {
+    "id": "gloss-fungus",
+    "term": "Fungus",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [],
+    "definition": {
+      "en": "An organism from the fungal kingdom, including yeasts and molds."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "smd-id-010",
+    "term": "Infection",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [],
+    "definition": {
+      "en": "Invasion and multiplication of microorganisms in body tissues, with or without symptoms."
+    },
+    "explanation": {
+      "en": "Infections can be caused by several types of microorganisms and may be local or systemic."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "ref-infectious-mononucleosis",
+    "term": "Infectious Mononucleosis",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [
+      "Mono"
+    ],
+    "definition": {
+      "en": "A clinical syndrome commonly associated with Epstein–Barr virus infection."
+    },
+    "explanation": {
+      "en": "This is a high-level educational reference entry. Use the Clinical Reference workspace for related context; no individualized diagnosis or treatment guidance is provided."
+    },
+    "source": "Suhail Clinical Reference educational summary",
+    "reference_module": "conditions",
+    "reference_query": "Infectious Mononucleosis",
+    "related_term_ids": [
+      "gloss-virus",
+      "smd-imm-007"
+    ]
+  },
+  {
+    "id": "smd-id-005",
+    "term": "Influenza",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [
+      "Flu"
+    ],
+    "definition": {
+      "en": "A contagious respiratory infection caused by influenza viruses."
+    },
+    "explanation": {
+      "en": "Influenza often causes sudden fever, cough, muscle aches, headache, and fatigue."
+    },
+    "source": "Suhail Medical Dictionary educational summary",
+    "reference_module": "conditions",
+    "reference_query": "Influenza",
+    "related_term_ids": [
+      "gloss-virus"
+    ]
+  },
+  {
+    "id": "smd-id-004",
+    "term": "Malaria",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [],
+    "definition": {
+      "en": "An infectious disease caused by Plasmodium parasites and transmitted by certain mosquitoes."
+    },
+    "explanation": {
+      "en": "Malaria commonly causes episodes of fever and systemic illness and can become severe."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "smd-id-006",
+    "term": "Measles",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [
+      "Rubeola"
+    ],
+    "definition": {
+      "en": "A highly contagious viral illness characterized by fever, respiratory symptoms, and a widespread rash."
+    },
+    "explanation": {
+      "en": "Measles can cause serious complications, especially in vulnerable people."
+    },
+    "source": "Suhail Medical Dictionary educational summary"
+  },
+  {
+    "id": "smd-id-007",
+    "term": "Meningitis",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [
+      "Meningeal inflammation"
+    ],
+    "definition": {
+      "en": "Inflammation of the membranes surrounding the brain and spinal cord."
+    },
+    "explanation": {
+      "en": "Meningitis may have infectious or noninfectious causes and can be medically urgent."
+    },
+    "source": "Suhail Medical Dictionary educational summary",
+    "reference_module": "conditions",
+    "reference_query": "Meningitis",
+    "related_term_ids": [
+      "basic-anat-brain"
+    ]
+  },
+  {
+    "id": "gloss-parasite",
+    "term": "Parasite",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [],
+    "definition": {
+      "en": "An organism that lives on or in a host and obtains resources from it."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "gloss-pathogen",
+    "term": "Pathogen",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [],
+    "definition": {
+      "en": "A microorganism or other agent capable of causing disease."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  },
+  {
+    "id": "smd-id-002",
+    "term": "Sepsis",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [
+      "Systemic infection response"
+    ],
+    "definition": {
+      "en": "A life-threatening organ dysfunction caused by a dysregulated response to infection."
+    },
+    "explanation": {
+      "en": "Sepsis is a medical emergency because circulation and organ function can deteriorate rapidly."
+    },
+    "source": "Suhail Medical Dictionary educational summary",
+    "reference_module": "conditions",
+    "reference_query": "Sepsis",
+    "related_term_ids": [
+      "smd-id-010",
+      "smd-imm-009"
+    ]
+  },
+  {
+    "id": "smd-id-003",
+    "term": "Tuberculosis",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [
+      "TB"
+    ],
+    "definition": {
+      "en": "An infectious disease caused by bacteria in the Mycobacterium tuberculosis complex, most often affecting the lungs."
+    },
+    "explanation": {
+      "en": "Tuberculosis can also affect other organs and may remain latent before becoming active."
+    },
+    "source": "Suhail Medical Dictionary educational summary",
+    "reference_module": "conditions",
+    "reference_query": "Tuberculosis",
+    "related_term_ids": [
+      "smd-id-010"
+    ]
+  },
+  {
+    "id": "gloss-virus",
+    "term": "Virus",
+    "category": "infectious-disease",
+    "category_label": "Infectious Disease",
+    "synonyms": [],
+    "definition": {
+      "en": "A small infectious agent that replicates using host-cell machinery."
+    },
+    "explanation": {
+      "en": "Educational terminology entry. Related Clinical Reference and Anatomy modules can provide additional study context."
+    },
+    "source": "Suhail Medical Dictionary educational glossary"
+  }
+]

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="#071d33" name="theme-color"/>
+<meta content="Offline packs and PWA controls for Suhail Medical Dictionary." name="description"/>
+<link href="./manifest.webmanifest" rel="manifest"/>
+<link href="./assets/icons/icon-192.png" rel="icon"/>
+<title>Offline Packs · Suhail Medical Dictionary</title>
+<link href="./assets/vendor/bootstrap/bootstrap.min.css?v=20.19.0" rel="stylesheet"/>
+<link href="./assets/vendor/bootstrap-icons/bootstrap-icons.min.css?v=20.19.0" rel="stylesheet"/>
+<link href="./assets/css/styles.css?v=20.19.0" rel="stylesheet"/>
+<link href="./assets/css/v20-shell.css?v=20.19.0" rel="stylesheet"/>
+<link href="./assets/css/v20-offline.css?v=20.19.0" rel="stylesheet"/>
+<link href="./assets/css/v20-release.css?v=20.19.0" rel="stylesheet"/>
+<link href="./assets/css/v20-17-repair.css?v=20.19.0" rel="stylesheet"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="yes" name="mobile-web-app-capable"/><meta content="default" name="apple-mobile-web-app-status-bar-style"/><meta content="Suhail Medical" name="apple-mobile-web-app-title"/><link href="./assets/icons/apple-touch-icon-180.png" rel="apple-touch-icon"/><link href="./assets/css/v20-18-polish.css?v=20.19.0" rel="stylesheet"/><script>(function(){try{var s=JSON.parse(localStorage.getItem('smd-auth-v5')||'null');if(!s||!s.user){location.replace('./index.html');return;}var id=String(s.user.id||s.user.email||'').trim().toLowerCase(),m=JSON.parse(localStorage.getItem('smd-privacy-consents-v1')||'{}')||{},p=JSON.parse(localStorage.getItem('smd-local-profile-v1')||'null');if(!(m[id]||(s.local_only&&p&&p.privacy_ack_at))){location.replace('./index.html?consent=1');}}catch(e){location.replace('./index.html');}})();</script><link href="./assets/css/v20-18-2-final-layout.css?v=20.19.0" rel="stylesheet"/>
+<link href="./assets/css/v20-19-aqua-glass.css?v=20.19.0" rel="stylesheet"/>
+</head>
+<body class="workspace-page v20-offline-page" data-build="20.19.0" data-theme="clinical">
+<a class="v20-skip-link" href="#main-content">Skip to main content</a>
+<div class="med-app-shell">
+<aside aria-label="Primary navigation" class="med-sidebar">
+<a class="med-brand" href="./app.html"><span class="med-brand-mark"><img alt="" src="./assets/images/logo-book.svg"/></span><span><strong>Suhail</strong><small>Medical Dictionary</small></span></a>
+<nav class="med-nav"><a class="med-nav-item" href="./app.html#dictionary"><span class="nav-ico"><i aria-hidden="true" class="bi bi-journal-medical"></i></span><span>Dictionary</span></a><a class="med-nav-item" href="./app.html#clinical-reference"><span class="nav-ico"><i aria-hidden="true" class="bi bi-clipboard2-pulse"></i></span><span>Clinical Reference</span></a><a class="med-nav-item" href="./anatomy.html"><span class="nav-ico"><i aria-hidden="true" class="bi bi-box"></i></span><span>3D Anatomy</span></a><a class="med-nav-item" href="./ai.html"><span class="nav-ico"><i aria-hidden="true" class="bi bi-stars"></i></span><span>AI Study</span><span class="nav-badge">New</span></a><a class="med-nav-item" href="./app.html?view=selected#dictionary"><span class="nav-ico"><i aria-hidden="true" class="bi bi-bookmark-check"></i></span><span>Selected</span></a><a class="med-nav-item active" href="./offline.html"><span class="nav-ico"><i aria-hidden="true" class="bi bi-cloud-arrow-down"></i></span><span>Offline Packs</span></a><a class="med-nav-item" href="./app.html?view=bookmarks#dictionary"><span class="nav-ico"><i aria-hidden="true" class="bi bi-bookmark"></i></span><span>Bookmarks</span></a><a class="med-nav-item" href="./app.html?view=history#dictionary"><span class="nav-ico"><i aria-hidden="true" class="bi bi-clock-history"></i></span><span>History</span></a><span class="med-nav-separator"></span><a class="med-nav-item" href="./about.html"><span class="nav-ico"><i aria-hidden="true" class="bi bi-info-circle"></i></span><span>About</span></a><a class="med-nav-item" href="./app.html?view=settings#dictionary"><span class="nav-ico"><i aria-hidden="true" class="bi bi-gear"></i></span><span>Settings</span></a></nav>
+<button class="med-nav-item v19-sidebar-install" data-install-app="" type="button"><span class="nav-ico"><i class="bi bi-download"></i></span><span>Install App</span></button>
+<div class="med-side-promo"><strong>Study anywhere</strong><small>Download only the packs you need. The bundled Study Engine also works offline; optional cloud AI is never required.</small><a class="promo-button" href="./app.html">Dictionary <span>→</span></a></div>
+<div class="v17-sidebar-quote">Your offline library.<small>Suhail Medical Dictionary<br/>v20.19.0</small></div>
+</aside>
+<div class="med-main">
+<header class="med-topbar">
+<div class="global-search-wrap"><span class="search-glyph"><i class="bi bi-cloud-arrow-down"></i></span><input aria-label="Offline Packs and App Updates" class="global-search" readonly="" value="Offline Packs &amp; App Updates"/><kbd>Offline</kbd></div>
+<div class="med-top-actions">
+<span class="status-chip" id="networkStatus"><i></i><span>Checking…</span></span>
+<select aria-label="Theme" class="control compact top-select" id="themeSelect"><option value="clinical">☀ Light</option><option value="dark">☾ Midnight</option><option value="ocean">Ocean</option><option value="forest">Forest</option><option value="violet">Violet</option><option value="sand">Sand</option></select>
+<button class="v19-install-button" data-install-app="" type="button"><i class="bi bi-download"></i><b>Install App</b></button>
+<a class="med-account" href="./app.html" style="text-decoration:none"><span class="avatar-dot">●</span><span class="account-lines"><b>Workspace</b><small>Back to Dictionary</small></span><span class="account-chevron">↗</span></a>
+</div>
+</header>
+<main class="med-content v20-offline-main" id="main-content"><div id="v20OfflineRoot"></div></main>
+</div>
+</div>
+<nav aria-label="Mobile navigation" class="mobile-bottom-nav v20-mobile-nav"><a data-v20-mobile="dictionary" href="./app.html#dictionary"><i class="bi bi-journal-medical"></i><span>Dictionary</span></a><a data-v20-mobile="anatomy" href="./anatomy.html"><i class="bi bi-box"></i><span>3D Anatomy</span></a><a data-v20-mobile="ai" href="./ai.html"><i class="bi bi-stars"></i><span>AI Study</span></a><a class="active" data-v20-mobile="offline" href="./offline.html"><i class="bi bi-cloud-arrow-down"></i><span>Offline</span></a><button data-v20-mobile="more" type="button"><i class="bi bi-grid"></i><span>More</span></button></nav>
+<script defer="" src="./assets/js/v20-offline.js?v=20.19.0"></script>
+<script src="./assets/vendor/bootstrap/bootstrap.bundle.min.js?v=20.19.0"></script>
+<script defer="" src="./assets/js/v20-shell.js?v=20.19.0"></script>
+<script defer="True" src="./assets/js/v20-17-repair.js?v=20.19.0"></script><script defer src="./assets/js/v20-18-polish.js?v=20.19.0"></script><script type="module" src="./assets/js/v20-access-guard.js?v=20.19.0"></script><script defer src="./assets/js/v20-18-2-final-layout.js?v=20.19.0"></script>
+</body>
+</html>
