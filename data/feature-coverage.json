@@ -1,0 +1,115 @@
+{
+  "version": "20.18.1",
+  "generated_for": "Suhail Medical Dictionary v20.18 UI/Usability + 206 Bone Anatomy repair",
+  "status_scale": {
+    "implemented": "Working local feature exists in this checkpoint.",
+    "partial": "Foundation exists, but content/detail coverage is not yet complete.",
+    "planned": "Not implemented as a complete production feature in this checkpoint."
+  },
+  "modules": [
+    {
+      "id": "zero-cost-core",
+      "name": "Zero-Cost Core",
+      "status": "implemented",
+      "details": "Core sign-in, Dictionary, 3D Anatomy, Clinical Reference, Offline Packs, local study-chat storage and the source-bounded Offline Study Engine run without a paid API, paid database or required cloud account.",
+      "limitations": [
+        "Optional third-party free cloud services can change their quotas or terms; they are enhancements, not runtime requirements.",
+        "Web hosting/domain choices outside the project can have their own costs; the application itself can be served from a local machine or any suitable free static host."
+      ]
+    },
+    {
+      "id": "dictionary",
+      "name": "Medical Dictionary",
+      "status": "implemented",
+      "details": "1158 bundled educational terms with related-term links, Clinical Reference links, direct 3D Anatomy links, offline packs and 660 draft Pashto/Dari term-name localizations.",
+      "bundled_terms": 1158,
+      "bundled_categories": 17,
+      "limitations": [
+        "The bundled dataset is an educational reference collection, not a complete professional medical encyclopedia.",
+        "Not every term has a reviewed translation in every UI language.",
+        "Content expansion still requires medical/editorial review."
+      ]
+    },
+    {
+      "id": "anatomy-3d",
+      "name": "3D Anatomy",
+      "status": "implemented",
+      "details": "Interactive local WebGL anatomy with 830 searchable anatomy structures, a dedicated 206-bone adult skeleton catalog, male/female reference profiles, click/tap bone selection, red highlighting, labels, pronunciation, saved views, layers and study presets.",
+      "whole_body_lods": 1,
+      "isolated_regions": 830,
+      "named_structures": 787,
+      "layers": [
+        "skeleton",
+        "muscles",
+        "organs",
+        "systems",
+        "ligaments",
+        "ear",
+        "female_reproductive",
+        "male_reproductive",
+        "nerves",
+        "vessels",
+        "joints",
+        "teeth",
+        "sinuses",
+        "primary_teeth",
+        "eye"
+      ],
+      "limitations": [
+        "The bundled 3D geometry is an educational procedural atlas rather than a clinically precise dissection or surgical-planning model.",
+        "The adult skeleton follows the standard 206-bone count; direct click selection uses projected bone centers and is most reliable when the target bone is visible.",
+        "Not intended for diagnosis, procedural planning or surgery."
+      ],
+      "coverage_level": "non-exhaustive educational anatomy",
+      "adult_bone_catalog": 206
+    },
+    {
+      "id": "clinical-reference",
+      "name": "Clinical Reference",
+      "status": "implemented",
+      "details": "Offline educational Conditions, Procedures and high-level Pharmacology cards with filters, Dictionary navigation and selected 3D Anatomy cross-navigation. Content scale and human medical review remain partial.",
+      "conditions": 185,
+      "procedures": 135,
+      "pharmacology_concepts": 87,
+      "calculators": 7,
+      "limitations": [
+        "Content volume is much smaller than a large professional clinical-reference platform.",
+        "Formula tools return educational numeric results without individualized diagnosis or treatment interpretation.",
+        "Medication-pair advice remains intentionally unavailable without an appropriate verified clinical dataset."
+      ],
+      "coverage_level": "non-exhaustive educational clinical reference"
+    },
+    {
+      "id": "ai-study",
+      "name": "Study Engine / Optional AI",
+      "status": "implemented",
+      "details": "Explain, Compare, Quiz, Flashcards and Summary modes work locally from bundled Dictionary and Clinical Reference data. Local chat history is stored on-device. Optional free cloud AI can be configured separately, with automatic local fallback.",
+      "limitations": [
+        "The local engine is source-bounded and intentionally does not invent facts absent from bundled data.",
+        "Optional cloud AI and translation availability depends on the chosen third-party free service; no paid fallback is enabled.",
+        "Study output is educational and not a substitute for professional medical care."
+      ]
+    },
+    {
+      "id": "admin",
+      "name": "Admin Panel",
+      "status": "implemented",
+      "details": "Owner dashboard works in local Zero-Cost Mode with local user, chat/message counts, content health and local activity events. Optional cloud metrics and consent-aware cross-user support audit are available only when a compatible cloud backend is intentionally configured.",
+      "limitations": [
+        "Local-only mode has no cross-device or cross-user centralized metrics because there is no required cloud database."
+      ]
+    },
+    {
+      "id": "pwa-offline",
+      "name": "PWA / Offline",
+      "status": "implemented",
+      "details": "Installable PWA with service worker, dictionary packs, the 206-bone anatomy catalog/models, Clinical Reference data and Offline Study Engine assets.",
+      "limitations": [
+        "The full 3D anatomy pack can require significant device storage.",
+        "PWA installation behavior varies by browser; on iPhone use Safari → Share → Add to Home Screen."
+      ]
+    }
+  ],
+  "release_scope_complete": true,
+  "release_scope_note": "Core software workflow is complete for the declared educational/offline scope. Medical content remains non-exhaustive and draft Pashto/Dari terminology still requires qualified review."
+}
