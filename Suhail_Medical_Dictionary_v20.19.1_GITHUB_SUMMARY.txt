@@ -1,5 +1,0 @@
-Summary:
-Release v20.19.2 - Unify Topbar/Sidebar, add 1-2-3 term views and improve HD Anatomy
-
-Description:
-Fix the v20.19 workspace based on desktop/mobile QA: remove Clinical Reference from the sidebar and keep it collapsible inside Dictionary; add desktop sidebar collapse/expand; keep Topbar sticky; use one mobile Menu button with compact Search, Language and Theme controls; add 1-column, 2-column and 3-column Dictionary term views; restore a true Light theme; normalize Privacy/Terms shell styling; fix offline PWA/service-worker errors; and load the bundled HD male/female whole-body skeleton while retaining the 206 selectable adult-bone catalogue, highlighting and pronunciation.
