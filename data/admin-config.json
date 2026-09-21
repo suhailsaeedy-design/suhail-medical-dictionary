@@ -1,0 +1,19 @@
+{
+  "version": "21.20.0",
+  "localDiagnostics": true,
+  "cloudAdmin": {
+    "enabled": true,
+    "roleClaim": "smd_role",
+    "allowedRoles": [
+      "owner",
+      "admin"
+    ],
+    "metricsRpc": "smd_admin_metrics",
+    "aggregateOnly": true
+  },
+  "privacy": {
+    "showRawUserState": false,
+    "showOtherUserEmails": false,
+    "cacheAdminPages": false
+  }
+}

@@ -1,0 +1,49 @@
+/* Phase 16 · Dictionary visual / 3D-like interaction polish */
+:root{--visual-ease:cubic-bezier(.2,.8,.2,1)}
+html,body{overflow-x:clip}
+.term-card{position:relative;isolation:isolate;transform-style:preserve-3d;will-change:transform,box-shadow;transition:transform .24s var(--visual-ease),box-shadow .24s var(--visual-ease),border-color .24s ease;background:linear-gradient(145deg,color-mix(in srgb,var(--glass) 96%,transparent),color-mix(in srgb,var(--surface) 88%,transparent));box-shadow:0 12px 32px rgba(0,0,0,.09)}
+.term-card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(76,211,255,.32),transparent 42%,rgba(78,117,255,.22));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.55;z-index:3}
+.term-card::after{content:"";position:absolute;inset:-1px;border-radius:inherit;background:radial-gradient(280px circle at var(--glow-x,50%) var(--glow-y,50%),rgba(73,205,255,.14),transparent 56%);pointer-events:none;opacity:0;transition:opacity .2s ease;z-index:2}
+.term-card:hover,.term-card:focus-visible{border-color:color-mix(in srgb,var(--brand) 48%,var(--line));box-shadow:0 20px 54px rgba(0,0,0,.18),0 0 0 1px rgba(63,205,255,.06);transform:perspective(900px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateY(-5px)}
+.term-card:hover::after,.term-card:focus-visible::after{opacity:1}
+.term-card:focus-visible{outline:3px solid color-mix(in srgb,var(--brand) 58%,transparent);outline-offset:3px}
+.term-image{position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(circle at 35% 28%,#fff 0 16%,#effaff 48%,#d9eef9 100%);border-right:1px solid color-mix(in srgb,var(--line) 75%,transparent)}
+.term-image::before,.detail-visual::before{content:"";position:absolute;width:74%;aspect-ratio:1;border:1px solid rgba(51,174,230,.23);border-radius:50%;box-shadow:0 0 0 18px rgba(50,179,234,.055),0 0 0 40px rgba(50,179,234,.026);z-index:-1}
+.term-image::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.44),transparent 36%,rgba(44,173,232,.07));pointer-events:none}
+.term-image img{position:relative;z-index:1;filter:drop-shadow(0 16px 14px rgba(1,42,76,.18));transform:translateZ(34px) scale(1);transition:transform .32s var(--visual-ease),filter .32s ease;will-change:transform}
+.term-card:hover .term-image img,.term-card:focus-visible .term-image img{transform:translateZ(42px) scale(1.055);filter:drop-shadow(0 19px 18px rgba(1,42,76,.24))}
+.term-body{position:relative;z-index:4;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--surface) 15%,transparent))}
+.term-body h3{letter-spacing:-.015em}.term-body p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.term-actions{position:relative;z-index:5}.mini-btn{transition:transform .16s ease,border-color .16s ease,background .16s ease}.mini-btn:hover{transform:translateY(-1px);border-color:color-mix(in srgb,var(--brand) 45%,var(--line));background:color-mix(in srgb,var(--brand) 7%,transparent)}
+
+/* richer hero depth without a raster overlay */
+.hero{position:relative;isolation:isolate;overflow:hidden;box-shadow:inset 0 1px rgba(255,255,255,.1),0 24px 55px rgba(0,0,0,.16)}
+.hero::before{content:"";position:absolute;width:340px;height:340px;right:-80px;top:-150px;border-radius:50%;background:radial-gradient(circle,rgba(52,210,255,.24),rgba(52,210,255,.05) 42%,transparent 68%);filter:blur(2px);z-index:-1;animation:visualFloat 8s ease-in-out infinite alternate}
+.hero::after{content:"";position:absolute;width:190px;height:190px;right:18%;bottom:-105px;border:1px solid rgba(130,231,255,.2);border-radius:50%;box-shadow:0 0 0 24px rgba(117,226,255,.035),0 0 0 52px rgba(117,226,255,.018);z-index:-1}
+@keyframes visualFloat{to{transform:translate3d(-34px,22px,0) scale(1.08)}}
+
+/* Detail visual: touch/drag tilt + zoom. This is deliberately a 3D-like image interaction, not a clinical mesh. */
+.detail-visual{--detail-rx:0deg;--detail-ry:0deg;--detail-scale:1;position:relative;isolation:isolate;overflow:hidden;perspective:900px;background:radial-gradient(circle at 35% 25%,#fff 0 12%,#eefaff 46%,#dceff8 100%);box-shadow:inset 0 0 0 1px rgba(30,136,190,.12),0 18px 45px rgba(0,0,0,.12);cursor:grab;touch-action:none;user-select:none}
+.detail-visual.is-dragging{cursor:grabbing}
+.detail-visual::before{width:190px;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 28px rgba(50,179,234,.045),0 0 0 62px rgba(50,179,234,.022)}
+.detail-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(140deg,rgba(255,255,255,.55),transparent 34%,rgba(18,156,225,.06));pointer-events:none;z-index:2}
+.detail-visual img{position:relative;z-index:1;transform-style:preserve-3d;transform:rotateX(var(--detail-rx)) rotateY(var(--detail-ry)) scale(var(--detail-scale));filter:drop-shadow(0 22px 18px rgba(4,60,90,.22));transition:transform .12s linear,filter .2s ease;will-change:transform}
+.detail-visual.auto-rotate img{animation:detailOrbit 8s ease-in-out infinite alternate}
+@keyframes detailOrbit{from{transform:rotateX(-2deg) rotateY(-8deg) scale(var(--detail-scale))}to{transform:rotateX(3deg) rotateY(8deg) scale(var(--detail-scale))}}
+.visual-toolbar{position:absolute;z-index:5;left:10px;right:10px;bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:8px;pointer-events:none}
+.visual-hint{max-width:62%;padding:7px 9px;border-radius:999px;background:rgba(3,25,44,.72);color:#eafaff;font-size:.69rem;font-weight:700;letter-spacing:.01em;backdrop-filter:blur(10px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.visual-controls{display:flex;gap:5px;pointer-events:auto}.visual-control{width:34px;height:34px;border:1px solid rgba(255,255,255,.25);border-radius:10px;background:rgba(3,25,44,.78);color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(10px);transition:transform .15s ease,background .15s ease}.visual-control:hover,.visual-control:focus-visible{background:rgba(5,67,104,.92);transform:translateY(-1px)}.visual-control[aria-pressed="true"]{background:#0d94d0}
+.visual-badge{position:absolute;z-index:5;top:10px;left:10px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,.82);color:#0d4562;font-size:.66rem;font-weight:900;box-shadow:0 8px 22px rgba(0,50,80,.12)}
+[data-theme="dark"] .visual-badge{background:rgba(3,29,49,.75);color:#d9f6ff;border:1px solid rgba(125,225,255,.18)}
+
+/* Light/dark consistency */
+[data-theme="dark"] .term-image,[data-theme="dark"] .detail-visual{background:radial-gradient(circle at 35% 25%,#153b52 0 10%,#09263a 48%,#061928 100%)}
+[data-theme="dark"] .term-image img,[data-theme="dark"] .detail-visual img{filter:drop-shadow(0 20px 17px rgba(0,0,0,.38)) saturate(1.05)}
+[data-theme="light"] .term-card{box-shadow:0 12px 34px rgba(23,84,118,.10)}
+
+@media (hover:none),(pointer:coarse){.term-card:hover{transform:none}.term-card:active{transform:scale(.992)}.visual-hint{max-width:54%;font-size:.64rem}.visual-control{width:38px;height:38px}}
+@media(max-width:860px){.detail-visual{height:240px;margin-top:52px}.term-card{box-shadow:0 10px 28px rgba(0,0,0,.12)}.term-image img{max-height:112px}.term-card:hover .term-image img{transform:none}.hero::before{width:260px;height:260px}.visual-toolbar{bottom:8px}}
+@media(max-width:520px){.term-card{grid-template-columns:104px 1fr!important;min-height:132px}.term-image{min-height:132px;padding:9px}.term-body p{display:-webkit-box;-webkit-line-clamp:2}.term-actions{gap:5px;flex-wrap:wrap}.mini-btn{padding:7px 8px}.detail-visual{height:215px;border-radius:16px}.visual-hint{display:none}.visual-toolbar{justify-content:flex-end}.detail-drawer{padding:18px}.detail-drawer h2{font-size:1.65rem}}
+[dir="rtl"] .visual-badge{left:auto;right:10px}
+[data-motion="reduce"] .hero::before,[data-motion="reduce"] .detail-visual.auto-rotate img{animation:none!important}
+[data-motion="reduce"] .term-card,[data-motion="reduce"] .term-image img,[data-motion="reduce"] .detail-visual img{transition:none!important}

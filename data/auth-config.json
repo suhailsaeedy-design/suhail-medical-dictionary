@@ -1,0 +1,17 @@
+{
+  "version": "21.20.0",
+  "enabled": true,
+  "provider": "google",
+  "supabaseUrl": "https://qdfylefkkkyjwtqqiuye.supabase.co",
+  "publishableKey": "sb_publishable_CQwb8FIM4lLL27T8xZGqCQ_sGT4phu7",
+  "redirectPath": "auth-callback.html",
+  "sync": {
+    "enabled": true,
+    "table": "user_app_state"
+  },
+  "security": {
+    "allowServiceRoleInBrowser": false,
+    "sessionStorageOnly": true
+  },
+  "productionSiteUrl": "https://suhailsaeedy-design.github.io/suhail-medical-dictionary/"
+}
