@@ -1,9 +1,0 @@
-(() => {
-  if(!window.SMD21Auth||!SMD21Auth.isReady()){location.replace('index.html?return='+encodeURIComponent('admin-login.html'));return}
-  const $=s=>document.querySelector(s),account=SMD21Auth.getAccount()||{email:'Local account'};
-  $('#adminAccount').textContent=account.email||'Local account';
-  const status=(m,state='')=>{const e=$('#adminLoginStatus');e.textContent=m;e.className='admin-status '+state};
-  $('#localDiagnostics').addEventListener('click',()=>{SMD21AdminAuth.setMode('local');location.href='admin.html'});
-  $('#verifyCloudAdmin').addEventListener('click',async()=>{try{const cfg=await SMD21AdminAuth.loadConfig();if(!cfg?.cloudAdmin?.enabled){status('Cloud admin is disabled in data/admin-config.json. Local diagnostics remain available.','bad');return}const cloud=await SMD21CloudAuth.status();if(!cloud.configured){status('Supabase/Google authentication is not configured.','bad');return}if(!cloud.connected){status('Opening Google account verification…');await SMD21CloudAuth.startGoogleSignIn('admin-login.html');return}const r=await SMD21AdminAuth.verifiedCloudRole();if(!r.authorized){status(r.reason||'This account is not an owner/admin.','bad');return}SMD21AdminAuth.setMode('cloud');status(`Verified cloud role: ${r.role}.`,'ok');setTimeout(()=>location.href='admin.html',250)}catch(err){status(err.message||String(err),'bad')}});
-  (async()=>{try{const cfg=await SMD21AdminAuth.loadConfig(),cloud=await SMD21CloudAuth.status();$('#cloudAdminSummary').textContent=!cfg?.cloudAdmin?.enabled?'Cloud admin disabled by default.':!cloud.configured?'Cloud authentication not configured.':cloud.connected?'Cloud session connected; verify role to continue.':'Cloud admin enabled; connect a verified account.';$('#verifyCloudAdmin').disabled=!cfg?.cloudAdmin?.enabled||!cloud.configured}catch(err){$('#cloudAdminSummary').textContent=err.message}})();
-})();
