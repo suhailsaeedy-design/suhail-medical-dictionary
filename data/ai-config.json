@@ -1,0 +1,17 @@
+{
+  "version": "21.2.0",
+  "zeroCostMode": true,
+  "allowPaidFallback": false,
+  "localStudyEngine": {
+    "enabled": true,
+    "features": ["explain", "compare", "quiz", "flashcards", "summary"]
+  },
+  "cloud": {
+    "enabled": false,
+    "provider": "optional-free-worker",
+    "endpoint": "",
+    "requiresExplicitOptIn": true,
+    "sendOnlySelectedContext": true
+  },
+  "medicalScope": "Educational reference only; no diagnosis, prescribing, medication dosing, or treatment plans."
+}
