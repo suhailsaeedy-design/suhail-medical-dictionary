@@ -1,0 +1,241 @@
+/* Suhail Medical Dictionary v20.19.2 — final responsive QA and shell stabilization */
+:root{
+  --smd-sidebar:270px;
+  --smd-sidebar-mini:82px;
+  --smd-topbar-h:72px;
+  --smd-mobile-topbar-h:58px;
+  --smd-mobile-bottom-h:66px;
+}
+html,body{max-width:100%;overflow-x:hidden}
+body.workspace-page{min-height:100svh;overflow-x:hidden}
+.workspace-page .med-app-shell{display:grid!important;grid-template-columns:var(--smd-sidebar) minmax(0,1fr)!important;min-height:100svh!important;width:100%!important}
+.workspace-page .med-main{min-width:0!important;width:100%!important;max-width:none!important}
+.workspace-page .med-sidebar{
+  position:sticky!important;top:0!important;align-self:start!important;height:100svh!important;max-height:100svh!important;
+  overflow-y:auto!important;overflow-x:hidden!important;overscroll-behavior:contain!important;scrollbar-gutter:stable;
+}
+.workspace-page .med-topbar{
+  position:sticky!important;top:0!important;left:auto!important;right:auto!important;z-index:1100!important;
+  min-height:var(--smd-topbar-h)!important;height:auto!important;width:100%!important;max-width:none!important;
+}
+.workspace-page .med-content,
+.workspace-page .v20-anatomy-content,
+.workspace-page .v20-ai-main,
+.workspace-page .workspace-main{min-width:0!important;width:100%!important;max-width:none!important;overflow:visible!important;scroll-margin-top:calc(var(--smd-topbar-h) + 12px)}
+.workspace-page .med-content>*{min-width:0}
+body.v20191-sidebar-collapsed .med-app-shell{grid-template-columns:var(--smd-sidebar-mini) minmax(0,1fr)!important}
+
+/* Normalize topbar actions and prevent button wrapping/overlap on desktop. */
+.workspace-page .med-topbar{display:flex!important;align-items:center!important;gap:10px!important;padding:10px 14px!important}
+.workspace-page .global-search-wrap{flex:1 1 420px!important;min-width:220px!important;max-width:none!important}
+.workspace-page .med-top-actions,.workspace-page .topbar-actions{margin-left:auto!important;display:flex!important;align-items:center!important;gap:8px!important;min-width:0!important}
+.workspace-page .top-select{min-width:112px!important;max-width:150px!important;white-space:nowrap!important}
+.workspace-page .status-chip,.workspace-page .med-account,.workspace-page [data-install-app]{flex:0 0 auto!important}
+.v20192-injected-search{display:flex;align-items:center;gap:8px;flex:1 1 360px;min-width:180px;height:42px;padding:0 12px;border:1px solid rgba(81,202,255,.24);border-radius:14px;background:rgba(3,40,75,.64)}
+.v20192-injected-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:inherit;font:inherit}
+.v20192-top-select{height:42px;min-width:108px;padding:0 28px 0 10px;border-radius:13px;border:1px solid rgba(81,202,255,.25);background:rgba(3,40,75,.68);color:inherit}
+
+/* Dictionary: stable hero/search/results/detail dimensions. */
+.workspace-page .med-hero{min-height:430px!important;height:auto!important;overflow:hidden!important}
+.workspace-page .med-hero .hero-copy{min-height:430px!important;height:auto!important;padding-bottom:28px!important}
+.workspace-page .hero-stats{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important;max-width:720px!important}
+.workspace-page .hero-stat{min-width:0!important;min-height:78px!important}
+.workspace-page .med-search-panel{position:relative!important;z-index:3!important;overflow:visible!important}
+.workspace-page .med-search-row{display:grid!important;grid-template-columns:minmax(240px,1fr) auto minmax(180px,250px) auto!important;gap:10px!important;align-items:center!important}
+.workspace-page .specialty-select-wrap{min-width:0!important}
+.workspace-page .category-chip-row{display:flex!important;flex-wrap:wrap!important;gap:8px!important;overflow:visible!important}
+.workspace-page .dictionary-workspace{min-width:0!important}
+.workspace-page .dictionary-results{min-width:0!important}
+.workspace-page .results-toolbar{position:relative!important;display:flex!important;align-items:center!important;gap:8px!important;flex-wrap:wrap!important;min-width:0!important}
+.workspace-page #termGrid{min-width:0!important;align-items:stretch!important}
+.workspace-page #termGrid.cols-1{grid-template-columns:1fr!important}
+.workspace-page #termGrid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.workspace-page #termGrid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.workspace-page .term-card{min-width:0!important;overflow:hidden!important}
+.workspace-page .term-main{min-width:0!important}
+.workspace-page .term-name{overflow-wrap:anywhere!important;word-break:normal!important}
+.workspace-page .term-visual-stage{display:grid!important;place-items:center!important;overflow:hidden!important}
+.workspace-page .term-visual-stage img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important}
+.workspace-page #termGrid.cols-1 .term-card{grid-template-columns:minmax(150px,220px) minmax(0,1fr)!important}
+.workspace-page #termGrid.cols-2 .term-card,.workspace-page #termGrid.cols-3 .term-card{height:100%!important}
+.workspace-page #termGrid.cols-3 .term-name{font-size:15px!important;line-height:1.25!important}
+.workspace-page .dictionary-detail{min-width:0!important;max-width:100%!important;overflow-y:auto!important;overscroll-behavior:contain!important}
+.workspace-page .detail-panel{min-width:0!important}
+
+/* Keep Clinical Reference inside Dictionary but compact and independently collapsible. */
+.workspace-page #clinical-reference{scroll-margin-top:calc(var(--smd-topbar-h) + 16px)!important}
+.workspace-page #clinical-reference .v20-reference-head{display:flex!important;align-items:flex-start!important;gap:12px!important;justify-content:space-between!important}
+.workspace-page #clinical-reference .v20191-reference-toggle{flex:0 0 auto!important}
+
+/* Anatomy: responsive explorer with canvas first, inspector scrollable, toolbar never clipped. */
+.v20-anatomy-page .v20-anatomy-content{padding-bottom:24px!important}
+.v20-anatomy-page .v20-anatomy-toolbar,.v20-anatomy-page .v20-system-rail{min-width:0!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:thin!important}
+.v20-anatomy-page .v20-anatomy-toolbar>* , .v20-anatomy-page .v20-system-rail>*{flex:0 0 auto!important}
+.v20-anatomy-page .v20-anatomy-workspace{min-width:0!important;grid-template-columns:minmax(0,1fr) minmax(300px,360px)!important;gap:12px!important}
+.v20-anatomy-page .v20-anatomy-stage{min-width:0!important;min-height:620px!important;overflow:hidden!important}
+.v20-anatomy-page .v20-anatomy-inspector{min-width:0!important;max-height:calc(100svh - var(--smd-topbar-h) - 28px)!important;overflow-y:auto!important;overscroll-behavior:contain!important;scrollbar-gutter:stable!important}
+.v20-anatomy-page .v20-region-list{overflow-y:auto!important;scrollbar-gutter:stable!important}
+.v20-anatomy-page canvas{max-width:100%!important}
+
+/* AI: no dead space; message history and composer remain usable. */
+.v20-ai-page .v20-ai-main{padding-bottom:24px!important}
+.v20-ai-page .v20-ai-workspace{min-height:calc(100svh - var(--smd-topbar-h) - 220px)!important;min-width:0!important}
+.v20-ai-page .v20-ai-chat-panel{min-width:0!important;display:flex!important;flex-direction:column!important}
+.v20-ai-page .v20-ai-message-list{flex:1 1 auto!important;min-height:280px!important;overflow-y:auto!important;overscroll-behavior:contain!important;scrollbar-gutter:stable!important}
+.v20-ai-page .v20-ai-composer{margin-top:auto!important}
+
+/* About/legal/offline: readable cards in both themes. */
+.v20-about-page .v20-about-grid,.v20-offline-page .v20-offline-grid{min-width:0!important}
+.v20-legal-page .med-app-shell{display:grid!important}
+.v20-legal-page .v20-legal-wrap{width:min(100%,980px)!important;margin-inline:auto!important;padding-inline:16px!important}
+.v20-legal-page .v20-legal-hero,.v20-legal-page .v20-legal-card{overflow:hidden!important}
+
+/* Login: center slightly high and avoid unnecessary viewport scroll. */
+body.v20-login-page,body.v20-login-body{min-height:100svh!important;overflow-x:hidden!important}
+.v20-login-page .v20-login-shell,.v20-login-body .v20-login-shell{min-height:100svh!important;height:auto!important}
+.v20-login-page .v20-login-stage,.v20-login-body .v20-login-stage{min-height:calc(100svh - 84px)!important;display:grid!important;align-items:center!important;padding-top:10px!important;padding-bottom:24px!important}
+.v20-login-page .v20-login-card,.v20-login-body .v20-login-card{transform:translateY(-12px);max-height:calc(100svh - 116px)!important;overflow:auto!important;scrollbar-width:thin!important}
+
+/* Light theme completeness for later override layers. */
+body[data-theme="clinical"].workspace-page,body[data-theme="light"].workspace-page{background:#edf8ff!important;color:#0c2f50!important}
+body[data-theme="clinical"].workspace-page .med-content,body[data-theme="light"].workspace-page .med-content,
+body[data-theme="clinical"].workspace-page .v20-ai-main,body[data-theme="light"].workspace-page .v20-ai-main,
+body[data-theme="clinical"].workspace-page .v20-anatomy-content,body[data-theme="light"].workspace-page .v20-anatomy-content{background:linear-gradient(180deg,#eff9ff,#e9f6ff)!important}
+body[data-theme="clinical"].workspace-page .v20-ai-message-list,body[data-theme="light"].workspace-page .v20-ai-message-list{background:rgba(255,255,255,.86)!important}
+body[data-theme="clinical"].workspace-page .v20-anatomy-stage,body[data-theme="light"].workspace-page .v20-anatomy-stage{background:radial-gradient(circle at 50% 42%,rgba(22,126,184,.18),transparent 46%),linear-gradient(180deg,#06233d,#03182a)!important}
+body[data-theme="clinical"].workspace-page .v20192-injected-search,body[data-theme="light"].workspace-page .v20192-injected-search,
+body[data-theme="clinical"].workspace-page .v20192-top-select,body[data-theme="light"].workspace-page .v20192-top-select{background:#fff!important;color:#153d60!important;border-color:rgba(36,132,200,.2)!important}
+
+/* Tablet */
+@media(max-width:1100px) and (min-width:821px){
+  :root{--smd-sidebar:230px}
+  .workspace-page .med-topbar{gap:7px!important;padding-inline:10px!important}
+  .workspace-page .global-search-wrap{min-width:180px!important}
+  .workspace-page .top-select{min-width:94px!important;max-width:120px!important}
+  .workspace-page .med-search-row{grid-template-columns:minmax(200px,1fr) auto minmax(160px,220px)!important}
+  .workspace-page .med-search-row .advanced-filter-button{grid-column:1/-1!important;justify-self:end!important}
+  .v20-anatomy-page .v20-anatomy-workspace{grid-template-columns:minmax(0,1fr) 300px!important}
+}
+
+/* Mobile */
+@media(max-width:820px){
+  :root{--smd-mobile-topbar-h:58px}
+  body.workspace-page{padding-bottom:calc(var(--smd-mobile-bottom-h) + env(safe-area-inset-bottom,0px))!important}
+  .workspace-page .med-app-shell{display:block!important;min-height:100svh!important}
+  .workspace-page .med-main{width:100%!important;margin:0!important}
+  .workspace-page .med-sidebar{
+    position:fixed!important;inset:0 auto 0 0!important;top:0!important;width:min(88vw,340px)!important;min-width:0!important;height:100dvh!important;max-height:100dvh!important;
+    transform:translateX(-105%)!important;transition:transform .22s ease!important;z-index:3000!important;padding-top:max(14px,env(safe-area-inset-top))!important;
+    box-shadow:18px 0 50px rgba(0,16,31,.35)!important;
+  }
+  body.v20-drawer-open .med-sidebar{transform:translateX(0)!important}
+  body.v20191-sidebar-collapsed .med-sidebar{transform:translateX(-105%)!important;width:min(88vw,340px)!important}
+  body.v20-drawer-open.v20191-sidebar-collapsed .med-sidebar{transform:translateX(0)!important}
+  .workspace-page .med-sidebar .med-brand>span:last-child,
+  .workspace-page .med-sidebar .med-nav-item>span:not(.nav-ico):not(.nav-badge),
+  .workspace-page .med-sidebar .med-nav-item>b,
+  .workspace-page .med-sidebar .v17-sidebar-quote{display:initial!important;opacity:1!important;visibility:visible!important}
+  .workspace-page .med-sidebar .med-nav-item{justify-content:flex-start!important;padding:11px 14px!important;gap:12px!important;min-height:46px!important}
+  .workspace-page .v2018-drawer-close{display:grid!important;position:absolute!important;right:12px!important;top:max(12px,env(safe-area-inset-top))!important;z-index:5!important}
+  .workspace-page .med-topbar{
+    position:sticky!important;top:0!important;z-index:2000!important;display:grid!important;
+    grid-template-columns:42px minmax(0,1fr) 76px 76px!important;align-items:center!important;gap:6px!important;
+    min-height:var(--smd-mobile-topbar-h)!important;height:var(--smd-mobile-topbar-h)!important;padding:7px 8px!important;
+  }
+  .workspace-page .v2018-menu-btn{display:grid!important;grid-column:1!important;width:42px!important;height:42px!important;padding:0!important;margin:0!important}
+  .workspace-page .med-topbar>.v2018-menu-btn~.v2018-menu-btn,.workspace-page .med-topbar>.sidebar-toggle,.workspace-page .med-topbar>.v20-mobile-menu-button{display:none!important}
+  .workspace-page .global-search-wrap,.workspace-page .v20192-injected-search{grid-column:2!important;width:100%!important;min-width:0!important;max-width:none!important;height:42px!important;margin:0!important;padding:0 9px!important}
+  .workspace-page .global-search-wrap input,.workspace-page .v20192-injected-search input{font-size:10.5px!important;min-width:0!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+  .workspace-page .global-search-wrap kbd{display:none!important}
+  .workspace-page .med-top-actions,.workspace-page .topbar-actions{display:contents!important;margin:0!important}
+  .workspace-page .med-top-actions>*:not(select),.workspace-page .topbar-actions>*:not(select),.workspace-page .topbar-title{display:none!important}
+  .workspace-page .med-top-actions select,.workspace-page .topbar-actions select,.workspace-page .v20192-top-select{
+    display:block!important;width:76px!important;max-width:76px!important;min-width:0!important;height:42px!important;padding:0 20px 0 7px!important;font-size:9.5px!important;border-radius:12px!important;
+  }
+  .workspace-page .med-top-actions select:first-of-type,.workspace-page .topbar-actions select:first-of-type,.workspace-page .v20192-lang{grid-column:3!important}
+  .workspace-page .med-top-actions select:nth-of-type(2),.workspace-page .topbar-actions select:nth-of-type(2),.workspace-page .v20192-theme{grid-column:4!important}
+  .workspace-page .med-content,.workspace-page .v20-anatomy-content,.workspace-page .v20-ai-main,.workspace-page .workspace-main{padding-top:10px!important;scroll-margin-top:calc(var(--smd-mobile-topbar-h) + 8px)!important}
+  .mobile-bottom-nav{position:fixed!important;left:10px!important;right:10px!important;bottom:max(8px,env(safe-area-inset-bottom))!important;width:auto!important;height:58px!important;z-index:2300!important;border-radius:20px!important;padding:4px 6px!important;box-shadow:0 12px 36px rgba(0,27,54,.25)!important}
+  .mobile-bottom-nav a,.mobile-bottom-nav button{min-width:0!important;font-size:9px!important}
+  .mobile-bottom-nav i{font-size:16px!important}
+
+  .workspace-page .med-hero{min-height:0!important;height:auto!important;border-radius:22px!important}
+  .workspace-page .med-hero .hero-copy{min-height:0!important;height:auto!important;padding:22px 16px 18px!important}
+  .workspace-page .med-hero h1{font-size:clamp(34px,10vw,46px)!important;line-height:.96!important;max-width:300px!important}
+  .workspace-page .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important;max-width:none!important}
+  .workspace-page .hero-stat{min-height:64px!important;padding:10px!important}
+  .workspace-page .med-search-panel{padding:10px!important;border-radius:18px!important}
+  .workspace-page .med-search-row{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:7px!important}
+  .workspace-page .med-search-row .search-field{grid-column:1!important;min-width:0!important}
+  .workspace-page .med-search-row .primary-search-button{grid-column:2!important;min-width:70px!important}
+  .workspace-page .specialty-select-wrap{grid-column:1/-1!important;width:100%!important}
+  .workspace-page .med-search-row .advanced-filter-button{grid-column:1/-1!important;width:100%!important}
+  .workspace-page .category-chip-row{flex-wrap:nowrap!important;overflow-x:auto!important;overscroll-behavior-x:contain!important;padding-bottom:3px!important;scrollbar-width:none!important}
+  .workspace-page .category-chip-row::-webkit-scrollbar{display:none!important}
+  .workspace-page .category-chip-row>*{flex:0 0 auto!important}
+  .workspace-page .results-toolbar{gap:6px!important;padding:8px!important}
+  .workspace-page .results-toolbar .sort-pill{margin-left:auto!important}
+  .workspace-page #termGrid.cols-1{grid-template-columns:1fr!important}
+  .workspace-page #termGrid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .workspace-page #termGrid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .workspace-page #termGrid.cols-1 .term-card{display:grid!important;grid-template-columns:100px minmax(0,1fr)!important;min-height:116px!important}
+  .workspace-page #termGrid.cols-1 .term-visual{height:116px!important}
+  .workspace-page #termGrid.cols-1 .term-name{font-size:14px!important;line-height:1.25!important}
+  .workspace-page #termGrid.cols-2 .term-card,.workspace-page #termGrid.cols-3 .term-card{display:block!important;min-height:154px!important}
+  .workspace-page #termGrid.cols-2 .term-visual,.workspace-page #termGrid.cols-3 .term-visual{height:86px!important}
+  .workspace-page #termGrid.cols-2 .term-main,.workspace-page #termGrid.cols-3 .term-main{padding:7px!important}
+  .workspace-page #termGrid.cols-2 .term-name{font-size:11px!important;line-height:1.2!important}
+  .workspace-page #termGrid.cols-3 .term-name{font-size:9px!important;line-height:1.15!important;-webkit-line-clamp:3!important;min-height:3.45em!important}
+  .workspace-page #termGrid.cols-3 .term-meta{font-size:7px!important;gap:2px!important}
+  .workspace-page #termGrid.cols-3 .tag{font-size:6.5px!important;padding:2px 4px!important}
+  .workspace-page .dictionary-detail{position:fixed!important;left:8px!important;right:8px!important;top:calc(var(--smd-mobile-topbar-h) + 8px)!important;bottom:calc(var(--smd-mobile-bottom-h) + 18px + env(safe-area-inset-bottom))!important;width:auto!important;max-height:none!important;border-radius:20px!important;z-index:2200!important}
+  .workspace-page #clinical-reference .v20-reference-grid{display:grid!important;grid-template-columns:1fr!important;overflow:visible!important}
+  .workspace-page #clinical-reference .v20-reference-card{width:100%!important;max-width:none!important}
+
+  .v20-anatomy-page .v20-anatomy-content{padding-inline:8px!important;padding-bottom:calc(var(--smd-mobile-bottom-h) + 22px)!important}
+  .v20-anatomy-page .v20-anatomy-workspace{display:block!important}
+  .v20-anatomy-page .v20-anatomy-stage{min-height:56svh!important;height:56svh!important;border-radius:18px!important}
+  .v20-anatomy-page .v20-anatomy-inspector{max-height:none!important;overflow:visible!important;margin-top:10px!important}
+  .v20-anatomy-page .v20-system-rail,.v20-anatomy-page .v20-anatomy-toolbar{display:flex!important;overflow-x:auto!important;white-space:nowrap!important;scrollbar-width:none!important}
+  .v20-anatomy-page .v20-system-rail::-webkit-scrollbar,.v20-anatomy-page .v20-anatomy-toolbar::-webkit-scrollbar{display:none!important}
+  .v20-anatomy-page .v20-region-list{max-height:44svh!important;overflow-y:auto!important}
+
+  .v20-ai-page .v20-ai-main{padding:10px 8px calc(var(--smd-mobile-bottom-h) + 22px)!important}
+  .v20-ai-page .v20-ai-hero{padding:18px 14px!important;border-radius:20px!important}
+  .v20-ai-page .v20-ai-workspace{min-height:calc(100svh - var(--smd-mobile-topbar-h) - var(--smd-mobile-bottom-h) - 32px)!important;display:block!important}
+  .v20-ai-page .v20-ai-chat-list{max-height:180px!important;overflow-y:auto!important}
+  .v20-ai-page .v20-ai-message-list{min-height:240px!important;max-height:42svh!important}
+  .v20-ai-page .v20-ai-composer{position:sticky!important;bottom:calc(var(--smd-mobile-bottom-h) + 8px)!important;z-index:8!important}
+
+  .v20-about-page .v20-about-main,.v20-offline-page .v20-offline-main{padding-inline:8px!important}
+  .v20-legal-page .v20-legal-wrap{padding:10px 8px calc(var(--smd-mobile-bottom-h) + 18px)!important}
+
+  .v20-login-page .v20-login-stage,.v20-login-body .v20-login-stage{min-height:calc(100svh - 66px)!important;padding:12px!important;align-items:center!important}
+  .v20-login-page .v20-login-card,.v20-login-body .v20-login-card{transform:translateY(-8px)!important;width:min(100%,430px)!important;max-height:calc(100svh - 100px)!important;padding:24px 18px!important;border-radius:26px!important}
+}
+@media(max-width:420px){
+  .workspace-page .med-topbar{grid-template-columns:40px minmax(0,1fr) 68px 68px!important;gap:4px!important;padding-inline:6px!important}
+  .workspace-page .med-top-actions select,.workspace-page .topbar-actions select,.workspace-page .v20192-top-select{width:68px!important;max-width:68px!important;font-size:8.5px!important;padding-left:5px!important;padding-right:16px!important}
+  .workspace-page .global-search-wrap input,.workspace-page .v20192-injected-search input{font-size:9.5px!important}
+  .workspace-page #termGrid.cols-3{gap:5px!important}
+  .workspace-page #termGrid.cols-3 .term-visual{height:72px!important}
+  .workspace-page #termGrid.cols-3 .term-main{padding:5px!important}
+}
+@media(max-width:360px){
+  .workspace-page .med-topbar{grid-template-columns:38px minmax(0,1fr) 62px 62px!important}
+  .workspace-page .med-top-actions select,.workspace-page .topbar-actions select,.workspace-page .v20192-top-select{width:62px!important;max-width:62px!important;font-size:8px!important}
+  .workspace-page #termGrid.cols-3 .term-name{font-size:8px!important}
+}
+
+/* Keyboard and touch accessibility hardening */
+.workspace-page :where(a,button,input,select,textarea,[tabindex]):focus-visible,
+.v20-login-page :where(a,button,input,select,textarea,[tabindex]):focus-visible{
+  outline:3px solid rgba(71,211,255,.95)!important;outline-offset:2px!important;box-shadow:0 0 0 5px rgba(35,166,242,.18)!important;
+}
+@media(max-width:820px){
+  .workspace-page :where(button,a.med-nav-item,.mobile-bottom-nav a,.mobile-bottom-nav button,select){min-height:44px}
+  .workspace-page input[type="checkbox"]{min-width:20px;min-height:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .workspace-page *, .v20-login-page *{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
