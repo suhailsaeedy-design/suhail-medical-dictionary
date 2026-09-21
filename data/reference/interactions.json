@@ -1,0 +1,41 @@
+{
+  "version": "20.19.2",
+  "kind": "interaction-checker-contract",
+  "status": "guarded",
+  "scope": "Architecture and validation contract only. No actionable medication-pair database is bundled in this educational release.",
+  "required_fields": [
+    "left_id",
+    "right_id",
+    "severity",
+    "summary",
+    "source_label",
+    "source_version",
+    "reviewed_at"
+  ],
+  "severity_taxonomy": [
+    {
+      "id": "informational",
+      "label": "Informational"
+    },
+    {
+      "id": "caution",
+      "label": "Caution"
+    },
+    {
+      "id": "high-risk",
+      "label": "High risk"
+    },
+    {
+      "id": "contraindicated",
+      "label": "Contraindicated"
+    }
+  ],
+  "validation_rules": [
+    "Each pair must use stable normalized identifiers.",
+    "Every active pair must include a traceable source and source version.",
+    "Entries require an explicit review date before release.",
+    "The user interface must never provide dosing or self-treatment instructions.",
+    "No-result states must not be presented as proof that a combination is safe."
+  ],
+  "entries": []
+}

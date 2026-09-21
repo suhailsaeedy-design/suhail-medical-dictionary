@@ -1,0 +1,4341 @@
+{
+  "version": "20.19.2",
+  "adult_bone_count": 206,
+  "note": "The typical adult human skeleton is counted as 206 bones. This educational atlas represents each of those 206 bones as a separately selectable structure.",
+  "normalization": {
+    "center": [
+      0.0,
+      0.02629999999999988,
+      0.18379160832357705
+    ],
+    "scale": 0.4493912316455035
+  },
+  "bones": [
+    {
+      "index": 1,
+      "key": "skeleton206:001_frontal_bone_midline",
+      "name": "Frontal bone",
+      "side": "Midline",
+      "group": "Cranial bones",
+      "latin": "Os frontale",
+      "location": "Forehead and anterior cranial vault.",
+      "overview": "Forms the forehead and part of the roof of the eye sockets.",
+      "center": [
+        0,
+        1.66,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/001-frontal_bone-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.7341704551392592,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 2,
+      "key": "skeleton206:002_left_parietal_bone_left",
+      "name": "Left parietal bone",
+      "side": "Left",
+      "group": "Cranial bones",
+      "latin": "Os parietale",
+      "location": "Superior-lateral cranial vault.",
+      "overview": "Paired cranial bone forming much of the roof and sides of the skull.",
+      "center": [
+        -0.15,
+        1.76,
+        -0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/002-left_parietal_bone-left.obj",
+      "normalized_center": [
+        -0.06740868474682551,
+        0.7791095783038094,
+        -0.09158216186355032
+      ]
+    },
+    {
+      "index": 3,
+      "key": "skeleton206:003_right_parietal_bone_right",
+      "name": "Right parietal bone",
+      "side": "Right",
+      "group": "Cranial bones",
+      "latin": "Os parietale",
+      "location": "Superior-lateral cranial vault.",
+      "overview": "Paired cranial bone forming much of the roof and sides of the skull.",
+      "center": [
+        0.15,
+        1.76,
+        -0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/003-right_parietal_bone-right.obj",
+      "normalized_center": [
+        0.06740868474682551,
+        0.7791095783038094,
+        -0.09158216186355032
+      ]
+    },
+    {
+      "index": 4,
+      "key": "skeleton206:004_left_temporal_bone_left",
+      "name": "Left temporal bone",
+      "side": "Left",
+      "group": "Cranial bones",
+      "latin": "Os temporale",
+      "location": "Lateral skull around the ear region.",
+      "overview": "Cranial bone contributing to the side and base of the skull.",
+      "center": [
+        -0.2,
+        1.57,
+        -0.01
+      ],
+      "url": "./assets/models/anatomy/adult206/004-left_temporal_bone-left.obj",
+      "normalized_center": [
+        -0.0898782463291007,
+        0.6937252442911639,
+        -0.0870882495470953
+      ]
+    },
+    {
+      "index": 5,
+      "key": "skeleton206:005_right_temporal_bone_right",
+      "name": "Right temporal bone",
+      "side": "Right",
+      "group": "Cranial bones",
+      "latin": "Os temporale",
+      "location": "Lateral skull around the ear region.",
+      "overview": "Cranial bone contributing to the side and base of the skull.",
+      "center": [
+        0.2,
+        1.57,
+        -0.01
+      ],
+      "url": "./assets/models/anatomy/adult206/005-right_temporal_bone-right.obj",
+      "normalized_center": [
+        0.0898782463291007,
+        0.6937252442911639,
+        -0.0870882495470953
+      ]
+    },
+    {
+      "index": 6,
+      "key": "skeleton206:006_occipital_bone_midline",
+      "name": "Occipital bone",
+      "side": "Midline",
+      "group": "Cranial bones",
+      "latin": "Os occipitale",
+      "location": "Posterior-inferior skull.",
+      "overview": "Forms much of the back and base of the skull.",
+      "center": [
+        0,
+        1.57,
+        -0.15
+      ],
+      "url": "./assets/models/anatomy/adult206/006-occipital_bone-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.6937252442911639,
+        -0.15000302197746576
+      ]
+    },
+    {
+      "index": 7,
+      "key": "skeleton206:007_sphenoid_bone_midline",
+      "name": "Sphenoid bone",
+      "side": "Midline",
+      "group": "Cranial bones",
+      "latin": "Os sphenoidale",
+      "location": "Central skull base.",
+      "overview": "Complex cranial bone at the base of the skull connecting several skull regions.",
+      "center": [
+        0,
+        1.55,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/007-sphenoid_bone-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.6847374196582537,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 8,
+      "key": "skeleton206:008_ethmoid_bone_midline",
+      "name": "Ethmoid bone",
+      "side": "Midline",
+      "group": "Cranial bones",
+      "latin": "Os ethmoidale",
+      "location": "Between the nasal cavity and orbits.",
+      "overview": "Light cranial bone contributing to the nasal cavity and medial orbit.",
+      "center": [
+        0,
+        1.59,
+        0.12
+      ],
+      "url": "./assets/models/anatomy/adult206/008-ethmoid_bone-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.7027130689240739,
+        -0.028667389433179844
+      ]
+    },
+    {
+      "index": 9,
+      "key": "skeleton206:009_left_maxilla_left",
+      "name": "Left maxilla",
+      "side": "Left",
+      "group": "Facial bones",
+      "latin": "Maxilla",
+      "location": "Upper jaw and central face.",
+      "overview": "Paired facial bone forming the upper jaw and part of the orbit and nasal cavity.",
+      "center": [
+        -0.09,
+        1.48,
+        0.15
+      ],
+      "url": "./assets/models/anatomy/adult206/009-left_maxilla-left.obj",
+      "normalized_center": [
+        -0.04044521084809531,
+        0.6532800334430684,
+        -0.01518565248381474
+      ]
+    },
+    {
+      "index": 10,
+      "key": "skeleton206:010_left_zygomatic_bone_left",
+      "name": "Left zygomatic bone",
+      "side": "Left",
+      "group": "Facial bones",
+      "latin": "Os zygomaticum",
+      "location": "Cheek and lateral orbit.",
+      "overview": "Paired cheek bone contributing to the lateral wall of the orbit.",
+      "center": [
+        -0.162,
+        1.51,
+        0.11
+      ],
+      "url": "./assets/models/anatomy/adult206/010-left_zygomatic_bone-left.obj",
+      "normalized_center": [
+        -0.07280137952657156,
+        0.6667617703924337,
+        -0.03316130174963488
+      ]
+    },
+    {
+      "index": 11,
+      "key": "skeleton206:011_left_nasal_bone_left",
+      "name": "Left nasal bone",
+      "side": "Left",
+      "group": "Facial bones",
+      "latin": "Os nasale",
+      "location": "Bridge of the nose.",
+      "overview": "Small paired facial bone forming the bony bridge of the nose.",
+      "center": [
+        -0.0315,
+        1.56,
+        0.19
+      ],
+      "url": "./assets/models/anatomy/adult206/011-left_nasal_bone-left.obj",
+      "normalized_center": [
+        -0.01415582379683336,
+        0.6892313319747088,
+        0.002789996782005403
+      ]
+    },
+    {
+      "index": 12,
+      "key": "skeleton206:012_left_lacrimal_bone_left",
+      "name": "Left lacrimal bone",
+      "side": "Left",
+      "group": "Facial bones",
+      "latin": "Os lacrimale",
+      "location": "Medial wall of the orbit.",
+      "overview": "Small paired bone at the medial orbit near the lacrimal drainage pathway.",
+      "center": [
+        -0.0675,
+        1.55,
+        0.145
+      ],
+      "url": "./assets/models/anatomy/adult206/012-left_lacrimal_bone-left.obj",
+      "normalized_center": [
+        -0.030333908136071487,
+        0.6847374196582537,
+        -0.01743260864204226
+      ]
+    },
+    {
+      "index": 13,
+      "key": "skeleton206:013_left_palatine_bone_left",
+      "name": "Left palatine bone",
+      "side": "Left",
+      "group": "Facial bones",
+      "latin": "Os palatinum",
+      "location": "Posterior hard palate and nasal cavity.",
+      "overview": "Paired facial bone contributing to the hard palate and nasal cavity.",
+      "center": [
+        -0.063,
+        1.44,
+        0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/013-left_palatine_bone-left.obj",
+      "normalized_center": [
+        -0.02831164759366672,
+        0.6353043841772482,
+        -0.05113695101545501
+      ]
+    },
+    {
+      "index": 14,
+      "key": "skeleton206:014_left_inferior_nasal_concha_left",
+      "name": "Left inferior nasal concha",
+      "side": "Left",
+      "group": "Facial bones",
+      "latin": "Concha nasalis inferior",
+      "location": "Lateral wall of the nasal cavity.",
+      "overview": "Paired scroll-like facial bone in the nasal cavity.",
+      "center": [
+        -0.0495,
+        1.51,
+        0.15
+      ],
+      "url": "./assets/models/anatomy/adult206/014-left_inferior_nasal_concha-left.obj",
+      "normalized_center": [
+        -0.022244865966452424,
+        0.6667617703924337,
+        -0.01518565248381474
+      ]
+    },
+    {
+      "index": 15,
+      "key": "skeleton206:015_right_maxilla_right",
+      "name": "Right maxilla",
+      "side": "Right",
+      "group": "Facial bones",
+      "latin": "Maxilla",
+      "location": "Upper jaw and central face.",
+      "overview": "Paired facial bone forming the upper jaw and part of the orbit and nasal cavity.",
+      "center": [
+        0.09,
+        1.48,
+        0.15
+      ],
+      "url": "./assets/models/anatomy/adult206/015-right_maxilla-right.obj",
+      "normalized_center": [
+        0.04044521084809531,
+        0.6532800334430684,
+        -0.01518565248381474
+      ]
+    },
+    {
+      "index": 16,
+      "key": "skeleton206:016_right_zygomatic_bone_right",
+      "name": "Right zygomatic bone",
+      "side": "Right",
+      "group": "Facial bones",
+      "latin": "Os zygomaticum",
+      "location": "Cheek and lateral orbit.",
+      "overview": "Paired cheek bone contributing to the lateral wall of the orbit.",
+      "center": [
+        0.162,
+        1.51,
+        0.11
+      ],
+      "url": "./assets/models/anatomy/adult206/016-right_zygomatic_bone-right.obj",
+      "normalized_center": [
+        0.07280137952657156,
+        0.6667617703924337,
+        -0.03316130174963488
+      ]
+    },
+    {
+      "index": 17,
+      "key": "skeleton206:017_right_nasal_bone_right",
+      "name": "Right nasal bone",
+      "side": "Right",
+      "group": "Facial bones",
+      "latin": "Os nasale",
+      "location": "Bridge of the nose.",
+      "overview": "Small paired facial bone forming the bony bridge of the nose.",
+      "center": [
+        0.0315,
+        1.56,
+        0.19
+      ],
+      "url": "./assets/models/anatomy/adult206/017-right_nasal_bone-right.obj",
+      "normalized_center": [
+        0.01415582379683336,
+        0.6892313319747088,
+        0.002789996782005403
+      ]
+    },
+    {
+      "index": 18,
+      "key": "skeleton206:018_right_lacrimal_bone_right",
+      "name": "Right lacrimal bone",
+      "side": "Right",
+      "group": "Facial bones",
+      "latin": "Os lacrimale",
+      "location": "Medial wall of the orbit.",
+      "overview": "Small paired bone at the medial orbit near the lacrimal drainage pathway.",
+      "center": [
+        0.0675,
+        1.55,
+        0.145
+      ],
+      "url": "./assets/models/anatomy/adult206/018-right_lacrimal_bone-right.obj",
+      "normalized_center": [
+        0.030333908136071487,
+        0.6847374196582537,
+        -0.01743260864204226
+      ]
+    },
+    {
+      "index": 19,
+      "key": "skeleton206:019_right_palatine_bone_right",
+      "name": "Right palatine bone",
+      "side": "Right",
+      "group": "Facial bones",
+      "latin": "Os palatinum",
+      "location": "Posterior hard palate and nasal cavity.",
+      "overview": "Paired facial bone contributing to the hard palate and nasal cavity.",
+      "center": [
+        0.063,
+        1.44,
+        0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/019-right_palatine_bone-right.obj",
+      "normalized_center": [
+        0.02831164759366672,
+        0.6353043841772482,
+        -0.05113695101545501
+      ]
+    },
+    {
+      "index": 20,
+      "key": "skeleton206:020_right_inferior_nasal_concha_right",
+      "name": "Right inferior nasal concha",
+      "side": "Right",
+      "group": "Facial bones",
+      "latin": "Concha nasalis inferior",
+      "location": "Lateral wall of the nasal cavity.",
+      "overview": "Paired scroll-like facial bone in the nasal cavity.",
+      "center": [
+        0.0495,
+        1.51,
+        0.15
+      ],
+      "url": "./assets/models/anatomy/adult206/020-right_inferior_nasal_concha-right.obj",
+      "normalized_center": [
+        0.022244865966452424,
+        0.6667617703924337,
+        -0.01518565248381474
+      ]
+    },
+    {
+      "index": 21,
+      "key": "skeleton206:021_vomer_midline",
+      "name": "Vomer",
+      "side": "Midline",
+      "group": "Facial bones",
+      "latin": "Vomer",
+      "location": "Inferior nasal septum.",
+      "overview": "Thin midline facial bone forming part of the nasal septum.",
+      "center": [
+        0,
+        1.49,
+        0.14
+      ],
+      "url": "./assets/models/anatomy/adult206/021-vomer-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.6577739457595235,
+        -0.019679564800269767
+      ]
+    },
+    {
+      "index": 22,
+      "key": "skeleton206:022_mandible_midline",
+      "name": "Mandible",
+      "side": "Midline",
+      "group": "Facial bones",
+      "latin": "Mandibula",
+      "location": "Lower jaw.",
+      "overview": "Largest facial bone and the only freely movable bone of the skull.",
+      "center": [
+        0,
+        1.41,
+        0.1
+      ],
+      "url": "./assets/models/anatomy/adult206/022-mandible-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.6218226472278833,
+        -0.03765521406608991
+      ]
+    },
+    {
+      "index": 23,
+      "key": "skeleton206:023_left_malleus_left",
+      "name": "Left malleus",
+      "side": "Left",
+      "group": "Auditory ossicles",
+      "latin": "Malleus",
+      "location": "Middle ear.",
+      "overview": "Small malleus ossicle transmitting sound vibrations through the middle ear.",
+      "center": [
+        -0.205,
+        1.56,
+        -0.005
+      ],
+      "url": "./assets/models/anatomy/adult206/023-left_malleus-left.obj",
+      "normalized_center": [
+        -0.09212520248732821,
+        0.6892313319747088,
+        -0.08484129338886778
+      ]
+    },
+    {
+      "index": 24,
+      "key": "skeleton206:024_left_incus_left",
+      "name": "Left incus",
+      "side": "Left",
+      "group": "Auditory ossicles",
+      "latin": "Incus",
+      "location": "Middle ear.",
+      "overview": "Small incus ossicle transmitting sound vibrations through the middle ear.",
+      "center": [
+        -0.205,
+        1.5450000000000002,
+        -0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/024-left_incus-left.obj",
+      "normalized_center": [
+        -0.09212520248732821,
+        0.6824904635000263,
+        -0.09158216186355032
+      ]
+    },
+    {
+      "index": 25,
+      "key": "skeleton206:025_left_stapes_left",
+      "name": "Left stapes",
+      "side": "Left",
+      "group": "Auditory ossicles",
+      "latin": "Stapes",
+      "location": "Middle ear.",
+      "overview": "Small stapes ossicle transmitting sound vibrations through the middle ear.",
+      "center": [
+        -0.205,
+        1.5350000000000001,
+        -0.034999999999999996
+      ],
+      "url": "./assets/models/anatomy/adult206/025-left_stapes-left.obj",
+      "normalized_center": [
+        -0.09212520248732821,
+        0.6779965511835712,
+        -0.09832303033823288
+      ]
+    },
+    {
+      "index": 26,
+      "key": "skeleton206:026_right_malleus_right",
+      "name": "Right malleus",
+      "side": "Right",
+      "group": "Auditory ossicles",
+      "latin": "Malleus",
+      "location": "Middle ear.",
+      "overview": "Small malleus ossicle transmitting sound vibrations through the middle ear.",
+      "center": [
+        0.205,
+        1.56,
+        -0.005
+      ],
+      "url": "./assets/models/anatomy/adult206/026-right_malleus-right.obj",
+      "normalized_center": [
+        0.09212520248732821,
+        0.6892313319747088,
+        -0.08484129338886778
+      ]
+    },
+    {
+      "index": 27,
+      "key": "skeleton206:027_right_incus_right",
+      "name": "Right incus",
+      "side": "Right",
+      "group": "Auditory ossicles",
+      "latin": "Incus",
+      "location": "Middle ear.",
+      "overview": "Small incus ossicle transmitting sound vibrations through the middle ear.",
+      "center": [
+        0.205,
+        1.5450000000000002,
+        -0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/027-right_incus-right.obj",
+      "normalized_center": [
+        0.09212520248732821,
+        0.6824904635000263,
+        -0.09158216186355032
+      ]
+    },
+    {
+      "index": 28,
+      "key": "skeleton206:028_right_stapes_right",
+      "name": "Right stapes",
+      "side": "Right",
+      "group": "Auditory ossicles",
+      "latin": "Stapes",
+      "location": "Middle ear.",
+      "overview": "Small stapes ossicle transmitting sound vibrations through the middle ear.",
+      "center": [
+        0.205,
+        1.5350000000000001,
+        -0.034999999999999996
+      ],
+      "url": "./assets/models/anatomy/adult206/028-right_stapes-right.obj",
+      "normalized_center": [
+        0.09212520248732821,
+        0.6779965511835712,
+        -0.09832303033823288
+      ]
+    },
+    {
+      "index": 29,
+      "key": "skeleton206:029_hyoid_bone_midline",
+      "name": "Hyoid bone",
+      "side": "Midline",
+      "group": "Hyoid",
+      "latin": "Os hyoideum",
+      "location": "Anterior neck below the mandible.",
+      "overview": "U-shaped bone that supports the tongue and provides attachment for neck muscles.",
+      "center": [
+        0,
+        1.28,
+        0.1
+      ],
+      "url": "./assets/models/anatomy/adult206/029-hyoid_bone-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.5634017871139678,
+        -0.03765521406608991
+      ]
+    },
+    {
+      "index": 30,
+      "key": "skeleton206:030_cervical_vertebra_c1_midline",
+      "name": "Cervical vertebra C1",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra cervicalis 1",
+      "location": "Neck spine.",
+      "overview": "Cervical vertebra C1, part of the seven-bone cervical spine.",
+      "center": [
+        0,
+        1.2,
+        -0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/030-cervical_vertebra_c1-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.5274504885823276,
+        -0.11405172344582551
+      ]
+    },
+    {
+      "index": 31,
+      "key": "skeleton206:031_cervical_vertebra_c2_midline",
+      "name": "Cervical vertebra C2",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra cervicalis 2",
+      "location": "Neck spine.",
+      "overview": "Cervical vertebra C2, part of the seven-bone cervical spine.",
+      "center": [
+        0,
+        1.145,
+        -0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/031-cervical_vertebra_c2-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.5027339708418248,
+        -0.11405172344582551
+      ]
+    },
+    {
+      "index": 32,
+      "key": "skeleton206:032_cervical_vertebra_c3_midline",
+      "name": "Cervical vertebra C3",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra cervicalis 3",
+      "location": "Neck spine.",
+      "overview": "Cervical vertebra C3, part of the seven-bone cervical spine.",
+      "center": [
+        0,
+        1.0899999999999999,
+        -0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/032-cervical_vertebra_c3-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.478017453101322,
+        -0.11405172344582551
+      ]
+    },
+    {
+      "index": 33,
+      "key": "skeleton206:033_cervical_vertebra_c4_midline",
+      "name": "Cervical vertebra C4",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra cervicalis 4",
+      "location": "Neck spine.",
+      "overview": "Cervical vertebra C4, part of the seven-bone cervical spine.",
+      "center": [
+        0,
+        1.035,
+        -0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/033-cervical_vertebra_c4-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.45330093536081945,
+        -0.11405172344582551
+      ]
+    },
+    {
+      "index": 34,
+      "key": "skeleton206:034_cervical_vertebra_c5_midline",
+      "name": "Cervical vertebra C5",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra cervicalis 5",
+      "location": "Neck spine.",
+      "overview": "Cervical vertebra C5, part of the seven-bone cervical spine.",
+      "center": [
+        0,
+        0.98,
+        -0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/034-cervical_vertebra_c5-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.42858441762031674,
+        -0.11405172344582551
+      ]
+    },
+    {
+      "index": 35,
+      "key": "skeleton206:035_cervical_vertebra_c6_midline",
+      "name": "Cervical vertebra C6",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra cervicalis 6",
+      "location": "Neck spine.",
+      "overview": "Cervical vertebra C6, part of the seven-bone cervical spine.",
+      "center": [
+        0,
+        0.9249999999999999,
+        -0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/035-cervical_vertebra_c6-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.40386789987981403,
+        -0.11405172344582551
+      ]
+    },
+    {
+      "index": 36,
+      "key": "skeleton206:036_cervical_vertebra_c7_midline",
+      "name": "Cervical vertebra C7",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra cervicalis 7",
+      "location": "Neck spine.",
+      "overview": "Cervical vertebra C7, part of the seven-bone cervical spine.",
+      "center": [
+        0,
+        0.8699999999999999,
+        -0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/036-cervical_vertebra_c7-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.37915138213931127,
+        -0.11405172344582551
+      ]
+    },
+    {
+      "index": 37,
+      "key": "skeleton206:037_thoracic_vertebra_t1_midline",
+      "name": "Thoracic vertebra T1",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra thoracica 1",
+      "location": "Thoracic spine.",
+      "overview": "Thoracic vertebra T1; thoracic vertebrae articulate with ribs.",
+      "center": [
+        0,
+        0.86,
+        -0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/037-thoracic_vertebra_t1-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.3746574698228563,
+        -0.11854563576228054
+      ]
+    },
+    {
+      "index": 38,
+      "key": "skeleton206:038_thoracic_vertebra_t2_midline",
+      "name": "Thoracic vertebra T2",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra thoracica 2",
+      "location": "Thoracic spine.",
+      "overview": "Thoracic vertebra T2; thoracic vertebrae articulate with ribs.",
+      "center": [
+        0,
+        0.792,
+        -0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/038-thoracic_vertebra_t2-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.3440988660709621,
+        -0.11854563576228054
+      ]
+    },
+    {
+      "index": 39,
+      "key": "skeleton206:039_thoracic_vertebra_t3_midline",
+      "name": "Thoracic vertebra T3",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra thoracica 3",
+      "location": "Thoracic spine.",
+      "overview": "Thoracic vertebra T3; thoracic vertebrae articulate with ribs.",
+      "center": [
+        0,
+        0.724,
+        -0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/039-thoracic_vertebra_t3-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.31354026231906784,
+        -0.11854563576228054
+      ]
+    },
+    {
+      "index": 40,
+      "key": "skeleton206:040_thoracic_vertebra_t4_midline",
+      "name": "Thoracic vertebra T4",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra thoracica 4",
+      "location": "Thoracic spine.",
+      "overview": "Thoracic vertebra T4; thoracic vertebrae articulate with ribs.",
+      "center": [
+        0,
+        0.6559999999999999,
+        -0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/040-thoracic_vertebra_t4-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.28298165856717356,
+        -0.11854563576228054
+      ]
+    },
+    {
+      "index": 41,
+      "key": "skeleton206:041_thoracic_vertebra_t5_midline",
+      "name": "Thoracic vertebra T5",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra thoracica 5",
+      "location": "Thoracic spine.",
+      "overview": "Thoracic vertebra T5; thoracic vertebrae articulate with ribs.",
+      "center": [
+        0,
+        0.588,
+        -0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/041-thoracic_vertebra_t5-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.2524230548152793,
+        -0.11854563576228054
+      ]
+    },
+    {
+      "index": 42,
+      "key": "skeleton206:042_thoracic_vertebra_t6_midline",
+      "name": "Thoracic vertebra T6",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra thoracica 6",
+      "location": "Thoracic spine.",
+      "overview": "Thoracic vertebra T6; thoracic vertebrae articulate with ribs.",
+      "center": [
+        0,
+        0.52,
+        -0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/042-thoracic_vertebra_t6-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.22186445106338512,
+        -0.11854563576228054
+      ]
+    },
+    {
+      "index": 43,
+      "key": "skeleton206:043_thoracic_vertebra_t7_midline",
+      "name": "Thoracic vertebra T7",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra thoracica 7",
+      "location": "Thoracic spine.",
+      "overview": "Thoracic vertebra T7; thoracic vertebrae articulate with ribs.",
+      "center": [
+        0,
+        0.45199999999999996,
+        -0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/043-thoracic_vertebra_t7-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.19130584731149086,
+        -0.11854563576228054
+      ]
+    },
+    {
+      "index": 44,
+      "key": "skeleton206:044_thoracic_vertebra_t8_midline",
+      "name": "Thoracic vertebra T8",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra thoracica 8",
+      "location": "Thoracic spine.",
+      "overview": "Thoracic vertebra T8; thoracic vertebrae articulate with ribs.",
+      "center": [
+        0,
+        0.38399999999999995,
+        -0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/044-thoracic_vertebra_t8-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.16074724355959663,
+        -0.11854563576228054
+      ]
+    },
+    {
+      "index": 45,
+      "key": "skeleton206:045_thoracic_vertebra_t9_midline",
+      "name": "Thoracic vertebra T9",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra thoracica 9",
+      "location": "Thoracic spine.",
+      "overview": "Thoracic vertebra T9; thoracic vertebrae articulate with ribs.",
+      "center": [
+        0,
+        0.31599999999999995,
+        -0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/045-thoracic_vertebra_t9-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.1301886398077024,
+        -0.11854563576228054
+      ]
+    },
+    {
+      "index": 46,
+      "key": "skeleton206:046_thoracic_vertebra_t10_midline",
+      "name": "Thoracic vertebra T10",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra thoracica 10",
+      "location": "Thoracic spine.",
+      "overview": "Thoracic vertebra T10; thoracic vertebrae articulate with ribs.",
+      "center": [
+        0,
+        0.2479999999999999,
+        -0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/046-thoracic_vertebra_t10-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.09963003605580813,
+        -0.11854563576228054
+      ]
+    },
+    {
+      "index": 47,
+      "key": "skeleton206:047_thoracic_vertebra_t11_midline",
+      "name": "Thoracic vertebra T11",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra thoracica 11",
+      "location": "Thoracic spine.",
+      "overview": "Thoracic vertebra T11; thoracic vertebrae articulate with ribs.",
+      "center": [
+        0,
+        0.17999999999999994,
+        -0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/047-thoracic_vertebra_t11-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.06907143230391391,
+        -0.11854563576228054
+      ]
+    },
+    {
+      "index": 48,
+      "key": "skeleton206:048_thoracic_vertebra_t12_midline",
+      "name": "Thoracic vertebra T12",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra thoracica 12",
+      "location": "Thoracic spine.",
+      "overview": "Thoracic vertebra T12; thoracic vertebrae articulate with ribs.",
+      "center": [
+        0,
+        0.11199999999999999,
+        -0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/048-thoracic_vertebra_t12-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.0385128285520197,
+        -0.11854563576228054
+      ]
+    },
+    {
+      "index": 49,
+      "key": "skeleton206:049_lumbar_vertebra_l1_midline",
+      "name": "Lumbar vertebra L1",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra lumbalis 1",
+      "location": "Lower back.",
+      "overview": "Large lumbar vertebra supporting the lower spine.",
+      "center": [
+        0,
+        0.02,
+        -0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/049-lumbar_vertebra_l1-midline.obj",
+      "normalized_center": [
+        0.0,
+        -0.0028311647593666175,
+        -0.11405172344582551
+      ]
+    },
+    {
+      "index": 50,
+      "key": "skeleton206:050_lumbar_vertebra_l2_midline",
+      "name": "Lumbar vertebra L2",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra lumbalis 2",
+      "location": "Lower back.",
+      "overview": "Large lumbar vertebra supporting the lower spine.",
+      "center": [
+        0,
+        -0.065,
+        -0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/050-lumbar_vertebra_l2-midline.obj",
+      "normalized_center": [
+        0.0,
+        -0.04102941944923442,
+        -0.11405172344582551
+      ]
+    },
+    {
+      "index": 51,
+      "key": "skeleton206:051_lumbar_vertebra_l3_midline",
+      "name": "Lumbar vertebra L3",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra lumbalis 3",
+      "location": "Lower back.",
+      "overview": "Large lumbar vertebra supporting the lower spine.",
+      "center": [
+        0,
+        -0.15000000000000002,
+        -0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/051-lumbar_vertebra_l3-midline.obj",
+      "normalized_center": [
+        0.0,
+        -0.07922767413910221,
+        -0.11405172344582551
+      ]
+    },
+    {
+      "index": 52,
+      "key": "skeleton206:052_lumbar_vertebra_l4_midline",
+      "name": "Lumbar vertebra L4",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra lumbalis 4",
+      "location": "Lower back.",
+      "overview": "Large lumbar vertebra supporting the lower spine.",
+      "center": [
+        0,
+        -0.23500000000000001,
+        -0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/052-lumbar_vertebra_l4-midline.obj",
+      "normalized_center": [
+        0.0,
+        -0.11742592882897,
+        -0.11405172344582551
+      ]
+    },
+    {
+      "index": 53,
+      "key": "skeleton206:053_lumbar_vertebra_l5_midline",
+      "name": "Lumbar vertebra L5",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Vertebra lumbalis 5",
+      "location": "Lower back.",
+      "overview": "Large lumbar vertebra supporting the lower spine.",
+      "center": [
+        0,
+        -0.32,
+        -0.07
+      ],
+      "url": "./assets/models/anatomy/adult206/053-lumbar_vertebra_l5-midline.obj",
+      "normalized_center": [
+        0.0,
+        -0.1556241835188378,
+        -0.11405172344582551
+      ]
+    },
+    {
+      "index": 54,
+      "key": "skeleton206:054_sacrum_midline",
+      "name": "Sacrum",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Os sacrum",
+      "location": "Posterior pelvis.",
+      "overview": "Triangular fused bone at the base of the vertebral column.",
+      "center": [
+        0,
+        -0.43,
+        -0.06
+      ],
+      "url": "./assets/models/anatomy/adult206/054-sacrum-midline.obj",
+      "normalized_center": [
+        0.0,
+        -0.2050572189998432,
+        -0.10955781112937046
+      ]
+    },
+    {
+      "index": 55,
+      "key": "skeleton206:055_coccyx_midline",
+      "name": "Coccyx",
+      "side": "Midline",
+      "group": "Vertebral column",
+      "latin": "Os coccygis",
+      "location": "Inferior end of the vertebral column.",
+      "overview": "Small fused bone at the terminal end of the spine.",
+      "center": [
+        0,
+        -0.58,
+        -0.05
+      ],
+      "url": "./assets/models/anatomy/adult206/055-coccyx-midline.obj",
+      "normalized_center": [
+        0.0,
+        -0.2724659037466687,
+        -0.10506389881291543
+      ]
+    },
+    {
+      "index": 56,
+      "key": "skeleton206:056_sternum_midline",
+      "name": "Sternum",
+      "side": "Midline",
+      "group": "Thoracic cage",
+      "latin": "Sternum",
+      "location": "Anterior midline chest.",
+      "overview": "Flat bone at the front of the chest where costal cartilages attach.",
+      "center": [
+        0,
+        0.67,
+        0.17
+      ],
+      "url": "./assets/models/anatomy/adult206/056-sternum-midline.obj",
+      "normalized_center": [
+        0.0,
+        0.2892731358102107,
+        -0.006197827850904662
+      ]
+    },
+    {
+      "index": 57,
+      "key": "skeleton206:057_left_rib_1_left",
+      "name": "Left rib 1",
+      "side": "Left",
+      "group": "Thoracic cage",
+      "latin": "Costa 1",
+      "location": "Thoracic cage.",
+      "overview": "Rib 1 on the left side, contributing to the thoracic cage.",
+      "center": [
+        -0.23,
+        1.04,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/057-left_rib_1-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        0.4555478915190469,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 58,
+      "key": "skeleton206:058_right_rib_1_right",
+      "name": "Right rib 1",
+      "side": "Right",
+      "group": "Thoracic cage",
+      "latin": "Costa 1",
+      "location": "Thoracic cage.",
+      "overview": "Rib 1 on the right side, contributing to the thoracic cage.",
+      "center": [
+        0.23,
+        1.04,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/058-right_rib_1-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        0.4555478915190469,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 59,
+      "key": "skeleton206:059_left_rib_2_left",
+      "name": "Left rib 2",
+      "side": "Left",
+      "group": "Thoracic cage",
+      "latin": "Costa 2",
+      "location": "Thoracic cage.",
+      "overview": "Rib 2 on the left side, contributing to the thoracic cage.",
+      "center": [
+        -0.23,
+        0.9750000000000001,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/059-left_rib_2-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        0.42633746146208923,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 60,
+      "key": "skeleton206:060_right_rib_2_right",
+      "name": "Right rib 2",
+      "side": "Right",
+      "group": "Thoracic cage",
+      "latin": "Costa 2",
+      "location": "Thoracic cage.",
+      "overview": "Rib 2 on the right side, contributing to the thoracic cage.",
+      "center": [
+        0.23,
+        0.9750000000000001,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/060-right_rib_2-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        0.42633746146208923,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 61,
+      "key": "skeleton206:061_left_rib_3_left",
+      "name": "Left rib 3",
+      "side": "Left",
+      "group": "Thoracic cage",
+      "latin": "Costa 3",
+      "location": "Thoracic cage.",
+      "overview": "Rib 3 on the left side, contributing to the thoracic cage.",
+      "center": [
+        -0.23,
+        0.91,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/061-left_rib_3-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        0.3971270314051315,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 62,
+      "key": "skeleton206:062_right_rib_3_right",
+      "name": "Right rib 3",
+      "side": "Right",
+      "group": "Thoracic cage",
+      "latin": "Costa 3",
+      "location": "Thoracic cage.",
+      "overview": "Rib 3 on the right side, contributing to the thoracic cage.",
+      "center": [
+        0.23,
+        0.91,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/062-right_rib_3-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        0.3971270314051315,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 63,
+      "key": "skeleton206:063_left_rib_4_left",
+      "name": "Left rib 4",
+      "side": "Left",
+      "group": "Thoracic cage",
+      "latin": "Costa 4",
+      "location": "Thoracic cage.",
+      "overview": "Rib 4 on the left side, contributing to the thoracic cage.",
+      "center": [
+        -0.23,
+        0.845,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/063-left_rib_4-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        0.3679166013481737,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 64,
+      "key": "skeleton206:064_right_rib_4_right",
+      "name": "Right rib 4",
+      "side": "Right",
+      "group": "Thoracic cage",
+      "latin": "Costa 4",
+      "location": "Thoracic cage.",
+      "overview": "Rib 4 on the right side, contributing to the thoracic cage.",
+      "center": [
+        0.23,
+        0.845,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/064-right_rib_4-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        0.3679166013481737,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 65,
+      "key": "skeleton206:065_left_rib_5_left",
+      "name": "Left rib 5",
+      "side": "Left",
+      "group": "Thoracic cage",
+      "latin": "Costa 5",
+      "location": "Thoracic cage.",
+      "overview": "Rib 5 on the left side, contributing to the thoracic cage.",
+      "center": [
+        -0.23,
+        0.78,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/065-left_rib_5-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        0.33870617129121605,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 66,
+      "key": "skeleton206:066_right_rib_5_right",
+      "name": "Right rib 5",
+      "side": "Right",
+      "group": "Thoracic cage",
+      "latin": "Costa 5",
+      "location": "Thoracic cage.",
+      "overview": "Rib 5 on the right side, contributing to the thoracic cage.",
+      "center": [
+        0.23,
+        0.78,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/066-right_rib_5-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        0.33870617129121605,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 67,
+      "key": "skeleton206:067_left_rib_6_left",
+      "name": "Left rib 6",
+      "side": "Left",
+      "group": "Thoracic cage",
+      "latin": "Costa 6",
+      "location": "Thoracic cage.",
+      "overview": "Rib 6 on the left side, contributing to the thoracic cage.",
+      "center": [
+        -0.23,
+        0.7150000000000001,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/067-left_rib_6-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        0.3094957412342583,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 68,
+      "key": "skeleton206:068_right_rib_6_right",
+      "name": "Right rib 6",
+      "side": "Right",
+      "group": "Thoracic cage",
+      "latin": "Costa 6",
+      "location": "Thoracic cage.",
+      "overview": "Rib 6 on the right side, contributing to the thoracic cage.",
+      "center": [
+        0.23,
+        0.7150000000000001,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/068-right_rib_6-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        0.3094957412342583,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 69,
+      "key": "skeleton206:069_left_rib_7_left",
+      "name": "Left rib 7",
+      "side": "Left",
+      "group": "Thoracic cage",
+      "latin": "Costa 7",
+      "location": "Thoracic cage.",
+      "overview": "Rib 7 on the left side, contributing to the thoracic cage.",
+      "center": [
+        -0.23,
+        0.65,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/069-left_rib_7-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        0.2802853111773006,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 70,
+      "key": "skeleton206:070_right_rib_7_right",
+      "name": "Right rib 7",
+      "side": "Right",
+      "group": "Thoracic cage",
+      "latin": "Costa 7",
+      "location": "Thoracic cage.",
+      "overview": "Rib 7 on the right side, contributing to the thoracic cage.",
+      "center": [
+        0.23,
+        0.65,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/070-right_rib_7-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        0.2802853111773006,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 71,
+      "key": "skeleton206:071_left_rib_8_left",
+      "name": "Left rib 8",
+      "side": "Left",
+      "group": "Thoracic cage",
+      "latin": "Costa 8",
+      "location": "Thoracic cage.",
+      "overview": "Rib 8 on the left side, contributing to the thoracic cage.",
+      "center": [
+        -0.23,
+        0.585,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/071-left_rib_8-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        0.2510748811203428,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 72,
+      "key": "skeleton206:072_right_rib_8_right",
+      "name": "Right rib 8",
+      "side": "Right",
+      "group": "Thoracic cage",
+      "latin": "Costa 8",
+      "location": "Thoracic cage.",
+      "overview": "Rib 8 on the right side, contributing to the thoracic cage.",
+      "center": [
+        0.23,
+        0.585,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/072-right_rib_8-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        0.2510748811203428,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 73,
+      "key": "skeleton206:073_left_rib_9_left",
+      "name": "Left rib 9",
+      "side": "Left",
+      "group": "Thoracic cage",
+      "latin": "Costa 9",
+      "location": "Thoracic cage.",
+      "overview": "Rib 9 on the left side, contributing to the thoracic cage.",
+      "center": [
+        -0.23,
+        0.52,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/073-left_rib_9-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        0.22186445106338512,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 74,
+      "key": "skeleton206:074_right_rib_9_right",
+      "name": "Right rib 9",
+      "side": "Right",
+      "group": "Thoracic cage",
+      "latin": "Costa 9",
+      "location": "Thoracic cage.",
+      "overview": "Rib 9 on the right side, contributing to the thoracic cage.",
+      "center": [
+        0.23,
+        0.52,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/074-right_rib_9-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        0.22186445106338512,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 75,
+      "key": "skeleton206:075_left_rib_10_left",
+      "name": "Left rib 10",
+      "side": "Left",
+      "group": "Thoracic cage",
+      "latin": "Costa 10",
+      "location": "Thoracic cage.",
+      "overview": "Rib 10 on the left side, contributing to the thoracic cage.",
+      "center": [
+        -0.23,
+        0.45500000000000007,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/075-left_rib_10-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        0.19265402100642742,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 76,
+      "key": "skeleton206:076_right_rib_10_right",
+      "name": "Right rib 10",
+      "side": "Right",
+      "group": "Thoracic cage",
+      "latin": "Costa 10",
+      "location": "Thoracic cage.",
+      "overview": "Rib 10 on the right side, contributing to the thoracic cage.",
+      "center": [
+        0.23,
+        0.45500000000000007,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/076-right_rib_10-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        0.19265402100642742,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 77,
+      "key": "skeleton206:077_left_rib_11_left",
+      "name": "Left rib 11",
+      "side": "Left",
+      "group": "Thoracic cage",
+      "latin": "Costa 11",
+      "location": "Thoracic cage.",
+      "overview": "Rib 11 on the left side, contributing to the thoracic cage.",
+      "center": [
+        -0.23,
+        0.39,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/077-left_rib_11-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        0.16344359094946967,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 78,
+      "key": "skeleton206:078_right_rib_11_right",
+      "name": "Right rib 11",
+      "side": "Right",
+      "group": "Thoracic cage",
+      "latin": "Costa 11",
+      "location": "Thoracic cage.",
+      "overview": "Rib 11 on the right side, contributing to the thoracic cage.",
+      "center": [
+        0.23,
+        0.39,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/078-right_rib_11-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        0.16344359094946967,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 79,
+      "key": "skeleton206:079_left_rib_12_left",
+      "name": "Left rib 12",
+      "side": "Left",
+      "group": "Thoracic cage",
+      "latin": "Costa 12",
+      "location": "Thoracic cage.",
+      "overview": "Rib 12 on the left side, contributing to the thoracic cage.",
+      "center": [
+        -0.23,
+        0.32499999999999996,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/079-left_rib_12-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        0.13423316089251192,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 80,
+      "key": "skeleton206:080_right_rib_12_right",
+      "name": "Right rib 12",
+      "side": "Right",
+      "group": "Thoracic cage",
+      "latin": "Costa 12",
+      "location": "Thoracic cage.",
+      "overview": "Rib 12 on the right side, contributing to the thoracic cage.",
+      "center": [
+        0.23,
+        0.32499999999999996,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/080-right_rib_12-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        0.13423316089251192,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 81,
+      "key": "skeleton206:081_left_clavicle_left",
+      "name": "Left clavicle",
+      "side": "Left",
+      "group": "Pectoral girdle",
+      "latin": "Clavicula",
+      "location": "Anterior shoulder girdle.",
+      "overview": "Slender bone connecting the sternum to the scapula.",
+      "center": [
+        -0.34,
+        1.08,
+        0.1
+      ],
+      "url": "./assets/models/anatomy/adult206/081-left_clavicle-left.obj",
+      "normalized_center": [
+        -0.15279301875947118,
+        0.4735235407848671,
+        -0.03765521406608991
+      ]
+    },
+    {
+      "index": 82,
+      "key": "skeleton206:082_left_scapula_left",
+      "name": "Left scapula",
+      "side": "Left",
+      "group": "Pectoral girdle",
+      "latin": "Scapula",
+      "location": "Posterior shoulder girdle.",
+      "overview": "Flat triangular shoulder blade on the posterior thorax.",
+      "center": [
+        -0.44,
+        0.91,
+        -0.12
+      ],
+      "url": "./assets/models/anatomy/adult206/082-left_scapula-left.obj",
+      "normalized_center": [
+        -0.19773214192402153,
+        0.3971270314051315,
+        -0.13652128502810068
+      ]
+    },
+    {
+      "index": 83,
+      "key": "skeleton206:083_right_clavicle_right",
+      "name": "Right clavicle",
+      "side": "Right",
+      "group": "Pectoral girdle",
+      "latin": "Clavicula",
+      "location": "Anterior shoulder girdle.",
+      "overview": "Slender bone connecting the sternum to the scapula.",
+      "center": [
+        0.34,
+        1.08,
+        0.1
+      ],
+      "url": "./assets/models/anatomy/adult206/083-right_clavicle-right.obj",
+      "normalized_center": [
+        0.15279301875947118,
+        0.4735235407848671,
+        -0.03765521406608991
+      ]
+    },
+    {
+      "index": 84,
+      "key": "skeleton206:084_right_scapula_right",
+      "name": "Right scapula",
+      "side": "Right",
+      "group": "Pectoral girdle",
+      "latin": "Scapula",
+      "location": "Posterior shoulder girdle.",
+      "overview": "Flat triangular shoulder blade on the posterior thorax.",
+      "center": [
+        0.44,
+        0.91,
+        -0.12
+      ],
+      "url": "./assets/models/anatomy/adult206/084-right_scapula-right.obj",
+      "normalized_center": [
+        0.19773214192402153,
+        0.3971270314051315,
+        -0.13652128502810068
+      ]
+    },
+    {
+      "index": 85,
+      "key": "skeleton206:085_left_humerus_left",
+      "name": "Left humerus",
+      "side": "Left",
+      "group": "Upper limb",
+      "latin": "Humerus",
+      "location": "Upper arm.",
+      "overview": "Long bone of the upper arm between shoulder and elbow.",
+      "center": [
+        -0.59,
+        0.61,
+        0.0
+      ],
+      "url": "./assets/models/anatomy/adult206/085-left_humerus-left.obj",
+      "normalized_center": [
+        -0.26514082667084704,
+        0.2623096619114804,
+        -0.08259433723064026
+      ]
+    },
+    {
+      "index": 86,
+      "key": "skeleton206:086_left_radius_left",
+      "name": "Left radius",
+      "side": "Left",
+      "group": "Upper limb",
+      "latin": "Radius",
+      "location": "Lateral forearm.",
+      "overview": "Forearm bone on the thumb side.",
+      "center": [
+        -0.69,
+        -0.02,
+        0.03
+      ],
+      "url": "./assets/models/anatomy/adult206/086-left_radius-left.obj",
+      "normalized_center": [
+        -0.3100799498353974,
+        -0.02080681402518676,
+        -0.06911260028127515
+      ]
+    },
+    {
+      "index": 87,
+      "key": "skeleton206:087_left_ulna_left",
+      "name": "Left ulna",
+      "side": "Left",
+      "group": "Upper limb",
+      "latin": "Ulna",
+      "location": "Medial forearm.",
+      "overview": "Forearm bone forming the main hinge with the humerus at the elbow.",
+      "center": [
+        -0.64,
+        -0.02,
+        -0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/087-left_ulna-left.obj",
+      "normalized_center": [
+        -0.28761038825312224,
+        -0.02080681402518676,
+        -0.09158216186355032
+      ]
+    },
+    {
+      "index": 88,
+      "key": "skeleton206:088_left_scaphoid_left",
+      "name": "Left Scaphoid",
+      "side": "Left",
+      "group": "Carpal bones",
+      "latin": "Scaphoid",
+      "location": "Left wrist.",
+      "overview": "Scaphoid is one of the eight carpal bones of the wrist.",
+      "center": [
+        -0.655,
+        -0.38,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/088-left_scaphoid-left.obj",
+      "normalized_center": [
+        -0.2943512567278048,
+        -0.18258765741756802,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 89,
+      "key": "skeleton206:089_left_lunate_left",
+      "name": "Left Lunate",
+      "side": "Left",
+      "group": "Carpal bones",
+      "latin": "Lunate",
+      "location": "Left wrist.",
+      "overview": "Lunate is one of the eight carpal bones of the wrist.",
+      "center": [
+        -0.698,
+        -0.375,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/089-left_lunate-left.obj",
+      "normalized_center": [
+        -0.3136750796885614,
+        -0.18034070125934049,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 90,
+      "key": "skeleton206:090_left_triquetrum_left",
+      "name": "Left Triquetrum",
+      "side": "Left",
+      "group": "Carpal bones",
+      "latin": "Triquetrum",
+      "location": "Left wrist.",
+      "overview": "Triquetrum is one of the eight carpal bones of the wrist.",
+      "center": [
+        -0.74,
+        -0.385,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/090-left_triquetrum-left.obj",
+      "normalized_center": [
+        -0.3325495114176726,
+        -0.18483461357579553,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 91,
+      "key": "skeleton206:091_left_pisiform_left",
+      "name": "Left Pisiform",
+      "side": "Left",
+      "group": "Carpal bones",
+      "latin": "Pisiform",
+      "location": "Left wrist.",
+      "overview": "Pisiform is one of the eight carpal bones of the wrist.",
+      "center": [
+        -0.77,
+        -0.395,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/091-left_pisiform-left.obj",
+      "normalized_center": [
+        -0.3460312483670377,
+        -0.18932852589225058,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 92,
+      "key": "skeleton206:092_left_trapezium_left",
+      "name": "Left Trapezium",
+      "side": "Left",
+      "group": "Carpal bones",
+      "latin": "Trapezium",
+      "location": "Left wrist.",
+      "overview": "Trapezium is one of the eight carpal bones of the wrist.",
+      "center": [
+        -0.6619999999999999,
+        -0.42500000000000004,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/092-left_trapezium-left.obj",
+      "normalized_center": [
+        -0.2974969953493233,
+        -0.20281026284161568,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 93,
+      "key": "skeleton206:093_left_trapezoid_left",
+      "name": "Left Trapezoid",
+      "side": "Left",
+      "group": "Carpal bones",
+      "latin": "Trapezoid",
+      "location": "Left wrist.",
+      "overview": "Trapezoid is one of the eight carpal bones of the wrist.",
+      "center": [
+        -0.7,
+        -0.42500000000000004,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/093-left_trapezoid-left.obj",
+      "normalized_center": [
+        -0.3145738621518524,
+        -0.20281026284161568,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 94,
+      "key": "skeleton206:094_left_capitate_left",
+      "name": "Left Capitate",
+      "side": "Left",
+      "group": "Carpal bones",
+      "latin": "Capitate",
+      "location": "Left wrist.",
+      "overview": "Capitate is one of the eight carpal bones of the wrist.",
+      "center": [
+        -0.74,
+        -0.43000000000000005,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/094-left_capitate-left.obj",
+      "normalized_center": [
+        -0.3325495114176726,
+        -0.20505721899984322,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 95,
+      "key": "skeleton206:095_left_hamate_left",
+      "name": "Left Hamate",
+      "side": "Left",
+      "group": "Carpal bones",
+      "latin": "Hamate",
+      "location": "Left wrist.",
+      "overview": "Hamate is one of the eight carpal bones of the wrist.",
+      "center": [
+        -0.778,
+        -0.42800000000000005,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/095-left_hamate-left.obj",
+      "normalized_center": [
+        -0.3496263782202017,
+        -0.2041584365365522,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 96,
+      "key": "skeleton206:096_left_metacarpal_1_left",
+      "name": "Left metacarpal 1",
+      "side": "Left",
+      "group": "Metacarpals",
+      "latin": "Os metacarpale 1",
+      "location": "Left hand.",
+      "overview": "Metacarpal 1 forms part of the palm.",
+      "center": [
+        -0.6639999999999999,
+        -0.5,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/096-left_metacarpal_1-left.obj",
+      "normalized_center": [
+        -0.2983957778126143,
+        -0.23651460521502843,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 97,
+      "key": "skeleton206:097_left_hand_digit_1_proximal_phalanx_left",
+      "name": "Left hand digit 1 proximal phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Left digit 1.",
+      "overview": "Proximal phalanx of hand digit 1.",
+      "center": [
+        -0.6639999999999999,
+        -0.61,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/097-left_hand_digit_1_proximal_phalanx-left.obj",
+      "normalized_center": [
+        -0.2983957778126143,
+        -0.2859476406960338,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 98,
+      "key": "skeleton206:098_left_hand_digit_1_distal_phalanx_left",
+      "name": "Left hand digit 1 distal phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx distal",
+      "location": "Left digit 1.",
+      "overview": "Distal phalanx of hand digit 1.",
+      "center": [
+        -0.6639999999999999,
+        -0.675,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/098-left_hand_digit_1_distal_phalanx-left.obj",
+      "normalized_center": [
+        -0.2983957778126143,
+        -0.31515807075299157,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 99,
+      "key": "skeleton206:099_left_metacarpal_2_left",
+      "name": "Left metacarpal 2",
+      "side": "Left",
+      "group": "Metacarpals",
+      "latin": "Os metacarpale 2",
+      "location": "Left hand.",
+      "overview": "Metacarpal 2 forms part of the palm.",
+      "center": [
+        -0.692,
+        -0.5,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/099-left_metacarpal_2-left.obj",
+      "normalized_center": [
+        -0.3109787322986884,
+        -0.23651460521502843,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 100,
+      "key": "skeleton206:100_left_hand_digit_2_proximal_phalanx_left",
+      "name": "Left hand digit 2 proximal phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Left digit 2.",
+      "overview": "Proximal phalanx of hand digit 2.",
+      "center": [
+        -0.692,
+        -0.61,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/100-left_hand_digit_2_proximal_phalanx-left.obj",
+      "normalized_center": [
+        -0.3109787322986884,
+        -0.2859476406960338,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 101,
+      "key": "skeleton206:101_left_hand_digit_2_middle_phalanx_left",
+      "name": "Left hand digit 2 middle phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx middle",
+      "location": "Left digit 2.",
+      "overview": "Middle phalanx of hand digit 2.",
+      "center": [
+        -0.692,
+        -0.675,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/101-left_hand_digit_2_middle_phalanx-left.obj",
+      "normalized_center": [
+        -0.3109787322986884,
+        -0.31515807075299157,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 102,
+      "key": "skeleton206:102_left_hand_digit_2_distal_phalanx_left",
+      "name": "Left hand digit 2 distal phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx distal",
+      "location": "Left digit 2.",
+      "overview": "Distal phalanx of hand digit 2.",
+      "center": [
+        -0.692,
+        -0.74,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/102-left_hand_digit_2_distal_phalanx-left.obj",
+      "normalized_center": [
+        -0.3109787322986884,
+        -0.34436850080994924,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 103,
+      "key": "skeleton206:103_left_metacarpal_3_left",
+      "name": "Left metacarpal 3",
+      "side": "Left",
+      "group": "Metacarpals",
+      "latin": "Os metacarpale 3",
+      "location": "Left hand.",
+      "overview": "Metacarpal 3 forms part of the palm.",
+      "center": [
+        -0.72,
+        -0.5,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/103-left_metacarpal_3-left.obj",
+      "normalized_center": [
+        -0.3235616867847625,
+        -0.23651460521502843,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 104,
+      "key": "skeleton206:104_left_hand_digit_3_proximal_phalanx_left",
+      "name": "Left hand digit 3 proximal phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Left digit 3.",
+      "overview": "Proximal phalanx of hand digit 3.",
+      "center": [
+        -0.72,
+        -0.61,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/104-left_hand_digit_3_proximal_phalanx-left.obj",
+      "normalized_center": [
+        -0.3235616867847625,
+        -0.2859476406960338,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 105,
+      "key": "skeleton206:105_left_hand_digit_3_middle_phalanx_left",
+      "name": "Left hand digit 3 middle phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx middle",
+      "location": "Left digit 3.",
+      "overview": "Middle phalanx of hand digit 3.",
+      "center": [
+        -0.72,
+        -0.675,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/105-left_hand_digit_3_middle_phalanx-left.obj",
+      "normalized_center": [
+        -0.3235616867847625,
+        -0.31515807075299157,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 106,
+      "key": "skeleton206:106_left_hand_digit_3_distal_phalanx_left",
+      "name": "Left hand digit 3 distal phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx distal",
+      "location": "Left digit 3.",
+      "overview": "Distal phalanx of hand digit 3.",
+      "center": [
+        -0.72,
+        -0.74,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/106-left_hand_digit_3_distal_phalanx-left.obj",
+      "normalized_center": [
+        -0.3235616867847625,
+        -0.34436850080994924,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 107,
+      "key": "skeleton206:107_left_metacarpal_4_left",
+      "name": "Left metacarpal 4",
+      "side": "Left",
+      "group": "Metacarpals",
+      "latin": "Os metacarpale 4",
+      "location": "Left hand.",
+      "overview": "Metacarpal 4 forms part of the palm.",
+      "center": [
+        -0.748,
+        -0.5,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/107-left_metacarpal_4-left.obj",
+      "normalized_center": [
+        -0.3361446412708366,
+        -0.23651460521502843,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 108,
+      "key": "skeleton206:108_left_hand_digit_4_proximal_phalanx_left",
+      "name": "Left hand digit 4 proximal phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Left digit 4.",
+      "overview": "Proximal phalanx of hand digit 4.",
+      "center": [
+        -0.748,
+        -0.61,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/108-left_hand_digit_4_proximal_phalanx-left.obj",
+      "normalized_center": [
+        -0.3361446412708366,
+        -0.2859476406960338,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 109,
+      "key": "skeleton206:109_left_hand_digit_4_middle_phalanx_left",
+      "name": "Left hand digit 4 middle phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx middle",
+      "location": "Left digit 4.",
+      "overview": "Middle phalanx of hand digit 4.",
+      "center": [
+        -0.748,
+        -0.675,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/109-left_hand_digit_4_middle_phalanx-left.obj",
+      "normalized_center": [
+        -0.3361446412708366,
+        -0.31515807075299157,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 110,
+      "key": "skeleton206:110_left_hand_digit_4_distal_phalanx_left",
+      "name": "Left hand digit 4 distal phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx distal",
+      "location": "Left digit 4.",
+      "overview": "Distal phalanx of hand digit 4.",
+      "center": [
+        -0.748,
+        -0.74,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/110-left_hand_digit_4_distal_phalanx-left.obj",
+      "normalized_center": [
+        -0.3361446412708366,
+        -0.34436850080994924,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 111,
+      "key": "skeleton206:111_left_metacarpal_5_left",
+      "name": "Left metacarpal 5",
+      "side": "Left",
+      "group": "Metacarpals",
+      "latin": "Os metacarpale 5",
+      "location": "Left hand.",
+      "overview": "Metacarpal 5 forms part of the palm.",
+      "center": [
+        -0.776,
+        -0.5,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/111-left_metacarpal_5-left.obj",
+      "normalized_center": [
+        -0.3487275957569107,
+        -0.23651460521502843,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 112,
+      "key": "skeleton206:112_left_hand_digit_5_proximal_phalanx_left",
+      "name": "Left hand digit 5 proximal phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Left digit 5.",
+      "overview": "Proximal phalanx of hand digit 5.",
+      "center": [
+        -0.776,
+        -0.61,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/112-left_hand_digit_5_proximal_phalanx-left.obj",
+      "normalized_center": [
+        -0.3487275957569107,
+        -0.2859476406960338,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 113,
+      "key": "skeleton206:113_left_hand_digit_5_middle_phalanx_left",
+      "name": "Left hand digit 5 middle phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx middle",
+      "location": "Left digit 5.",
+      "overview": "Middle phalanx of hand digit 5.",
+      "center": [
+        -0.776,
+        -0.675,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/113-left_hand_digit_5_middle_phalanx-left.obj",
+      "normalized_center": [
+        -0.3487275957569107,
+        -0.31515807075299157,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 114,
+      "key": "skeleton206:114_left_hand_digit_5_distal_phalanx_left",
+      "name": "Left hand digit 5 distal phalanx",
+      "side": "Left",
+      "group": "Hand phalanges",
+      "latin": "Phalanx distal",
+      "location": "Left digit 5.",
+      "overview": "Distal phalanx of hand digit 5.",
+      "center": [
+        -0.776,
+        -0.74,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/114-left_hand_digit_5_distal_phalanx-left.obj",
+      "normalized_center": [
+        -0.3487275957569107,
+        -0.34436850080994924,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 115,
+      "key": "skeleton206:115_right_humerus_right",
+      "name": "Right humerus",
+      "side": "Right",
+      "group": "Upper limb",
+      "latin": "Humerus",
+      "location": "Upper arm.",
+      "overview": "Long bone of the upper arm between shoulder and elbow.",
+      "center": [
+        0.59,
+        0.61,
+        0.0
+      ],
+      "url": "./assets/models/anatomy/adult206/115-right_humerus-right.obj",
+      "normalized_center": [
+        0.26514082667084704,
+        0.2623096619114804,
+        -0.08259433723064026
+      ]
+    },
+    {
+      "index": 116,
+      "key": "skeleton206:116_right_radius_right",
+      "name": "Right radius",
+      "side": "Right",
+      "group": "Upper limb",
+      "latin": "Radius",
+      "location": "Lateral forearm.",
+      "overview": "Forearm bone on the thumb side.",
+      "center": [
+        0.69,
+        -0.02,
+        0.03
+      ],
+      "url": "./assets/models/anatomy/adult206/116-right_radius-right.obj",
+      "normalized_center": [
+        0.3100799498353974,
+        -0.02080681402518676,
+        -0.06911260028127515
+      ]
+    },
+    {
+      "index": 117,
+      "key": "skeleton206:117_right_ulna_right",
+      "name": "Right ulna",
+      "side": "Right",
+      "group": "Upper limb",
+      "latin": "Ulna",
+      "location": "Medial forearm.",
+      "overview": "Forearm bone forming the main hinge with the humerus at the elbow.",
+      "center": [
+        0.64,
+        -0.02,
+        -0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/117-right_ulna-right.obj",
+      "normalized_center": [
+        0.28761038825312224,
+        -0.02080681402518676,
+        -0.09158216186355032
+      ]
+    },
+    {
+      "index": 118,
+      "key": "skeleton206:118_right_scaphoid_right",
+      "name": "Right Scaphoid",
+      "side": "Right",
+      "group": "Carpal bones",
+      "latin": "Scaphoid",
+      "location": "Right wrist.",
+      "overview": "Scaphoid is one of the eight carpal bones of the wrist.",
+      "center": [
+        0.655,
+        -0.38,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/118-right_scaphoid-right.obj",
+      "normalized_center": [
+        0.2943512567278048,
+        -0.18258765741756802,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 119,
+      "key": "skeleton206:119_right_lunate_right",
+      "name": "Right Lunate",
+      "side": "Right",
+      "group": "Carpal bones",
+      "latin": "Lunate",
+      "location": "Right wrist.",
+      "overview": "Lunate is one of the eight carpal bones of the wrist.",
+      "center": [
+        0.698,
+        -0.375,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/119-right_lunate-right.obj",
+      "normalized_center": [
+        0.3136750796885614,
+        -0.18034070125934049,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 120,
+      "key": "skeleton206:120_right_triquetrum_right",
+      "name": "Right Triquetrum",
+      "side": "Right",
+      "group": "Carpal bones",
+      "latin": "Triquetrum",
+      "location": "Right wrist.",
+      "overview": "Triquetrum is one of the eight carpal bones of the wrist.",
+      "center": [
+        0.74,
+        -0.385,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/120-right_triquetrum-right.obj",
+      "normalized_center": [
+        0.3325495114176726,
+        -0.18483461357579553,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 121,
+      "key": "skeleton206:121_right_pisiform_right",
+      "name": "Right Pisiform",
+      "side": "Right",
+      "group": "Carpal bones",
+      "latin": "Pisiform",
+      "location": "Right wrist.",
+      "overview": "Pisiform is one of the eight carpal bones of the wrist.",
+      "center": [
+        0.77,
+        -0.395,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/121-right_pisiform-right.obj",
+      "normalized_center": [
+        0.3460312483670377,
+        -0.18932852589225058,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 122,
+      "key": "skeleton206:122_right_trapezium_right",
+      "name": "Right Trapezium",
+      "side": "Right",
+      "group": "Carpal bones",
+      "latin": "Trapezium",
+      "location": "Right wrist.",
+      "overview": "Trapezium is one of the eight carpal bones of the wrist.",
+      "center": [
+        0.6619999999999999,
+        -0.42500000000000004,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/122-right_trapezium-right.obj",
+      "normalized_center": [
+        0.2974969953493233,
+        -0.20281026284161568,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 123,
+      "key": "skeleton206:123_right_trapezoid_right",
+      "name": "Right Trapezoid",
+      "side": "Right",
+      "group": "Carpal bones",
+      "latin": "Trapezoid",
+      "location": "Right wrist.",
+      "overview": "Trapezoid is one of the eight carpal bones of the wrist.",
+      "center": [
+        0.7,
+        -0.42500000000000004,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/123-right_trapezoid-right.obj",
+      "normalized_center": [
+        0.3145738621518524,
+        -0.20281026284161568,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 124,
+      "key": "skeleton206:124_right_capitate_right",
+      "name": "Right Capitate",
+      "side": "Right",
+      "group": "Carpal bones",
+      "latin": "Capitate",
+      "location": "Right wrist.",
+      "overview": "Capitate is one of the eight carpal bones of the wrist.",
+      "center": [
+        0.74,
+        -0.43000000000000005,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/124-right_capitate-right.obj",
+      "normalized_center": [
+        0.3325495114176726,
+        -0.20505721899984322,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 125,
+      "key": "skeleton206:125_right_hamate_right",
+      "name": "Right Hamate",
+      "side": "Right",
+      "group": "Carpal bones",
+      "latin": "Hamate",
+      "location": "Right wrist.",
+      "overview": "Hamate is one of the eight carpal bones of the wrist.",
+      "center": [
+        0.778,
+        -0.42800000000000005,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/125-right_hamate-right.obj",
+      "normalized_center": [
+        0.3496263782202017,
+        -0.2041584365365522,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 126,
+      "key": "skeleton206:126_right_metacarpal_1_right",
+      "name": "Right metacarpal 1",
+      "side": "Right",
+      "group": "Metacarpals",
+      "latin": "Os metacarpale 1",
+      "location": "Right hand.",
+      "overview": "Metacarpal 1 forms part of the palm.",
+      "center": [
+        0.6639999999999999,
+        -0.5,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/126-right_metacarpal_1-right.obj",
+      "normalized_center": [
+        0.2983957778126143,
+        -0.23651460521502843,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 127,
+      "key": "skeleton206:127_right_hand_digit_1_proximal_phalanx_right",
+      "name": "Right hand digit 1 proximal phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Right digit 1.",
+      "overview": "Proximal phalanx of hand digit 1.",
+      "center": [
+        0.6639999999999999,
+        -0.61,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/127-right_hand_digit_1_proximal_phalanx-right.obj",
+      "normalized_center": [
+        0.2983957778126143,
+        -0.2859476406960338,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 128,
+      "key": "skeleton206:128_right_hand_digit_1_distal_phalanx_right",
+      "name": "Right hand digit 1 distal phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx distal",
+      "location": "Right digit 1.",
+      "overview": "Distal phalanx of hand digit 1.",
+      "center": [
+        0.6639999999999999,
+        -0.675,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/128-right_hand_digit_1_distal_phalanx-right.obj",
+      "normalized_center": [
+        0.2983957778126143,
+        -0.31515807075299157,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 129,
+      "key": "skeleton206:129_right_metacarpal_2_right",
+      "name": "Right metacarpal 2",
+      "side": "Right",
+      "group": "Metacarpals",
+      "latin": "Os metacarpale 2",
+      "location": "Right hand.",
+      "overview": "Metacarpal 2 forms part of the palm.",
+      "center": [
+        0.692,
+        -0.5,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/129-right_metacarpal_2-right.obj",
+      "normalized_center": [
+        0.3109787322986884,
+        -0.23651460521502843,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 130,
+      "key": "skeleton206:130_right_hand_digit_2_proximal_phalanx_right",
+      "name": "Right hand digit 2 proximal phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Right digit 2.",
+      "overview": "Proximal phalanx of hand digit 2.",
+      "center": [
+        0.692,
+        -0.61,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/130-right_hand_digit_2_proximal_phalanx-right.obj",
+      "normalized_center": [
+        0.3109787322986884,
+        -0.2859476406960338,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 131,
+      "key": "skeleton206:131_right_hand_digit_2_middle_phalanx_right",
+      "name": "Right hand digit 2 middle phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx middle",
+      "location": "Right digit 2.",
+      "overview": "Middle phalanx of hand digit 2.",
+      "center": [
+        0.692,
+        -0.675,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/131-right_hand_digit_2_middle_phalanx-right.obj",
+      "normalized_center": [
+        0.3109787322986884,
+        -0.31515807075299157,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 132,
+      "key": "skeleton206:132_right_hand_digit_2_distal_phalanx_right",
+      "name": "Right hand digit 2 distal phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx distal",
+      "location": "Right digit 2.",
+      "overview": "Distal phalanx of hand digit 2.",
+      "center": [
+        0.692,
+        -0.74,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/132-right_hand_digit_2_distal_phalanx-right.obj",
+      "normalized_center": [
+        0.3109787322986884,
+        -0.34436850080994924,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 133,
+      "key": "skeleton206:133_right_metacarpal_3_right",
+      "name": "Right metacarpal 3",
+      "side": "Right",
+      "group": "Metacarpals",
+      "latin": "Os metacarpale 3",
+      "location": "Right hand.",
+      "overview": "Metacarpal 3 forms part of the palm.",
+      "center": [
+        0.72,
+        -0.5,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/133-right_metacarpal_3-right.obj",
+      "normalized_center": [
+        0.3235616867847625,
+        -0.23651460521502843,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 134,
+      "key": "skeleton206:134_right_hand_digit_3_proximal_phalanx_right",
+      "name": "Right hand digit 3 proximal phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Right digit 3.",
+      "overview": "Proximal phalanx of hand digit 3.",
+      "center": [
+        0.72,
+        -0.61,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/134-right_hand_digit_3_proximal_phalanx-right.obj",
+      "normalized_center": [
+        0.3235616867847625,
+        -0.2859476406960338,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 135,
+      "key": "skeleton206:135_right_hand_digit_3_middle_phalanx_right",
+      "name": "Right hand digit 3 middle phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx middle",
+      "location": "Right digit 3.",
+      "overview": "Middle phalanx of hand digit 3.",
+      "center": [
+        0.72,
+        -0.675,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/135-right_hand_digit_3_middle_phalanx-right.obj",
+      "normalized_center": [
+        0.3235616867847625,
+        -0.31515807075299157,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 136,
+      "key": "skeleton206:136_right_hand_digit_3_distal_phalanx_right",
+      "name": "Right hand digit 3 distal phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx distal",
+      "location": "Right digit 3.",
+      "overview": "Distal phalanx of hand digit 3.",
+      "center": [
+        0.72,
+        -0.74,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/136-right_hand_digit_3_distal_phalanx-right.obj",
+      "normalized_center": [
+        0.3235616867847625,
+        -0.34436850080994924,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 137,
+      "key": "skeleton206:137_right_metacarpal_4_right",
+      "name": "Right metacarpal 4",
+      "side": "Right",
+      "group": "Metacarpals",
+      "latin": "Os metacarpale 4",
+      "location": "Right hand.",
+      "overview": "Metacarpal 4 forms part of the palm.",
+      "center": [
+        0.748,
+        -0.5,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/137-right_metacarpal_4-right.obj",
+      "normalized_center": [
+        0.3361446412708366,
+        -0.23651460521502843,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 138,
+      "key": "skeleton206:138_right_hand_digit_4_proximal_phalanx_right",
+      "name": "Right hand digit 4 proximal phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Right digit 4.",
+      "overview": "Proximal phalanx of hand digit 4.",
+      "center": [
+        0.748,
+        -0.61,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/138-right_hand_digit_4_proximal_phalanx-right.obj",
+      "normalized_center": [
+        0.3361446412708366,
+        -0.2859476406960338,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 139,
+      "key": "skeleton206:139_right_hand_digit_4_middle_phalanx_right",
+      "name": "Right hand digit 4 middle phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx middle",
+      "location": "Right digit 4.",
+      "overview": "Middle phalanx of hand digit 4.",
+      "center": [
+        0.748,
+        -0.675,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/139-right_hand_digit_4_middle_phalanx-right.obj",
+      "normalized_center": [
+        0.3361446412708366,
+        -0.31515807075299157,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 140,
+      "key": "skeleton206:140_right_hand_digit_4_distal_phalanx_right",
+      "name": "Right hand digit 4 distal phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx distal",
+      "location": "Right digit 4.",
+      "overview": "Distal phalanx of hand digit 4.",
+      "center": [
+        0.748,
+        -0.74,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/140-right_hand_digit_4_distal_phalanx-right.obj",
+      "normalized_center": [
+        0.3361446412708366,
+        -0.34436850080994924,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 141,
+      "key": "skeleton206:141_right_metacarpal_5_right",
+      "name": "Right metacarpal 5",
+      "side": "Right",
+      "group": "Metacarpals",
+      "latin": "Os metacarpale 5",
+      "location": "Right hand.",
+      "overview": "Metacarpal 5 forms part of the palm.",
+      "center": [
+        0.776,
+        -0.5,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/141-right_metacarpal_5-right.obj",
+      "normalized_center": [
+        0.3487275957569107,
+        -0.23651460521502843,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 142,
+      "key": "skeleton206:142_right_hand_digit_5_proximal_phalanx_right",
+      "name": "Right hand digit 5 proximal phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Right digit 5.",
+      "overview": "Proximal phalanx of hand digit 5.",
+      "center": [
+        0.776,
+        -0.61,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/142-right_hand_digit_5_proximal_phalanx-right.obj",
+      "normalized_center": [
+        0.3487275957569107,
+        -0.2859476406960338,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 143,
+      "key": "skeleton206:143_right_hand_digit_5_middle_phalanx_right",
+      "name": "Right hand digit 5 middle phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx middle",
+      "location": "Right digit 5.",
+      "overview": "Middle phalanx of hand digit 5.",
+      "center": [
+        0.776,
+        -0.675,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/143-right_hand_digit_5_middle_phalanx-right.obj",
+      "normalized_center": [
+        0.3487275957569107,
+        -0.31515807075299157,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 144,
+      "key": "skeleton206:144_right_hand_digit_5_distal_phalanx_right",
+      "name": "Right hand digit 5 distal phalanx",
+      "side": "Right",
+      "group": "Hand phalanges",
+      "latin": "Phalanx distal",
+      "location": "Right digit 5.",
+      "overview": "Distal phalanx of hand digit 5.",
+      "center": [
+        0.776,
+        -0.74,
+        0.02
+      ],
+      "url": "./assets/models/anatomy/adult206/144-right_hand_digit_5_distal_phalanx-right.obj",
+      "normalized_center": [
+        0.3487275957569107,
+        -0.34436850080994924,
+        -0.0736065125977302
+      ]
+    },
+    {
+      "index": 145,
+      "key": "skeleton206:145_left_hip_bone_left",
+      "name": "Left hip bone",
+      "side": "Left",
+      "group": "Pelvic girdle",
+      "latin": "Os coxae",
+      "location": "Pelvic girdle.",
+      "overview": "Fused hip bone formed from ilium, ischium and pubis in the adult.",
+      "center": [
+        -0.18,
+        -0.48,
+        0.0
+      ],
+      "url": "./assets/models/anatomy/adult206/145-left_hip_bone-left.obj",
+      "normalized_center": [
+        -0.08089042169619062,
+        -0.22752678058211837,
+        -0.08259433723064026
+      ]
+    },
+    {
+      "index": 146,
+      "key": "skeleton206:146_right_hip_bone_right",
+      "name": "Right hip bone",
+      "side": "Right",
+      "group": "Pelvic girdle",
+      "latin": "Os coxae",
+      "location": "Pelvic girdle.",
+      "overview": "Fused hip bone formed from ilium, ischium and pubis in the adult.",
+      "center": [
+        0.18,
+        -0.48,
+        0.0
+      ],
+      "url": "./assets/models/anatomy/adult206/146-right_hip_bone-right.obj",
+      "normalized_center": [
+        0.08089042169619062,
+        -0.22752678058211837,
+        -0.08259433723064026
+      ]
+    },
+    {
+      "index": 147,
+      "key": "skeleton206:147_left_femur_left",
+      "name": "Left femur",
+      "side": "Left",
+      "group": "Lower limb",
+      "latin": "Femur",
+      "location": "Thigh.",
+      "overview": "Longest bone in the body, extending from hip to knee.",
+      "center": [
+        -0.18,
+        -0.88,
+        0.0
+      ],
+      "url": "./assets/models/anatomy/adult206/147-left_femur-left.obj",
+      "normalized_center": [
+        -0.08089042169619062,
+        -0.40728327324031977,
+        -0.08259433723064026
+      ]
+    },
+    {
+      "index": 148,
+      "key": "skeleton206:148_left_patella_left",
+      "name": "Left patella",
+      "side": "Left",
+      "group": "Lower limb",
+      "latin": "Patella",
+      "location": "Anterior knee.",
+      "overview": "Sesamoid kneecap within the quadriceps tendon.",
+      "center": [
+        -0.2,
+        -1.23,
+        0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/148-left_patella-left.obj",
+      "normalized_center": [
+        -0.0898782463291007,
+        -0.564570204316246,
+        -0.04664303869899998
+      ]
+    },
+    {
+      "index": 149,
+      "key": "skeleton206:149_left_tibia_left",
+      "name": "Left tibia",
+      "side": "Left",
+      "group": "Lower limb",
+      "latin": "Tibia",
+      "location": "Medial lower leg.",
+      "overview": "Large weight-bearing bone of the lower leg.",
+      "center": [
+        -0.18,
+        -1.5,
+        0.0
+      ],
+      "url": "./assets/models/anatomy/adult206/149-left_tibia-left.obj",
+      "normalized_center": [
+        -0.08089042169619062,
+        -0.685905836860532,
+        -0.08259433723064026
+      ]
+    },
+    {
+      "index": 150,
+      "key": "skeleton206:150_left_fibula_left",
+      "name": "Left fibula",
+      "side": "Left",
+      "group": "Lower limb",
+      "latin": "Fibula",
+      "location": "Lateral lower leg.",
+      "overview": "Slender lateral bone of the lower leg.",
+      "center": [
+        -0.26,
+        -1.5,
+        -0.01
+      ],
+      "url": "./assets/models/anatomy/adult206/150-left_fibula-left.obj",
+      "normalized_center": [
+        -0.11684172022783092,
+        -0.685905836860532,
+        -0.0870882495470953
+      ]
+    },
+    {
+      "index": 151,
+      "key": "skeleton206:151_left_talus_left",
+      "name": "Left Talus",
+      "side": "Left",
+      "group": "Tarsal bones",
+      "latin": "Talus",
+      "location": "Left hindfoot/midfoot.",
+      "overview": "Talus is one of the seven tarsal bones of the foot.",
+      "center": [
+        -0.19,
+        -1.84,
+        0.1
+      ],
+      "url": "./assets/models/anatomy/adult206/151-left_talus-left.obj",
+      "normalized_center": [
+        -0.08538433401264567,
+        -0.8386988556200031,
+        -0.03765521406608991
+      ]
+    },
+    {
+      "index": 152,
+      "key": "skeleton206:152_left_calcaneus_left",
+      "name": "Left Calcaneus",
+      "side": "Left",
+      "group": "Tarsal bones",
+      "latin": "Calcaneus",
+      "location": "Left hindfoot/midfoot.",
+      "overview": "Calcaneus is one of the seven tarsal bones of the foot.",
+      "center": [
+        -0.19,
+        -1.84,
+        0.020000000000000004
+      ],
+      "url": "./assets/models/anatomy/adult206/152-left_calcaneus-left.obj",
+      "normalized_center": [
+        -0.08538433401264567,
+        -0.8386988556200031,
+        -0.07360651259773018
+      ]
+    },
+    {
+      "index": 153,
+      "key": "skeleton206:153_left_navicular_left",
+      "name": "Left Navicular",
+      "side": "Left",
+      "group": "Tarsal bones",
+      "latin": "Navicular",
+      "location": "Left hindfoot/midfoot.",
+      "overview": "Navicular is one of the seven tarsal bones of the foot.",
+      "center": [
+        -0.19,
+        -1.84,
+        0.18
+      ],
+      "url": "./assets/models/anatomy/adult206/153-left_navicular-left.obj",
+      "normalized_center": [
+        -0.08538433401264567,
+        -0.8386988556200031,
+        -0.0017039155344496359
+      ]
+    },
+    {
+      "index": 154,
+      "key": "skeleton206:154_left_cuboid_left",
+      "name": "Left Cuboid",
+      "side": "Left",
+      "group": "Tarsal bones",
+      "latin": "Cuboid",
+      "location": "Left hindfoot/midfoot.",
+      "overview": "Cuboid is one of the seven tarsal bones of the foot.",
+      "center": [
+        -0.245,
+        -1.84,
+        0.2
+      ],
+      "url": "./assets/models/anatomy/adult206/154-left_cuboid-left.obj",
+      "normalized_center": [
+        -0.11010085175314835,
+        -0.8386988556200031,
+        0.007283909098460442
+      ]
+    },
+    {
+      "index": 155,
+      "key": "skeleton206:155_left_medial_cuneiform_left",
+      "name": "Left Medial cuneiform",
+      "side": "Left",
+      "group": "Tarsal bones",
+      "latin": "Medial cuneiform",
+      "location": "Left hindfoot/midfoot.",
+      "overview": "Medial cuneiform is one of the seven tarsal bones of the foot.",
+      "center": [
+        -0.14500000000000002,
+        -1.84,
+        0.24000000000000002
+      ],
+      "url": "./assets/models/anatomy/adult206/155-left_medial_cuneiform-left.obj",
+      "normalized_center": [
+        -0.06516172858859802,
+        -0.8386988556200031,
+        0.025259558364280586
+      ]
+    },
+    {
+      "index": 156,
+      "key": "skeleton206:156_left_intermediate_cuneiform_left",
+      "name": "Left Intermediate cuneiform",
+      "side": "Left",
+      "group": "Tarsal bones",
+      "latin": "Intermediate cuneiform",
+      "location": "Left hindfoot/midfoot.",
+      "overview": "Intermediate cuneiform is one of the seven tarsal bones of the foot.",
+      "center": [
+        -0.19,
+        -1.84,
+        0.245
+      ],
+      "url": "./assets/models/anatomy/adult206/156-left_intermediate_cuneiform-left.obj",
+      "normalized_center": [
+        -0.08538433401264567,
+        -0.8386988556200031,
+        0.02750651452250809
+      ]
+    },
+    {
+      "index": 157,
+      "key": "skeleton206:157_left_lateral_cuneiform_left",
+      "name": "Left Lateral cuneiform",
+      "side": "Left",
+      "group": "Tarsal bones",
+      "latin": "Lateral cuneiform",
+      "location": "Left hindfoot/midfoot.",
+      "overview": "Lateral cuneiform is one of the seven tarsal bones of the foot.",
+      "center": [
+        -0.23,
+        -1.84,
+        0.24000000000000002
+      ],
+      "url": "./assets/models/anatomy/adult206/157-left_lateral_cuneiform-left.obj",
+      "normalized_center": [
+        -0.10335998327846581,
+        -0.8386988556200031,
+        0.025259558364280586
+      ]
+    },
+    {
+      "index": 158,
+      "key": "skeleton206:158_left_metatarsal_1_left",
+      "name": "Left metatarsal 1",
+      "side": "Left",
+      "group": "Metatarsals",
+      "latin": "Os metatarsale 1",
+      "location": "Left forefoot.",
+      "overview": "Metatarsal 1 forms part of the forefoot.",
+      "center": [
+        -0.14,
+        -1.86,
+        0.3
+      ],
+      "url": "./assets/models/anatomy/adult206/158-left_metatarsal_1-left.obj",
+      "normalized_center": [
+        -0.0629147724303705,
+        -0.8476866802529132,
+        0.05222303226301078
+      ]
+    },
+    {
+      "index": 159,
+      "key": "skeleton206:159_left_foot_digit_1_proximal_phalanx_left",
+      "name": "Left foot digit 1 proximal phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Left toe 1.",
+      "overview": "Proximal phalanx of foot digit 1.",
+      "center": [
+        -0.14,
+        -1.87,
+        0.46
+      ],
+      "url": "./assets/models/anatomy/adult206/159-left_foot_digit_1_proximal_phalanx-left.obj",
+      "normalized_center": [
+        -0.0629147724303705,
+        -0.8521805925693683,
+        0.12412562932629136
+      ]
+    },
+    {
+      "index": 160,
+      "key": "skeleton206:160_left_foot_digit_1_distal_phalanx_left",
+      "name": "Left foot digit 1 distal phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx distal",
+      "location": "Left toe 1.",
+      "overview": "Distal phalanx of foot digit 1.",
+      "center": [
+        -0.14,
+        -1.87,
+        0.515
+      ],
+      "url": "./assets/models/anatomy/adult206/160-left_foot_digit_1_distal_phalanx-left.obj",
+      "normalized_center": [
+        -0.0629147724303705,
+        -0.8521805925693683,
+        0.14884214706679405
+      ]
+    },
+    {
+      "index": 161,
+      "key": "skeleton206:161_left_metatarsal_2_left",
+      "name": "Left metatarsal 2",
+      "side": "Left",
+      "group": "Metatarsals",
+      "latin": "Os metatarsale 2",
+      "location": "Left forefoot.",
+      "overview": "Metatarsal 2 forms part of the forefoot.",
+      "center": [
+        -0.165,
+        -1.86,
+        0.3
+      ],
+      "url": "./assets/models/anatomy/adult206/161-left_metatarsal_2-left.obj",
+      "normalized_center": [
+        -0.07414955322150808,
+        -0.8476866802529132,
+        0.05222303226301078
+      ]
+    },
+    {
+      "index": 162,
+      "key": "skeleton206:162_left_foot_digit_2_proximal_phalanx_left",
+      "name": "Left foot digit 2 proximal phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Left toe 2.",
+      "overview": "Proximal phalanx of foot digit 2.",
+      "center": [
+        -0.165,
+        -1.87,
+        0.46
+      ],
+      "url": "./assets/models/anatomy/adult206/162-left_foot_digit_2_proximal_phalanx-left.obj",
+      "normalized_center": [
+        -0.07414955322150808,
+        -0.8521805925693683,
+        0.12412562932629136
+      ]
+    },
+    {
+      "index": 163,
+      "key": "skeleton206:163_left_foot_digit_2_middle_phalanx_left",
+      "name": "Left foot digit 2 middle phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx middle",
+      "location": "Left toe 2.",
+      "overview": "Middle phalanx of foot digit 2.",
+      "center": [
+        -0.165,
+        -1.87,
+        0.515
+      ],
+      "url": "./assets/models/anatomy/adult206/163-left_foot_digit_2_middle_phalanx-left.obj",
+      "normalized_center": [
+        -0.07414955322150808,
+        -0.8521805925693683,
+        0.14884214706679405
+      ]
+    },
+    {
+      "index": 164,
+      "key": "skeleton206:164_left_foot_digit_2_distal_phalanx_left",
+      "name": "Left foot digit 2 distal phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx distal",
+      "location": "Left toe 2.",
+      "overview": "Distal phalanx of foot digit 2.",
+      "center": [
+        -0.165,
+        -1.87,
+        0.5700000000000001
+      ],
+      "url": "./assets/models/anatomy/adult206/164-left_foot_digit_2_distal_phalanx-left.obj",
+      "normalized_center": [
+        -0.07414955322150808,
+        -0.8521805925693683,
+        0.17355866480729676
+      ]
+    },
+    {
+      "index": 165,
+      "key": "skeleton206:165_left_metatarsal_3_left",
+      "name": "Left metatarsal 3",
+      "side": "Left",
+      "group": "Metatarsals",
+      "latin": "Os metatarsale 3",
+      "location": "Left forefoot.",
+      "overview": "Metatarsal 3 forms part of the forefoot.",
+      "center": [
+        -0.19,
+        -1.86,
+        0.3
+      ],
+      "url": "./assets/models/anatomy/adult206/165-left_metatarsal_3-left.obj",
+      "normalized_center": [
+        -0.08538433401264567,
+        -0.8476866802529132,
+        0.05222303226301078
+      ]
+    },
+    {
+      "index": 166,
+      "key": "skeleton206:166_left_foot_digit_3_proximal_phalanx_left",
+      "name": "Left foot digit 3 proximal phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Left toe 3.",
+      "overview": "Proximal phalanx of foot digit 3.",
+      "center": [
+        -0.19,
+        -1.87,
+        0.46
+      ],
+      "url": "./assets/models/anatomy/adult206/166-left_foot_digit_3_proximal_phalanx-left.obj",
+      "normalized_center": [
+        -0.08538433401264567,
+        -0.8521805925693683,
+        0.12412562932629136
+      ]
+    },
+    {
+      "index": 167,
+      "key": "skeleton206:167_left_foot_digit_3_middle_phalanx_left",
+      "name": "Left foot digit 3 middle phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx middle",
+      "location": "Left toe 3.",
+      "overview": "Middle phalanx of foot digit 3.",
+      "center": [
+        -0.19,
+        -1.87,
+        0.515
+      ],
+      "url": "./assets/models/anatomy/adult206/167-left_foot_digit_3_middle_phalanx-left.obj",
+      "normalized_center": [
+        -0.08538433401264567,
+        -0.8521805925693683,
+        0.14884214706679405
+      ]
+    },
+    {
+      "index": 168,
+      "key": "skeleton206:168_left_foot_digit_3_distal_phalanx_left",
+      "name": "Left foot digit 3 distal phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx distal",
+      "location": "Left toe 3.",
+      "overview": "Distal phalanx of foot digit 3.",
+      "center": [
+        -0.19,
+        -1.87,
+        0.5700000000000001
+      ],
+      "url": "./assets/models/anatomy/adult206/168-left_foot_digit_3_distal_phalanx-left.obj",
+      "normalized_center": [
+        -0.08538433401264567,
+        -0.8521805925693683,
+        0.17355866480729676
+      ]
+    },
+    {
+      "index": 169,
+      "key": "skeleton206:169_left_metatarsal_4_left",
+      "name": "Left metatarsal 4",
+      "side": "Left",
+      "group": "Metatarsals",
+      "latin": "Os metatarsale 4",
+      "location": "Left forefoot.",
+      "overview": "Metatarsal 4 forms part of the forefoot.",
+      "center": [
+        -0.215,
+        -1.86,
+        0.3
+      ],
+      "url": "./assets/models/anatomy/adult206/169-left_metatarsal_4-left.obj",
+      "normalized_center": [
+        -0.09661911480378325,
+        -0.8476866802529132,
+        0.05222303226301078
+      ]
+    },
+    {
+      "index": 170,
+      "key": "skeleton206:170_left_foot_digit_4_proximal_phalanx_left",
+      "name": "Left foot digit 4 proximal phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Left toe 4.",
+      "overview": "Proximal phalanx of foot digit 4.",
+      "center": [
+        -0.215,
+        -1.87,
+        0.46
+      ],
+      "url": "./assets/models/anatomy/adult206/170-left_foot_digit_4_proximal_phalanx-left.obj",
+      "normalized_center": [
+        -0.09661911480378325,
+        -0.8521805925693683,
+        0.12412562932629136
+      ]
+    },
+    {
+      "index": 171,
+      "key": "skeleton206:171_left_foot_digit_4_middle_phalanx_left",
+      "name": "Left foot digit 4 middle phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx middle",
+      "location": "Left toe 4.",
+      "overview": "Middle phalanx of foot digit 4.",
+      "center": [
+        -0.215,
+        -1.87,
+        0.515
+      ],
+      "url": "./assets/models/anatomy/adult206/171-left_foot_digit_4_middle_phalanx-left.obj",
+      "normalized_center": [
+        -0.09661911480378325,
+        -0.8521805925693683,
+        0.14884214706679405
+      ]
+    },
+    {
+      "index": 172,
+      "key": "skeleton206:172_left_foot_digit_4_distal_phalanx_left",
+      "name": "Left foot digit 4 distal phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx distal",
+      "location": "Left toe 4.",
+      "overview": "Distal phalanx of foot digit 4.",
+      "center": [
+        -0.215,
+        -1.87,
+        0.5700000000000001
+      ],
+      "url": "./assets/models/anatomy/adult206/172-left_foot_digit_4_distal_phalanx-left.obj",
+      "normalized_center": [
+        -0.09661911480378325,
+        -0.8521805925693683,
+        0.17355866480729676
+      ]
+    },
+    {
+      "index": 173,
+      "key": "skeleton206:173_left_metatarsal_5_left",
+      "name": "Left metatarsal 5",
+      "side": "Left",
+      "group": "Metatarsals",
+      "latin": "Os metatarsale 5",
+      "location": "Left forefoot.",
+      "overview": "Metatarsal 5 forms part of the forefoot.",
+      "center": [
+        -0.24,
+        -1.86,
+        0.3
+      ],
+      "url": "./assets/models/anatomy/adult206/173-left_metatarsal_5-left.obj",
+      "normalized_center": [
+        -0.10785389559492083,
+        -0.8476866802529132,
+        0.05222303226301078
+      ]
+    },
+    {
+      "index": 174,
+      "key": "skeleton206:174_left_foot_digit_5_proximal_phalanx_left",
+      "name": "Left foot digit 5 proximal phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Left toe 5.",
+      "overview": "Proximal phalanx of foot digit 5.",
+      "center": [
+        -0.24,
+        -1.87,
+        0.46
+      ],
+      "url": "./assets/models/anatomy/adult206/174-left_foot_digit_5_proximal_phalanx-left.obj",
+      "normalized_center": [
+        -0.10785389559492083,
+        -0.8521805925693683,
+        0.12412562932629136
+      ]
+    },
+    {
+      "index": 175,
+      "key": "skeleton206:175_left_foot_digit_5_middle_phalanx_left",
+      "name": "Left foot digit 5 middle phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx middle",
+      "location": "Left toe 5.",
+      "overview": "Middle phalanx of foot digit 5.",
+      "center": [
+        -0.24,
+        -1.87,
+        0.515
+      ],
+      "url": "./assets/models/anatomy/adult206/175-left_foot_digit_5_middle_phalanx-left.obj",
+      "normalized_center": [
+        -0.10785389559492083,
+        -0.8521805925693683,
+        0.14884214706679405
+      ]
+    },
+    {
+      "index": 176,
+      "key": "skeleton206:176_left_foot_digit_5_distal_phalanx_left",
+      "name": "Left foot digit 5 distal phalanx",
+      "side": "Left",
+      "group": "Toe phalanges",
+      "latin": "Phalanx distal",
+      "location": "Left toe 5.",
+      "overview": "Distal phalanx of foot digit 5.",
+      "center": [
+        -0.24,
+        -1.87,
+        0.5700000000000001
+      ],
+      "url": "./assets/models/anatomy/adult206/176-left_foot_digit_5_distal_phalanx-left.obj",
+      "normalized_center": [
+        -0.10785389559492083,
+        -0.8521805925693683,
+        0.17355866480729676
+      ]
+    },
+    {
+      "index": 177,
+      "key": "skeleton206:177_right_femur_right",
+      "name": "Right femur",
+      "side": "Right",
+      "group": "Lower limb",
+      "latin": "Femur",
+      "location": "Thigh.",
+      "overview": "Longest bone in the body, extending from hip to knee.",
+      "center": [
+        0.18,
+        -0.88,
+        0.0
+      ],
+      "url": "./assets/models/anatomy/adult206/177-right_femur-right.obj",
+      "normalized_center": [
+        0.08089042169619062,
+        -0.40728327324031977,
+        -0.08259433723064026
+      ]
+    },
+    {
+      "index": 178,
+      "key": "skeleton206:178_right_patella_right",
+      "name": "Right patella",
+      "side": "Right",
+      "group": "Lower limb",
+      "latin": "Patella",
+      "location": "Anterior knee.",
+      "overview": "Sesamoid kneecap within the quadriceps tendon.",
+      "center": [
+        0.2,
+        -1.23,
+        0.08
+      ],
+      "url": "./assets/models/anatomy/adult206/178-right_patella-right.obj",
+      "normalized_center": [
+        0.0898782463291007,
+        -0.564570204316246,
+        -0.04664303869899998
+      ]
+    },
+    {
+      "index": 179,
+      "key": "skeleton206:179_right_tibia_right",
+      "name": "Right tibia",
+      "side": "Right",
+      "group": "Lower limb",
+      "latin": "Tibia",
+      "location": "Medial lower leg.",
+      "overview": "Large weight-bearing bone of the lower leg.",
+      "center": [
+        0.18,
+        -1.5,
+        0.0
+      ],
+      "url": "./assets/models/anatomy/adult206/179-right_tibia-right.obj",
+      "normalized_center": [
+        0.08089042169619062,
+        -0.685905836860532,
+        -0.08259433723064026
+      ]
+    },
+    {
+      "index": 180,
+      "key": "skeleton206:180_right_fibula_right",
+      "name": "Right fibula",
+      "side": "Right",
+      "group": "Lower limb",
+      "latin": "Fibula",
+      "location": "Lateral lower leg.",
+      "overview": "Slender lateral bone of the lower leg.",
+      "center": [
+        0.26,
+        -1.5,
+        -0.01
+      ],
+      "url": "./assets/models/anatomy/adult206/180-right_fibula-right.obj",
+      "normalized_center": [
+        0.11684172022783092,
+        -0.685905836860532,
+        -0.0870882495470953
+      ]
+    },
+    {
+      "index": 181,
+      "key": "skeleton206:181_right_talus_right",
+      "name": "Right Talus",
+      "side": "Right",
+      "group": "Tarsal bones",
+      "latin": "Talus",
+      "location": "Right hindfoot/midfoot.",
+      "overview": "Talus is one of the seven tarsal bones of the foot.",
+      "center": [
+        0.19,
+        -1.84,
+        0.1
+      ],
+      "url": "./assets/models/anatomy/adult206/181-right_talus-right.obj",
+      "normalized_center": [
+        0.08538433401264567,
+        -0.8386988556200031,
+        -0.03765521406608991
+      ]
+    },
+    {
+      "index": 182,
+      "key": "skeleton206:182_right_calcaneus_right",
+      "name": "Right Calcaneus",
+      "side": "Right",
+      "group": "Tarsal bones",
+      "latin": "Calcaneus",
+      "location": "Right hindfoot/midfoot.",
+      "overview": "Calcaneus is one of the seven tarsal bones of the foot.",
+      "center": [
+        0.19,
+        -1.84,
+        0.020000000000000004
+      ],
+      "url": "./assets/models/anatomy/adult206/182-right_calcaneus-right.obj",
+      "normalized_center": [
+        0.08538433401264567,
+        -0.8386988556200031,
+        -0.07360651259773018
+      ]
+    },
+    {
+      "index": 183,
+      "key": "skeleton206:183_right_navicular_right",
+      "name": "Right Navicular",
+      "side": "Right",
+      "group": "Tarsal bones",
+      "latin": "Navicular",
+      "location": "Right hindfoot/midfoot.",
+      "overview": "Navicular is one of the seven tarsal bones of the foot.",
+      "center": [
+        0.19,
+        -1.84,
+        0.18
+      ],
+      "url": "./assets/models/anatomy/adult206/183-right_navicular-right.obj",
+      "normalized_center": [
+        0.08538433401264567,
+        -0.8386988556200031,
+        -0.0017039155344496359
+      ]
+    },
+    {
+      "index": 184,
+      "key": "skeleton206:184_right_cuboid_right",
+      "name": "Right Cuboid",
+      "side": "Right",
+      "group": "Tarsal bones",
+      "latin": "Cuboid",
+      "location": "Right hindfoot/midfoot.",
+      "overview": "Cuboid is one of the seven tarsal bones of the foot.",
+      "center": [
+        0.245,
+        -1.84,
+        0.2
+      ],
+      "url": "./assets/models/anatomy/adult206/184-right_cuboid-right.obj",
+      "normalized_center": [
+        0.11010085175314835,
+        -0.8386988556200031,
+        0.007283909098460442
+      ]
+    },
+    {
+      "index": 185,
+      "key": "skeleton206:185_right_medial_cuneiform_right",
+      "name": "Right Medial cuneiform",
+      "side": "Right",
+      "group": "Tarsal bones",
+      "latin": "Medial cuneiform",
+      "location": "Right hindfoot/midfoot.",
+      "overview": "Medial cuneiform is one of the seven tarsal bones of the foot.",
+      "center": [
+        0.14500000000000002,
+        -1.84,
+        0.24000000000000002
+      ],
+      "url": "./assets/models/anatomy/adult206/185-right_medial_cuneiform-right.obj",
+      "normalized_center": [
+        0.06516172858859802,
+        -0.8386988556200031,
+        0.025259558364280586
+      ]
+    },
+    {
+      "index": 186,
+      "key": "skeleton206:186_right_intermediate_cuneiform_right",
+      "name": "Right Intermediate cuneiform",
+      "side": "Right",
+      "group": "Tarsal bones",
+      "latin": "Intermediate cuneiform",
+      "location": "Right hindfoot/midfoot.",
+      "overview": "Intermediate cuneiform is one of the seven tarsal bones of the foot.",
+      "center": [
+        0.19,
+        -1.84,
+        0.245
+      ],
+      "url": "./assets/models/anatomy/adult206/186-right_intermediate_cuneiform-right.obj",
+      "normalized_center": [
+        0.08538433401264567,
+        -0.8386988556200031,
+        0.02750651452250809
+      ]
+    },
+    {
+      "index": 187,
+      "key": "skeleton206:187_right_lateral_cuneiform_right",
+      "name": "Right Lateral cuneiform",
+      "side": "Right",
+      "group": "Tarsal bones",
+      "latin": "Lateral cuneiform",
+      "location": "Right hindfoot/midfoot.",
+      "overview": "Lateral cuneiform is one of the seven tarsal bones of the foot.",
+      "center": [
+        0.23,
+        -1.84,
+        0.24000000000000002
+      ],
+      "url": "./assets/models/anatomy/adult206/187-right_lateral_cuneiform-right.obj",
+      "normalized_center": [
+        0.10335998327846581,
+        -0.8386988556200031,
+        0.025259558364280586
+      ]
+    },
+    {
+      "index": 188,
+      "key": "skeleton206:188_right_metatarsal_1_right",
+      "name": "Right metatarsal 1",
+      "side": "Right",
+      "group": "Metatarsals",
+      "latin": "Os metatarsale 1",
+      "location": "Right forefoot.",
+      "overview": "Metatarsal 1 forms part of the forefoot.",
+      "center": [
+        0.14,
+        -1.86,
+        0.3
+      ],
+      "url": "./assets/models/anatomy/adult206/188-right_metatarsal_1-right.obj",
+      "normalized_center": [
+        0.0629147724303705,
+        -0.8476866802529132,
+        0.05222303226301078
+      ]
+    },
+    {
+      "index": 189,
+      "key": "skeleton206:189_right_foot_digit_1_proximal_phalanx_right",
+      "name": "Right foot digit 1 proximal phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Right toe 1.",
+      "overview": "Proximal phalanx of foot digit 1.",
+      "center": [
+        0.14,
+        -1.87,
+        0.46
+      ],
+      "url": "./assets/models/anatomy/adult206/189-right_foot_digit_1_proximal_phalanx-right.obj",
+      "normalized_center": [
+        0.0629147724303705,
+        -0.8521805925693683,
+        0.12412562932629136
+      ]
+    },
+    {
+      "index": 190,
+      "key": "skeleton206:190_right_foot_digit_1_distal_phalanx_right",
+      "name": "Right foot digit 1 distal phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx distal",
+      "location": "Right toe 1.",
+      "overview": "Distal phalanx of foot digit 1.",
+      "center": [
+        0.14,
+        -1.87,
+        0.515
+      ],
+      "url": "./assets/models/anatomy/adult206/190-right_foot_digit_1_distal_phalanx-right.obj",
+      "normalized_center": [
+        0.0629147724303705,
+        -0.8521805925693683,
+        0.14884214706679405
+      ]
+    },
+    {
+      "index": 191,
+      "key": "skeleton206:191_right_metatarsal_2_right",
+      "name": "Right metatarsal 2",
+      "side": "Right",
+      "group": "Metatarsals",
+      "latin": "Os metatarsale 2",
+      "location": "Right forefoot.",
+      "overview": "Metatarsal 2 forms part of the forefoot.",
+      "center": [
+        0.165,
+        -1.86,
+        0.3
+      ],
+      "url": "./assets/models/anatomy/adult206/191-right_metatarsal_2-right.obj",
+      "normalized_center": [
+        0.07414955322150808,
+        -0.8476866802529132,
+        0.05222303226301078
+      ]
+    },
+    {
+      "index": 192,
+      "key": "skeleton206:192_right_foot_digit_2_proximal_phalanx_right",
+      "name": "Right foot digit 2 proximal phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Right toe 2.",
+      "overview": "Proximal phalanx of foot digit 2.",
+      "center": [
+        0.165,
+        -1.87,
+        0.46
+      ],
+      "url": "./assets/models/anatomy/adult206/192-right_foot_digit_2_proximal_phalanx-right.obj",
+      "normalized_center": [
+        0.07414955322150808,
+        -0.8521805925693683,
+        0.12412562932629136
+      ]
+    },
+    {
+      "index": 193,
+      "key": "skeleton206:193_right_foot_digit_2_middle_phalanx_right",
+      "name": "Right foot digit 2 middle phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx middle",
+      "location": "Right toe 2.",
+      "overview": "Middle phalanx of foot digit 2.",
+      "center": [
+        0.165,
+        -1.87,
+        0.515
+      ],
+      "url": "./assets/models/anatomy/adult206/193-right_foot_digit_2_middle_phalanx-right.obj",
+      "normalized_center": [
+        0.07414955322150808,
+        -0.8521805925693683,
+        0.14884214706679405
+      ]
+    },
+    {
+      "index": 194,
+      "key": "skeleton206:194_right_foot_digit_2_distal_phalanx_right",
+      "name": "Right foot digit 2 distal phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx distal",
+      "location": "Right toe 2.",
+      "overview": "Distal phalanx of foot digit 2.",
+      "center": [
+        0.165,
+        -1.87,
+        0.5700000000000001
+      ],
+      "url": "./assets/models/anatomy/adult206/194-right_foot_digit_2_distal_phalanx-right.obj",
+      "normalized_center": [
+        0.07414955322150808,
+        -0.8521805925693683,
+        0.17355866480729676
+      ]
+    },
+    {
+      "index": 195,
+      "key": "skeleton206:195_right_metatarsal_3_right",
+      "name": "Right metatarsal 3",
+      "side": "Right",
+      "group": "Metatarsals",
+      "latin": "Os metatarsale 3",
+      "location": "Right forefoot.",
+      "overview": "Metatarsal 3 forms part of the forefoot.",
+      "center": [
+        0.19,
+        -1.86,
+        0.3
+      ],
+      "url": "./assets/models/anatomy/adult206/195-right_metatarsal_3-right.obj",
+      "normalized_center": [
+        0.08538433401264567,
+        -0.8476866802529132,
+        0.05222303226301078
+      ]
+    },
+    {
+      "index": 196,
+      "key": "skeleton206:196_right_foot_digit_3_proximal_phalanx_right",
+      "name": "Right foot digit 3 proximal phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Right toe 3.",
+      "overview": "Proximal phalanx of foot digit 3.",
+      "center": [
+        0.19,
+        -1.87,
+        0.46
+      ],
+      "url": "./assets/models/anatomy/adult206/196-right_foot_digit_3_proximal_phalanx-right.obj",
+      "normalized_center": [
+        0.08538433401264567,
+        -0.8521805925693683,
+        0.12412562932629136
+      ]
+    },
+    {
+      "index": 197,
+      "key": "skeleton206:197_right_foot_digit_3_middle_phalanx_right",
+      "name": "Right foot digit 3 middle phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx middle",
+      "location": "Right toe 3.",
+      "overview": "Middle phalanx of foot digit 3.",
+      "center": [
+        0.19,
+        -1.87,
+        0.515
+      ],
+      "url": "./assets/models/anatomy/adult206/197-right_foot_digit_3_middle_phalanx-right.obj",
+      "normalized_center": [
+        0.08538433401264567,
+        -0.8521805925693683,
+        0.14884214706679405
+      ]
+    },
+    {
+      "index": 198,
+      "key": "skeleton206:198_right_foot_digit_3_distal_phalanx_right",
+      "name": "Right foot digit 3 distal phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx distal",
+      "location": "Right toe 3.",
+      "overview": "Distal phalanx of foot digit 3.",
+      "center": [
+        0.19,
+        -1.87,
+        0.5700000000000001
+      ],
+      "url": "./assets/models/anatomy/adult206/198-right_foot_digit_3_distal_phalanx-right.obj",
+      "normalized_center": [
+        0.08538433401264567,
+        -0.8521805925693683,
+        0.17355866480729676
+      ]
+    },
+    {
+      "index": 199,
+      "key": "skeleton206:199_right_metatarsal_4_right",
+      "name": "Right metatarsal 4",
+      "side": "Right",
+      "group": "Metatarsals",
+      "latin": "Os metatarsale 4",
+      "location": "Right forefoot.",
+      "overview": "Metatarsal 4 forms part of the forefoot.",
+      "center": [
+        0.215,
+        -1.86,
+        0.3
+      ],
+      "url": "./assets/models/anatomy/adult206/199-right_metatarsal_4-right.obj",
+      "normalized_center": [
+        0.09661911480378325,
+        -0.8476866802529132,
+        0.05222303226301078
+      ]
+    },
+    {
+      "index": 200,
+      "key": "skeleton206:200_right_foot_digit_4_proximal_phalanx_right",
+      "name": "Right foot digit 4 proximal phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Right toe 4.",
+      "overview": "Proximal phalanx of foot digit 4.",
+      "center": [
+        0.215,
+        -1.87,
+        0.46
+      ],
+      "url": "./assets/models/anatomy/adult206/200-right_foot_digit_4_proximal_phalanx-right.obj",
+      "normalized_center": [
+        0.09661911480378325,
+        -0.8521805925693683,
+        0.12412562932629136
+      ]
+    },
+    {
+      "index": 201,
+      "key": "skeleton206:201_right_foot_digit_4_middle_phalanx_right",
+      "name": "Right foot digit 4 middle phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx middle",
+      "location": "Right toe 4.",
+      "overview": "Middle phalanx of foot digit 4.",
+      "center": [
+        0.215,
+        -1.87,
+        0.515
+      ],
+      "url": "./assets/models/anatomy/adult206/201-right_foot_digit_4_middle_phalanx-right.obj",
+      "normalized_center": [
+        0.09661911480378325,
+        -0.8521805925693683,
+        0.14884214706679405
+      ]
+    },
+    {
+      "index": 202,
+      "key": "skeleton206:202_right_foot_digit_4_distal_phalanx_right",
+      "name": "Right foot digit 4 distal phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx distal",
+      "location": "Right toe 4.",
+      "overview": "Distal phalanx of foot digit 4.",
+      "center": [
+        0.215,
+        -1.87,
+        0.5700000000000001
+      ],
+      "url": "./assets/models/anatomy/adult206/202-right_foot_digit_4_distal_phalanx-right.obj",
+      "normalized_center": [
+        0.09661911480378325,
+        -0.8521805925693683,
+        0.17355866480729676
+      ]
+    },
+    {
+      "index": 203,
+      "key": "skeleton206:203_right_metatarsal_5_right",
+      "name": "Right metatarsal 5",
+      "side": "Right",
+      "group": "Metatarsals",
+      "latin": "Os metatarsale 5",
+      "location": "Right forefoot.",
+      "overview": "Metatarsal 5 forms part of the forefoot.",
+      "center": [
+        0.24,
+        -1.86,
+        0.3
+      ],
+      "url": "./assets/models/anatomy/adult206/203-right_metatarsal_5-right.obj",
+      "normalized_center": [
+        0.10785389559492083,
+        -0.8476866802529132,
+        0.05222303226301078
+      ]
+    },
+    {
+      "index": 204,
+      "key": "skeleton206:204_right_foot_digit_5_proximal_phalanx_right",
+      "name": "Right foot digit 5 proximal phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx proximal",
+      "location": "Right toe 5.",
+      "overview": "Proximal phalanx of foot digit 5.",
+      "center": [
+        0.24,
+        -1.87,
+        0.46
+      ],
+      "url": "./assets/models/anatomy/adult206/204-right_foot_digit_5_proximal_phalanx-right.obj",
+      "normalized_center": [
+        0.10785389559492083,
+        -0.8521805925693683,
+        0.12412562932629136
+      ]
+    },
+    {
+      "index": 205,
+      "key": "skeleton206:205_right_foot_digit_5_middle_phalanx_right",
+      "name": "Right foot digit 5 middle phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx middle",
+      "location": "Right toe 5.",
+      "overview": "Middle phalanx of foot digit 5.",
+      "center": [
+        0.24,
+        -1.87,
+        0.515
+      ],
+      "url": "./assets/models/anatomy/adult206/205-right_foot_digit_5_middle_phalanx-right.obj",
+      "normalized_center": [
+        0.10785389559492083,
+        -0.8521805925693683,
+        0.14884214706679405
+      ]
+    },
+    {
+      "index": 206,
+      "key": "skeleton206:206_right_foot_digit_5_distal_phalanx_right",
+      "name": "Right foot digit 5 distal phalanx",
+      "side": "Right",
+      "group": "Toe phalanges",
+      "latin": "Phalanx distal",
+      "location": "Right toe 5.",
+      "overview": "Distal phalanx of foot digit 5.",
+      "center": [
+        0.24,
+        -1.87,
+        0.5700000000000001
+      ],
+      "url": "./assets/models/anatomy/adult206/206-right_foot_digit_5_distal_phalanx-right.obj",
+      "normalized_center": [
+        0.10785389559492083,
+        -0.8521805925693683,
+        0.17355866480729676
+      ]
+    }
+  ]
+}

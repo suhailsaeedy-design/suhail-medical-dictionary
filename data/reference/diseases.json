@@ -1,0 +1,3637 @@
+{
+  "version": "20.19.2",
+  "kind": "conditions",
+  "scope": "Educational condition summaries linked to the Suhail dictionary. No diagnosis or treatment instructions.",
+  "items": [
+    {
+      "id": "hypertension",
+      "name": "Hypertension",
+      "specialty": "Cardiology",
+      "summary": "Persistently elevated arterial blood pressure. The term is commonly used in cardiovascular medicine and public-health screening.",
+      "aliases": [
+        "High blood pressure"
+      ],
+      "related_terms": [
+        "Blood pressure",
+        "Cardiovascular system"
+      ],
+      "overview": "Persistently elevated arterial blood pressure. The term is commonly used in cardiovascular medicine and public-health screening.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "diabetes-mellitus",
+      "name": "Diabetes Mellitus",
+      "specialty": "Endocrinology",
+      "summary": "A group of metabolic disorders characterized by abnormal regulation of blood glucose.",
+      "aliases": [
+        "Diabetes"
+      ],
+      "related_terms": [
+        "Glucose",
+        "Insulin",
+        "Pancreas"
+      ],
+      "overview": "A group of metabolic disorders characterized by abnormal regulation of blood glucose.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "asthma",
+      "name": "Asthma",
+      "specialty": "Pulmonology",
+      "summary": "A chronic respiratory condition involving variable airflow limitation and airway inflammation.",
+      "aliases": [],
+      "related_terms": [
+        "Bronchus",
+        "Respiratory system"
+      ],
+      "overview": "A chronic respiratory condition involving variable airflow limitation and airway inflammation.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "pneumonia",
+      "name": "Pneumonia",
+      "specialty": "Pulmonology",
+      "summary": "Inflammation or infection involving lung tissue and the air-exchange regions of the lungs.",
+      "aliases": [],
+      "related_terms": [
+        "Lung",
+        "Respiratory system"
+      ],
+      "overview": "Inflammation or infection involving lung tissue and the air-exchange regions of the lungs.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "anemia",
+      "name": "Anemia",
+      "specialty": "Hematology",
+      "summary": "A condition in which the blood has an abnormally low amount of red-cell mass or hemoglobin for the relevant reference range.",
+      "aliases": [],
+      "related_terms": [
+        "Hemoglobin",
+        "Red blood cell"
+      ],
+      "overview": "A condition in which the blood has an abnormally low amount of red-cell mass or hemoglobin for the relevant reference range.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "fracture",
+      "name": "Fracture",
+      "specialty": "Orthopedics",
+      "summary": "A break or disruption in the continuity of bone.",
+      "aliases": [
+        "Broken bone"
+      ],
+      "related_terms": [
+        "Bone",
+        "Skeleton"
+      ],
+      "overview": "A break or disruption in the continuity of bone.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "stroke",
+      "name": "Stroke",
+      "specialty": "Neurology",
+      "summary": "A neurologic event caused by interruption of blood flow to brain tissue or bleeding within the brain.",
+      "aliases": [
+        "Cerebrovascular accident"
+      ],
+      "related_terms": [
+        "Brain",
+        "Cerebral circulation"
+      ],
+      "overview": "A neurologic event caused by interruption of blood flow to brain tissue or bleeding within the brain.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ],
+      "anatomy_region": "organs:brain"
+    },
+    {
+      "id": "appendicitis",
+      "name": "Appendicitis",
+      "specialty": "Surgery",
+      "summary": "Inflammation of the appendix, a small structure connected to the large intestine.",
+      "aliases": [
+        "Inflammation of appendix"
+      ],
+      "related_terms": [
+        "Appendix",
+        "Abdomen"
+      ],
+      "overview": "Inflammation of the appendix, a small structure connected to the large intestine.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ],
+      "anatomy_region": "muscles:abdomen"
+    },
+    {
+      "id": "arrhythmia",
+      "name": "Arrhythmia",
+      "specialty": "Cardiology",
+      "summary": "An abnormality in the rate, rhythm, or electrical sequence of the heartbeat.",
+      "aliases": [
+        "Abnormal heart rhythm"
+      ],
+      "related_terms": [
+        "Heart",
+        "Electrocardiogram"
+      ],
+      "overview": "An abnormality in the rate, rhythm, or electrical sequence of the heartbeat.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ],
+      "anatomy_region": "organs:heart"
+    },
+    {
+      "id": "myocardial-infarction",
+      "name": "Myocardial Infarction",
+      "specialty": "Cardiology",
+      "summary": "Injury and death of heart-muscle tissue caused by prolonged loss of adequate blood supply.",
+      "aliases": [
+        "Heart attack"
+      ],
+      "related_terms": [
+        "Myocardium",
+        "Coronary circulation"
+      ],
+      "overview": "Injury and death of heart-muscle tissue caused by prolonged loss of adequate blood supply.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "osteoporosis",
+      "name": "Osteoporosis",
+      "specialty": "Orthopedics",
+      "summary": "A skeletal disorder characterized by reduced bone strength and increased fracture susceptibility.",
+      "aliases": [],
+      "related_terms": [
+        "Bone",
+        "Fracture"
+      ],
+      "overview": "A skeletal disorder characterized by reduced bone strength and increased fracture susceptibility.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "migraine",
+      "name": "Migraine",
+      "specialty": "Neurology",
+      "summary": "A recurrent neurologic headache disorder that may include sensory or other neurologic symptoms.",
+      "aliases": [],
+      "related_terms": [
+        "Headache",
+        "Nervous system"
+      ],
+      "overview": "A recurrent neurologic headache disorder that may include sensory or other neurologic symptoms.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "coronary-artery-disease",
+      "name": "Coronary Artery Disease",
+      "specialty": "Cardiology",
+      "summary": "Disease involving narrowing or blockage of coronary arteries that supply the heart muscle.",
+      "aliases": [
+        "CAD",
+        "Coronary heart disease"
+      ],
+      "related_terms": [
+        "Heart",
+        "Artery",
+        "Atherosclerosis"
+      ],
+      "overview": "Disease involving narrowing or blockage of coronary arteries that supply the heart muscle.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ],
+      "anatomy_region": "organs:heart"
+    },
+    {
+      "id": "heart-failure",
+      "name": "Heart Failure",
+      "specialty": "Cardiology",
+      "summary": "A syndrome in which the heart does not pump or fill effectively enough to meet the body’s needs.",
+      "aliases": [
+        "Cardiac failure"
+      ],
+      "related_terms": [
+        "Heart",
+        "Cardiac output"
+      ],
+      "overview": "A syndrome in which the heart does not pump or fill effectively enough to meet the body’s needs.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ],
+      "anatomy_region": "organs:heart"
+    },
+    {
+      "id": "atherosclerosis",
+      "name": "Atherosclerosis",
+      "specialty": "Cardiology",
+      "summary": "A chronic arterial process involving plaque formation within artery walls.",
+      "aliases": [
+        "Arteriosclerotic vascular disease"
+      ],
+      "related_terms": [
+        "Artery",
+        "Cholesterol"
+      ],
+      "overview": "A chronic arterial process involving plaque formation within artery walls.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "copd",
+      "name": "Chronic Obstructive Pulmonary Disease",
+      "specialty": "Pulmonology",
+      "summary": "A chronic lung disease characterized by persistent airflow limitation and respiratory symptoms.",
+      "aliases": [
+        "COPD"
+      ],
+      "related_terms": [
+        "Lungs",
+        "Bronchi"
+      ],
+      "overview": "A chronic lung disease characterized by persistent airflow limitation and respiratory symptoms.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "tuberculosis",
+      "name": "Tuberculosis",
+      "specialty": "Infectious Disease",
+      "summary": "An infectious disease caused by Mycobacterium tuberculosis that most often affects the lungs but can involve other organs.",
+      "aliases": [
+        "TB"
+      ],
+      "related_terms": [
+        "Lungs",
+        "Infection"
+      ],
+      "overview": "An infectious disease caused by Mycobacterium tuberculosis that most often affects the lungs but can involve other organs.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "influenza",
+      "name": "Influenza",
+      "specialty": "Infectious Disease",
+      "summary": "A contagious respiratory infection caused by influenza viruses.",
+      "aliases": [
+        "Flu"
+      ],
+      "related_terms": [
+        "Virus",
+        "Respiratory system"
+      ],
+      "overview": "A contagious respiratory infection caused by influenza viruses.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "gastroenteritis",
+      "name": "Gastroenteritis",
+      "specialty": "Gastroenterology",
+      "summary": "Inflammation of the stomach and intestines, commonly associated with gastrointestinal symptoms.",
+      "aliases": [
+        "Stomach flu"
+      ],
+      "related_terms": [
+        "Stomach",
+        "Intestines"
+      ],
+      "overview": "Inflammation of the stomach and intestines, commonly associated with gastrointestinal symptoms.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ],
+      "anatomy_region": "organs:stomach"
+    },
+    {
+      "id": "gerd",
+      "name": "Gastroesophageal Reflux Disease",
+      "specialty": "Gastroenterology",
+      "summary": "A condition in which stomach contents repeatedly flow back into the esophagus.",
+      "aliases": [
+        "GERD",
+        "Acid reflux"
+      ],
+      "related_terms": [
+        "Esophagus",
+        "Stomach"
+      ],
+      "overview": "A condition in which stomach contents repeatedly flow back into the esophagus.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ],
+      "anatomy_region": "organs:stomach"
+    },
+    {
+      "id": "peptic-ulcer",
+      "name": "Peptic Ulcer Disease",
+      "specialty": "Gastroenterology",
+      "summary": "Ulceration affecting the lining of the stomach or proximal small intestine.",
+      "aliases": [
+        "PUD"
+      ],
+      "related_terms": [
+        "Stomach",
+        "Duodenum"
+      ],
+      "overview": "Ulceration affecting the lining of the stomach or proximal small intestine.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ],
+      "anatomy_region": "organs:stomach"
+    },
+    {
+      "id": "hepatitis",
+      "name": "Hepatitis",
+      "specialty": "Gastroenterology",
+      "summary": "Inflammation of the liver caused by a range of infectious and noninfectious processes.",
+      "aliases": [
+        "Liver inflammation"
+      ],
+      "related_terms": [
+        "Liver"
+      ],
+      "overview": "Inflammation of the liver caused by a range of infectious and noninfectious processes.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ],
+      "anatomy_region": "organs:liver"
+    },
+    {
+      "id": "cirrhosis",
+      "name": "Cirrhosis",
+      "specialty": "Gastroenterology",
+      "summary": "Advanced chronic liver scarring that alters normal liver architecture and function.",
+      "aliases": [
+        "Liver cirrhosis"
+      ],
+      "related_terms": [
+        "Liver",
+        "Fibrosis"
+      ],
+      "overview": "Advanced chronic liver scarring that alters normal liver architecture and function.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ],
+      "anatomy_region": "organs:liver"
+    },
+    {
+      "id": "cholecystitis",
+      "name": "Cholecystitis",
+      "specialty": "Gastroenterology",
+      "summary": "Inflammation of the gallbladder, often associated with gallstones.",
+      "aliases": [
+        "Gallbladder inflammation"
+      ],
+      "related_terms": [
+        "Gallbladder",
+        "Bile"
+      ],
+      "overview": "Inflammation of the gallbladder, often associated with gallstones.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "kidney-stone",
+      "name": "Kidney Stone",
+      "specialty": "Nephrology / Urology",
+      "summary": "A hard mineral deposit that forms within the urinary tract, commonly in the kidney.",
+      "aliases": [
+        "Renal calculus",
+        "Nephrolithiasis"
+      ],
+      "related_terms": [
+        "Kidney",
+        "Ureter"
+      ],
+      "overview": "A hard mineral deposit that forms within the urinary tract, commonly in the kidney.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "uti",
+      "name": "Urinary Tract Infection",
+      "specialty": "Nephrology / Urology",
+      "summary": "An infection affecting part of the urinary system such as the bladder or urethra.",
+      "aliases": [
+        "UTI"
+      ],
+      "related_terms": [
+        "Bladder",
+        "Urethra",
+        "Kidney"
+      ],
+      "overview": "An infection affecting part of the urinary system such as the bladder or urethra.",
+      "common_features": [
+        "Urinary-system infection"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment.",
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "chronic-kidney-disease",
+      "name": "Chronic Kidney Disease",
+      "specialty": "Nephrology",
+      "summary": "Long-term reduction in kidney structure or function that persists over time.",
+      "aliases": [
+        "CKD"
+      ],
+      "related_terms": [
+        "Kidney",
+        "Nephron"
+      ],
+      "overview": "Long-term reduction in kidney structure or function that persists over time.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "osteoarthritis",
+      "name": "Osteoarthritis",
+      "specialty": "Orthopedics",
+      "summary": "A joint disorder involving degeneration of articular cartilage and other joint tissues.",
+      "aliases": [
+        "Degenerative joint disease"
+      ],
+      "related_terms": [
+        "Joint",
+        "Cartilage"
+      ],
+      "overview": "A joint disorder involving degeneration of articular cartilage and other joint tissues.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "rheumatoid-arthritis",
+      "name": "Rheumatoid Arthritis",
+      "specialty": "Rheumatology",
+      "summary": "A chronic autoimmune inflammatory disorder that commonly affects multiple joints.",
+      "aliases": [
+        "RA"
+      ],
+      "related_terms": [
+        "Joint",
+        "Immune system"
+      ],
+      "overview": "A chronic autoimmune inflammatory disorder that commonly affects multiple joints.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "sprain",
+      "name": "Sprain",
+      "specialty": "Orthopedics",
+      "summary": "An injury involving stretching or tearing of a ligament around a joint.",
+      "aliases": [
+        "Ligament sprain"
+      ],
+      "related_terms": [
+        "Ligament",
+        "Joint"
+      ],
+      "overview": "An injury involving stretching or tearing of a ligament around a joint.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "dermatitis",
+      "name": "Dermatitis",
+      "specialty": "Dermatology",
+      "summary": "Inflammation of the skin that may produce redness, itching, scaling, or irritation.",
+      "aliases": [
+        "Eczema"
+      ],
+      "related_terms": [
+        "Skin"
+      ],
+      "overview": "Inflammation of the skin that may produce redness, itching, scaling, or irritation.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "psoriasis",
+      "name": "Psoriasis",
+      "specialty": "Dermatology",
+      "summary": "A chronic immune-mediated skin condition associated with well-defined scaly plaques.",
+      "aliases": [
+        "Plaque psoriasis"
+      ],
+      "related_terms": [
+        "Skin",
+        "Immune system"
+      ],
+      "overview": "A chronic immune-mediated skin condition associated with well-defined scaly plaques.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "acne",
+      "name": "Acne",
+      "specialty": "Dermatology",
+      "summary": "A common disorder of hair follicles and sebaceous glands that can produce comedones and inflamed lesions.",
+      "aliases": [
+        "Acne vulgaris"
+      ],
+      "related_terms": [
+        "Skin",
+        "Sebaceous gland"
+      ],
+      "overview": "A common disorder of hair follicles and sebaceous glands that can produce comedones and inflamed lesions.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "conjunctivitis",
+      "name": "Conjunctivitis",
+      "specialty": "Ophthalmology",
+      "summary": "Inflammation of the conjunctiva, the membrane covering the white of the eye and inner eyelids.",
+      "aliases": [
+        "Pink eye"
+      ],
+      "related_terms": [
+        "Eye",
+        "Conjunctiva"
+      ],
+      "overview": "Inflammation of the conjunctiva, the membrane covering the white of the eye and inner eyelids.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "cataract",
+      "name": "Cataract",
+      "specialty": "Ophthalmology",
+      "summary": "Clouding of the eye’s natural lens that can reduce vision.",
+      "aliases": [
+        "Lens opacity"
+      ],
+      "related_terms": [
+        "Eye",
+        "Lens"
+      ],
+      "overview": "Clouding of the eye’s natural lens that can reduce vision.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "glaucoma",
+      "name": "Glaucoma",
+      "specialty": "Ophthalmology",
+      "summary": "A group of eye diseases associated with progressive optic-nerve damage.",
+      "aliases": [
+        "Optic neuropathy"
+      ],
+      "related_terms": [
+        "Eye",
+        "Optic nerve"
+      ],
+      "overview": "A group of eye diseases associated with progressive optic-nerve damage.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "otitis-media",
+      "name": "Otitis Media",
+      "specialty": "Otolaryngology",
+      "summary": "Inflammation or infection of the middle ear.",
+      "aliases": [
+        "Middle ear infection"
+      ],
+      "related_terms": [
+        "Ear",
+        "Tympanic membrane"
+      ],
+      "overview": "Inflammation or infection of the middle ear.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "sinusitis",
+      "name": "Sinusitis",
+      "specialty": "Otolaryngology",
+      "summary": "Inflammation of the paranasal sinuses.",
+      "aliases": [
+        "Rhinosinusitis"
+      ],
+      "related_terms": [
+        "Sinus",
+        "Nasal cavity"
+      ],
+      "overview": "Inflammation of the paranasal sinuses.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "hypothyroidism",
+      "name": "Hypothyroidism",
+      "specialty": "Endocrinology",
+      "summary": "A state in which the thyroid gland produces insufficient thyroid hormone for normal metabolic regulation.",
+      "aliases": [
+        "Underactive thyroid"
+      ],
+      "related_terms": [
+        "Thyroid",
+        "Hormone"
+      ],
+      "overview": "A state in which the thyroid gland produces insufficient thyroid hormone for normal metabolic regulation.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "hyperthyroidism",
+      "name": "Hyperthyroidism",
+      "specialty": "Endocrinology",
+      "summary": "A state of excessive thyroid-hormone activity.",
+      "aliases": [
+        "Overactive thyroid"
+      ],
+      "related_terms": [
+        "Thyroid",
+        "Hormone"
+      ],
+      "overview": "A state of excessive thyroid-hormone activity.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "allergic-rhinitis",
+      "name": "Allergic Rhinitis",
+      "specialty": "Immunology",
+      "summary": "Allergic inflammation of the nasal lining triggered by environmental allergens.",
+      "aliases": [
+        "Hay fever"
+      ],
+      "related_terms": [
+        "Allergy",
+        "Nasal cavity"
+      ],
+      "overview": "Allergic inflammation of the nasal lining triggered by environmental allergens.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "sepsis",
+      "name": "Sepsis",
+      "specialty": "Emergency / Infectious Disease",
+      "summary": "A life-threatening organ dysfunction caused by a dysregulated body response to infection.",
+      "aliases": [
+        "Systemic infection response"
+      ],
+      "related_terms": [
+        "Infection",
+        "Immune system"
+      ],
+      "overview": "A life-threatening organ dysfunction caused by a dysregulated body response to infection.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "meningitis",
+      "name": "Meningitis",
+      "specialty": "Neurology / Infectious Disease",
+      "summary": "Inflammation of the membranes surrounding the brain and spinal cord.",
+      "aliases": [
+        "Meningeal inflammation"
+      ],
+      "related_terms": [
+        "Brain",
+        "Spinal cord",
+        "Meninges"
+      ],
+      "overview": "Inflammation of the membranes surrounding the brain and spinal cord.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ],
+      "anatomy_region": "organs:brain"
+    },
+    {
+      "id": "bronchitis",
+      "name": "Bronchitis",
+      "specialty": "Pulmonology",
+      "summary": "Inflammation of the bronchi, the large airways that conduct air into the lungs.",
+      "aliases": [
+        "Bronchial inflammation"
+      ],
+      "related_terms": [
+        "Bronchi",
+        "Lungs"
+      ],
+      "overview": "Inflammation of the bronchi, the large airways that conduct air into the lungs.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "tonsillitis",
+      "name": "Tonsillitis",
+      "specialty": "Otolaryngology",
+      "summary": "Inflammation of the tonsils.",
+      "aliases": [
+        "Inflamed tonsils"
+      ],
+      "related_terms": [
+        "Tonsil",
+        "Pharynx"
+      ],
+      "overview": "Inflammation of the tonsils.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "pancreatitis",
+      "name": "Pancreatitis",
+      "specialty": "Gastroenterology",
+      "summary": "Inflammation of the pancreas.",
+      "aliases": [
+        "Pancreatic inflammation"
+      ],
+      "related_terms": [
+        "Pancreas"
+      ],
+      "overview": "Inflammation of the pancreas.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on professional assessment."
+      ]
+    },
+    {
+      "id": "epilepsy",
+      "name": "Epilepsy",
+      "specialty": "Neurology",
+      "summary": "A neurologic disorder characterized by a persistent tendency to have recurrent unprovoked seizures.",
+      "aliases": [],
+      "related_terms": [
+        "Seizure",
+        "Brain"
+      ],
+      "overview": "A neurologic disorder characterized by a persistent tendency to have recurrent unprovoked seizures.",
+      "common_features": [
+        "Recurrent seizures",
+        "Different seizure types exist",
+        "Evaluation commonly includes neurologic assessment"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "organs:brain"
+    },
+    {
+      "id": "parkinson-disease",
+      "name": "Parkinson Disease",
+      "specialty": "Neurology",
+      "summary": "A progressive neurologic disorder affecting movement and other nervous-system functions.",
+      "aliases": [
+        "Parkinson’s disease"
+      ],
+      "related_terms": [
+        "Brain",
+        "Movement"
+      ],
+      "overview": "A progressive neurologic disorder affecting movement and other nervous-system functions.",
+      "common_features": [
+        "Movement slowing",
+        "Tremor can occur",
+        "Muscle stiffness can occur"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "organs:brain"
+    },
+    {
+      "id": "multiple-sclerosis",
+      "name": "Multiple Sclerosis",
+      "specialty": "Neurology",
+      "summary": "A chronic immune-mediated disorder affecting myelin in the central nervous system.",
+      "aliases": [
+        "MS"
+      ],
+      "related_terms": [
+        "Brain",
+        "Spinal cord",
+        "Myelin"
+      ],
+      "overview": "A chronic immune-mediated disorder affecting myelin in the central nervous system.",
+      "common_features": [
+        "Neurologic symptoms can vary by location",
+        "Course varies between people",
+        "Central nervous system involvement"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "organs:brain"
+    },
+    {
+      "id": "bell-palsy",
+      "name": "Bell Palsy",
+      "specialty": "Neurology",
+      "summary": "An acute facial nerve palsy that causes weakness of muscles on one side of the face.",
+      "aliases": [
+        "Bell’s palsy"
+      ],
+      "related_terms": [
+        "Facial nerve",
+        "Cranial nerve"
+      ],
+      "overview": "An acute facial nerve palsy that causes weakness of muscles on one side of the face.",
+      "common_features": [
+        "Unilateral facial weakness",
+        "Facial nerve involvement"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "nerves:left_facial_nerve"
+    },
+    {
+      "id": "deep-vein-thrombosis",
+      "name": "Deep Vein Thrombosis",
+      "specialty": "Cardiology / Vascular",
+      "summary": "A blood clot within a deep vein, most often in the lower limb.",
+      "aliases": [
+        "DVT"
+      ],
+      "related_terms": [
+        "Vein",
+        "Pulmonary embolism"
+      ],
+      "overview": "A blood clot within a deep vein, most often in the lower limb.",
+      "common_features": [
+        "Deep venous clot",
+        "Often involves a lower limb",
+        "Can be associated with pulmonary embolism"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "peripheral-artery-disease",
+      "name": "Peripheral Artery Disease",
+      "specialty": "Cardiology / Vascular",
+      "summary": "Atherosclerotic narrowing of arteries supplying the limbs.",
+      "aliases": [
+        "PAD"
+      ],
+      "related_terms": [
+        "Artery",
+        "Atherosclerosis"
+      ],
+      "overview": "Atherosclerotic narrowing of arteries supplying the limbs.",
+      "common_features": [
+        "Reduced arterial blood flow",
+        "Commonly affects lower limbs"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "pericarditis",
+      "name": "Pericarditis",
+      "specialty": "Cardiology",
+      "summary": "Inflammation of the pericardium surrounding the heart.",
+      "aliases": [],
+      "related_terms": [
+        "Heart",
+        "Pericardium"
+      ],
+      "overview": "Inflammation of the pericardium surrounding the heart.",
+      "common_features": [
+        "Pericardial inflammation",
+        "May be acute or recurrent"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "organs:heart"
+    },
+    {
+      "id": "endocarditis",
+      "name": "Endocarditis",
+      "specialty": "Cardiology / Infectious Disease",
+      "summary": "Inflammation or infection involving the inner lining of the heart, including heart valves.",
+      "aliases": [
+        "Infective endocarditis"
+      ],
+      "related_terms": [
+        "Heart valve",
+        "Infection"
+      ],
+      "overview": "Inflammation or infection involving the inner lining of the heart, including heart valves.",
+      "common_features": [
+        "Endocardial or valve involvement",
+        "Infectious causes are clinically important"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "pleural-effusion",
+      "name": "Pleural Effusion",
+      "specialty": "Pulmonology",
+      "summary": "Accumulation of excess fluid in the pleural space around the lungs.",
+      "aliases": [],
+      "related_terms": [
+        "Lungs",
+        "Pleura"
+      ],
+      "overview": "Accumulation of excess fluid in the pleural space around the lungs.",
+      "common_features": [
+        "Pleural-space fluid",
+        "May affect breathing mechanics"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "pneumothorax",
+      "name": "Pneumothorax",
+      "specialty": "Pulmonology",
+      "summary": "Air in the pleural space that can partially or completely collapse a lung.",
+      "aliases": [
+        "Collapsed lung"
+      ],
+      "related_terms": [
+        "Lungs",
+        "Pleura"
+      ],
+      "overview": "Air in the pleural space that can partially or completely collapse a lung.",
+      "common_features": [
+        "Air in pleural space",
+        "Can reduce lung expansion"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "pulmonary-embolism",
+      "name": "Pulmonary Embolism",
+      "specialty": "Pulmonology / Vascular",
+      "summary": "Obstruction of a pulmonary artery, often by a clot that traveled from a deep vein.",
+      "aliases": [
+        "PE"
+      ],
+      "related_terms": [
+        "Pulmonary artery",
+        "Deep vein thrombosis"
+      ],
+      "overview": "Obstruction of a pulmonary artery, often by a clot that traveled from a deep vein.",
+      "common_features": [
+        "Pulmonary arterial obstruction",
+        "Often related to venous thromboembolism"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "irritable-bowel-syndrome",
+      "name": "Irritable Bowel Syndrome",
+      "specialty": "Gastroenterology",
+      "summary": "A functional gastrointestinal disorder associated with recurrent abdominal symptoms and altered bowel habits.",
+      "aliases": [
+        "IBS"
+      ],
+      "related_terms": [
+        "Intestine",
+        "Colon"
+      ],
+      "overview": "A functional gastrointestinal disorder associated with recurrent abdominal symptoms and altered bowel habits.",
+      "common_features": [
+        "Recurrent abdominal symptoms",
+        "Altered bowel habits",
+        "No single structural lesion defines the disorder"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "inflammatory-bowel-disease",
+      "name": "Inflammatory Bowel Disease",
+      "specialty": "Gastroenterology",
+      "summary": "A group of chronic inflammatory intestinal disorders that includes Crohn disease and ulcerative colitis.",
+      "aliases": [
+        "IBD"
+      ],
+      "related_terms": [
+        "Intestine",
+        "Inflammation"
+      ],
+      "overview": "A group of chronic inflammatory intestinal disorders that includes Crohn disease and ulcerative colitis.",
+      "common_features": [
+        "Chronic intestinal inflammation",
+        "Includes Crohn disease and ulcerative colitis"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "celiac-disease",
+      "name": "Celiac Disease",
+      "specialty": "Gastroenterology",
+      "summary": "An immune-mediated disorder triggered by gluten that affects the small intestine.",
+      "aliases": [
+        "Coeliac disease"
+      ],
+      "related_terms": [
+        "Small intestine",
+        "Immune system"
+      ],
+      "overview": "An immune-mediated disorder triggered by gluten that affects the small intestine.",
+      "common_features": [
+        "Immune-mediated intestinal injury",
+        "Associated with gluten exposure"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "acute-kidney-injury",
+      "name": "Acute Kidney Injury",
+      "specialty": "Nephrology",
+      "summary": "A sudden decline in kidney function occurring over a short period.",
+      "aliases": [
+        "AKI"
+      ],
+      "related_terms": [
+        "Kidney",
+        "Creatinine"
+      ],
+      "overview": "A sudden decline in kidney function occurring over a short period.",
+      "common_features": [
+        "Acute decline in kidney function",
+        "Multiple causes are possible"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "glomerulonephritis",
+      "name": "Glomerulonephritis",
+      "specialty": "Nephrology",
+      "summary": "Inflammation affecting the kidney glomeruli.",
+      "aliases": [
+        "GN"
+      ],
+      "related_terms": [
+        "Kidney",
+        "Glomerulus"
+      ],
+      "overview": "Inflammation affecting the kidney glomeruli.",
+      "common_features": [
+        "Glomerular inflammation",
+        "Can have immune or infectious associations"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "benign-prostatic-hyperplasia",
+      "name": "Benign Prostatic Hyperplasia",
+      "specialty": "Urology",
+      "summary": "Noncancerous enlargement of the prostate gland that can affect urinary flow.",
+      "aliases": [
+        "BPH"
+      ],
+      "related_terms": [
+        "Prostate",
+        "Urinary tract"
+      ],
+      "overview": "Noncancerous enlargement of the prostate gland that can affect urinary flow.",
+      "common_features": [
+        "Prostate enlargement",
+        "Can affect lower urinary tract function"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "male_reproductive:prostate"
+    },
+    {
+      "id": "iron-deficiency-anemia",
+      "name": "Iron Deficiency Anemia",
+      "specialty": "Hematology",
+      "summary": "Anemia caused by insufficient iron available for normal hemoglobin production.",
+      "aliases": [
+        "IDA"
+      ],
+      "related_terms": [
+        "Anemia",
+        "Hemoglobin",
+        "Iron"
+      ],
+      "overview": "Anemia caused by insufficient iron available for normal hemoglobin production.",
+      "common_features": [
+        "Reduced hemoglobin production",
+        "Iron deficiency is the underlying problem"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "sickle-cell-disease",
+      "name": "Sickle Cell Disease",
+      "specialty": "Hematology",
+      "summary": "An inherited hemoglobin disorder in which abnormal hemoglobin can change red blood cell shape and function.",
+      "aliases": [
+        "SCD"
+      ],
+      "related_terms": [
+        "Hemoglobin",
+        "Red blood cell"
+      ],
+      "overview": "An inherited hemoglobin disorder in which abnormal hemoglobin can change red blood cell shape and function.",
+      "common_features": [
+        "Inherited hemoglobin disorder",
+        "Abnormal red-cell shape can occur"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "leukemia",
+      "name": "Leukemia",
+      "specialty": "Hematology / Oncology",
+      "summary": "A group of cancers affecting blood-forming tissues and abnormal white blood cell production.",
+      "aliases": [],
+      "related_terms": [
+        "Bone marrow",
+        "White blood cell"
+      ],
+      "overview": "A group of cancers affecting blood-forming tissues and abnormal white blood cell production.",
+      "common_features": [
+        "Blood-forming tissue involvement",
+        "Several major subtypes exist"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "lymphoma",
+      "name": "Lymphoma",
+      "specialty": "Hematology / Oncology",
+      "summary": "A group of cancers arising from lymphocytes in the lymphatic system.",
+      "aliases": [],
+      "related_terms": [
+        "Lymphocyte",
+        "Lymph node"
+      ],
+      "overview": "A group of cancers arising from lymphocytes in the lymphatic system.",
+      "common_features": [
+        "Lymphatic-system malignancy",
+        "Includes Hodgkin and non-Hodgkin groups"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "hyperlipidemia",
+      "name": "Hyperlipidemia",
+      "specialty": "Cardiology / Metabolism",
+      "summary": "An abnormally high level of one or more lipids in the blood.",
+      "aliases": [
+        "Dyslipidemia"
+      ],
+      "related_terms": [
+        "Cholesterol",
+        "Triglyceride"
+      ],
+      "overview": "An abnormally high level of one or more lipids in the blood.",
+      "common_features": [
+        "Abnormal blood lipids",
+        "Often discussed in cardiovascular risk assessment"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "gout",
+      "name": "Gout",
+      "specialty": "Rheumatology",
+      "summary": "An inflammatory arthritis caused by deposition of monosodium urate crystals in joints and tissues.",
+      "aliases": [],
+      "related_terms": [
+        "Joint",
+        "Uric acid"
+      ],
+      "overview": "An inflammatory arthritis caused by deposition of monosodium urate crystals in joints and tissues.",
+      "common_features": [
+        "Acute inflammatory arthritis can occur",
+        "Urate crystal deposition is central"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "tendinitis",
+      "name": "Tendinitis",
+      "specialty": "Orthopedics",
+      "summary": "Inflammation or irritation involving a tendon.",
+      "aliases": [
+        "Tendonitis"
+      ],
+      "related_terms": [
+        "Tendon",
+        "Muscle"
+      ],
+      "overview": "Inflammation or irritation involving a tendon.",
+      "common_features": [
+        "Tendon involvement",
+        "Can cause localized pain and movement limitation"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "systemic-lupus-erythematosus",
+      "name": "Systemic Lupus Erythematosus",
+      "specialty": "Immunology / Rheumatology",
+      "summary": "A chronic autoimmune disease that can affect multiple organ systems.",
+      "aliases": [
+        "SLE",
+        "Lupus"
+      ],
+      "related_terms": [
+        "Immune system",
+        "Autoimmune disease"
+      ],
+      "overview": "A chronic autoimmune disease that can affect multiple organ systems.",
+      "common_features": [
+        "Autoimmune process",
+        "Can involve multiple organs"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "anaphylaxis",
+      "name": "Anaphylaxis",
+      "specialty": "Immunology / Emergency",
+      "summary": "A severe systemic hypersensitivity reaction that can progress rapidly.",
+      "aliases": [
+        "Severe allergic reaction"
+      ],
+      "related_terms": [
+        "Allergy",
+        "Immune system"
+      ],
+      "overview": "A severe systemic hypersensitivity reaction that can progress rapidly.",
+      "common_features": [
+        "Systemic allergic reaction",
+        "Can progress quickly"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "cellulitis",
+      "name": "Cellulitis",
+      "specialty": "Dermatology / Infectious Disease",
+      "summary": "A bacterial infection involving deeper layers of the skin and subcutaneous tissue.",
+      "aliases": [],
+      "related_terms": [
+        "Skin",
+        "Infection"
+      ],
+      "overview": "A bacterial infection involving deeper layers of the skin and subcutaneous tissue.",
+      "common_features": [
+        "Skin and soft-tissue infection",
+        "Usually localized to an affected area"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "impetigo",
+      "name": "Impetigo",
+      "specialty": "Dermatology / Infectious Disease",
+      "summary": "A contagious superficial bacterial skin infection, common in children.",
+      "aliases": [],
+      "related_terms": [
+        "Skin",
+        "Infection"
+      ],
+      "overview": "A contagious superficial bacterial skin infection, common in children.",
+      "common_features": [
+        "Superficial skin infection",
+        "Contagious"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "keratitis",
+      "name": "Keratitis",
+      "specialty": "Ophthalmology",
+      "summary": "Inflammation of the cornea.",
+      "aliases": [
+        "Corneal inflammation"
+      ],
+      "related_terms": [
+        "Cornea",
+        "Eye"
+      ],
+      "overview": "Inflammation of the cornea.",
+      "common_features": [
+        "Corneal inflammation",
+        "Infectious and noninfectious causes exist"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "age-related-macular-degeneration",
+      "name": "Age-Related Macular Degeneration",
+      "specialty": "Ophthalmology",
+      "summary": "A degenerative disorder affecting the macula and central vision.",
+      "aliases": [
+        "AMD"
+      ],
+      "related_terms": [
+        "Retina",
+        "Macula"
+      ],
+      "overview": "A degenerative disorder affecting the macula and central vision.",
+      "common_features": [
+        "Macular involvement",
+        "Central vision can be affected"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "otitis-externa",
+      "name": "Otitis Externa",
+      "specialty": "Otolaryngology",
+      "summary": "Inflammation or infection of the external ear canal.",
+      "aliases": [
+        "Swimmer’s ear"
+      ],
+      "related_terms": [
+        "Ear canal",
+        "Ear"
+      ],
+      "overview": "Inflammation or infection of the external ear canal.",
+      "common_features": [
+        "External ear canal involvement"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "hearing-loss",
+      "name": "Hearing Loss",
+      "specialty": "Otolaryngology",
+      "summary": "Partial or complete reduction in hearing sensitivity, with conductive, sensorineural, or mixed causes.",
+      "aliases": [
+        "Hearing impairment"
+      ],
+      "related_terms": [
+        "Ear",
+        "Auditory system"
+      ],
+      "overview": "Partial or complete reduction in hearing sensitivity, with conductive, sensorineural, or mixed causes.",
+      "common_features": [
+        "Different mechanisms can cause hearing loss",
+        "May be conductive or sensorineural"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "mononucleosis",
+      "name": "Infectious Mononucleosis",
+      "specialty": "Infectious Disease",
+      "summary": "A clinical syndrome commonly associated with Epstein–Barr virus infection.",
+      "aliases": [
+        "Mono"
+      ],
+      "related_terms": [
+        "Virus",
+        "Lymphocyte"
+      ],
+      "overview": "A clinical syndrome commonly associated with Epstein–Barr virus infection.",
+      "common_features": [
+        "Often associated with Epstein–Barr virus",
+        "Systemic symptoms can occur"
+      ],
+      "study_notes": [
+        "Educational overview only; clinical diagnosis depends on history, examination, and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "hyponatremia",
+      "name": "Hyponatremia",
+      "specialty": "Endocrinology / General Medicine",
+      "summary": "A lower-than-normal sodium concentration in the blood.",
+      "aliases": [
+        "Low blood sodium"
+      ],
+      "related_terms": [
+        "Sodium",
+        "Electrolyte"
+      ],
+      "overview": "A lower-than-normal sodium concentration in the blood.",
+      "common_features": [
+        "An electrolyte disorder",
+        "Can arise from different underlying mechanisms"
+      ],
+      "study_notes": [
+        "Educational overview only; laboratory findings require clinical interpretation in context."
+      ]
+    },
+    {
+      "id": "atrial-fibrillation",
+      "name": "Atrial Fibrillation",
+      "specialty": "Cardiology",
+      "summary": "A common cardiac rhythm disorder in which atrial electrical activity is disorganized.",
+      "aliases": [
+        "AF",
+        "AFib"
+      ],
+      "related_terms": [
+        "Arrhythmia",
+        "Atrium",
+        "Electrocardiogram"
+      ],
+      "overview": "A common cardiac rhythm disorder in which atrial electrical activity is disorganized.",
+      "common_features": [
+        "Irregular rhythm",
+        "Atrial electrical disorganization"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "aortic-stenosis",
+      "name": "Aortic Stenosis",
+      "specialty": "Cardiology",
+      "summary": "Narrowing of the aortic valve opening that can obstruct blood flow from the left ventricle.",
+      "aliases": [
+        "AS"
+      ],
+      "related_terms": [
+        "Aortic valve",
+        "Heart murmur"
+      ],
+      "overview": "Narrowing of the aortic valve opening that can obstruct blood flow from the left ventricle.",
+      "common_features": [
+        "Valve narrowing",
+        "Left-ventricular outflow obstruction"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "mitral-regurgitation",
+      "name": "Mitral Regurgitation",
+      "specialty": "Cardiology",
+      "summary": "Backward leakage of blood through the mitral valve during ventricular contraction.",
+      "aliases": [
+        "MR"
+      ],
+      "related_terms": [
+        "Mitral valve",
+        "Heart"
+      ],
+      "overview": "Backward leakage of blood through the mitral valve during ventricular contraction.",
+      "common_features": [
+        "Valve leakage",
+        "Left-sided cardiac involvement"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "organs:heart"
+    },
+    {
+      "id": "bronchiectasis",
+      "name": "Bronchiectasis",
+      "specialty": "Pulmonology",
+      "summary": "Chronic abnormal widening of bronchi associated with impaired airway clearance.",
+      "aliases": [],
+      "related_terms": [
+        "Bronchus",
+        "Lungs"
+      ],
+      "overview": "Chronic abnormal widening of bronchi associated with impaired airway clearance.",
+      "common_features": [
+        "Airway dilation",
+        "Chronic airway-clearance difficulty"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "sleep-apnea",
+      "name": "Sleep Apnea",
+      "specialty": "Pulmonology / Sleep Medicine",
+      "summary": "A disorder characterized by repeated pauses or reductions in breathing during sleep.",
+      "aliases": [
+        "Sleep apnoea"
+      ],
+      "related_terms": [
+        "Airway",
+        "Sleep"
+      ],
+      "overview": "A disorder characterized by repeated pauses or reductions in breathing during sleep.",
+      "common_features": [
+        "Repeated breathing interruptions during sleep"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "pulmonary-hypertension",
+      "name": "Pulmonary Hypertension",
+      "specialty": "Pulmonology / Cardiology",
+      "summary": "Abnormally elevated pressure within the pulmonary circulation.",
+      "aliases": [
+        "PH"
+      ],
+      "related_terms": [
+        "Pulmonary artery",
+        "Right ventricle"
+      ],
+      "overview": "Abnormally elevated pressure within the pulmonary circulation.",
+      "common_features": [
+        "Pulmonary-circulation pressure elevation"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "crohn-disease",
+      "name": "Crohn Disease",
+      "specialty": "Gastroenterology",
+      "summary": "A chronic inflammatory bowel disease that can affect different parts of the gastrointestinal tract.",
+      "aliases": [
+        "Crohn’s disease"
+      ],
+      "related_terms": [
+        "Inflammatory Bowel Disease",
+        "Intestine"
+      ],
+      "overview": "A chronic inflammatory bowel disease that can affect different parts of the gastrointestinal tract.",
+      "common_features": [
+        "Chronic gastrointestinal inflammation"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "ulcerative-colitis",
+      "name": "Ulcerative Colitis",
+      "specialty": "Gastroenterology",
+      "summary": "A chronic inflammatory bowel disease involving the colon and rectum.",
+      "aliases": [
+        "UC"
+      ],
+      "related_terms": [
+        "Colon",
+        "Inflammatory Bowel Disease"
+      ],
+      "overview": "A chronic inflammatory bowel disease involving the colon and rectum.",
+      "common_features": [
+        "Chronic colonic inflammation"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "nephrotic-syndrome",
+      "name": "Nephrotic Syndrome",
+      "specialty": "Nephrology",
+      "summary": "A clinical syndrome associated with substantial urinary protein loss and related biochemical changes.",
+      "aliases": [],
+      "related_terms": [
+        "Kidney",
+        "Glomerulus",
+        "Proteinuria"
+      ],
+      "overview": "A clinical syndrome associated with substantial urinary protein loss and related biochemical changes.",
+      "common_features": [
+        "Glomerular protein loss"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "carpal-tunnel-syndrome",
+      "name": "Carpal Tunnel Syndrome",
+      "specialty": "Neurology / Orthopedics",
+      "summary": "Compression of the median nerve within the carpal tunnel at the wrist.",
+      "aliases": [
+        "CTS"
+      ],
+      "related_terms": [
+        "Median Nerve",
+        "Wrist"
+      ],
+      "overview": "Compression of the median nerve within the carpal tunnel at the wrist.",
+      "common_features": [
+        "Median-nerve compression at wrist"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "sciatica",
+      "name": "Sciatica",
+      "specialty": "Neurology / Orthopedics",
+      "summary": "A term for symptoms associated with irritation or compression affecting the sciatic nerve or its roots.",
+      "aliases": [],
+      "related_terms": [
+        "Sciatic Nerve",
+        "Lumbar spine"
+      ],
+      "overview": "A term for symptoms associated with irritation or compression affecting the sciatic nerve or its roots.",
+      "common_features": [
+        "Sciatic-nerve distribution symptoms"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "encephalitis",
+      "name": "Encephalitis",
+      "specialty": "Neurology / Infectious Disease",
+      "summary": "Inflammation of brain tissue from infectious, immune-mediated, or other causes.",
+      "aliases": [],
+      "related_terms": [
+        "Brain",
+        "Inflammation"
+      ],
+      "overview": "Inflammation of brain tissue from infectious, immune-mediated, or other causes.",
+      "common_features": [
+        "Brain-tissue inflammation"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "organs:brain"
+    },
+    {
+      "id": "myasthenia-gravis",
+      "name": "Myasthenia Gravis",
+      "specialty": "Neurology",
+      "summary": "An autoimmune disorder affecting neuromuscular transmission and voluntary muscle strength.",
+      "aliases": [
+        "MG"
+      ],
+      "related_terms": [
+        "Neuromuscular junction",
+        "Muscle"
+      ],
+      "overview": "An autoimmune disorder affecting neuromuscular transmission and voluntary muscle strength.",
+      "common_features": [
+        "Neuromuscular transmission impairment"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "rotator-cuff-injury",
+      "name": "Rotator Cuff Injury",
+      "specialty": "Orthopedics",
+      "summary": "Injury or degeneration affecting the group of tendons and muscles stabilizing the shoulder.",
+      "aliases": [],
+      "related_terms": [
+        "Shoulder",
+        "Tendon"
+      ],
+      "overview": "Injury or degeneration affecting the group of tendons and muscles stabilizing the shoulder.",
+      "common_features": [
+        "Shoulder tendon/muscle involvement"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "endometriosis",
+      "name": "Endometriosis",
+      "specialty": "Gynecology",
+      "summary": "A condition in which tissue similar to endometrial tissue is present outside the uterine cavity.",
+      "aliases": [],
+      "related_terms": [
+        "Uterus",
+        "Pelvis"
+      ],
+      "overview": "A condition in which tissue similar to endometrial tissue is present outside the uterine cavity.",
+      "common_features": [
+        "Ectopic endometrium-like tissue"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "female_reproductive:uterus"
+    },
+    {
+      "id": "polycystic-ovary-syndrome",
+      "name": "Polycystic Ovary Syndrome",
+      "specialty": "Endocrinology / Gynecology",
+      "summary": "A hormonal and metabolic disorder associated with ovulatory dysfunction and androgen-related features.",
+      "aliases": [
+        "PCOS"
+      ],
+      "related_terms": [
+        "Ovary",
+        "Hormone"
+      ],
+      "overview": "A hormonal and metabolic disorder associated with ovulatory dysfunction and androgen-related features.",
+      "common_features": [
+        "Endocrine and ovulatory features"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "female_reproductive:right_ovary"
+    },
+    {
+      "id": "prostatitis",
+      "name": "Prostatitis",
+      "specialty": "Urology",
+      "summary": "Inflammation of the prostate gland, with infectious and noninfectious forms.",
+      "aliases": [],
+      "related_terms": [
+        "Prostate",
+        "Urinary tract"
+      ],
+      "overview": "Inflammation of the prostate gland, with infectious and noninfectious forms.",
+      "common_features": [
+        "Prostate inflammation"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "male_reproductive:prostate"
+    },
+    {
+      "id": "eczema",
+      "name": "Eczema",
+      "specialty": "Dermatology",
+      "summary": "A general term for inflammatory skin conditions that can cause dry, irritated or itchy skin.",
+      "aliases": [
+        "Dermatitis"
+      ],
+      "related_terms": [
+        "Skin"
+      ],
+      "overview": "A general term for inflammatory skin conditions that can cause dry, irritated or itchy skin.",
+      "common_features": [
+        "Inflammatory skin change"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "pleurisy",
+      "name": "Pleurisy",
+      "specialty": "Pulmonology",
+      "summary": "Inflammation of the pleural membranes surrounding the lungs.",
+      "aliases": [
+        "Pleuritis"
+      ],
+      "related_terms": [
+        "Pleura",
+        "Lung",
+        "Inflammation"
+      ],
+      "overview": "Inflammation of the pleural membranes surrounding the lungs.",
+      "common_features": [
+        "Pleural inflammation"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "interstitial-lung-disease",
+      "name": "Interstitial Lung Disease",
+      "specialty": "Pulmonology",
+      "summary": "A broad group of disorders affecting the lung interstitium and gas-exchange tissue.",
+      "aliases": [
+        "ILD"
+      ],
+      "related_terms": [
+        "Lung",
+        "Alveolus"
+      ],
+      "overview": "A broad group of disorders affecting the lung interstitium and gas-exchange tissue.",
+      "common_features": [
+        "Interstitial lung involvement"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "diverticulitis",
+      "name": "Diverticulitis",
+      "specialty": "Gastroenterology",
+      "summary": "Inflammation involving one or more diverticula of the large intestine.",
+      "aliases": [],
+      "related_terms": [
+        "Colon",
+        "Inflammation"
+      ],
+      "overview": "Inflammation involving one or more diverticula of the large intestine.",
+      "common_features": [
+        "Inflamed colonic diverticula"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "kidney-stone",
+      "name": "Kidney Stone Disease",
+      "specialty": "Nephrology / Urology",
+      "summary": "Formation of crystalline material within the urinary tract that can produce stones.",
+      "aliases": [
+        "Nephrolithiasis",
+        "Renal calculus"
+      ],
+      "related_terms": [
+        "Kidney",
+        "Ureter",
+        "Urine"
+      ],
+      "overview": "Formation of crystalline material within the urinary tract that can produce stones.",
+      "common_features": [
+        "Urinary tract stone formation"
+      ],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "type-1-diabetes-mellitus",
+      "name": "Type 1 Diabetes Mellitus",
+      "specialty": "Endocrinology",
+      "summary": "A form of diabetes characterized by autoimmune destruction of pancreatic beta cells and severe insulin deficiency.",
+      "aliases": [
+        "Type 1 diabetes"
+      ],
+      "related_terms": [
+        "Diabetes Mellitus",
+        "Pancreas",
+        "Insulin",
+        "Glucose"
+      ],
+      "overview": "A form of diabetes characterized by autoimmune destruction of pancreatic beta cells and severe insulin deficiency.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "type-2-diabetes-mellitus",
+      "name": "Type 2 Diabetes Mellitus",
+      "specialty": "Endocrinology",
+      "summary": "A metabolic disorder characterized by insulin resistance together with progressive impairment of insulin secretion.",
+      "aliases": [
+        "Type 2 diabetes"
+      ],
+      "related_terms": [
+        "Diabetes Mellitus",
+        "Insulin",
+        "Glucose",
+        "Hemoglobin A1c Test"
+      ],
+      "overview": "A metabolic disorder characterized by insulin resistance together with progressive impairment of insulin secretion.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "metabolic-syndrome",
+      "name": "Metabolic Syndrome",
+      "specialty": "Endocrinology / Cardiology",
+      "summary": "A cluster of metabolic risk factors that commonly includes central adiposity, abnormal glucose regulation, dyslipidemia and elevated blood pressure.",
+      "aliases": [],
+      "related_terms": [
+        "Blood pressure",
+        "Glucose",
+        "Lipid Panel"
+      ],
+      "overview": "A cluster of metabolic risk factors that commonly includes central adiposity, abnormal glucose regulation, dyslipidemia and elevated blood pressure.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "acute-pancreatitis",
+      "name": "Acute Pancreatitis",
+      "specialty": "Gastroenterology",
+      "summary": "Acute inflammation of the pancreas that can range from mild self-limited illness to severe systemic disease.",
+      "aliases": [],
+      "related_terms": [
+        "Pancreas",
+        "Inflammation",
+        "Lipase"
+      ],
+      "overview": "Acute inflammation of the pancreas that can range from mild self-limited illness to severe systemic disease.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "gallstone-disease",
+      "name": "Gallstone Disease",
+      "specialty": "Gastroenterology",
+      "summary": "Formation of solid material within the gallbladder or biliary system.",
+      "aliases": [
+        "Cholelithiasis"
+      ],
+      "related_terms": [
+        "Gallbladder",
+        "Bile",
+        "Abdominal Ultrasound"
+      ],
+      "overview": "Formation of solid material within the gallbladder or biliary system.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "viral-hepatitis",
+      "name": "Viral Hepatitis",
+      "specialty": "Gastroenterology / Infectious Disease",
+      "summary": "Liver inflammation caused by infection with a hepatitis virus.",
+      "aliases": [],
+      "related_terms": [
+        "Liver",
+        "Inflammation",
+        "Virus"
+      ],
+      "overview": "Liver inflammation caused by infection with a hepatitis virus.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "organs:liver"
+    },
+    {
+      "id": "vitamin-b12-deficiency-anemia",
+      "name": "Vitamin B12 Deficiency Anemia",
+      "specialty": "Hematology",
+      "summary": "Anemia associated with inadequate vitamin B12 availability and impaired DNA synthesis in developing blood cells.",
+      "aliases": [],
+      "related_terms": [
+        "Anemia",
+        "Erythrocyte",
+        "Hemoglobin"
+      ],
+      "overview": "Anemia associated with inadequate vitamin B12 availability and impaired DNA synthesis in developing blood cells.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "hemophilia",
+      "name": "Hemophilia",
+      "specialty": "Hematology",
+      "summary": "An inherited bleeding disorder caused by deficiency of specific blood-clotting factors.",
+      "aliases": [],
+      "related_terms": [
+        "Blood",
+        "Coagulation",
+        "Hemorrhage"
+      ],
+      "overview": "An inherited bleeding disorder caused by deficiency of specific blood-clotting factors.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "alzheimer-disease",
+      "name": "Alzheimer Disease",
+      "specialty": "Neurology",
+      "summary": "A progressive neurodegenerative disorder characterized by decline in memory and other cognitive functions.",
+      "aliases": [
+        "Alzheimer's disease"
+      ],
+      "related_terms": [
+        "Brain",
+        "Memory",
+        "Cognition"
+      ],
+      "overview": "A progressive neurodegenerative disorder characterized by decline in memory and other cognitive functions.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "organs:brain"
+    },
+    {
+      "id": "meniere-disease",
+      "name": "Meniere Disease",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "An inner-ear disorder associated with episodic vertigo, fluctuating hearing symptoms and aural fullness.",
+      "aliases": [
+        "Ménière disease"
+      ],
+      "related_terms": [
+        "Inner Ear",
+        "Hearing Loss",
+        "Dizziness"
+      ],
+      "overview": "An inner-ear disorder associated with episodic vertigo, fluctuating hearing symptoms and aural fullness.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "labyrinthitis",
+      "name": "Labyrinthitis",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "Inflammation involving the inner-ear labyrinth that can affect balance and hearing.",
+      "aliases": [],
+      "related_terms": [
+        "Inner Ear",
+        "Dizziness",
+        "Hearing Loss"
+      ],
+      "overview": "Inflammation involving the inner-ear labyrinth that can affect balance and hearing.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "retinal-detachment",
+      "name": "Retinal Detachment",
+      "specialty": "Ophthalmology",
+      "summary": "Separation of the sensory retina from underlying tissue, disrupting normal retinal function.",
+      "aliases": [],
+      "related_terms": [
+        "Retina",
+        "Eye",
+        "Vision"
+      ],
+      "overview": "Separation of the sensory retina from underlying tissue, disrupting normal retinal function.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "fibromyalgia",
+      "name": "Fibromyalgia",
+      "specialty": "Rheumatology",
+      "summary": "A chronic condition characterized by widespread pain and altered pain processing, often accompanied by fatigue and sleep disturbance.",
+      "aliases": [],
+      "related_terms": [
+        "Pain",
+        "Muscle",
+        "Sleep"
+      ],
+      "overview": "A chronic condition characterized by widespread pain and altered pain processing, often accompanied by fatigue and sleep disturbance.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "ankylosing-spondylitis",
+      "name": "Ankylosing Spondylitis",
+      "specialty": "Rheumatology / Orthopedics",
+      "summary": "A chronic inflammatory disorder primarily affecting the sacroiliac joints and axial skeleton.",
+      "aliases": [],
+      "related_terms": [
+        "Spine",
+        "Sacroiliac Joint",
+        "Inflammation"
+      ],
+      "overview": "A chronic inflammatory disorder primarily affecting the sacroiliac joints and axial skeleton.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "skeleton:spine"
+    },
+    {
+      "id": "plantar-fasciitis",
+      "name": "Plantar Fasciitis",
+      "specialty": "Orthopedics",
+      "summary": "A common cause of heel pain involving irritation of the plantar fascia near its calcaneal attachment.",
+      "aliases": [],
+      "related_terms": [
+        "Calcaneus",
+        "Foot",
+        "Pain"
+      ],
+      "overview": "A common cause of heel pain involving irritation of the plantar fascia near its calcaneal attachment.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "skeleton:right_calcaneus"
+    },
+    {
+      "id": "trigger-finger",
+      "name": "Trigger Finger",
+      "specialty": "Orthopedics",
+      "summary": "A disorder in which a flexor tendon and its sheath at the finger can interfere with smooth tendon gliding.",
+      "aliases": [
+        "Stenosing tenosynovitis"
+      ],
+      "related_terms": [
+        "Tendon",
+        "Finger",
+        "Hand"
+      ],
+      "overview": "A disorder in which a flexor tendon and its sheath at the finger can interfere with smooth tendon gliding.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ]
+    },
+    {
+      "id": "inguinal-hernia",
+      "name": "Inguinal Hernia",
+      "specialty": "Surgery",
+      "summary": "Protrusion of abdominal contents through a weak area of the inguinal region.",
+      "aliases": [],
+      "related_terms": [
+        "Abdomen",
+        "Inguinal region"
+      ],
+      "overview": "Protrusion of abdominal contents through a weak area of the inguinal region.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "muscles:abdomen"
+    },
+    {
+      "id": "umbilical-hernia",
+      "name": "Umbilical Hernia",
+      "specialty": "Surgery",
+      "summary": "Protrusion of abdominal tissue through or near the umbilical opening.",
+      "aliases": [],
+      "related_terms": [
+        "Abdomen",
+        "Umbilicus"
+      ],
+      "overview": "Protrusion of abdominal tissue through or near the umbilical opening.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and terminology entries to connect the condition with body systems."
+      ],
+      "anatomy_region": "muscles:abdomen"
+    },
+    {
+      "id": "chronic-sinusitis",
+      "name": "Chronic Sinusitis",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "Persistent inflammation of the paranasal sinuses lasting for an extended period.",
+      "aliases": [],
+      "related_terms": [
+        "Sinus",
+        "Nasal Cavity",
+        "Inflammation"
+      ],
+      "overview": "Persistent inflammation of the paranasal sinuses lasting for an extended period.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related terminology and anatomy entries to connect this topic with body systems."
+      ]
+    },
+    {
+      "id": "benign-paroxysmal-positional-vertigo",
+      "name": "Benign Paroxysmal Positional Vertigo",
+      "specialty": "ENT / Neurology",
+      "summary": "A common vestibular disorder characterized by brief episodes of positional vertigo.",
+      "aliases": [
+        "BPPV"
+      ],
+      "related_terms": [
+        "Inner Ear",
+        "Vestibular System",
+        "Dizziness"
+      ],
+      "overview": "A common vestibular disorder characterized by brief episodes of positional vertigo.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related terminology and anatomy entries to connect this topic with body systems."
+      ]
+    },
+    {
+      "id": "blepharitis",
+      "name": "Blepharitis",
+      "specialty": "Ophthalmology",
+      "summary": "Inflammation involving the eyelid margins.",
+      "aliases": [],
+      "related_terms": [
+        "Eye",
+        "Eyelid",
+        "Inflammation"
+      ],
+      "overview": "Inflammation involving the eyelid margins.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related terminology and anatomy entries to connect this topic with body systems."
+      ]
+    },
+    {
+      "id": "dry-eye-disease",
+      "name": "Dry Eye Disease",
+      "specialty": "Ophthalmology",
+      "summary": "A disorder of the tear film and ocular surface associated with discomfort or visual disturbance.",
+      "aliases": [],
+      "related_terms": [
+        "Eye",
+        "Tear Film"
+      ],
+      "overview": "A disorder of the tear film and ocular surface associated with discomfort or visual disturbance.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related terminology and anatomy entries to connect this topic with body systems."
+      ]
+    },
+    {
+      "id": "lateral-epicondylitis",
+      "name": "Lateral Epicondylitis",
+      "specialty": "Orthopedics",
+      "summary": "A tendinopathy affecting the common extensor tendon near the lateral elbow.",
+      "aliases": [],
+      "related_terms": [
+        "Elbow",
+        "Tendon",
+        "Forearm"
+      ],
+      "overview": "A tendinopathy affecting the common extensor tendon near the lateral elbow.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related terminology and anatomy entries to connect this topic with body systems."
+      ]
+    },
+    {
+      "id": "rotator-cuff-tendinopathy",
+      "name": "Rotator Cuff Tendinopathy",
+      "specialty": "Orthopedics",
+      "summary": "A tendon disorder involving one or more rotator-cuff tendons around the shoulder.",
+      "aliases": [],
+      "related_terms": [
+        "Shoulder",
+        "Tendon",
+        "Supraspinatus"
+      ],
+      "overview": "A tendon disorder involving one or more rotator-cuff tendons around the shoulder.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related terminology and anatomy entries to connect this topic with body systems."
+      ]
+    },
+    {
+      "id": "achilles-tendinopathy",
+      "name": "Achilles Tendinopathy",
+      "specialty": "Orthopedics",
+      "summary": "A tendon disorder involving the Achilles tendon near the posterior ankle and heel.",
+      "aliases": [],
+      "related_terms": [
+        "Achilles Tendon",
+        "Calcaneus",
+        "Ankle"
+      ],
+      "overview": "A tendon disorder involving the Achilles tendon near the posterior ankle and heel.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related terminology and anatomy entries to connect this topic with body systems."
+      ],
+      "anatomy_region": "skeleton:right_calcaneus"
+    },
+    {
+      "id": "meniscus-injury",
+      "name": "Meniscus Injury",
+      "specialty": "Orthopedics",
+      "summary": "Injury involving one of the fibrocartilaginous menisci of the knee.",
+      "aliases": [],
+      "related_terms": [
+        "Knee",
+        "Cartilage",
+        "Tibia"
+      ],
+      "overview": "Injury involving one of the fibrocartilaginous menisci of the knee.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related terminology and anatomy entries to connect this topic with body systems."
+      ],
+      "anatomy_region": "skeleton:knee"
+    },
+    {
+      "id": "bursitis",
+      "name": "Bursitis",
+      "specialty": "Orthopedics",
+      "summary": "Inflammation of a bursa, a small fluid-containing structure that reduces friction around joints and tendons.",
+      "aliases": [],
+      "related_terms": [
+        "Bursa",
+        "Joint",
+        "Inflammation"
+      ],
+      "overview": "Inflammation of a bursa, a small fluid-containing structure that reduces friction around joints and tendons.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related terminology and anatomy entries to connect this topic with body systems."
+      ]
+    },
+    {
+      "id": "cervical-radiculopathy",
+      "name": "Cervical Radiculopathy",
+      "specialty": "Neurology / Orthopedics",
+      "summary": "Symptoms related to dysfunction or irritation of a cervical spinal nerve root.",
+      "aliases": [],
+      "related_terms": [
+        "Cervical Spine",
+        "Nerve Root",
+        "Neck"
+      ],
+      "overview": "Symptoms related to dysfunction or irritation of a cervical spinal nerve root.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related terminology and anatomy entries to connect this topic with body systems."
+      ]
+    },
+    {
+      "id": "peripheral-neuropathy",
+      "name": "Peripheral Neuropathy",
+      "specialty": "Neurology",
+      "summary": "A broad term for disorders affecting peripheral nerves outside the brain and spinal cord.",
+      "aliases": [],
+      "related_terms": [
+        "Peripheral Nerves",
+        "Neuron",
+        "Sensation"
+      ],
+      "overview": "A broad term for disorders affecting peripheral nerves outside the brain and spinal cord.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related terminology and anatomy entries to connect this topic with body systems."
+      ]
+    },
+    {
+      "id": "varicose-veins",
+      "name": "Varicose Veins",
+      "specialty": "Vascular Medicine",
+      "summary": "Dilated superficial veins, most commonly affecting the lower limbs.",
+      "aliases": [],
+      "related_terms": [
+        "Vein",
+        "Great Saphenous Vein",
+        "Lower Limb"
+      ],
+      "overview": "Dilated superficial veins, most commonly affecting the lower limbs.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related terminology and anatomy entries to connect this topic with body systems."
+      ]
+    },
+    {
+      "id": "temporomandibular-disorder",
+      "name": "Temporomandibular Disorder",
+      "specialty": "Dentistry / Maxillofacial",
+      "summary": "A group of disorders affecting the temporomandibular joint, chewing muscles, or associated structures.",
+      "aliases": [
+        "TMD",
+        "TMJ disorder"
+      ],
+      "related_terms": [
+        "Temporomandibular Joint",
+        "Mandible",
+        "Mastication"
+      ],
+      "overview": "A group of disorders affecting the temporomandibular joint, chewing muscles, or associated structures.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "joints:left_temporomandibular_joint"
+    },
+    {
+      "id": "dental-caries",
+      "name": "Dental Caries",
+      "specialty": "Dentistry",
+      "summary": "A disease process involving demineralization and breakdown of tooth structure.",
+      "aliases": [
+        "Tooth decay"
+      ],
+      "related_terms": [
+        "Tooth",
+        "Enamel",
+        "Dentin"
+      ],
+      "overview": "A disease process involving demineralization and breakdown of tooth structure.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "teeth:enamel"
+    },
+    {
+      "id": "gingivitis",
+      "name": "Gingivitis",
+      "specialty": "Dentistry",
+      "summary": "Inflammation of the gingiva around the teeth.",
+      "aliases": [],
+      "related_terms": [
+        "Gingiva",
+        "Tooth",
+        "Inflammation"
+      ],
+      "overview": "Inflammation of the gingiva around the teeth.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "periodontitis",
+      "name": "Periodontitis",
+      "specialty": "Dentistry",
+      "summary": "Inflammatory disease affecting tooth-supporting tissues including the periodontal ligament and alveolar bone.",
+      "aliases": [],
+      "related_terms": [
+        "Periodontal Ligament",
+        "Gingiva",
+        "Alveolar Process"
+      ],
+      "overview": "Inflammatory disease affecting tooth-supporting tissues including the periodontal ligament and alveolar bone.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "teeth:periodontal_ligament"
+    },
+    {
+      "id": "trigeminal-neuralgia",
+      "name": "Trigeminal Neuralgia",
+      "specialty": "Neurology",
+      "summary": "A facial pain disorder involving the trigeminal nerve.",
+      "aliases": [],
+      "related_terms": [
+        "Trigeminal Nerve",
+        "Face",
+        "Pain"
+      ],
+      "overview": "A facial pain disorder involving the trigeminal nerve.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "nerves:left_trigeminal_nerve"
+    },
+    {
+      "id": "deviated-nasal-septum",
+      "name": "Deviated Nasal Septum",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "Displacement of the nasal septum away from the midline.",
+      "aliases": [],
+      "related_terms": [
+        "Nasal Cavity",
+        "Nasal Bone",
+        "Vomer"
+      ],
+      "overview": "Displacement of the nasal septum away from the midline.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "skeleton:vomer"
+    },
+    {
+      "id": "nasal-fracture",
+      "name": "Nasal Fracture",
+      "specialty": "Trauma / ENT",
+      "summary": "A fracture involving one or both nasal bones.",
+      "aliases": [],
+      "related_terms": [
+        "Nasal Bone",
+        "Fracture",
+        "Nose"
+      ],
+      "overview": "A fracture involving one or both nasal bones.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "orbital-fracture",
+      "name": "Orbital Fracture",
+      "specialty": "Trauma / Ophthalmology",
+      "summary": "A fracture involving one or more bones forming the eye socket.",
+      "aliases": [],
+      "related_terms": [
+        "Orbit",
+        "Zygomatic Bone",
+        "Maxilla"
+      ],
+      "overview": "A fracture involving one or more bones forming the eye socket.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "epistaxis",
+      "name": "Epistaxis",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "Bleeding originating from the nasal cavity.",
+      "aliases": [
+        "Nosebleed"
+      ],
+      "related_terms": [
+        "Nasal Cavity",
+        "Artery",
+        "Mucosa"
+      ],
+      "overview": "Bleeding originating from the nasal cavity.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "mastoiditis",
+      "name": "Mastoiditis",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "Inflammation or infection involving the mastoid air-cell region of the temporal bone.",
+      "aliases": [],
+      "related_terms": [
+        "Temporal Bone",
+        "Ear",
+        "Inflammation"
+      ],
+      "overview": "Inflammation or infection involving the mastoid air-cell region of the temporal bone.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "otosclerosis",
+      "name": "Otosclerosis",
+      "specialty": "ENT / Audiology",
+      "summary": "Abnormal bone remodeling around structures of the middle and inner ear that can affect hearing.",
+      "aliases": [],
+      "related_terms": [
+        "Ear",
+        "Stapes",
+        "Hearing"
+      ],
+      "overview": "Abnormal bone remodeling around structures of the middle and inner ear that can affect hearing.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "tension-type-headache",
+      "name": "Tension-Type Headache",
+      "specialty": "Neurology",
+      "summary": "A common primary headache disorder typically described as pressure or tightness rather than a focal structural lesion.",
+      "aliases": [],
+      "related_terms": [
+        "Headache",
+        "Pain",
+        "Head"
+      ],
+      "overview": "A common primary headache disorder typically described as pressure or tightness rather than a focal structural lesion.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "cluster-headache",
+      "name": "Cluster Headache",
+      "specialty": "Neurology",
+      "summary": "A primary headache disorder with recurrent severe unilateral attacks and characteristic autonomic features.",
+      "aliases": [],
+      "related_terms": [
+        "Headache",
+        "Trigeminal Nerve",
+        "Eye"
+      ],
+      "overview": "A primary headache disorder with recurrent severe unilateral attacks and characteristic autonomic features.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "nerves:left_trigeminal_nerve"
+    },
+    {
+      "id": "dental-abscess",
+      "name": "Dental Abscess",
+      "specialty": "Dentistry",
+      "summary": "A localized collection of inflammatory material associated with a tooth or nearby supporting tissue.",
+      "aliases": [],
+      "related_terms": [
+        "Tooth",
+        "Dental Pulp",
+        "Gingiva"
+      ],
+      "overview": "A localized collection of inflammatory material associated with a tooth or nearby supporting tissue.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "teeth:dental_pulp"
+    },
+    {
+      "id": "pulpitis",
+      "name": "Pulpitis",
+      "specialty": "Dentistry",
+      "summary": "Inflammation involving the dental pulp inside a tooth.",
+      "aliases": [],
+      "related_terms": [
+        "Dental Pulp",
+        "Dentin",
+        "Tooth"
+      ],
+      "overview": "Inflammation involving the dental pulp inside a tooth.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "teeth:dental_pulp"
+    },
+    {
+      "id": "impacted-tooth",
+      "name": "Impacted Tooth",
+      "specialty": "Dentistry / Oral Surgery",
+      "summary": "A tooth that has not fully erupted into its expected position.",
+      "aliases": [],
+      "related_terms": [
+        "Tooth",
+        "Third Molar",
+        "Dental Arch"
+      ],
+      "overview": "A tooth that has not fully erupted into its expected position.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "pericoronitis",
+      "name": "Pericoronitis",
+      "specialty": "Dentistry",
+      "summary": "Inflammation of soft tissue around the crown of a partially erupted tooth.",
+      "aliases": [],
+      "related_terms": [
+        "Gingiva",
+        "Tooth",
+        "Third Molar"
+      ],
+      "overview": "Inflammation of soft tissue around the crown of a partially erupted tooth.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "aphthous-ulcer",
+      "name": "Aphthous Ulcer",
+      "specialty": "Dentistry / Oral Medicine",
+      "summary": "A common shallow ulcer of the oral mucosa.",
+      "aliases": [],
+      "related_terms": [
+        "Oral Cavity",
+        "Oral Mucosa"
+      ],
+      "overview": "A common shallow ulcer of the oral mucosa.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "oral-candidiasis",
+      "name": "Oral Candidiasis",
+      "specialty": "Dentistry / Infectious Disease",
+      "summary": "A fungal infection affecting oral mucosal surfaces.",
+      "aliases": [],
+      "related_terms": [
+        "Oral Cavity",
+        "Tongue",
+        "Fungal Infection"
+      ],
+      "overview": "A fungal infection affecting oral mucosal surfaces.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "organs:tongue"
+    },
+    {
+      "id": "xerostomia",
+      "name": "Xerostomia",
+      "specialty": "Dentistry / Oral Medicine",
+      "summary": "The subjective sensation of oral dryness, often associated with reduced or altered salivary function.",
+      "aliases": [
+        "Dry mouth"
+      ],
+      "related_terms": [
+        "Saliva",
+        "Salivary Gland",
+        "Oral Cavity"
+      ],
+      "overview": "The subjective sensation of oral dryness, often associated with reduced or altered salivary function.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "sialadenitis",
+      "name": "Sialadenitis",
+      "specialty": "ENT / Oral Medicine",
+      "summary": "Inflammation of a salivary gland.",
+      "aliases": [],
+      "related_terms": [
+        "Salivary Gland",
+        "Parotid Gland",
+        "Submandibular Gland"
+      ],
+      "overview": "Inflammation of a salivary gland.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "parotitis",
+      "name": "Parotitis",
+      "specialty": "ENT / Oral Medicine",
+      "summary": "Inflammation involving one or both parotid glands.",
+      "aliases": [],
+      "related_terms": [
+        "Parotid Gland",
+        "Salivary Gland"
+      ],
+      "overview": "Inflammation involving one or both parotid glands.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "sialolithiasis",
+      "name": "Sialolithiasis",
+      "specialty": "ENT / Oral Medicine",
+      "summary": "Formation of a calcified stone within a salivary duct or gland.",
+      "aliases": [
+        "Salivary stone"
+      ],
+      "related_terms": [
+        "Salivary Gland",
+        "Submandibular Gland"
+      ],
+      "overview": "Formation of a calcified stone within a salivary duct or gland.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "acute-sinusitis",
+      "name": "Acute Sinusitis",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "Short-duration inflammation of one or more paranasal sinuses.",
+      "aliases": [],
+      "related_terms": [
+        "Paranasal Sinus",
+        "Maxillary Sinus",
+        "Frontal Sinus"
+      ],
+      "overview": "Short-duration inflammation of one or more paranasal sinuses.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "chronic-rhinosinusitis",
+      "name": "Chronic Rhinosinusitis",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "Persistent inflammatory disease involving the nose and paranasal sinuses.",
+      "aliases": [],
+      "related_terms": [
+        "Nasal Cavity",
+        "Paranasal Sinus"
+      ],
+      "overview": "Persistent inflammatory disease involving the nose and paranasal sinuses.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "nasal-polyp",
+      "name": "Nasal Polyp",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "A noncancerous inflammatory growth arising from nasal or sinus mucosa.",
+      "aliases": [],
+      "related_terms": [
+        "Nasal Cavity",
+        "Paranasal Sinus"
+      ],
+      "overview": "A noncancerous inflammatory growth arising from nasal or sinus mucosa.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "orbital-cellulitis",
+      "name": "Orbital Cellulitis",
+      "specialty": "Ophthalmology / Infectious Disease",
+      "summary": "Infection involving tissues within the orbit.",
+      "aliases": [],
+      "related_terms": [
+        "Orbit",
+        "Eye",
+        "Paranasal Sinus"
+      ],
+      "overview": "Infection involving tissues within the orbit.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "early-childhood-caries",
+      "name": "Early Childhood Caries",
+      "specialty": "Dentistry / Pediatrics",
+      "summary": "Dental caries affecting the primary dentition of young children.",
+      "aliases": [],
+      "related_terms": [
+        "Primary Dentition",
+        "Dental Caries",
+        "Primary Tooth",
+        "Primary Dentition",
+        "Dental Caries",
+        "Primary Tooth"
+      ],
+      "overview": "Dental caries affecting the primary dentition of young children.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "dental-erosion",
+      "name": "Dental Erosion",
+      "specialty": "Dentistry",
+      "summary": "Loss of tooth surface related to chemical processes not primarily caused by bacteria.",
+      "aliases": [],
+      "related_terms": [
+        "Enamel",
+        "Dentin",
+        "Tooth",
+        "Enamel",
+        "Dentin",
+        "Tooth"
+      ],
+      "overview": "Loss of tooth surface related to chemical processes not primarily caused by bacteria.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "teeth:enamel"
+    },
+    {
+      "id": "dentin-hypersensitivity",
+      "name": "Dentin Hypersensitivity",
+      "specialty": "Dentistry",
+      "summary": "Short sharp dental sensitivity associated with exposed dentin in susceptible teeth.",
+      "aliases": [],
+      "related_terms": [
+        "Dentin",
+        "Tooth Root",
+        "Dental Pulp",
+        "Dentin",
+        "Tooth Root",
+        "Dental Pulp"
+      ],
+      "overview": "Short sharp dental sensitivity associated with exposed dentin in susceptible teeth.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "teeth:dentin"
+    },
+    {
+      "id": "bruxism",
+      "name": "Bruxism",
+      "specialty": "Dentistry",
+      "summary": "Repetitive jaw-muscle activity characterized by clenching or grinding of the teeth.",
+      "aliases": [],
+      "related_terms": [
+        "Mastication",
+        "Masseter",
+        "Temporomandibular Joint",
+        "Mastication",
+        "Masseter",
+        "Temporomandibular Joint"
+      ],
+      "overview": "Repetitive jaw-muscle activity characterized by clenching or grinding of the teeth.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "muscles:right_masseter"
+    },
+    {
+      "id": "malocclusion",
+      "name": "Malocclusion",
+      "specialty": "Dentistry / Orthodontics",
+      "summary": "A relationship of the teeth or jaws in which dental alignment or occlusion differs from the expected arrangement.",
+      "aliases": [],
+      "related_terms": [
+        "Dental Arch",
+        "Occlusion",
+        "Dentition",
+        "Dental Arch",
+        "Occlusion",
+        "Dentition"
+      ],
+      "overview": "A relationship of the teeth or jaws in which dental alignment or occlusion differs from the expected arrangement.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "uveitis",
+      "name": "Uveitis",
+      "specialty": "Ophthalmology",
+      "summary": "Inflammation affecting the uveal tract of the eye.",
+      "aliases": [],
+      "related_terms": [
+        "Iris",
+        "Choroid",
+        "Eye",
+        "Iris",
+        "Choroid",
+        "Eye"
+      ],
+      "overview": "Inflammation affecting the uveal tract of the eye.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "corneal-abrasion",
+      "name": "Corneal Abrasion",
+      "specialty": "Ophthalmology",
+      "summary": "A superficial defect of the corneal epithelium.",
+      "aliases": [],
+      "related_terms": [
+        "Cornea",
+        "Eye",
+        "Cornea",
+        "Eye"
+      ],
+      "overview": "A superficial defect of the corneal epithelium.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "refractive-error",
+      "name": "Refractive Error",
+      "specialty": "Ophthalmology / Optometry",
+      "summary": "An optical focusing error that can reduce clear vision.",
+      "aliases": [],
+      "related_terms": [
+        "Cornea",
+        "Lens",
+        "Retina",
+        "Cornea",
+        "Lens",
+        "Retina"
+      ],
+      "overview": "An optical focusing error that can reduce clear vision.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "myopia",
+      "name": "Myopia",
+      "specialty": "Ophthalmology / Optometry",
+      "summary": "A refractive state in which distant objects are focused in front of the retina when accommodation is relaxed.",
+      "aliases": [],
+      "related_terms": [
+        "Eye",
+        "Retina",
+        "Refractive Error"
+      ],
+      "overview": "A refractive state in which distant objects are focused in front of the retina when accommodation is relaxed.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "hyperopia",
+      "name": "Hyperopia",
+      "specialty": "Ophthalmology / Optometry",
+      "summary": "A refractive state in which optical focus tends to fall behind the retina when accommodation is relaxed.",
+      "aliases": [],
+      "related_terms": [
+        "Eye",
+        "Retina",
+        "Refractive Error"
+      ],
+      "overview": "A refractive state in which optical focus tends to fall behind the retina when accommodation is relaxed.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "astigmatism",
+      "name": "Astigmatism",
+      "specialty": "Ophthalmology / Optometry",
+      "summary": "A refractive error related to unequal optical curvature in different meridians.",
+      "aliases": [],
+      "related_terms": [
+        "Cornea",
+        "Lens",
+        "Refractive Error"
+      ],
+      "overview": "A refractive error related to unequal optical curvature in different meridians.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "dacryocystitis",
+      "name": "Dacryocystitis",
+      "specialty": "Ophthalmology",
+      "summary": "Inflammation involving the lacrimal sac.",
+      "aliases": [],
+      "related_terms": [
+        "Lacrimal Sac",
+        "Nasolacrimal Duct",
+        "Eye",
+        "Lacrimal Sac",
+        "Nasolacrimal Duct",
+        "Eye"
+      ],
+      "overview": "Inflammation involving the lacrimal sac.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "nasolacrimal-duct-obstruction",
+      "name": "Nasolacrimal Duct Obstruction",
+      "specialty": "Ophthalmology / ENT",
+      "summary": "Blockage affecting tear drainage through the nasolacrimal pathway.",
+      "aliases": [],
+      "related_terms": [
+        "Nasolacrimal Duct",
+        "Lacrimal Sac",
+        "Inferior Meatus",
+        "Nasolacrimal Duct",
+        "Lacrimal Sac",
+        "Inferior Meatus"
+      ],
+      "overview": "Blockage affecting tear drainage through the nasolacrimal pathway.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "sinus-ostial-obstruction",
+      "name": "Sinus Ostial Obstruction",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "Narrowing or blockage of a paranasal sinus drainage opening.",
+      "aliases": [],
+      "related_terms": [
+        "Paranasal Sinus",
+        "Sinus Ostium",
+        "Middle Meatus",
+        "Paranasal Sinus",
+        "Sinus Ostium",
+        "Middle Meatus"
+      ],
+      "overview": "Narrowing or blockage of a paranasal sinus drainage opening.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "odontogenic-sinusitis",
+      "name": "Odontogenic Sinusitis",
+      "specialty": "ENT / Dentistry",
+      "summary": "Maxillary sinus inflammation associated with a dental source.",
+      "aliases": [],
+      "related_terms": [
+        "Maxillary Sinus",
+        "Upper Molar",
+        "Tooth Root",
+        "Maxillary Sinus",
+        "Upper Molar",
+        "Tooth Root"
+      ],
+      "overview": "Maxillary sinus inflammation associated with a dental source.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "teeth:tooth_root"
+    },
+    {
+      "id": "macular-edema",
+      "name": "Macular Edema",
+      "specialty": "Ophthalmology",
+      "summary": "Accumulation of fluid within or around the macular region of the retina.",
+      "aliases": [],
+      "related_terms": [
+        "Macula",
+        "Retina",
+        "Fovea",
+        "Macula",
+        "Retina",
+        "Fovea"
+      ],
+      "overview": "Accumulation of fluid within or around the macular region of the retina.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "epiretinal-membrane",
+      "name": "Epiretinal Membrane",
+      "specialty": "Ophthalmology",
+      "summary": "A thin fibrocellular membrane forming on the inner retinal surface, commonly near the macula.",
+      "aliases": [],
+      "related_terms": [
+        "Retina",
+        "Macula",
+        "Retina",
+        "Macula"
+      ],
+      "overview": "A thin fibrocellular membrane forming on the inner retinal surface, commonly near the macula.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "vitreous-detachment",
+      "name": "Posterior Vitreous Detachment",
+      "specialty": "Ophthalmology",
+      "summary": "Separation of the posterior vitreous cortex from the retinal surface.",
+      "aliases": [],
+      "related_terms": [
+        "Vitreous Body",
+        "Retina",
+        "Vitreous Body",
+        "Retina"
+      ],
+      "overview": "Separation of the posterior vitreous cortex from the retinal surface.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "optic-disc-edema",
+      "name": "Optic Disc Edema",
+      "specialty": "Ophthalmology",
+      "summary": "Swelling involving the optic nerve head visible at the optic disc.",
+      "aliases": [],
+      "related_terms": [
+        "Optic Disc",
+        "Optic Nerve",
+        "Retina",
+        "Optic Disc",
+        "Optic Nerve",
+        "Retina"
+      ],
+      "overview": "Swelling involving the optic nerve head visible at the optic disc.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "scleritis",
+      "name": "Scleritis",
+      "specialty": "Ophthalmology",
+      "summary": "Inflammation involving the sclera.",
+      "aliases": [],
+      "related_terms": [
+        "Sclera",
+        "Eye",
+        "Sclera",
+        "Eye"
+      ],
+      "overview": "Inflammation involving the sclera.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "episcleritis",
+      "name": "Episcleritis",
+      "specialty": "Ophthalmology",
+      "summary": "Inflammation involving the superficial episcleral tissues.",
+      "aliases": [],
+      "related_terms": [
+        "Sclera",
+        "Eye",
+        "Sclera",
+        "Eye"
+      ],
+      "overview": "Inflammation involving the superficial episcleral tissues.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "vitreous-hemorrhage",
+      "name": "Vitreous Hemorrhage",
+      "specialty": "Ophthalmology",
+      "summary": "Blood within the vitreous cavity of the eye.",
+      "aliases": [],
+      "related_terms": [
+        "Vitreous Body",
+        "Retina",
+        "Vitreous Body",
+        "Retina"
+      ],
+      "overview": "Blood within the vitreous cavity of the eye.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "periapical-lesion",
+      "name": "Periapical Lesion",
+      "specialty": "Dentistry",
+      "summary": "A pathologic process located near the apex of a tooth root.",
+      "aliases": [],
+      "related_terms": [
+        "Root Apex",
+        "Apical Foramen",
+        "Tooth Root",
+        "Root Apex",
+        "Apical Foramen",
+        "Tooth Root"
+      ],
+      "overview": "A pathologic process located near the apex of a tooth root.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "teeth:apical_foramen"
+    },
+    {
+      "id": "ethmoid-sinusitis",
+      "name": "Ethmoid Sinusitis",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "Inflammation involving the ethmoidal air cells.",
+      "aliases": [],
+      "related_terms": [
+        "Ethmoidal Sinus",
+        "Ethmoid Bone",
+        "Middle Meatus",
+        "Ethmoidal Sinus",
+        "Ethmoid Bone",
+        "Middle Meatus"
+      ],
+      "overview": "Inflammation involving the ethmoidal air cells.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ],
+      "anatomy_region": "skeleton:ethmoid_bone"
+    },
+    {
+      "id": "frontal-sinusitis",
+      "name": "Frontal Sinusitis",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "Inflammation involving a frontal sinus.",
+      "aliases": [],
+      "related_terms": [
+        "Frontal Sinus",
+        "Frontal Recess",
+        "Frontal Sinus",
+        "Frontal Recess"
+      ],
+      "overview": "Inflammation involving a frontal sinus.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    },
+    {
+      "id": "sphenoid-sinusitis",
+      "name": "Sphenoid Sinusitis",
+      "specialty": "ENT / Otolaryngology",
+      "summary": "Inflammation involving a sphenoidal sinus.",
+      "aliases": [],
+      "related_terms": [
+        "Sphenoidal Sinus",
+        "Sphenoethmoidal Recess",
+        "Sphenoidal Sinus",
+        "Sphenoethmoidal Recess"
+      ],
+      "overview": "Inflammation involving a sphenoidal sinus.",
+      "common_features": [],
+      "study_notes": [
+        "Educational overview only; diagnosis depends on professional assessment and appropriate testing.",
+        "Use related anatomy and dictionary terminology for orientation and study."
+      ]
+    }
+  ]
+}
