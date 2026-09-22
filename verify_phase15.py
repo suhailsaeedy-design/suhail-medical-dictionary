@@ -43,9 +43,14 @@ if 'id="backupRestore"' not in settings:errors.append('settings backup/restore d
 
 shell=text('assets/js/shell-navigation.js')
 markers=[
-    "navItem('home','app.html#home'", "navItem('dictionary','app.html#dictionary'", "navItem('anatomy','anatomy.html'", "navItem('ai','ai.html'", "navItem('more',''",
-    'app.html#selected','app.html#bookmarks','app.html#history','offline.html','settings.html#backupRestore','data-shell-signout',
-    "aria-haspopup','menu'", "stopImmediatePropagation()", "role=\"menuitem\"", "data-shell-more", "aria-expanded"
+    "key: 'home'", "href: 'app.html#home'",
+    "key: 'dictionary'", "href: 'app.html#dictionary'",
+    "key: 'anatomy'", "href: 'anatomy.html'",
+    "key: 'ai'", "href: 'ai.html'",
+    "key: 'more'", "button: true",
+    'app.html#selected','app.html#bookmarks','app.html#history','offline.html','settings.html#backupRestore',
+    'shellSidebarSignout', 'data-shell-signout', 'aria-haspopup', 'stopImmediatePropagation()',
+    'role="menuitem"', 'data-shell-more', 'aria-expanded'
 ]
 for m in markers:
     if m not in shell:errors.append(f'shell navigation runtime marker missing: {m}')
