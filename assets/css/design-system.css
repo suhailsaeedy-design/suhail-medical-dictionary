@@ -301,3 +301,69 @@
     padding:16px;
   }
 }
+
+
+/* 10. Login: keep authentication choices obvious and remove decorative competition. */
+.login-grid{
+  width:min(1180px,100%);
+  margin:0 auto;
+  grid-template-columns:minmax(0,1fr) minmax(360px,480px)!important;
+  gap:48px!important;
+}
+.login-visual{
+  display:none!important;
+}
+.login-copy{
+  max-width:620px!important;
+}
+.login-copy h1{
+  font-size:clamp(3rem,5vw,5.2rem)!important;
+  line-height:.94!important;
+}
+.login-card{
+  border-radius:22px!important;
+  padding:28px!important;
+  box-shadow:0 24px 70px rgba(0,10,28,.30)!important;
+}
+.login-card::before{
+  display:none!important;
+}
+.welcome{
+  margin:20px 0!important;
+}
+.account-button{
+  min-height:72px!important;
+  border-radius:14px!important;
+  box-shadow:none!important;
+}
+.consent-box{
+  border-radius:14px!important;
+}
+.login-metrics .metric{
+  border-radius:12px!important;
+}
+
+/* 11. Native reduced-motion preference works even before the app setting loads. */
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
+}
+
+@media(max-width:860px){
+  .login-grid{
+    display:flex!important;
+    width:100%;
+    gap:0!important;
+  }
+  .login-card{
+    width:min(430px,100%)!important;
+    border-radius:20px!important;
+    padding:22px 18px!important;
+  }
+}
