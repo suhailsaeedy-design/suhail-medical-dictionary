@@ -5,7 +5,7 @@
     "title": "Core Offline Shell",
     "description": "Sign-in/consent, Offline Packs manager, shared styles, icons and PWA controls.",
     "files": 46,
-    "bytes": 967378,
+    "bytes": 980855,
     "urls": [
       "./",
       "./index.html",
@@ -81,7 +81,7 @@
         "./assets/css/visual-polish.css",
         "./assets/js/visual-polish.js"
       ],
-      "bytes": 1202731,
+      "bytes": 1203021,
       "files": 17
     },
     {
@@ -107,7 +107,7 @@
         "./assets/models/sinuses-model.json",
         "./data/crosslinks.json"
       ],
-      "bytes": 500538,
+      "bytes": 500599,
       "files": 15
     },
     {
@@ -124,7 +124,7 @@
         "./data/ai-config.json",
         "./data/index.json"
       ],
-      "bytes": 859844,
+      "bytes": 859905,
       "files": 6
     }
   ]
