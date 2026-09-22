@@ -20,7 +20,7 @@ css=(root/'assets/css/app.css').read_text(encoding='utf-8')
 langs=['en','ps','prs','fa','ar','tr','zh']
 for lang in langs:
     if f"'{lang}'" not in core and f'code:\'{lang}\'' not in i18n:errors.append(f'language missing from runtime: {lang}')
-for marker in ["validLangs=['en','ps','prs','fa','ar','tr','zh']","rtlLangs=new Set(['ps','prs','fa','ar'])","smd21_lang_v11_migrated","new CustomEvent('smd21:languagechange'"]:
+for marker in ["VALID_LANGUAGES","RTL_LANGUAGES","smd21_lang_v11_migrated","new CustomEvent('smd21:languagechange'"]:
     if marker not in core:errors.append(f'core language marker missing: {marker}')
 for marker in ["{code:'en'","{code:'ps'","{code:'prs'","{code:'fa'","{code:'ar'","{code:'tr'","{code:'zh'","MutationObserver","formatCount","translateExact"]:
     if marker not in i18n:errors.append(f'i18n engine marker missing: {marker}')
