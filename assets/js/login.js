@@ -6,6 +6,11 @@
   const requestedReturn=new URLSearchParams(location.search).get('return')||'';
   const safeReturns=new Set(['app.html#dictionary','anatomy.html','ai.html','offline.html','about.html','settings.html','admin-login.html']);
   const returnTarget=safeReturns.has(requestedReturn)?requestedReturn:'app.html#dictionary';
+  // Persist the chosen account on this device until the user explicitly signs out.
+  if(SMD21Auth.isReady() && account?.email){
+    location.replace(returnTarget);
+    return;
+  }
   const current=q('#currentAccountBtn'), currentEmail=q('#currentEmail');
   const privacy=q('#privacyCheck'), terms=q('#termsCheck'), consentNote=q('#consentNote');
   const authModeStatus=q('#authModeStatus');
