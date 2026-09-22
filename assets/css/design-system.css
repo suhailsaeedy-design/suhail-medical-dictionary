@@ -1,0 +1,303 @@
+/*
+ * Suhail Medical Dictionary — Canonical UX Design Layer
+ * Purpose: keep the interface clear, consistent, responsive and easy to maintain.
+ * This file is intentionally loaded last and contains product-level presentation rules only.
+ */
+
+:root{
+  --ux-content:1180px;
+  --ux-radius:16px;
+  --ux-radius-sm:12px;
+  --ux-gap:16px;
+  --ux-touch:44px;
+}
+
+/* 1. Reduce visual noise while preserving the existing theme system. */
+.glass,
+.workspace-card,
+.study-sidebar,
+.chat-panel,
+.study-tools,
+.toolbar-card,
+.clinical,
+.offline-hero,
+.install-card,
+.storage-card{
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.10)!important;
+  border-radius:var(--ux-radius)!important;
+}
+
+[data-theme="light"] .glass,
+[data-theme="light"] .workspace-card{
+  background:#fff!important;
+}
+
+/* 2. Shared shell: fewer competing elements, clearer hierarchy. */
+.app-sidebar{
+  padding:18px 14px!important;
+}
+.sidebar-brand{
+  padding:0 6px 16px!important;
+}
+.sidebar-nav{
+  gap:4px!important;
+  padding-top:14px!important;
+}
+.nav-btn{
+  min-height:46px!important;
+  border-radius:12px!important;
+  padding:0 12px!important;
+  font-weight:750!important;
+}
+.nav-btn:hover{
+  transform:none!important;
+  box-shadow:none!important;
+}
+.nav-btn.active{
+  box-shadow:none!important;
+}
+.sidebar-foot{
+  display:none!important;
+}
+
+.app-topbar{
+  padding:10px 18px!important;
+  gap:8px!important;
+}
+.top-search input,
+.top-select,
+.account-chip{
+  border-radius:12px!important;
+}
+.top-search input{
+  height:46px!important;
+}
+.top-select{
+  height:46px!important;
+}
+.account-chip{
+  height:46px!important;
+}
+
+.content-wrap{
+  max-width:var(--ux-content)!important;
+}
+
+/* 3. Dictionary home: keep the primary task (search) visually dominant. */
+.hero{
+  min-height:220px!important;
+  padding:34px 36px 28px!important;
+  border-radius:18px!important;
+  box-shadow:none!important;
+}
+.hero h1{
+  font-size:clamp(2.4rem,4.5vw,4.2rem)!important;
+  line-height:1!important;
+}
+.hero-stats{
+  margin-top:20px!important;
+}
+.stat{
+  border-radius:12px!important;
+  padding:12px 14px!important;
+  backdrop-filter:none!important;
+}
+.toolbar-card{
+  margin-top:14px!important;
+  padding:14px!important;
+}
+.search-row input,
+.search-row select{
+  border-radius:12px!important;
+}
+.cat-btn{
+  border-radius:999px!important;
+}
+
+/* 4. Cards and drawers: readable first, decorative second. */
+.term-card,
+.clinical-card,
+.workspace-card,
+.system-card,
+.pack-card,
+.study-tool-btn,
+.data-stat{
+  border-radius:14px!important;
+}
+.term-card:hover,
+.quick-action:hover{
+  transform:none!important;
+}
+.detail-drawer{
+  width:min(520px,100%)!important;
+}
+.detail-primary-actions .btn-ui,
+.detail-secondary-actions .btn-ui{
+  min-height:var(--ux-touch)!important;
+}
+
+/* 5. Buttons: predictable sizing and wrapping. */
+.btn-ui{
+  min-height:var(--ux-touch)!important;
+  border-radius:12px!important;
+  padding-inline:14px!important;
+}
+.action-row{
+  align-items:center;
+}
+.action-row .btn-ui{
+  white-space:normal;
+  text-align:center;
+}
+
+/* 6. Settings: ordinary controls first, technical maintenance second. */
+.workspace-hero{
+  padding:26px!important;
+  border-radius:18px!important;
+  box-shadow:none!important;
+}
+.workspace-card{
+  padding:20px!important;
+}
+.setting-row{
+  grid-template-columns:minmax(0,1fr) minmax(180px,220px)!important;
+  padding:14px 0!important;
+}
+.settings-advanced{
+  grid-column:1/-1;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--glass);
+  overflow:hidden;
+}
+.settings-advanced>summary{
+  cursor:pointer;
+  list-style:none;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  font-weight:850;
+}
+.settings-advanced>summary::-webkit-details-marker{display:none}
+.settings-advanced>summary::after{
+  content:"+";
+  font-size:1.35rem;
+  color:var(--brand);
+}
+.settings-advanced[open]>summary::after{content:"−"}
+.settings-advanced-note{
+  display:block;
+  color:var(--muted);
+  font-size:.82rem;
+  font-weight:500;
+  margin-top:3px;
+}
+.settings-advanced-body{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+  padding:0 14px 14px;
+}
+.settings-advanced-body>.workspace-card{
+  margin:0!important;
+}
+
+/* 7. Anatomy: reduce dense card appearance and keep systems scannable. */
+.anatomy-chooser .chooser-intro{
+  box-shadow:none!important;
+  border-radius:18px!important;
+}
+.system-card{
+  min-height:92px!important;
+  box-shadow:none!important;
+}
+
+/* 8. AI Study: prioritize conversation over secondary tools. */
+.ai-shell{
+  gap:10px!important;
+}
+.chat-panel{
+  box-shadow:none!important;
+}
+.study-sidebar,
+.study-tools{
+  box-shadow:none!important;
+}
+.composer-wrap{
+  border-radius:14px!important;
+  box-shadow:0 10px 28px rgba(0,0,0,.16)!important;
+}
+
+/* 9. Mobile: one clear topbar, large touch targets, no cramped controls. */
+@media(max-width:860px){
+  .app-topbar{
+    padding:8px 10px!important;
+  }
+  .top-select[data-lang-select],
+  .top-select[data-theme-select]{
+    display:none!important;
+  }
+  .top-search input{
+    height:44px!important;
+    font-size:.86rem!important;
+  }
+  .mobile-menu,
+  .ai-chat-toggle{
+    min-width:44px!important;
+    width:44px!important;
+    height:44px!important;
+  }
+  .app-main{
+    padding-left:10px!important;
+    padding-right:10px!important;
+  }
+  .hero{
+    padding:24px 18px!important;
+    border-radius:16px!important;
+  }
+  .hero h1{
+    font-size:clamp(2.2rem,10vw,3.25rem)!important;
+  }
+  .hero-stats{
+    gap:8px!important;
+  }
+  .toolbar-card{
+    padding:10px!important;
+  }
+  .workspace-grid{
+    gap:12px!important;
+  }
+  .setting-row{
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+  }
+}
+
+@media(max-width:520px){
+  .hero .lead{
+    font-size:.9rem!important;
+  }
+  .hero-stats{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .stat{
+    padding:10px!important;
+  }
+  .workspace-hero{
+    padding:20px 16px!important;
+  }
+  .workspace-card{
+    padding:16px!important;
+  }
+  .action-row .btn-ui{
+    flex:1 1 100%!important;
+    width:100%;
+  }
+  .settings-advanced>summary{
+    padding:16px;
+  }
+}
