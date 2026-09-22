@@ -367,3 +367,52 @@
     padding:22px 18px!important;
   }
 }
+
+
+/* 12. Dictionary result controls: separate content actions from layout controls. */
+.section-head{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:end!important;
+  gap:12px!important;
+}
+.section-head>div:first-child{
+  min-width:0;
+}
+.section-head #bulkActions,
+.section-head #selectedActions{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  width:min(430px,100%);
+}
+.section-head #bulkActions .btn-ui,
+.section-head #selectedActions .btn-ui{
+  width:100%;
+}
+.section-head .view-group{
+  justify-self:end;
+}
+
+@media(max-width:860px){
+  .section-head{
+    grid-template-columns:1fr!important;
+    align-items:start!important;
+  }
+  .section-head .view-group{
+    display:none!important;
+  }
+  .section-head #bulkActions,
+  .section-head #selectedActions{
+    grid-column:1;
+    width:100%;
+  }
+}
+
+@media(max-width:420px){
+  .section-head #bulkActions,
+  .section-head #selectedActions{
+    grid-template-columns:1fr;
+  }
+}
