@@ -15,7 +15,7 @@ ca=read('assets/js/cloud-auth.js'); lg=read('assets/js/login.js'); sh=read('asse
 for m in ['chooseAnother','prompt','select_account','clearSession']:
     if m not in ca:E.append('account-switch marker missing '+m)
 if 'beginGoogle(true)' not in lg or 'beginGoogle(false)' not in lg:E.append('current/other account paths not separated')
-if 'data-shell-sidebar-signout' not in sh or 'SMD21Auth?.signOut' not in sh:E.append('sidebar logout wiring missing')
+if 'shellSidebarSignout' not in sh or 'SMD21Auth?.signOut' not in sh:E.append('sidebar logout wiring missing')
 for m in ['requestPersistentStorage','verifyAll','Full offline library is ready']:
     if m not in off:E.append('full offline marker missing '+m)
 if 'suhail-saeedi-creator.webp' not in about:E.append('creator portrait not wired')
