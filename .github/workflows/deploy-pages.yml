@@ -65,6 +65,9 @@ jobs:
           python verify_phase18.py
           python verify_phase19.py
 
+      - name: Verify product design and code standard
+        run: python verify_product_standard.py
+
       - name: Build clean production site
         run: python tools/build_release.py
 
