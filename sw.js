@@ -19,7 +19,7 @@ async function matchOfflineNavigation(request){
   const url=new URL(request.url);
   const file=url.pathname.split('/').filter(Boolean).pop()||'index.html';
   const scoped=new URL('./'+file,self.location.href).href;
-  return (await caches.match(scoped,{ignoreSearch:true}))||(await caches.match('./offline.html',{ignoreSearch:true}))||null;
+  return (await caches.match(scoped,{ignoreSearch:true}))||(await caches.match('./offline.html'))||null;
 }
 async function networkFirstNavigation(request){
   try{
