@@ -13,11 +13,19 @@ self.addEventListener('activate',event=>{
 self.addEventListener('message',event=>{
   if(event.data?.type==='SKIP_WAITING')self.skipWaiting();
 });
+async function matchOfflineNavigation(request){
+  const direct=await caches.match(request,{ignoreSearch:true});
+  if(direct)return direct;
+  const url=new URL(request.url);
+  const file=url.pathname.split('/').filter(Boolean).pop()||'index.html';
+  const scoped=new URL('./'+file,self.location.href).href;
+  return (await caches.match(scoped,{ignoreSearch:true}))||(await caches.match('./offline.html',{ignoreSearch:true}))||null;
+}
 async function networkFirstNavigation(request){
   try{
     return await fetch(request,{cache:'no-store'});
   }catch{
-    return (await caches.match(request,{ignoreSearch:true}))||(await caches.match('./offline.html'))||Response.error();
+    return (await matchOfflineNavigation(request))||Response.error();
   }
 }
 self.addEventListener('fetch',event=>{
