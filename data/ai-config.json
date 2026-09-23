@@ -4,7 +4,14 @@
   "allowPaidFallback": false,
   "localStudyEngine": {
     "enabled": false,
-    "purpose": "Dictionary search/context only; no offline AI answer generation."
+    "features": [
+      "explain",
+      "compare",
+      "quiz",
+      "flashcards",
+      "summary"
+    ],
+    "purpose": "Dictionary search/context compatibility only; no offline AI answer generation."
   },
   "cloud": {
     "enabled": true,
@@ -24,6 +31,10 @@
       "derivedSharedRequests": 900,
       "derivedPerUserTokens": 3600,
       "derivedPerUserRequests": 18,
+      "dailyGlobalTokens": 180000,
+      "dailyGlobalRequests": 900,
+      "dailyUserTokens": 3600,
+      "dailyUserRequests": 18,
       "resetTimezone": "UTC"
     }
   },
