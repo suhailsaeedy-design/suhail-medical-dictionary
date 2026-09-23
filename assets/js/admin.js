@@ -56,7 +56,12 @@
     try{
       if(!window.SMD21Auth||!SMD21Auth.isReady()){location.replace('admin-login.html?panel='+encodeURIComponent(panel));return}
       const auth=await verifiedCloudRole();
-      if(!auth.authorized){setStatus(auth.reason||'Owner authorization required.','bad');setTimeout(()=>location.replace('admin-login.html?panel='+encodeURIComponent(panel)),900);return}
+      if(!auth.authorized){
+        try{await SMD21CloudAuth.signOutRemote?.()}catch{}
+        setStatus(auth.reason||'Only SuhailSaeedy@gmail.com can open this private console.','bad');
+        setTimeout(()=>location.replace('admin-login.html?panel='+encodeURIComponent(panel)),1100);
+        return
+      }
       setStatus('Verified owner. Loading private console…','ok');
       await preparePanel();
       const bundle=await fetchBundle(auth);
