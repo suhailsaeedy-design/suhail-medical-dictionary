@@ -71,8 +71,9 @@ def verify_core_pages() -> None:
 
 def verify_dictionary_runtime_contract() -> None:
     js = read("assets/js/dictionary.js")
-    if "$('.view-btn').forEach" in js or "$('.category-card').forEach" in js:
-        fail("dictionary.js: single-element selector used with forEach; use $() for collections")
+    bad_collection_selector = re.compile(r"(?<!\$)\$\('\.(?:view-btn|category-card)'\)\.forEach")
+    if bad_collection_selector.search(js):
+        fail("dictionary.js: single-element selector used with forEach; use $$() for collections")
 
 
 def verify_shared_design_contract() -> None:
