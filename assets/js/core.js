@@ -128,7 +128,7 @@
   const storedLanguage = localStorage.getItem(STORAGE.language);
 
   const state = {
-    theme: localStorage.getItem(STORAGE.theme) || 'dark',
+    theme: localStorage.getItem(STORAGE.theme) || 'light',
     lang: VALID_LANGUAGES.includes(storedLanguage) ? storedLanguage : 'en',
     motion: localStorage.getItem(STORAGE.motion) || 'auto',
     fontScale: clamp(Number(localStorage.getItem(STORAGE.fontScale) || 100), 90, 125),
@@ -176,7 +176,7 @@
   }
 
   function setTheme(value) {
-    state.theme = ['dark', 'light'].includes(value) ? value : 'dark';
+    state.theme = ['dark', 'light'].includes(value) ? value : 'light';
     localStorage.setItem(STORAGE.theme, state.theme);
     applyTheme();
   }
