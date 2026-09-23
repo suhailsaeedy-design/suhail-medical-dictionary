@@ -6,16 +6,16 @@
   const accountKey=encodeURIComponent(String(account.email||'local').toLowerCase());
   const STORE=`smd21_ai_chats_${accountKey}`;
   const MODE_KEY=`smd21_ai_mode_${accountKey}`;
-  const state={data:null,engine:null,config:null,chats:[],activeId:null,provider:'local',pendingRename:null,pendingDelete:null};
+  const state={data:null,engine:null,config:null,chats:[],activeId:null,provider:'cloud',pendingRename:null,pendingDelete:null};
   const i18n={
-    en:{conversations:'Conversations',conversationsNote:'Saved locally for this account on this browser.',newChat:'New chat',studyTools:'Study tools',studyToolsNote:'Generate study material from the bundled Dictionary without an internet connection.',studyContext:'Study context',emptyTitle:'Study with your medical dictionary',emptyBody:'Choose terms for Study Context or type a medical term. Explain, Compare, Quiz, Flashcards and Summary work locally from bundled data.',local:'Local · Offline ready',newStudy:'New study chat'},
-    ps:{conversations:'خبرې',conversationsNote:'د همدې حساب لپاره په دې براوزر کې محلي خوندي کېږي.',newChat:'نوې خبرې',studyTools:'د مطالعې وسایل',studyToolsNote:'له انټرنېټ پرته د موجود قاموس له معلوماتو څخه د مطالعې مواد جوړوي.',studyContext:'د مطالعې موضوعات',emptyTitle:'له طبي قاموس سره مطالعه',emptyBody:'طبي اصطلاحات د مطالعې موضوعاتو ته اضافه کړئ یا د اصطلاح نوم ولیکئ. Explain، Compare، Quiz، Flashcards او Summary محلي کار کوي.',local:'محلي · آفلاین چمتو',newStudy:'نوې د مطالعې خبرې'},
-    fa:{conversations:'گفتگوها',conversationsNote:'برای همین حساب در این مرورگر به‌صورت محلی ذخیره می‌شود.',newChat:'گفتگوی جدید',studyTools:'ابزارهای مطالعه',studyToolsNote:'بدون اینترنت از داده‌های داخلی فرهنگ پزشکی محتوای مطالعه می‌سازد.',studyContext:'موضوعات مطالعه',emptyTitle:'با فرهنگ پزشکی مطالعه کنید',emptyBody:'اصطلاحات را به موضوعات مطالعه اضافه کنید یا نام یک اصطلاح پزشکی را بنویسید. ابزارهای Explain، Compare، Quiz، Flashcards و Summary محلی کار می‌کنند.',local:'محلی · آماده آفلاین',newStudy:'گفتگوی جدید مطالعه'}
+    en:{conversations:'Conversations',conversationsNote:'Saved locally for this account on this browser.',newChat:'New chat',studyTools:'Study tools',studyToolsNote:'Generate study material with the online AI using selected public Dictionary context.',studyContext:'Study context',emptyTitle:'Study with your medical dictionary',emptyBody:'Choose terms for Study Context or type a medical term. Explain, Compare, Quiz, Flashcards and Summary use the online AI with selected public Dictionary context.',local:'Online AI · fair-use',newStudy:'New study chat'},
+    ps:{conversations:'خبرې',conversationsNote:'د همدې حساب لپاره په دې براوزر کې محلي خوندي کېږي.',newChat:'نوې خبرې',studyTools:'د مطالعې وسایل',studyToolsNote:'د ټاکل شوو عامو قاموس معلوماتو سره د انلاین AI له لارې د مطالعې مواد جوړوي.',studyContext:'د مطالعې موضوعات',emptyTitle:'له طبي قاموس سره مطالعه',emptyBody:'طبي اصطلاحات د مطالعې موضوعاتو ته اضافه کړئ؛ Explain، Compare، Quiz، Flashcards او Summary د انلاین AI له لارې کار کوي.',local:'انلاین AI · عادلانه استعمال',newStudy:'نوې د مطالعې خبرې'},
+    fa:{conversations:'گفتگوها',conversationsNote:'برای همین حساب در این مرورگر به‌صورت محلی ذخیره می‌شود.',newChat:'گفتگوی جدید',studyTools:'ابزارهای مطالعه',studyToolsNote:'با AI آنلاین و زمینه عمومی انتخاب‌شده فرهنگ پزشکی محتوای مطالعه می‌سازد.',studyContext:'موضوعات مطالعه',emptyTitle:'با فرهنگ پزشکی مطالعه کنید',emptyBody:'اصطلاحات را به موضوعات مطالعه اضافه کنید؛ ابزارهای Explain، Compare، Quiz، Flashcards و Summary با AI آنلاین کار می‌کنند.',local:'AI آنلاین · استفاده منصفانه',newStudy:'گفتگوی جدید مطالعه'}
   };
   i18n.prs={...i18n.fa};
-  i18n.ar={conversations:'المحادثات',conversationsNote:'محفوظ محليًا لهذا الحساب على هذا المتصفح.',newChat:'محادثة جديدة',studyTools:'أدوات الدراسة',studyToolsNote:'إنشاء مواد دراسية من القاموس المضمّن دون اتصال بالإنترنت.',studyContext:'سياق الدراسة',emptyTitle:'ادرس باستخدام قاموسك الطبي',emptyBody:'اختر مصطلحات لسياق الدراسة أو اكتب مصطلحًا طبيًا. تعمل أدوات الشرح والمقارنة والاختبار والبطاقات والملخص محليًا.',local:'محلي · جاهز دون اتصال',newStudy:'محادثة دراسة جديدة'};
-  i18n.tr={conversations:'Konuşmalar',conversationsNote:'Bu hesap için bu tarayıcıda yerel olarak kaydedilir.',newChat:'Yeni sohbet',studyTools:'Çalışma araçları',studyToolsNote:'İnternet olmadan dahili Sözlük verilerinden çalışma materyali üretir.',studyContext:'Çalışma bağlamı',emptyTitle:'Tıbbi sözlüğünüzle çalışın',emptyBody:'Çalışma bağlamına terimler ekleyin veya bir tıbbi terim yazın. Açıklama, Karşılaştırma, Test, Bilgi Kartları ve Özet yerel çalışır.',local:'Yerel · Çevrimdışı hazır',newStudy:'Yeni çalışma sohbeti'};
-  i18n.zh={conversations:'会话',conversationsNote:'此账户的内容保存在本浏览器本地。',newChat:'新建会话',studyTools:'学习工具',studyToolsNote:'无需联网即可使用内置词典数据生成学习材料。',studyContext:'学习上下文',emptyTitle:'使用医学词典学习',emptyBody:'将术语加入学习上下文，或输入医学术语。解释、比较、测验、闪卡和摘要均可在本地运行。',local:'本地 · 可离线',newStudy:'新建学习会话'};
+  i18n.ar={conversations:'المحادثات',conversationsNote:'محفوظ محليًا لهذا الحساب على هذا المتصفح.',newChat:'محادثة جديدة',studyTools:'أدوات الدراسة',studyToolsNote:'إنشاء مواد دراسية باستخدام الذكاء الاصطناعي عبر الإنترنت وسياق القاموس العام المحدد.',studyContext:'سياق الدراسة',emptyTitle:'ادرس باستخدام قاموسك الطبي',emptyBody:'اختر مصطلحات لسياق الدراسة؛ تعمل أدوات الشرح والمقارنة والاختبار والبطاقات والملخص عبر الذكاء الاصطناعي على الإنترنت.',local:'ذكاء اصطناعي عبر الإنترنت · استخدام عادل',newStudy:'محادثة دراسة جديدة'};
+  i18n.tr={conversations:'Konuşmalar',conversationsNote:'Bu hesap için bu tarayıcıda yerel olarak kaydedilir.',newChat:'Yeni sohbet',studyTools:'Çalışma araçları',studyToolsNote:'Seçili genel Sözlük bağlamıyla çevrimiçi AI kullanarak çalışma materyali üretir.',studyContext:'Çalışma bağlamı',emptyTitle:'Tıbbi sözlüğünüzle çalışın',emptyBody:'Çalışma bağlamına terimler ekleyin. Açıklama, Karşılaştırma, Test, Bilgi Kartları ve Özet çevrimiçi AI kullanır.',local:'Çevrimiçi AI · adil kullanım',newStudy:'Yeni çalışma sohbeti'};
+  i18n.zh={conversations:'会话',conversationsNote:'此账户的内容保存在本浏览器本地。',newChat:'新建会话',studyTools:'学习工具',studyToolsNote:'使用在线 AI 和所选公共词典上下文生成学习材料。',studyContext:'学习上下文',emptyTitle:'使用医学词典学习',emptyBody:'将术语加入学习上下文。解释、比较、测验、闪卡和摘要均使用在线 AI。',local:'在线 AI · 公平使用',newStudy:'新建学习会话'};
   i18n.fa={...i18n.fa};
   const readStore=()=>{try{const d=JSON.parse(localStorage.getItem(STORE)||'[]');return Array.isArray(d)?d:[]}catch{return []}};
   const saveStore=()=>{try{localStorage.setItem(STORE,JSON.stringify(state.chats.slice(0,60)));SMD21Auth.touchProfile()}catch(err){console.warn('AI Study local storage unavailable:',err)}};
@@ -77,7 +77,7 @@
   function renderMessages(){
     const c=ensureChat();const box=$('#messages');box.replaceChildren();
     if(!c.messages.length)renderWelcome(box);else c.messages.forEach(m=>m.kind==='study'?renderResult(box,m):addTextMessage(box,m));
-    $('#chatTitle').textContent=c.title||t('newStudy');$('#chatSubtitle').textContent=state.provider==='cloud'?'Real AI · shared free quota':'Offline Local Study Engine · bundled medical reference';
+    $('#chatTitle').textContent=c.title||t('newStudy');$('#chatSubtitle').textContent='Online AI · shared free quota';
     requestAnimationFrame(()=>{box.scrollTop=box.scrollHeight});
   }
   function renderContext(){
@@ -89,7 +89,7 @@
     if(!state.engine)return;const c=ensureChat();const box=$('#termResults');box.replaceChildren();let xs=q.trim()?state.engine.search(q,10):state.engine.terms.slice(0,10);if(!xs.length){box.append(el('div','empty-state','No matching bundled terms.'));return;}xs.forEach(x=>{const selected=c.contextIds.includes(x.id);const b=el('button','term-result'+(selected?' selected':''));b.type='button';b.dataset.toggleContext=x.id;b.append(el('b','',state.engine.localName(x,lang())),el('small','',`${x.category_label||x.category}${selected?' · Selected':''}`));box.append(b)});
   }
   function renderLabels(){
-    $$('[data-ai-i18n]').forEach(n=>{const k=n.dataset.aiI18n;n.textContent=t(k)});$('#modeBadgeText').textContent=state.provider==='local'?t('local'):'Real AI · fair-use';
+    $('[data-ai-i18n]').forEach(n=>{const k=n.dataset.aiI18n;n.textContent=t(k)});$('#modeBadgeText').textContent='Online AI · fair-use';
   }
   function renderAll(){renderLabels();renderNav();renderMessages();renderContext();}
   window.addEventListener('smd21:languagechange',()=>renderAll());
@@ -113,6 +113,8 @@
     if(Number.isFinite(Number(quota.remaining_user_tokens)))bits.push(`${Number(quota.remaining_user_tokens).toLocaleString()} user tokens left today`);
     if(Number.isFinite(Number(quota.remaining_user_requests)))bits.push(`${Number(quota.remaining_user_requests)} requests left today`);
     if(Number.isFinite(Number(quota.remaining_global_tokens)))bits.push(`${Number(quota.remaining_global_tokens).toLocaleString()} shared tokens left`);
+    if(Number.isFinite(Number(quota.remaining_global_requests)))bits.push(`${Number(quota.remaining_global_requests)} shared requests left`);
+    if(Number.isFinite(Number(quota.planned_daily_users)))bits.push(`fair-share plan: ${Number(quota.planned_daily_users)} users`);
     const reset=formatReset(quota.reset_at);
     if(reset)bits.push(`resets ${reset}`);
     box.textContent=bits.length?bits.join(' · '):'Shared free AI quota is ready when your verified account is connected.';
@@ -126,24 +128,23 @@
     const status=await cloudStatus();
     const connected=!!status.connected;
     const cloudReady=!!(cfg.enabled&&cfg.endpoint);
-    $('#cloudOption').disabled=!cloudReady;
-    $('#connectAiBtn').classList.toggle('hidden',connected||!cloudReady);
-    $('#providerState').classList.toggle('off',!connected&&state.provider==='cloud');
-    $('#providerState').querySelector('span').textContent=!cloudReady
-      ?'Real AI backend is not configured.'
+    $('#connectAiBtn')?.classList.toggle('hidden',connected||!cloudReady);
+    $('#providerState')?.classList.toggle('off',!connected);
+    const label=$('#providerState')?.querySelector('span');
+    if(label)label.textContent=!cloudReady
+      ?'Online AI backend is not configured.'
       :connected
-        ?'Verified account connected · real AI available when provider quota is available.'
-        :'Connect once to use the shared real AI.';
-    if(!connected&&state.provider==='cloud')state.provider='local';
-    $('#providerMode').value=state.provider;
+        ?'Verified account connected · online AI is ready when free provider capacity is available.'
+        :'Connect your verified account to use the online AI.';
+    state.provider='cloud';
   }
   async function runCloud(c,prompt){
     const cfg=state.config?.cloud||{};
-    if(!cfg.enabled||!cfg.endpoint)return {ok:false,text:'Real AI is not configured. The local study engine remains available offline.'};
-    if(!navigator.onLine)return {ok:false,text:'Real AI needs an internet connection. The local study engine still works offline.'};
+    if(!cfg.enabled||!cfg.endpoint)return {ok:false,text:'Online AI is not configured by the owner yet.'};
+    if(!navigator.onLine)return {ok:false,text:'Online AI needs an internet connection. Please reconnect and try again.'};
     const status=await cloudStatus();
     if(!status.connected){
-      return {ok:false,text:'Connect your verified account once to use the shared free AI. Your local study engine remains available without sign-in.'};
+      return {ok:false,text:'Connect your verified account to use the online AI.'};
     }
     const session=await SMD21CloudAuth.getValidSession();
     const context=(c.contextIds||[]).map(termFor).filter(Boolean).map(x=>({id:x.id,term:x.term,category:x.category_label||x.category,definition:state.engine.definition(x,'en'),explanation:state.engine.explanation(x,'en')}));
@@ -160,17 +161,18 @@
       if(!text)throw new Error('Empty response');
       return {ok:true,text};
     }catch(err){
-      return {ok:false,text:`Real AI request failed (${err.message}). The local study engine is still available.`};
+      return {ok:false,text:`Online AI request failed (${err.message}). Please try again later.`};
     }
   }
 
   async function submit(action='auto'){
     const c=ensureChat();const input=$('#promptInput');let prompt=input.value.trim();if(action!=='auto'&&!prompt)prompt=actionLabel(action,c);if(!prompt)return;
     addMessage(c,{role:'user',kind:'text',text:prompt});autoTitle(c,prompt);input.value='';autoResize();renderNav();renderMessages();
-    if(state.provider==='cloud'){
-      $('#sendBtn').disabled=true;const out=await runCloud(c,prompt);addMessage(c,{role:'assistant',kind:'text',text:out.text});$('#sendBtn').disabled=false;renderNav();renderMessages();return;
-    }
-    const result=state.engine.run({action,prompt,contextIds:c.contextIds,lang:lang()});addMessage(c,{role:'assistant',kind:'study',payload:result});renderNav();renderMessages();
+    $('#sendBtn').disabled=true;
+    const out=await runCloud(c,prompt);
+    addMessage(c,{role:'assistant',kind:'text',text:out.text});
+    $('#sendBtn').disabled=false;
+    renderNav();renderMessages();return;
   }
 
   function autoResize(){const x=$('#promptInput');x.style.height='auto';x.style.height=Math.min(x.scrollHeight,130)+'px'}
@@ -197,20 +199,6 @@
   function syncSearch(v){$('#termSearch').value=v;$('#topSearch').value=v;renderTermResults(v)}
   $('#termSearch').addEventListener('input',e=>syncSearch(e.target.value));$('#topSearch').addEventListener('input',e=>syncSearch(e.target.value));
   $('#termSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){const x=state.engine.search(e.target.value,1)[0];if(x)toggleContext(x.id,true)}});$('#topSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){const x=state.engine.search(e.target.value,1)[0];if(x)toggleContext(x.id,true)}});
-  $('#providerMode').addEventListener('change',async e=>{
-    if(e.target.value==='cloud'){
-      const status=await cloudStatus();
-      if(!state.config?.cloud?.enabled||!state.config?.cloud?.endpoint){
-        e.target.value='local';showToast('Real AI backend is not configured');return;
-      }
-      if(!status.connected){
-        e.target.value='local';showToast('Connect your verified account first');await refreshProviderUi();return;
-      }
-    }
-    state.provider=e.target.value;
-    localStorage.setItem(MODE_KEY,state.provider);
-    renderLabels();renderMessages();await refreshProviderUi();
-  });
   $('#connectAiBtn').addEventListener('click',async()=>{
     try{
       await SMD21CloudAuth.startGoogleSignIn('ai.html');
@@ -234,9 +222,7 @@
       ]);
       state.data=data;state.config=config;state.engine=SMD21StudyEngine.create(data.terms||[]);state.chats=readStore();if(!state.chats.length)newChat(false);state.activeId=state.chats[0].id;
       const params=new URLSearchParams(location.search);const requestedContextIds=[params.get('term'),...(params.get('terms')||'').split(',')].map(x=>String(x||'').trim()).filter(Boolean);const unique=[...new Set(requestedContextIds)].filter(id=>state.engine.byId.has(id)).slice(0,8);if(unique.length){const c=ensureChat();c.contextIds=[...unique,...c.contextIds.filter(id=>!unique.includes(id))].slice(0,8);touch(c)}
-      const requested=localStorage.getItem(MODE_KEY)||'cloud';
-      const status=await cloudStatus();
-      state.provider=requested==='cloud'&&config.cloud?.enabled&&config.cloud?.endpoint&&status.connected?'cloud':'local';
+      state.provider='cloud';
       $('#accountEmail').textContent=account.email||'Local account';
       renderAll();
       await refreshProviderUi();
