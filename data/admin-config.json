@@ -1,5 +1,5 @@
 {
-  "version": "21.21.1",
+  "version": "21.22.1",
   "localDiagnostics": false,
   "cloudAdmin": {
     "enabled": true,
@@ -9,7 +9,8 @@
       "admin"
     ],
     "metricsRpc": "smd_ai_admin_metrics",
-    "aggregateOnly": true
+    "aggregateOnly": true,
+    "requireSameAccount": true
   },
   "secureBundle": {
     "enabled": true,
