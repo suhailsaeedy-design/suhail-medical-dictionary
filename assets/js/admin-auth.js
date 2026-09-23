@@ -20,8 +20,10 @@
       return {enabled:true,configured:true,connected:true,authorized:false,role:'',user,config:cfg,authStatus:st,reason:'The current app account does not match the verified owner account. Sign in again with the owner account.'};
     }
     const role=roleFromUser(user,cfg);
-    const ok=allowed(role,cfg);
-    return {enabled:true,configured:true,connected:true,authorized:ok,role,user,config:cfg,authStatus:st,reason:ok?'Verified private owner/admin role.':'Connected account is not authorized for the private owner console.'};
+    const ownerEmail=normalizeEmail(cfg?.cloudAdmin?.ownerEmail||'suhailsaeedy@gmail.com');
+    const ownerEmailOk=cloudEmail===ownerEmail;
+    const ok=allowed(role,cfg)&&ownerEmailOk;
+    return {enabled:true,configured:true,connected:true,authorized:ok,role,user,config:cfg,authStatus:st,reason:ok?'Verified owner account.':'Only the verified owner account can open this private console.'};
   }
   window.SMD21AdminAuth={loadConfig,verifiedCloudRole,roleFromUser,allowed};
 })();
