@@ -8,7 +8,26 @@
   const selected=new Set(JSON.parse(localStorage.getItem(selectedKey)||'[]'));
   const bookmarks=new Set(JSON.parse(localStorage.getItem(bookmarksKey)||'[]'));
   let history=JSON.parse(localStorage.getItem(historyKey)||'[]');
-  const imageMap={cardiology:'assets/images/heart.webp',endocrinology:'assets/images/pancreas.webp',pulmonology:'assets/images/lungs.webp',orthopedics:'assets/images/knee.webp',neurology:'assets/images/neuron.svg',anatomy:'assets/images/login-anatomy.webp','anatomy-physiology':'assets/images/login-anatomy.webp'};
+  const imageMap={
+    anatomy:'assets/images/login-anatomy.webp',
+    cardiology:'assets/images/heart.webp',
+    endocrinology:'assets/images/pancreas.webp',
+    hematology:'assets/images/hero-light.webp',
+    neurology:'assets/images/neuron.svg',
+    orthopedics:'assets/images/knee.webp',
+    pharmacology:'assets/images/hero-light.webp',
+    pulmonology:'assets/images/lungs.webp',
+    surgery:'assets/images/hero-dark.webp',
+    dermatology:'assets/images/hero-light.webp',
+    diagnostics:'assets/images/hero-dark.webp',
+    otolaryngology:'assets/images/login-anatomy.webp',
+    gastroenterology:'assets/images/pancreas.webp',
+    immunology:'assets/images/hero-light.webp',
+    'infectious-disease':'assets/images/hero-dark.webp',
+    'nephrology-urology':'assets/images/login-anatomy.webp',
+    ophthalmology:'assets/images/hero-light.webp',
+    'anatomy-physiology':'assets/images/login-anatomy.webp'
+  };
   const fallback='assets/images/heart.webp';
   function esc(s=''){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
   function termImage(t){return imageMap[t.category]||fallback}
@@ -53,7 +72,22 @@
   function historyReplace(u){try{window.history.replaceState(null,'',u)}catch{}}
   function closeDetail(){state.activeTermId=null;$('#detailDrawer').classList.remove('open');$('#drawerBackdrop').classList.remove('show');const u=new URL(location.href);u.searchParams.delete('term');historyReplace(u)}
   function setMode(mode){mode=validModes.has(mode)?mode:'dictionary';state.mode=mode;state.category='all';state.query='';state.limit=30;$('#dictionarySearch').value='';$$('.nav-btn[data-mode]').forEach(b=>b.classList.toggle('active',b.dataset.mode===mode));$('#sectionLabel').textContent=ui(mode==='dictionary'?'Medical Terms':mode==='selected'?'Selected terms':mode==='bookmarks'?'Bookmarks':'History');applyFilters();}
-  function renderCategories(){const cats=(state.data.categories||[]).slice().sort((a,b)=>b.count-a.count);$('#categoryRow').innerHTML=`<button class="cat-btn active" data-cat="all">${ui('All')}</button>`+cats.slice(0,9).map(c=>`<button class="cat-btn" data-cat="${esc(c.id)}">${esc(c.label)}</button>`).join('');$('#categorySelect').innerHTML=`<option value="all">${ui('All Categories')}</option>`+cats.map(c=>`<option value="${esc(c.id)}">${esc(c.label)}</option>`).join('');}
+  function categoryImage(id){return imageMap[id]||'assets/images/hero-light.webp'}
+  function categoryCard(id,label,count,image,active=false){
+    return `<button class="category-card${active?' active':''}" type="button" data-cat="${esc(id)}" aria-pressed="${active?'true':'false'}">
+      <span class="category-card-media"><img src="${esc(image)}" alt="" loading="lazy"></span>
+      <span class="category-card-copy"><strong>${esc(label)}</strong><small>${Number(count||0).toLocaleString()} terms</small></span>
+    </button>`;
+  }
+  function renderCategories(){
+    const cats=(state.data.categories||[]).slice().sort((a,b)=>b.count-a.count);
+    const total=state.terms.length;
+    $('#categoryRow').innerHTML=
+      categoryCard('all',ui('All Terms'),total,'assets/images/hero-light.webp',state.category==='all')+
+      cats.map(c=>categoryCard(c.id,c.label,c.count,categoryImage(c.id),state.category===c.id)).join('');
+    $('#categorySelect').innerHTML=`<option value="all">${ui('All Categories')}</option>`+cats.map(c=>`<option value="${esc(c.id)}">${esc(c.label)}</option>`).join('');
+    $('#categorySelect').value=state.category;
+  }
   function syncAdvancedInputs(){ $('#filterHasSynonyms').checked=state.advanced.synonyms;$('#filterClinicalOnly').checked=state.advanced.clinical;$('#filterRelatedOnly').checked=state.advanced.related;$('#advancedSort').value=state.advanced.sort;}
   function showAdvanced(show=true){$('#advancedFiltersModal').classList.toggle('hidden',!show);if(show)syncAdvancedInputs();}
   function applyAdvancedFromUi(){state.advanced={synonyms:$('#filterHasSynonyms').checked,clinical:$('#filterClinicalOnly').checked,related:$('#filterRelatedOnly').checked,sort:$('#advancedSort').value};state.limit=30;showAdvanced(false);applyFilters();}
@@ -72,14 +106,14 @@
     const o=e.target.closest('[data-open]');if(o){e.stopPropagation();openDetail(o.dataset.open);return;}
     const rel=e.target.closest('[data-related]');if(rel){e.stopPropagation();openDetail(rel.dataset.related);return;}
     const card=e.target.closest('.term-card');if(card){openDetail(card.dataset.termId);return;}
-    const cat=e.target.closest('[data-cat]');if(cat){state.category=cat.dataset.cat;$('#categorySelect').value=state.category;$$('.cat-btn').forEach(x=>x.classList.toggle('active',x===cat));state.limit=30;applyFilters();return;}
+    const cat=e.target.closest('[data-cat]');if(cat){state.category=cat.dataset.cat;$('#categorySelect').value=state.category;$('.category-card').forEach(x=>{const on=x===cat;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});state.limit=30;applyFilters();return;}
     const nav=e.target.closest('.nav-btn[data-mode]');if(nav){location.hash=nav.dataset.mode;setMode(nav.dataset.mode);if(innerWidth<861)toggleMenu(false);return;}
     const view=e.target.closest('.view-btn');if(view){state.view=Number(view.dataset.cols);localStorage.setItem('smd21_cols',state.view);renderTerms();}
   });
   $('#dictionarySearch').addEventListener('input',e=>{state.query=e.target.value.trim();state.limit=30;applyFilters();});
   $('#topSearch').addEventListener('input',e=>{state.query=e.target.value.trim();$('#dictionarySearch').value=state.query;state.limit=30;applyFilters();});
   $('#runSearch').addEventListener('click',()=>{state.query=$('#dictionarySearch').value.trim();state.limit=30;applyFilters();$('#termGrid').scrollIntoView({behavior:'smooth',block:'start'});});
-  $('#categorySelect').addEventListener('change',e=>{state.category=e.target.value;$$('.cat-btn').forEach(x=>x.classList.toggle('active',x.dataset.cat===state.category));applyFilters();});
+  $('#categorySelect').addEventListener('change',e=>{state.category=e.target.value;$('.category-card').forEach(x=>{const on=x.dataset.cat===state.category;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});state.limit=30;applyFilters();});
   $('#loadMore').addEventListener('click',()=>{state.limit+=30;renderTerms();});
   $('#advancedFiltersBtn').addEventListener('click',()=>showAdvanced(true));$('#closeAdvancedFilters').addEventListener('click',()=>showAdvanced(false));$('#applyAdvancedFilters').addEventListener('click',applyAdvancedFromUi);$('#resetAdvancedFilters').addEventListener('click',resetAdvanced);
   $('#selectFiltered').addEventListener('click',selectFiltered);$('#exportSelectedCsv').addEventListener('click',()=>{const xs=selectedTerms();if(!xs.length){showToast('Select at least one term first');return;}SMD21TermTools.exportCsv(xs);showToast(`${xs.length} selected terms exported`)});
