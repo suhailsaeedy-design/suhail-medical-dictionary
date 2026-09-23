@@ -53,23 +53,30 @@
     }
   }
   async function boot(){
+    const VERIFIED='smd_private_admin_verified_v2';
     try{
-      if(!window.SMD21Auth||!SMD21Auth.isReady()){location.replace('admin-login.html?panel='+encodeURIComponent(panel));return}
+      let gate=null;try{gate=JSON.parse(sessionStorage.getItem(VERIFIED)||'null')}catch{}
+      if(!gate||gate.panel!==panel){location.replace('admin-login.html?panel='+encodeURIComponent(panel));return}
       const auth=await verifiedCloudRole();
-      if(!auth.authorized){
+      if(!auth.authorized||auth.authStatus?.source!=='session'){
+        sessionStorage.removeItem(VERIFIED);
         try{await SMD21CloudAuth.signOutRemote?.()}catch{}
-        setStatus(auth.reason||'Only SuhailSaeedy@gmail.com can open this private console.','bad');
-        setTimeout(()=>location.replace('admin-login.html?panel='+encodeURIComponent(panel)),1100);
+        setStatus('Private administration requires a new verified sign-in.','bad');
+        setTimeout(()=>location.replace('admin-login.html?panel='+encodeURIComponent(panel)),700);
         return
       }
-      setStatus('Verified owner. Loading private console…','ok');
+      setStatus('Verified owner session. Loading private console…','ok');
       await preparePanel();
       const bundle=await fetchBundle(auth);
       const style=document.createElement('style');style.id='privateAdminBundleStyle';style.textContent=String(bundle.css||'');document.head.appendChild(style);
       mount.innerHTML=String(bundle.html||'');
       const script=document.createElement('script');script.id='privateAdminBundleScript';script.textContent=String(bundle.js||'');document.body.appendChild(script);
       document.title=(panel==='suhail-labs'?'Suhail Labs':'Suhail Medical Dictionary')+' — Private Admin';
-    }catch(err){console.error(err);setStatus(err.message||String(err),'bad')}
+    }catch(err){
+      console.error(err);sessionStorage.removeItem(VERIFIED);
+      setStatus('Private administration could not be opened. Please sign in again.','bad');
+      setTimeout(()=>location.replace('admin-login.html?panel='+encodeURIComponent(panel)),900);
+    }
   }
   boot();
 })();
