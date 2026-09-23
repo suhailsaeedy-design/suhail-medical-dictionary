@@ -1,5 +1,5 @@
 {
-  "version": "21.22.2",
+  "version": "21.22.3",
   "localDiagnostics": false,
   "cloudAdmin": {
     "enabled": true,
@@ -9,8 +9,7 @@
     ],
     "metricsRpc": "smd_ai_admin_metrics",
     "aggregateOnly": true,
-    "requireSameAccount": true,
-    "ownerEmail": "suhailsaeedy@gmail.com"
+    "sessionOnly": true
   },
   "secureBundle": {
     "enabled": true,
