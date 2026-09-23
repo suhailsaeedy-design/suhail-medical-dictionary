@@ -41,7 +41,7 @@ for marker in ['setMotion','setFontScale','data-motion','smd21_font_scale']:
     if marker not in core:errors.append(f'core preference runtime missing {marker}')
 # About truthfulness/creator/scope markers.
 about=(root/'about.html').read_text(encoding='utf-8')
-for marker in ['Suhail Saeedi','educational medical reference','diagnosis','schematic','versionChip','Privacy','Terms']:
+for marker in ['Suhail Saeedy','educational medical reference','diagnosis','schematic','versionChip','Privacy','Terms']:
     if marker not in about:errors.append(f'about.html missing {marker}')
 # Offline core includes the new pages/runtime.
 core_urls=packs.get('core',{}).get('urls',[])
