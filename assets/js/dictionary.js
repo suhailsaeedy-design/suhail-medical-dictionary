@@ -106,14 +106,14 @@
     const o=e.target.closest('[data-open]');if(o){e.stopPropagation();openDetail(o.dataset.open);return;}
     const rel=e.target.closest('[data-related]');if(rel){e.stopPropagation();openDetail(rel.dataset.related);return;}
     const card=e.target.closest('.term-card');if(card){openDetail(card.dataset.termId);return;}
-    const cat=e.target.closest('[data-cat]');if(cat){state.category=cat.dataset.cat;$('#categorySelect').value=state.category;$('.category-card').forEach(x=>{const on=x===cat;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});state.limit=30;applyFilters();return;}
+    const cat=e.target.closest('[data-cat]');if(cat){state.category=cat.dataset.cat;$('#categorySelect').value=state.category;$$('.category-card').forEach(x=>{const on=x===cat;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});state.limit=30;applyFilters();return;}
     const nav=e.target.closest('.nav-btn[data-mode]');if(nav){location.hash=nav.dataset.mode;setMode(nav.dataset.mode);if(innerWidth<861)toggleMenu(false);return;}
     const view=e.target.closest('.view-btn');if(view){state.view=Number(view.dataset.cols);localStorage.setItem('smd21_cols',state.view);renderTerms();}
   });
   $('#dictionarySearch').addEventListener('input',e=>{state.query=e.target.value.trim();state.limit=30;applyFilters();});
   $('#topSearch').addEventListener('input',e=>{state.query=e.target.value.trim();$('#dictionarySearch').value=state.query;state.limit=30;applyFilters();});
   $('#runSearch').addEventListener('click',()=>{state.query=$('#dictionarySearch').value.trim();state.limit=30;applyFilters();$('#termGrid').scrollIntoView({behavior:'smooth',block:'start'});});
-  $('#categorySelect').addEventListener('change',e=>{state.category=e.target.value;$('.category-card').forEach(x=>{const on=x.dataset.cat===state.category;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});state.limit=30;applyFilters();});
+  $('#categorySelect').addEventListener('change',e=>{state.category=e.target.value;$$('.category-card').forEach(x=>{const on=x.dataset.cat===state.category;x.classList.toggle('active',on);x.setAttribute('aria-pressed',String(on));});state.limit=30;applyFilters();});
   $('#loadMore').addEventListener('click',()=>{state.limit+=30;renderTerms();});
   $('#advancedFiltersBtn').addEventListener('click',()=>showAdvanced(true));$('#closeAdvancedFilters').addEventListener('click',()=>showAdvanced(false));$('#applyAdvancedFilters').addEventListener('click',applyAdvancedFromUi);$('#resetAdvancedFilters').addEventListener('click',resetAdvanced);
   $('#selectFiltered').addEventListener('click',selectFiltered);$('#exportSelectedCsv').addEventListener('click',()=>{const xs=selectedTerms();if(!xs.length){showToast('Select at least one term first');return;}SMD21TermTools.exportCsv(xs);showToast(`${xs.length} selected terms exported`)});
