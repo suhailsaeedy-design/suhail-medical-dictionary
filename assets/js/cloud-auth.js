@@ -1,6 +1,7 @@
 (() => {
-  const CONFIG_URL='data/auth-config.json';
+  const CONFIG_URL=window.SMD21_AUTH_CONFIG_URL||'data/auth-config.json';
   const SESSION_KEY=SMD21Auth.CLOUD_SESSION||'smd21_cloud_session';
+  const SESSION_SCOPE_KEY='smd21_cloud_session_scope';
   let configPromise=null;
   const cleanBase=(v)=>String(v||'').replace(/\/+$/,'');
   const json=async(res)=>{const t=await res.text();try{return t?JSON.parse(t):{}}catch{return {error_description:t||`HTTP ${res.status}`}}};
@@ -9,15 +10,24 @@
     return configPromise;
   }
   function configured(c){return !!(c?.enabled&&cleanBase(c.supabaseUrl)&&String(c.publishableKey||'').trim()&&c.security?.allowServiceRoleInBrowser===false);}
-  function session(){try{return JSON.parse(localStorage.getItem(SESSION_KEY)||sessionStorage.getItem(SESSION_KEY)||'null')}catch{return null}}
-  function saveSession(s){localStorage.setItem(SESSION_KEY,JSON.stringify(s));sessionStorage.removeItem(SESSION_KEY);}
-  function clearSession(){localStorage.removeItem(SESSION_KEY);sessionStorage.removeItem(SESSION_KEY);}
-  function callbackUrl(c){return new URL(c.redirectPath||'auth-callback.html',location.href).href.split('#')[0];}
+  function sessionSource(){if(sessionStorage.getItem(SESSION_KEY))return 'session';if(localStorage.getItem(SESSION_KEY))return 'persistent';return null}
+  function session(){try{return JSON.parse(sessionStorage.getItem(SESSION_KEY)||localStorage.getItem(SESSION_KEY)||'null')}catch{return null}}
+  function saveSession(s,mode){
+    const target=mode||(sessionStorage.getItem(SESSION_SCOPE_KEY)==='session'?'session':'persistent');
+    if(target==='session'){sessionStorage.setItem(SESSION_KEY,JSON.stringify(s));localStorage.removeItem(SESSION_KEY)}
+    else{localStorage.setItem(SESSION_KEY,JSON.stringify(s));sessionStorage.removeItem(SESSION_KEY)}
+  }
+  function clearSession(){localStorage.removeItem(SESSION_KEY);sessionStorage.removeItem(SESSION_KEY);sessionStorage.removeItem(SESSION_SCOPE_KEY)}
+  function callbackUrl(c){
+    const path=window.SMD21_AUTH_CALLBACK_URL||c.redirectPath||'auth-callback.html';
+    return new URL(path,location.href).href.split('#')[0];
+  }
   async function startGoogleSignIn(returnTo='app.html#dictionary',options={}){
     const c=await config();if(!configured(c))throw new Error('Google/Supabase sign-in is not configured.');
-    const chooseAnother=options.chooseAnother===true;
+    const chooseAnother=options.chooseAnother===true,sessionOnly=options.sessionOnly===true;
     sessionStorage.setItem('smd21_oauth_return',returnTo);
-    if(chooseAnother)clearSession();
+    if(chooseAnother||sessionOnly)clearSession();
+    if(sessionOnly)sessionStorage.setItem(SESSION_SCOPE_KEY,'session');else sessionStorage.removeItem(SESSION_SCOPE_KEY);
     const u=new URL(`${cleanBase(c.supabaseUrl)}/auth/v1/authorize`);
     u.searchParams.set('provider',c.provider||'google');
     u.searchParams.set('redirect_to',callbackUrl(c));
@@ -29,34 +39,28 @@
     const body=await json(r);if(!r.ok)throw new Error(body.msg||body.error_description||body.message||`User lookup failed (${r.status})`);return body;
   }
   async function refreshSession(){
-    const c=await config(),s=session();if(!configured(c)||!s?.refresh_token)return null;
+    const c=await config(),source=sessionSource(),s=session();if(!configured(c)||!s?.refresh_token)return null;
     const r=await fetch(`${cleanBase(c.supabaseUrl)}/auth/v1/token?grant_type=refresh_token`,{method:'POST',headers:{apikey:c.publishableKey,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:s.refresh_token})});
-    const body=await json(r);if(!r.ok){clearSession();return null;}
+    const body=await json(r);if(!r.ok){clearSession();return null}
     const user=body.user||await requestUser(body.access_token,c);
-    const next={access_token:body.access_token,refresh_token:body.refresh_token||s.refresh_token,expires_at:Date.now()+Math.max(60,Number(body.expires_in||3600))*1000,user:{id:user.id,email:user.email,app_metadata:user.app_metadata||{}}};saveSession(next);return next;
+    const next={access_token:body.access_token,refresh_token:body.refresh_token||s.refresh_token,expires_at:Date.now()+Math.max(60,Number(body.expires_in||3600))*1000,user:{id:user.id,email:user.email,app_metadata:user.app_metadata||{}}};
+    saveSession(next,source||'persistent');return next;
   }
-  async function getValidSession(){
-    const s=session();if(!s?.access_token)return null;if(!s.expires_at||s.expires_at-Date.now()>60000)return s;return refreshSession();
-  }
+  async function getValidSession(){const s=session();if(!s?.access_token)return null;if(!s.expires_at||s.expires_at-Date.now()>60000)return s;return refreshSession()}
   async function handleCallback(){
     const c=await config();if(!configured(c))throw new Error('Cloud authentication is disabled or incomplete.');
     const q=new URLSearchParams(location.search);if(q.get('error'))throw new Error(q.get('error_description')||q.get('error'));
-    const h=new URLSearchParams(location.hash.replace(/^#/,''));
-    const access=h.get('access_token');const refresh=h.get('refresh_token');
-    if(!access){if(q.get('code'))throw new Error('This callback returned a PKCE code, but this static build is configured for the browser implicit flow. Restart Google sign-in from the app.');throw new Error('No authentication token was returned.');}
+    const h=new URLSearchParams(location.hash.replace(/^#/,''));const access=h.get('access_token'),refresh=h.get('refresh_token');
+    if(!access){if(q.get('code'))throw new Error('This callback returned a PKCE code, but this static build is configured for the browser implicit flow. Restart sign-in.');throw new Error('No authentication token was returned.')}
     if(!SMD21Auth.getConsent()?.privacy||!SMD21Auth.getConsent()?.terms)throw new Error('Privacy and Terms consent is required before cloud sign-in.');
-    const user=await requestUser(access,c);
-    const expiresIn=Math.max(60,Number(h.get('expires_in')||3600));
-    saveSession({access_token:access,refresh_token:refresh||'',expires_at:Date.now()+expiresIn*1000,user:{id:user.id,email:user.email,app_metadata:user.app_metadata||{}}});
-    SMD21Auth.saveAccount(user.email,'google',{id:user.id,cloud:true});
+    const user=await requestUser(access,c),expiresIn=Math.max(60,Number(h.get('expires_in')||3600)),sessionOnly=sessionStorage.getItem(SESSION_SCOPE_KEY)==='session';
+    saveSession({access_token:access,refresh_token:refresh||'',expires_at:Date.now()+expiresIn*1000,user:{id:user.id,email:user.email,app_metadata:user.app_metadata||{}}},sessionOnly?'session':'persistent');
+    if(!sessionOnly)SMD21Auth.saveAccount(user.email,'google',{id:user.id,cloud:true});
     history.replaceState(null,'',location.pathname+location.search);
-    return {user,returnTo:sessionStorage.getItem('smd21_oauth_return')||'app.html#dictionary'};
+    return {user,returnTo:sessionStorage.getItem('smd21_oauth_return')||'app.html#dictionary',sessionOnly};
   }
-  async function getVerifiedUser(){const c=await config(),s=await getValidSession();if(!configured(c)||!s?.access_token)throw new Error('No verified cloud session is connected.');const user=await requestUser(s.access_token,c);saveSession({...s,user:{id:user.id,email:user.email,app_metadata:user.app_metadata||{}}});return user;}
-  async function signOutRemote(){
-    const c=await config(),s=await getValidSession();
-    try{if(configured(c)&&s?.access_token)await fetch(`${cleanBase(c.supabaseUrl)}/auth/v1/logout`,{method:'POST',headers:{apikey:c.publishableKey,Authorization:`Bearer ${s.access_token}`}});}finally{clearSession();}
-  }
-  async function status(){const c=await config(),s=await getValidSession();return {configured:configured(c),config:c,session:s,connected:!!(s?.access_token&&s?.user?.id)};}
-  window.SMD21CloudAuth={config,configured,session,getValidSession,getVerifiedUser,startGoogleSignIn,handleCallback,signOutRemote,status,clearSession};
+  async function getVerifiedUser(){const c=await config(),source=sessionSource(),s=await getValidSession();if(!configured(c)||!s?.access_token)throw new Error('No verified cloud session is connected.');const user=await requestUser(s.access_token,c);saveSession({...s,user:{id:user.id,email:user.email,app_metadata:user.app_metadata||{}}},source||'persistent');return user}
+  async function signOutRemote(){const c=await config(),s=await getValidSession();try{if(configured(c)&&s?.access_token)await fetch(`${cleanBase(c.supabaseUrl)}/auth/v1/logout`,{method:'POST',headers:{apikey:c.publishableKey,Authorization:`Bearer ${s.access_token}`}})}finally{clearSession();sessionStorage.removeItem('smd21_oauth_return')}}
+  async function status(){const c=await config(),s=await getValidSession();return {configured:configured(c),config:c,session:s,source:sessionSource(),connected:!!(s?.access_token&&s?.user?.id)}}
+  window.SMD21CloudAuth={config,configured,session,sessionSource,getValidSession,getVerifiedUser,startGoogleSignIn,handleCallback,signOutRemote,status,clearSession};
 })();
