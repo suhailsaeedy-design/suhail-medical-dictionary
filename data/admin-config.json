@@ -1,6 +1,6 @@
 {
-  "version": "21.21.0",
-  "localDiagnostics": true,
+  "version": "21.21.1",
+  "localDiagnostics": false,
   "cloudAdmin": {
     "enabled": true,
     "roleClaim": "smd_role",
@@ -10,6 +10,14 @@
     ],
     "metricsRpc": "smd_ai_admin_metrics",
     "aggregateOnly": true
+  },
+  "secureBundle": {
+    "enabled": true,
+    "rpc": "suhail_admin_bundle",
+    "panels": [
+      "medical-dictionary",
+      "suhail-labs"
+    ]
   },
   "privacy": {
     "showRawUserState": false,
