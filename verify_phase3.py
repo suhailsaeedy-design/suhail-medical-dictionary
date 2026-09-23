@@ -29,8 +29,12 @@ if len(idx.get('terms',[]))!=1158: errors.append(f'expected 1158 dictionary term
 if cfg.get('zeroCostMode') is not True: errors.append('zeroCostMode must be true')
 if cfg.get('allowPaidFallback') is not False: errors.append('allowPaidFallback must be false')
 cloud=cfg.get('cloud',{})
-if cloud.get('enabled') is not False: errors.append('optional cloud AI must be disabled by default')
-if str(cloud.get('endpoint','')).strip(): errors.append('optional cloud endpoint must be blank by default')
+if cloud.get('enabled') is not True: errors.append('real AI endpoint must be enabled for Phase 21')
+if not str(cloud.get('endpoint','')).startswith('https://qdfylefkkkyjwtqqiuye.supabase.co/functions/v1/medical-ai'): errors.append('real AI endpoint is missing or unexpected')
+if cfg.get('allowPaidFallback') is not False: errors.append('paid AI fallback must remain disabled')
+fair=cloud.get('fairUse',{})
+for key in ['dailyGlobalTokens','dailyGlobalRequests','dailyUserTokens','dailyUserRequests']:
+    if int(fair.get(key,0) or 0)<=0: errors.append(f'fair-use limit missing: {key}')
 features=set(cfg.get('localStudyEngine',{}).get('features',[]))
 for x in ['explain','compare','quiz','flashcards','summary']:
     if x not in features: errors.append(f'local study feature missing from config: {x}')
