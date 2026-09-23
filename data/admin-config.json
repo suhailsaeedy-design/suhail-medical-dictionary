@@ -1,16 +1,16 @@
 {
-  "version": "21.22.1",
+  "version": "21.22.2",
   "localDiagnostics": false,
   "cloudAdmin": {
     "enabled": true,
     "roleClaim": "smd_role",
     "allowedRoles": [
-      "owner",
-      "admin"
+      "owner"
     ],
     "metricsRpc": "smd_ai_admin_metrics",
     "aggregateOnly": true,
-    "requireSameAccount": true
+    "requireSameAccount": true,
+    "ownerEmail": "suhailsaeedy@gmail.com"
   },
   "secureBundle": {
     "enabled": true,
