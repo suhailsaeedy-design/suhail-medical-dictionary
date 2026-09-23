@@ -9,9 +9,9 @@
     return configPromise;
   }
   function configured(c){return !!(c?.enabled&&cleanBase(c.supabaseUrl)&&String(c.publishableKey||'').trim()&&c.security?.allowServiceRoleInBrowser===false);}
-  function session(){try{return JSON.parse(sessionStorage.getItem(SESSION_KEY)||'null')}catch{return null}}
-  function saveSession(s){sessionStorage.setItem(SESSION_KEY,JSON.stringify(s));}
-  function clearSession(){sessionStorage.removeItem(SESSION_KEY);}
+  function session(){try{return JSON.parse(localStorage.getItem(SESSION_KEY)||sessionStorage.getItem(SESSION_KEY)||'null')}catch{return null}}
+  function saveSession(s){localStorage.setItem(SESSION_KEY,JSON.stringify(s));sessionStorage.removeItem(SESSION_KEY);}
+  function clearSession(){localStorage.removeItem(SESSION_KEY);sessionStorage.removeItem(SESSION_KEY);}
   function callbackUrl(c){return new URL(c.redirectPath||'auth-callback.html',location.href).href.split('#')[0];}
   async function startGoogleSignIn(returnTo='app.html#dictionary',options={}){
     const c=await config();if(!configured(c))throw new Error('Google/Supabase sign-in is not configured.');
