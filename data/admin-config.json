@@ -1,14 +1,14 @@
 {
-  "version": "21.18.0",
+  "version": "21.21.0",
   "localDiagnostics": true,
   "cloudAdmin": {
-    "enabled": false,
+    "enabled": true,
     "roleClaim": "smd_role",
     "allowedRoles": [
       "owner",
       "admin"
     ],
-    "metricsRpc": "smd_admin_metrics",
+    "metricsRpc": "smd_ai_admin_metrics",
     "aggregateOnly": true
   },
   "privacy": {
