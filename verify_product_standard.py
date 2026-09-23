@@ -65,7 +65,7 @@ def verify_core_pages() -> None:
         if "rel=\"icon\"" not in text and "apple-touch-icon" not in text:
             fail(f"{page}: browser/app icon is missing")
 
-        if "Suhail Saeidi" in text:
+        if "Suhail Saeedi" in text or "Suhail Saeidi" in text:
             fail(f"{page}: creator surname must be spelled Saeedy")
 
 
