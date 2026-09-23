@@ -22,8 +22,9 @@
     const role=roleFromUser(user,cfg);
     const ownerEmail=normalizeEmail(cfg?.cloudAdmin?.ownerEmail||'suhailsaeedy@gmail.com');
     const ownerEmailOk=cloudEmail===ownerEmail;
-    const ok=allowed(role,cfg)&&ownerEmailOk;
-    return {enabled:true,configured:true,connected:true,authorized:ok,role,user,config:cfg,authStatus:st,reason:ok?'Verified owner account.':'Only the verified owner account can open this private console.'};
+    const ok=role==='owner'&&ownerEmailOk;
+    if(!ok&&window.SMD21CloudAuth?.clearSession)SMD21CloudAuth.clearSession();
+    return {enabled:true,configured:true,connected:true,authorized:ok,role,user,config:cfg,authStatus:st,reason:ok?'Verified owner account.':'Only SuhailSaeedy@gmail.com can open this private console.'};
   }
   window.SMD21AdminAuth={loadConfig,verifiedCloudRole,roleFromUser,allowed};
 })();
