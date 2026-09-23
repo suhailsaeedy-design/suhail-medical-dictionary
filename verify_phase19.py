@@ -23,9 +23,9 @@ for m in ['Software &amp; Web Developer','Business Software','Database Systems',
     if m not in about:E.append('creator bio marker missing '+m)
 if not (R/'assets/images/suhail-saeedi-creator.webp').is_file():E.append('creator portrait file missing')
 if P.get('version')!=V.get('version'):E.append('offline version mismatch')
-if P.get('cache_prefix')!='smd-v21-phase21-pack-':E.append('offline prefix mismatch')
+if P.get('cache_prefix')!='smd-v21-phase22-pack-':E.append('offline prefix mismatch')
 if './assets/images/suhail-saeedi-creator.webp' not in P['core']['urls']:E.append('portrait missing from core offline shell')
-if "const VERSION='smd-v21-phase21'" not in read('sw.js'):E.append('service worker phase21 cache missing')
+if "const VERSION='smd-v21-phase22'" not in read('sw.js'):E.append('service worker phase21 cache missing')
 if "const CURRENT_VERSION='21.21.0'" not in read('assets/js/update-manager.js'):E.append('update manager version mismatch')
 # offline byte/file integrity
 for sec in [P['core']]+P['packs']:
