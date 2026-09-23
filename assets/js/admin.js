@@ -53,15 +53,78 @@
     }catch(err){$('#diagStatus').textContent=err.message||String(err);$('#diagStatus').className='admin-status bad'}finally{$('#refreshDiagnostics').disabled=false}
   }
   async function cloudAdmin(){
-    const box=$('#cloudAdminDetail'),badge=$('#cloudAdminBadge'),verify=$('#verifyAdminRole'),metrics=$('#loadCloudMetrics');
+    const box=$('#cloudAdminDetail'),badge=$('#cloudAdminBadge'),inlineBadge=$('#cloudAdminBadgeInline'),verify=$('#verifyAdminRole'),metrics=$('#loadCloudMetrics'),save=$('#saveAiQuota');
     let r;try{r=await SMD21AdminAuth.verifiedCloudRole()}catch(err){box.textContent=err.message;return}
-    badge.textContent=r.authorized?`Verified ${r.role}`:r.enabled?'Not authorized':'Disabled';badge.className='admin-badge '+(r.authorized?'ok':'warn');box.textContent=r.reason||'';metrics.disabled=!r.authorized;verify.disabled=!r.enabled;
+    const label=r.authorized?`Verified ${r.role}`:r.enabled?'Not authorized':'Disabled';
+    badge.textContent=label;badge.className='admin-badge '+(r.authorized?'ok':'warn');
+    if(inlineBadge){inlineBadge.textContent=label;inlineBadge.className='admin-badge '+(r.authorized?'ok':'warn');}
+    box.textContent=r.reason||'';metrics.disabled=!r.authorized;if(save)save.disabled=!r.authorized;verify.disabled=!r.enabled;
     return r;
   }
+  function renderAiMetrics(body){
+    const global=body?.global||{},perUser=body?.per_user||{};
+    const used=Number(global.tokens_reserved||0),limit=Number(global.token_limit||0);
+    $('#aiUsedTokens').textContent=fmt(used);
+    $('#aiRemainingTokens').textContent=fmt(Math.max(0,limit-used));
+    $('#aiActiveUsers').textContent=fmt(body?.active_users_today||0);
+    $('#aiRequestsToday').textContent=fmt(global.requests||0);
+    $('#aiEnabled').checked=body?.enabled!==false;
+    $('#aiGlobalTokens').value=limit||200000;
+    $('#aiGlobalRequests').value=Number(global.request_limit||900);
+    $('#aiUserTokens').value=Number(perUser.token_limit||2000);
+    $('#aiUserRequests').value=Number(perUser.request_limit||10);
+    const reset=body?.reset_at?new Date(body.reset_at).toLocaleString():'—';
+    $('#aiAdminMessage').textContent=`Daily limits reset at ${reset}. No raw prompts or other users' emails are displayed here.`;
+  }
+  async function adminRpc(rpc,payload={}){
+    const auth=await SMD21AdminAuth.verifiedCloudRole();
+    if(!auth.authorized)throw new Error(auth.reason||'Admin role is not authorized.');
+    const st=auth.authStatus,base=String(st.config.supabaseUrl).replace(/\/+$/,'');
+    const res=await fetch(`${base}/rest/v1/rpc/${encodeURIComponent(rpc)}`,{
+      method:'POST',
+      headers:{apikey:st.config.publishableKey,Authorization:`Bearer ${st.session.access_token}`,'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    });
+    const body=await res.json().catch(()=>({}));
+    if(!res.ok)throw new Error(body.message||body.error||`Admin request failed (${res.status})`);
+    return body;
+  }
   async function loadMetrics(){
-    const out=$('#cloudMetricsJson');out.textContent='Loading aggregate metrics…';
-    try{const auth=await SMD21AdminAuth.verifiedCloudRole();if(!auth.authorized)throw new Error(auth.reason||'Admin role is not authorized.');const cfg=auth.config,st=auth.authStatus,rpc=encodeURIComponent(cfg.cloudAdmin.metricsRpc||'smd_admin_metrics');const base=String(st.config.supabaseUrl).replace(/\/+$/,'');const res=await fetch(`${base}/rest/v1/rpc/${rpc}`,{method:'POST',headers:{apikey:st.config.publishableKey,Authorization:`Bearer ${st.session.access_token}`,'Content-Type':'application/json'},body:'{}'});const body=await res.json().catch(()=>({}));if(!res.ok)throw new Error(body.message||`Metrics request failed (${res.status})`);out.textContent=JSON.stringify(body,null,2)}catch(err){out.textContent=err.message||String(err)}
+    const out=$('#cloudMetricsJson');out.textContent='Loading aggregate AI metrics…';
+    try{
+      const auth=await SMD21AdminAuth.verifiedCloudRole();
+      if(!auth.authorized)throw new Error(auth.reason||'Admin role is not authorized.');
+      const rpc=auth.config.cloudAdmin.metricsRpc||'smd_ai_admin_metrics';
+      const body=await adminRpc(rpc,{});
+      renderAiMetrics(body);
+      out.textContent=JSON.stringify(body,null,2);
+    }catch(err){
+      out.textContent=err.message||String(err);
+      $('#aiAdminMessage').textContent=err.message||String(err);
+    }
+  }
+  async function saveAiQuota(event){
+    event.preventDefault();
+    const button=$('#saveAiQuota');button.disabled=true;
+    $('#aiAdminMessage').textContent='Saving private AI limits…';
+    try{
+      const body=await adminRpc('smd_ai_admin_update_config',{
+        p_enabled:$('#aiEnabled').checked,
+        p_daily_global_tokens:Number($('#aiGlobalTokens').value),
+        p_daily_global_requests:Number($('#aiGlobalRequests').value),
+        p_daily_user_tokens:Number($('#aiUserTokens').value),
+        p_daily_user_requests:Number($('#aiUserRequests').value)
+      });
+      renderAiMetrics(body);
+      $('#cloudMetricsJson').textContent=JSON.stringify(body,null,2);
+      $('#aiAdminMessage').textContent='AI limits saved securely.';
+    }catch(err){
+      $('#aiAdminMessage').textContent=err.message||String(err);
+    }finally{
+      const auth=await SMD21AdminAuth.verifiedCloudRole().catch(()=>({authorized:false}));
+      button.disabled=!auth.authorized;
+    }
   }
   function exportDiagnostics(){if(!snapshot)return;const blob=new Blob([JSON.stringify(snapshot,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`suhail-medical-diagnostics-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
-  bindShell();$('#refreshDiagnostics').addEventListener('click',runDiagnostics);$('#exportDiagnostics').addEventListener('click',exportDiagnostics);$('#verifyAdminRole').addEventListener('click',cloudAdmin);$('#loadCloudMetrics').addEventListener('click',loadMetrics);runDiagnostics();cloudAdmin();
+  bindShell();$('#refreshDiagnostics').addEventListener('click',runDiagnostics);$('#exportDiagnostics').addEventListener('click',exportDiagnostics);$('#verifyAdminRole').addEventListener('click',async()=>{const r=await cloudAdmin();if(r?.authorized)await loadMetrics();});$('#loadCloudMetrics').addEventListener('click',loadMetrics);$('#aiQuotaForm').addEventListener('submit',saveAiQuota);runDiagnostics();cloudAdmin().then(r=>{if(r?.authorized)loadMetrics()});
 })();
