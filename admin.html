@@ -21,11 +21,11 @@
   </div>
 
   <form class="ai-quota-form" id="aiQuotaForm">
-    <label class="ai-toggle-row"><span><strong>Real AI enabled</strong><small>Turn off real AI without affecting the offline local study engine.</small></span><input type="checkbox" id="aiEnabled"></label>
-    <label>Shared daily token limit<input type="number" id="aiGlobalTokens" min="1000" step="1000"></label>
-    <label>Shared daily request limit<input type="number" id="aiGlobalRequests" min="1" step="1"></label>
-    <label>Per-user daily token limit<input type="number" id="aiUserTokens" min="250" step="250"></label>
-    <label>Per-user daily request limit<input type="number" id="aiUserRequests" min="1" step="1"></label>
+    <label class="ai-toggle-row"><span><strong>Real AI enabled</strong><small>Turn off real AI without affecting the offline local study engine.</small></span><input type="checkbox" id="aiEnabled" aria-label="Real AI enabled"></label>
+    <label>Shared daily token limit<input type="number" id="aiGlobalTokens" aria-label="Shared daily token limit" min="1000" step="1000"></label>
+    <label>Shared daily request limit<input type="number" id="aiGlobalRequests" aria-label="Shared daily request limit" min="1" step="1"></label>
+    <label>Per-user daily token limit<input type="number" id="aiUserTokens" aria-label="Per-user daily token limit" min="250" step="250"></label>
+    <label>Per-user daily request limit<input type="number" id="aiUserRequests" aria-label="Per-user daily request limit" min="1" step="1"></label>
     <div class="ai-quota-actions">
       <button class="btn-ui" id="verifyAdminRole" type="button">Verify owner role</button>
       <button class="btn-ui btn-primary-ui" id="loadCloudMetrics" type="button" disabled>Refresh AI usage</button>
