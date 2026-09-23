@@ -2,7 +2,7 @@
   'use strict';
 
   const MANIFEST_URL = './data/offline-packs.json';
-  const prefix='smd-v21-phase19-pack-';
+  const prefix='smd-v21-phase21-pack-';
 
   const $ = (selector) => document.querySelector(selector);
   const $$ = (selector) => [...document.querySelectorAll(selector)];
