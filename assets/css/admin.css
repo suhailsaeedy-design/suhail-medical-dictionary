@@ -7,3 +7,23 @@
 [dir="rtl"] .admin-main{margin-left:0;margin-right:var(--sidebar-w)}
 [dir="rtl"] .audit-table th,[dir="rtl"] .audit-table td{text-align:right}
 @media(max-width:900px){[dir="rtl"] .admin-main{margin-right:0;margin-left:0}}
+
+.admin-card-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:14px}
+.admin-card-head h2{margin:3px 0 5px}
+.ai-admin-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0}
+.ai-admin-metrics article{border:1px solid var(--line);border-radius:15px;padding:14px;background:var(--glass)}
+.ai-admin-metrics b{display:block;font-size:1.35rem}
+.ai-admin-metrics span{display:block;color:var(--muted);font-size:.76rem;margin-top:4px}
+.ai-quota-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.ai-quota-form>label:not(.ai-toggle-row){display:grid;gap:6px;color:var(--muted);font-size:.8rem}
+.ai-quota-form input[type="number"]{width:100%;min-height:44px;border:1px solid var(--line);border-radius:12px;background:var(--glass);color:var(--text);padding:0 12px}
+.ai-toggle-row{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:16px;border:1px solid var(--line);border-radius:14px;padding:13px 14px}
+.ai-toggle-row span{display:grid;gap:2px}.ai-toggle-row small{color:var(--muted)}
+.ai-toggle-row input{width:22px;height:22px}
+.ai-quota-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px}
+.ai-quota-form>.admin-status{grid-column:1/-1;margin:0}
+.admin-technical{margin-top:14px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.admin-technical summary{cursor:pointer;padding:12px 14px;font-weight:800}
+.admin-technical .admin-json{margin:0;border:0;border-top:1px solid var(--line);border-radius:0}
+@media(max-width:900px){.ai-admin-metrics{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.admin-card-head{flex-direction:column}.ai-admin-metrics,.ai-quota-form{grid-template-columns:1fr}.ai-toggle-row{grid-column:1}.ai-quota-actions{grid-column:1}.ai-quota-form>.admin-status{grid-column:1}}
