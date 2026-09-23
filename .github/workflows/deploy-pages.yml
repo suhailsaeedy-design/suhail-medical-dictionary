@@ -59,11 +59,14 @@ jobs:
         run: python verify_phase15.py
       - name: Verify Phase 16 visual polish
         run: python verify_phase16.py
-      - name: Verify Post-Release Cloud Ready QA
-        run: |
-          python verify_phase17.py
-          python verify_phase18.py
-          python verify_phase19.py
+      - name: Verify Phase 17 final release QA
+        run: python verify_phase17.py
+
+      - name: Verify Phase 18 cloud readiness
+        run: python verify_phase18.py
+
+      - name: Verify Phase 19 account/offline/cloud stability
+        run: python verify_phase19.py
 
       - name: Verify product design and code standard
         run: python verify_product_standard.py
