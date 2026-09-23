@@ -1,19 +1,14 @@
 {
-  "version": "21.21.0",
+  "version": "21.22.0",
   "zeroCostMode": true,
   "allowPaidFallback": false,
   "localStudyEngine": {
-    "enabled": true,
-    "features": [
-      "explain",
-      "compare",
-      "quiz",
-      "flashcards",
-      "summary"
-    ]
+    "enabled": false,
+    "purpose": "Dictionary search/context only; no offline AI answer generation."
   },
   "cloud": {
     "enabled": true,
+    "onlineOnly": true,
     "provider": "groq-free-via-supabase",
     "model": "openai/gpt-oss-20b",
     "endpoint": "https://qdfylefkkkyjwtqqiuye.supabase.co/functions/v1/medical-ai",
@@ -21,12 +16,21 @@
     "requiresExplicitOptIn": false,
     "sendOnlySelectedContext": true,
     "fairUse": {
-      "dailyGlobalTokens": 200000,
-      "dailyGlobalRequests": 900,
-      "dailyUserTokens": 2000,
-      "dailyUserRequests": 10,
+      "providerDailyTokens": 200000,
+      "providerDailyRequests": 1000,
+      "plannedDailyUsers": 50,
+      "safetyReservePercent": 10,
+      "derivedSharedTokens": 180000,
+      "derivedSharedRequests": 900,
+      "derivedPerUserTokens": 3600,
+      "derivedPerUserRequests": 18,
       "resetTimezone": "UTC"
     }
+  },
+  "privacy": {
+    "adminPanelDataSentToAI": false,
+    "privateRepositoryDataSentToAI": false,
+    "credentialsSentToAI": false
   },
   "medicalScope": "Educational reference only; no personalized diagnosis, prescribing, medication dosing, or treatment plans."
 }
