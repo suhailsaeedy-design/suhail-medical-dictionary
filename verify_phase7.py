@@ -25,7 +25,7 @@ else:
     if str(cfg.get('supabaseUrl','')).strip():errors.append('disabled supabaseUrl must be blank')
     if str(cfg.get('publishableKey','')).strip():errors.append('disabled publishableKey must be blank')
 if cfg.get('security',{}).get('allowServiceRoleInBrowser') is not False:errors.append('service-role browser usage must be forbidden')
-if cfg.get('security',{}).get('sessionStorageOnly') is not True:errors.append('cloud session must be sessionStorage-only')
+if cfg.get('security',{}).get('sessionStorageOnly') is not False:errors.append('Phase 21 verified cloud session should persist until explicit sign out')
 # Runtime secret scan (documentation can discuss forbidden secret names, runtime cannot contain actual secret values).
 for f in list((root/'assets/js').glob('*.js'))+[root/'data/auth-config.json']:
     s=f.read_text(encoding='utf-8',errors='ignore')
@@ -41,7 +41,7 @@ for marker in ["SMD21Auth.scopedKey('selected')","SMD21Auth.scopedKey('bookmarks
     if marker not in wjs:errors.append(f'Settings not account-scoped: {marker}')
 # OAuth callback and user verification contract.
 ca=(root/'assets/js/cloud-auth.js').read_text(encoding='utf-8');cb=(root/'auth-callback.html').read_text(encoding='utf-8');login=(root/'assets/js/login.js').read_text(encoding='utf-8');index=(root/'index.html').read_text(encoding='utf-8')
-for marker in ['/auth/v1/authorize','prompt','select_account','redirect_to','/auth/v1/user','access_token','refresh_token','sessionStorage','signOutRemote']:
+for marker in ['/auth/v1/authorize','prompt','select_account','redirect_to','/auth/v1/user','access_token','refresh_token','localStorage','sessionStorage','signOutRemote','clearSession']:
     if marker not in ca:errors.append(f'cloud auth runtime missing {marker}')
 if 'SMD21CloudAuth.handleCallback()' not in cb:errors.append('auth callback handler missing')
 if 'assets/js/cloud-auth.js' not in index or 'SMD21CloudAuth.startGoogleSignIn' not in login:errors.append('Login not wired to optional cloud auth')
