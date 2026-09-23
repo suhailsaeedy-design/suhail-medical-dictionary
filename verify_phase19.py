@@ -5,7 +5,7 @@ R=Path(__file__).resolve().parent; E=[]
 def read(p): return (R/p).read_text(encoding='utf-8')
 def load(p): return json.loads(read(p))
 V=load('version.json'); A=load('data/auth-config.json'); P=load('data/offline-packs.json')
-if V.get('version')!='21.18.0': E.append('version must be 21.18.0')
+if V.get('version')!='21.21.0': E.append('version must be 21.21.0')
 if not (A.get('enabled') and A.get('sync',{}).get('enabled')): E.append('live auth/sync must be enabled')
 if A.get('supabaseUrl')!='https://qdfylefkkkyjwtqqiuye.supabase.co': E.append('wrong Supabase project URL')
 if not str(A.get('publishableKey','')).startswith('sb_publishable_'): E.append('modern publishable key missing')
@@ -23,10 +23,10 @@ for m in ['Software &amp; Web Developer','Business Software','Database Systems',
     if m not in about:E.append('creator bio marker missing '+m)
 if not (R/'assets/images/suhail-saeedi-creator.webp').is_file():E.append('creator portrait file missing')
 if P.get('version')!=V.get('version'):E.append('offline version mismatch')
-if P.get('cache_prefix')!='smd-v21-phase19-pack-':E.append('offline prefix mismatch')
+if P.get('cache_prefix')!='smd-v21-phase21-pack-':E.append('offline prefix mismatch')
 if './assets/images/suhail-saeedi-creator.webp' not in P['core']['urls']:E.append('portrait missing from core offline shell')
-if "const VERSION='smd-v21-phase19'" not in read('sw.js'):E.append('service worker phase19 cache missing')
-if "const CURRENT_VERSION='21.18.0'" not in read('assets/js/update-manager.js'):E.append('update manager version mismatch')
+if "const VERSION='smd-v21-phase21'" not in read('sw.js'):E.append('service worker phase21 cache missing')
+if "const CURRENT_VERSION='21.21.0'" not in read('assets/js/update-manager.js'):E.append('update manager version mismatch')
 # offline byte/file integrity
 for sec in [P['core']]+P['packs']:
     total=0
