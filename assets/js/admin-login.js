@@ -22,12 +22,20 @@
         return;
       }
       const role=await SMD21AdminAuth.verifiedCloudRole();
-      if(!role.authorized){status(role.reason||'This account is not authorized.','bad');return}
+      if(!role.authorized){
+        try{await SMD21CloudAuth.signOutRemote?.()}catch{}
+        status(role.reason||'Only SuhailSaeedy@gmail.com can open this private console.','bad');
+        return
+      }
       status('Verified owner access. Opening private console…','ok');
       location.href='admin.html?panel='+encodeURIComponent(panel);
     }catch(err){status(err.message||String(err),'bad')}
   }
   $('#verifyCloudAdmin')?.addEventListener('click',()=>openOwner(false));
   $('#useOtherAccount')?.addEventListener('click',()=>openOwner(true));
-  (async()=>{try{const r=await SMD21AdminAuth.verifiedCloudRole();status(r.authorized?'Verified owner session is ready.':r.reason||'Sign in to continue.',r.authorized?'ok':'')}catch(err){status(err.message||String(err),'bad')}})();
+  (async()=>{try{
+    const r=await SMD21AdminAuth.verifiedCloudRole();
+    if(!r.authorized&&r.connected){try{await SMD21CloudAuth.signOutRemote?.()}catch{}}
+    status(r.authorized?'Verified owner session is ready.':r.reason||'Sign in to continue.',r.authorized?'ok':'')
+  }catch(err){status(err.message||String(err),'bad')}})();
 })();
