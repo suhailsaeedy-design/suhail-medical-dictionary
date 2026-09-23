@@ -1,6 +1,6 @@
 {
-  "version": "21.18.0",
-  "cache_prefix": "smd-v21-phase19-pack-",
+  "version": "21.21.0",
+  "cache_prefix": "smd-v21-phase21-pack-",
   "core": {
     "title": "Core Offline Shell",
     "description": "Sign-in/consent, Offline Packs manager, shared styles, icons and PWA controls.",
@@ -113,8 +113,8 @@
     {
       "id": "study",
       "icon": "✦",
-      "title": "Local AI Study",
-      "description": "Offline Explain, Compare, Quiz, Flashcards and Summary using bundled medical terms.",
+      "title": "AI Study · Local + Real AI",
+      "description": "Offline study tools plus a verified real-AI mode when online and within the shared free quota.",
       "detail": "Includes AI Study UI, Local Study Engine and Dictionary data. Optional cloud AI is not part of this pack.",
       "urls": [
         "./ai.html",
