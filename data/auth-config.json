@@ -1,5 +1,5 @@
 {
-  "version": "21.18.0",
+  "version": "21.21.0",
   "enabled": true,
   "provider": "google",
   "supabaseUrl": "https://qdfylefkkkyjwtqqiuye.supabase.co",
@@ -11,6 +11,6 @@
   },
   "security": {
     "allowServiceRoleInBrowser": false,
-    "sessionStorageOnly": true
+    "sessionStorageOnly": false
   }
 }
