@@ -1,17 +1,32 @@
 {
-  "version": "21.2.0",
+  "version": "21.21.0",
   "zeroCostMode": true,
   "allowPaidFallback": false,
   "localStudyEngine": {
     "enabled": true,
-    "features": ["explain", "compare", "quiz", "flashcards", "summary"]
+    "features": [
+      "explain",
+      "compare",
+      "quiz",
+      "flashcards",
+      "summary"
+    ]
   },
   "cloud": {
-    "enabled": false,
-    "provider": "optional-free-worker",
-    "endpoint": "",
-    "requiresExplicitOptIn": true,
-    "sendOnlySelectedContext": true
+    "enabled": true,
+    "provider": "groq-free-via-supabase",
+    "model": "openai/gpt-oss-20b",
+    "endpoint": "https://qdfylefkkkyjwtqqiuye.supabase.co/functions/v1/medical-ai",
+    "requiresVerifiedSession": true,
+    "requiresExplicitOptIn": false,
+    "sendOnlySelectedContext": true,
+    "fairUse": {
+      "dailyGlobalTokens": 200000,
+      "dailyGlobalRequests": 900,
+      "dailyUserTokens": 2000,
+      "dailyUserRequests": 10,
+      "resetTimezone": "UTC"
+    }
   },
-  "medicalScope": "Educational reference only; no diagnosis, prescribing, medication dosing, or treatment plans."
+  "medicalScope": "Educational reference only; no personalized diagnosis, prescribing, medication dosing, or treatment plans."
 }
