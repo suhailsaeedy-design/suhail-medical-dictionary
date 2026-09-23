@@ -13,6 +13,12 @@
     if(!st.connected)return {enabled:true,configured:true,connected:false,authorized:false,role:'',config:cfg,authStatus:st,reason:'No verified cloud session is connected.'};
     let user=st.session?.user||{};
     if(window.SMD21CloudAuth.getVerifiedUser){try{user=await SMD21CloudAuth.getVerifiedUser()}catch(err){return {enabled:true,configured:true,connected:true,authorized:false,role:'',config:cfg,authStatus:st,reason:err.message||'Owner verification failed.'}}}
+    const normalizeEmail=v=>String(v||'').trim().toLowerCase();
+    const localEmail=normalizeEmail(window.SMD21Auth?.getAccount?.()?.email);
+    const cloudEmail=normalizeEmail(user?.email);
+    if(!localEmail||!cloudEmail||localEmail!==cloudEmail){
+      return {enabled:true,configured:true,connected:true,authorized:false,role:'',user,config:cfg,authStatus:st,reason:'The current app account does not match the verified owner account. Sign in again with the owner account.'};
+    }
     const role=roleFromUser(user,cfg);
     const ok=allowed(role,cfg);
     return {enabled:true,configured:true,connected:true,authorized:ok,role,user,config:cfg,authStatus:st,reason:ok?'Verified private owner/admin role.':'Connected account is not authorized for the private owner console.'};
