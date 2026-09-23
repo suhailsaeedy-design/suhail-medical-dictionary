@@ -10,9 +10,9 @@
   const mount=$('#secureAdminMount');
   const setStatus=(m,state='')=>{const e=$('#secureAdminStatus');if(e){e.textContent=m;e.className='secure-admin-status '+state}};
   const params=new URLSearchParams(location.search);
-  const requested=params.get('panel')||sessionStorage.getItem('smd_private_admin_panel')||'medical-dictionary';
-  const panel=requested==='suhail-labs'?'suhail-labs':'medical-dictionary';
-  sessionStorage.setItem('smd_private_admin_panel',panel);
+  const requested=params.get('panel')||'medical-dictionary';
+  if(requested==='suhail-labs'){location.replace('/suhail-labs/admin.html');return}
+  const panel='medical-dictionary';
 
   function loadCss(href,id){
     return new Promise((resolve,reject)=>{
