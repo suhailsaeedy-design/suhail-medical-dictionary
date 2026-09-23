@@ -77,7 +77,7 @@
   function renderMessages(){
     const c=ensureChat();const box=$('#messages');box.replaceChildren();
     if(!c.messages.length)renderWelcome(box);else c.messages.forEach(m=>m.kind==='study'?renderResult(box,m):addTextMessage(box,m));
-    $('#chatTitle').textContent=c.title||t('newStudy');$('#chatSubtitle').textContent=state.provider==='cloud'?'Optional Cloud AI · explicit opt-in':'Offline Local Study Engine · bundled medical reference';
+    $('#chatTitle').textContent=c.title||t('newStudy');$('#chatSubtitle').textContent=state.provider==='cloud'?'Real AI · shared free quota':'Offline Local Study Engine · bundled medical reference';
     requestAnimationFrame(()=>{box.scrollTop=box.scrollHeight});
   }
   function renderContext(){
@@ -89,7 +89,7 @@
     if(!state.engine)return;const c=ensureChat();const box=$('#termResults');box.replaceChildren();let xs=q.trim()?state.engine.search(q,10):state.engine.terms.slice(0,10);if(!xs.length){box.append(el('div','empty-state','No matching bundled terms.'));return;}xs.forEach(x=>{const selected=c.contextIds.includes(x.id);const b=el('button','term-result'+(selected?' selected':''));b.type='button';b.dataset.toggleContext=x.id;b.append(el('b','',state.engine.localName(x,lang())),el('small','',`${x.category_label||x.category}${selected?' · Selected':''}`));box.append(b)});
   }
   function renderLabels(){
-    $$('[data-ai-i18n]').forEach(n=>{const k=n.dataset.aiI18n;n.textContent=t(k)});$('#modeBadgeText').textContent=state.provider==='local'?t('local'):'Cloud · opt-in';
+    $$('[data-ai-i18n]').forEach(n=>{const k=n.dataset.aiI18n;n.textContent=t(k)});$('#modeBadgeText').textContent=state.provider==='local'?t('local'):'Real AI · fair-use';
   }
   function renderAll(){renderLabels();renderNav();renderMessages();renderContext();}
   window.addEventListener('smd21:languagechange',()=>renderAll());
@@ -100,11 +100,68 @@
   function addMessage(c,msg){c.messages.push({id:uid(),createdAt:now(),...msg});if(c.messages.length>200)c.messages=c.messages.slice(-200);touch(c)}
   function actionLabel(action,c){const names=(c.contextIds||[]).map(termFor).filter(Boolean).map(x=>state.engine.localName(x,lang()));return `${action[0].toUpperCase()+action.slice(1)}${names.length?': '+names.join(', '):''}`}
 
+  function formatReset(value){
+    if(!value)return '';
+    const date=new Date(value);
+    return Number.isNaN(date.getTime())?'':date.toLocaleString();
+  }
+  function updateQuotaState(payload={}){
+    const box=$('#aiQuotaState');
+    if(!box)return;
+    const quota=payload.quota||payload;
+    const bits=[];
+    if(Number.isFinite(Number(quota.remaining_user_tokens)))bits.push(`${Number(quota.remaining_user_tokens).toLocaleString()} user tokens left today`);
+    if(Number.isFinite(Number(quota.remaining_user_requests)))bits.push(`${Number(quota.remaining_user_requests)} requests left today`);
+    if(Number.isFinite(Number(quota.remaining_global_tokens)))bits.push(`${Number(quota.remaining_global_tokens).toLocaleString()} shared tokens left`);
+    const reset=formatReset(quota.reset_at);
+    if(reset)bits.push(`resets ${reset}`);
+    box.textContent=bits.length?bits.join(' · '):'Shared free AI quota is ready when your verified account is connected.';
+  }
+  async function cloudStatus(){
+    if(!window.SMD21CloudAuth)return {configured:false,connected:false};
+    try{return await SMD21CloudAuth.status()}catch{return {configured:false,connected:false}}
+  }
+  async function refreshProviderUi(){
+    const cfg=state.config?.cloud||{};
+    const status=await cloudStatus();
+    const connected=!!status.connected;
+    const cloudReady=!!(cfg.enabled&&cfg.endpoint);
+    $('#cloudOption').disabled=!cloudReady;
+    $('#connectAiBtn').classList.toggle('hidden',connected||!cloudReady);
+    $('#providerState').classList.toggle('off',!connected&&state.provider==='cloud');
+    $('#providerState').querySelector('span').textContent=!cloudReady
+      ?'Real AI backend is not configured.'
+      :connected
+        ?'Verified account connected · real AI available when provider quota is available.'
+        :'Connect once to use the shared real AI.';
+    if(!connected&&state.provider==='cloud')state.provider='local';
+    $('#providerMode').value=state.provider;
+  }
   async function runCloud(c,prompt){
-    const cfg=state.config?.cloud||{};if(!cfg.enabled||!cfg.endpoint) return {ok:false,text:'Optional cloud AI is not configured. Local Study Engine remains available offline.'};
-    if(!navigator.onLine)return {ok:false,text:'Cloud AI needs an internet connection. Switch back to Local Study Engine for offline study.'};
+    const cfg=state.config?.cloud||{};
+    if(!cfg.enabled||!cfg.endpoint)return {ok:false,text:'Real AI is not configured. The local study engine remains available offline.'};
+    if(!navigator.onLine)return {ok:false,text:'Real AI needs an internet connection. The local study engine still works offline.'};
+    const status=await cloudStatus();
+    if(!status.connected){
+      return {ok:false,text:'Connect your verified account once to use the shared free AI. Your local study engine remains available without sign-in.'};
+    }
+    const session=await SMD21CloudAuth.getValidSession();
     const context=(c.contextIds||[]).map(termFor).filter(Boolean).map(x=>({id:x.id,term:x.term,category:x.category_label||x.category,definition:state.engine.definition(x,'en'),explanation:state.engine.explanation(x,'en')}));
-    try{const res=await fetch(cfg.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:prompt,language:lang(),context})});if(!res.ok)throw new Error(`HTTP ${res.status}`);const data=await res.json();const text=String(data.reply||data.message||data.content||'').trim();if(!text)throw new Error('Empty response');return {ok:true,text};}catch(err){return {ok:false,text:`Cloud request failed (${err.message}). Local Study Engine is still available.`}}
+    try{
+      const res=await fetch(cfg.endpoint,{method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${session.access_token}`},body:JSON.stringify({message:prompt,language:lang(),context})});
+      const data=await res.json().catch(()=>({}));
+      updateQuotaState(data);
+      if(!res.ok){
+        const reset=formatReset(data.reset_at);
+        const suffix=reset?` You can try again after ${reset}.`:'';
+        return {ok:false,text:`${data.message||'Real AI is temporarily unavailable.'}${suffix}`};
+      }
+      const text=String(data.reply||'').trim();
+      if(!text)throw new Error('Empty response');
+      return {ok:true,text};
+    }catch(err){
+      return {ok:false,text:`Real AI request failed (${err.message}). The local study engine is still available.`};
+    }
   }
 
   async function submit(action='auto'){
@@ -140,7 +197,27 @@
   function syncSearch(v){$('#termSearch').value=v;$('#topSearch').value=v;renderTermResults(v)}
   $('#termSearch').addEventListener('input',e=>syncSearch(e.target.value));$('#topSearch').addEventListener('input',e=>syncSearch(e.target.value));
   $('#termSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){const x=state.engine.search(e.target.value,1)[0];if(x)toggleContext(x.id,true)}});$('#topSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){const x=state.engine.search(e.target.value,1)[0];if(x)toggleContext(x.id,true)}});
-  $('#providerMode').addEventListener('change',e=>{if(e.target.value==='cloud'&&(!state.config?.cloud?.enabled||!state.config?.cloud?.endpoint)){e.target.value='local';showToast('Optional cloud AI is not configured');return;}state.provider=e.target.value;localStorage.setItem(MODE_KEY,state.provider);$('#providerState').classList.toggle('off',state.provider!=='local');renderLabels();renderMessages()});
+  $('#providerMode').addEventListener('change',async e=>{
+    if(e.target.value==='cloud'){
+      const status=await cloudStatus();
+      if(!state.config?.cloud?.enabled||!state.config?.cloud?.endpoint){
+        e.target.value='local';showToast('Real AI backend is not configured');return;
+      }
+      if(!status.connected){
+        e.target.value='local';showToast('Connect your verified account first');await refreshProviderUi();return;
+      }
+    }
+    state.provider=e.target.value;
+    localStorage.setItem(MODE_KEY,state.provider);
+    renderLabels();renderMessages();await refreshProviderUi();
+  });
+  $('#connectAiBtn').addEventListener('click',async()=>{
+    try{
+      await SMD21CloudAuth.startGoogleSignIn('ai.html');
+    }catch(err){
+      showToast(err.message||'Could not start verified sign-in');
+    }
+  });
   $('#mobileMenu').addEventListener('click',()=>toggleAppMenu());$('#mobileChats').addEventListener('click',()=>toggleChats());$('#drawerBackdrop').addEventListener('click',closeDrawers);
   
   $('#cancelRename').addEventListener('click',()=>$('#renameModal').classList.add('hidden'));$('#saveRename').addEventListener('click',()=>{const c=state.chats.find(x=>x.id===state.pendingRename);const v=$('#renameInput').value.trim();if(c&&v){c.title=v.slice(0,80);touch(c);renderAll()}$('#renameModal').classList.add('hidden')});
@@ -157,7 +234,13 @@
       ]);
       state.data=data;state.config=config;state.engine=SMD21StudyEngine.create(data.terms||[]);state.chats=readStore();if(!state.chats.length)newChat(false);state.activeId=state.chats[0].id;
       const params=new URLSearchParams(location.search);const requestedContextIds=[params.get('term'),...(params.get('terms')||'').split(',')].map(x=>String(x||'').trim()).filter(Boolean);const unique=[...new Set(requestedContextIds)].filter(id=>state.engine.byId.has(id)).slice(0,8);if(unique.length){const c=ensureChat();c.contextIds=[...unique,...c.contextIds.filter(id=>!unique.includes(id))].slice(0,8);touch(c)}
-      const requested=localStorage.getItem(MODE_KEY)||'local';state.provider=requested==='cloud'&&config.cloud?.enabled&&config.cloud?.endpoint?'cloud':'local';$('#providerMode').value=state.provider;$('#cloudOption').disabled=!(config.cloud?.enabled&&config.cloud?.endpoint);$('#providerState').classList.toggle('off',state.provider!=='local');$('#accountEmail').textContent=account.email||'Local account';renderAll();
+      const requested=localStorage.getItem(MODE_KEY)||'cloud';
+      const status=await cloudStatus();
+      state.provider=requested==='cloud'&&config.cloud?.enabled&&config.cloud?.endpoint&&status.connected?'cloud':'local';
+      $('#accountEmail').textContent=account.email||'Local account';
+      renderAll();
+      await refreshProviderUi();
+      updateQuotaState({});
     }catch(err){$('#messages').replaceChildren(el('div','empty-state',`AI Study failed to load: ${err.message}`));console.error(err)}
   }
   init();
