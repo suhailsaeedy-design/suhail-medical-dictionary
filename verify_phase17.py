@@ -117,9 +117,12 @@ if auth.get('enabled') is True:
 else:
     if auth.get('supabaseUrl') or auth.get('publishableKey'):errors.append('disabled cloud auth must remain blank')
 if auth.get('security',{}).get('allowServiceRoleInBrowser') is not False:errors.append('service-role browser access must remain false')
-if adm.get('cloudAdmin',{}).get('enabled') is not False:errors.append('distributed cloud admin must remain disabled')
+if adm.get('cloudAdmin',{}).get('enabled') is not True:errors.append('verified owner cloud admin must be enabled in Phase 21')
+if adm.get('cloudAdmin',{}).get('aggregateOnly') is not True:errors.append('cloud admin must remain aggregate-only')
 if ai.get('zeroCostMode') is not True or ai.get('allowPaidFallback') is not False:errors.append('zero-cost/no-paid-fallback AI invariant changed')
-if ai.get('cloud',{}).get('enabled') is not False or ai.get('cloud',{}).get('endpoint'):errors.append('distributed cloud AI must remain disabled/blank')
+cloud_ai=ai.get('cloud',{})
+if cloud_ai.get('enabled') is not True:errors.append('real AI endpoint must be enabled in Phase 21')
+if not str(cloud_ai.get('endpoint','')).startswith('https://qdfylefkkkyjwtqqiuye.supabase.co/functions/v1/medical-ai'):errors.append('real AI must use the protected Supabase Edge Function endpoint')
 secret_patterns=[
     re.compile(r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----'),
     re.compile(r'\bsk-[A-Za-z0-9_-]{20,}\b'),re.compile(r'\bgh[pousr]_[A-Za-z0-9_]{20,}\b'),
