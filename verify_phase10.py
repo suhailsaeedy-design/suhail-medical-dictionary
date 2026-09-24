@@ -11,7 +11,7 @@ for f in required:
 def load(p):
     try:return json.loads((root/p).read_text(encoding='utf-8'))
     except Exception as e:errors.append(f'{p} invalid JSON: {e}');return {}
-ver=load('version.json');cfg=load('data/admin-config.json');authcfg=load('data/auth-config.json');packs=load('data/offline-packs.json')
+ver=load('version.json');cfg=load('data/admin-secure-config-v2.json');authcfg=load('data/auth-config.json');packs=load('data/offline-packs.json')
 try:
     vv=tuple(int(x) for x in str(ver.get('version','0.0.0')).split('.'))
     if vv[0]!=21 or vv<(21,9,0):errors.append('version.json must be v21.9.0 or newer for Phase 10')
