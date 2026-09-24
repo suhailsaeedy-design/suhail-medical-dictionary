@@ -50,7 +50,7 @@ if 'Local diagnostics' not in (root/'admin-login.html').read_text(encoding='utf-
 authjs=(root/'assets/js/admin-owner-auth-v2.js').read_text(encoding='utf-8')
 if 'user_metadata' in authjs:errors.append('admin client must not authorize with user_metadata')
 if "st.source!=='session'" not in authjs:errors.append('admin client must require a fresh session-only OAuth session')
-if 'suhail_admin_authorize' not in authjs:errors.append('admin client must use the server-verified authorization RPC')
+if '/functions/v1/admin-gateway' not in authjs or 'gatewayRequest' not in authjs:errors.append('admin client must use the verified admin gateway')
 if 'suhailsaeedy@gmail.com' in authjs.lower():errors.append('admin client must not expose the owner email')
 cloudjs=(root/'assets/js/admin-cloud-auth-v2.js').read_text(encoding='utf-8')
 for marker in ['getVerifiedUser','app_metadata:user.app_metadata||{}']:
