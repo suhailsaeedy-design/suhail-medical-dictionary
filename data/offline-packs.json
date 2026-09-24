@@ -47,7 +47,7 @@
       "./assets/images/pancreas.webp",
       "./assets/images/knee.webp",
       "./assets/images/neuron.svg",
-      "./assets/images/suhail-saeedi-creator.webp",
+      "./assets/images/suhail-saeedy-creator.webp",
       "./assets/icons/apple-touch-icon-180.png",
       "./assets/icons/icon-192.png",
       "./assets/icons/icon-512.png",
@@ -113,9 +113,9 @@
     {
       "id": "study",
       "icon": "✦",
-      "title": "AI Study · Local + Real AI",
+      "title": "AI Study · Online AI + Offline Study Tools",
       "description": "Offline study tools plus a verified real-AI mode when online and within the shared free quota.",
-      "detail": "Includes AI Study UI, Local Study Engine and Dictionary data. Optional cloud AI is not part of this pack.",
+      "detail": "Includes the AI Study interface, bundled non-AI study tools and Dictionary data. Online AI requires an internet connection and is not part of this offline pack.",
       "urls": [
         "./ai.html",
         "./assets/css/ai-study.css",
