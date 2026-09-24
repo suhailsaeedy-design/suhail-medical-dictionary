@@ -27,16 +27,7 @@
     });
   }
   async function fetchBundle(auth){
-    const st=auth.authStatus,base=String(st.config.supabaseUrl).replace(/\/+$/,'');
-    const rpc=auth.config?.secureBundle?.rpc||'suhail_admin_bundle';
-    const res=await fetch(`${base}/rest/v1/rpc/${encodeURIComponent(rpc)}`,{
-      method:'POST',
-      headers:{apikey:st.config.publishableKey,Authorization:`Bearer ${st.session.access_token}`,'Content-Type':'application/json'},
-      body:JSON.stringify({p_panel:panel})
-    });
-    const body=await res.json().catch(()=>({}));
-    if(!res.ok)throw new Error(body.message||body.error||`Private admin bundle failed (${res.status})`);
-    return body;
+    return SMD21AdminAuth.gatewayRequest(auth.authStatus,'bundle',{panel});
   }
   async function preparePanel(){
     if(panel==='suhail-labs'){
