@@ -53,16 +53,16 @@
     }
   }
   async function boot(){
-    const VERIFIED='smd_private_admin_verified_v2';
+    const VERIFIED='smd_private_admin_verified_v3:medical-dictionary';
     try{
       let gate=null;try{gate=JSON.parse(sessionStorage.getItem(VERIFIED)||'null')}catch{}
-      if(!gate||gate.panel!==panel){location.replace('admin-login.html?panel='+encodeURIComponent(panel));return}
+      if(!gate||gate.panel!==panel){location.replace('admin-login.html');return}
       const auth=await verifiedCloudRole();
       if(!auth.authorized||auth.authStatus?.source!=='session'){
         sessionStorage.removeItem(VERIFIED);
         try{await SMD21CloudAuth.signOutRemote?.()}catch{}
         setStatus('Private administration requires a new verified sign-in.','bad');
-        setTimeout(()=>location.replace('admin-login.html?panel='+encodeURIComponent(panel)),700);
+        setTimeout(()=>location.replace('admin-login.html'),700);
         return
       }
       setStatus('Verified owner session. Loading private console…','ok');
@@ -75,7 +75,7 @@
     }catch(err){
       console.error(err);sessionStorage.removeItem(VERIFIED);
       setStatus('Private administration could not be opened. Please sign in again.','bad');
-      setTimeout(()=>location.replace('admin-login.html?panel='+encodeURIComponent(panel)),900);
+      setTimeout(()=>location.replace('admin-login.html'),900);
     }
   }
   boot();
