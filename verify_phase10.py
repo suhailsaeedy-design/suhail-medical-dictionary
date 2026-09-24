@@ -49,7 +49,7 @@ authjs=(root/'assets/js/admin-auth.js').read_text(encoding='utf-8')
 if 'app_metadata' not in authjs or 'roleClaim' not in authjs:errors.append('admin role verification must use app_metadata')
 if 'user_metadata' in authjs:errors.append('admin client must not authorize with user_metadata')
 if "st.source!=='session'" not in authjs:errors.append('admin client must require a fresh session-only OAuth session')
-if "role==='owner'" not in authjs:errors.append('admin client must require the owner role')
+if 'suhail_admin_authorize' not in authjs:errors.append('admin client must use the server-verified authorization RPC')
 if 'suhailsaeedy@gmail.com' in authjs.lower():errors.append('admin client must not expose the owner email')
 cloudjs=(root/'assets/js/cloud-auth.js').read_text(encoding='utf-8')
 for marker in ['getVerifiedUser','app_metadata:user.app_metadata||{}']:
