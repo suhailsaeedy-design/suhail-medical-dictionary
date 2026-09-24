@@ -110,8 +110,9 @@ def verify_repository_hygiene() -> None:
         if not path.is_file() or path.suffix.lower() not in {".html",".js",".css",".json",".md",".py",".yml",".yaml",".webmanifest"}:
             continue
         text = path.read_text(encoding="utf-8", errors="ignore")
-        if "Suhail Saeedi" in text or "Suhail Saeidi" in text:
-            fail(f"{path.relative_to(ROOT)}: creator surname must be spelled Saeedy")
+        lowered_text=text.lower()
+        if "suhail saeedi" in lowered_text or "suhail saeidi" in lowered_text or "suhail-saeedi" in lowered_text or "suhail-saeidi" in lowered_text:
+            fail(f"{path.relative_to(ROOT)}: creator surname/reference must be spelled Saeedy")
 
 
 def verify_browser_files_for_obvious_secrets() -> None:
