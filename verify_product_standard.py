@@ -68,6 +68,10 @@ def verify_core_pages() -> None:
         if "Suhail Saeedi" in text or "Suhail Saeidi" in text:
             fail(f"{page}: creator surname must be spelled Saeedy")
 
+        for tag in re.findall(r"<button\b[^>]*>", text, re.IGNORECASE):
+            if not re.search(r"\btype\s*=", tag, re.IGNORECASE):
+                fail(f"{page}: every button must declare an explicit type")
+
 
 def verify_dictionary_runtime_contract() -> None:
     js = read("assets/js/dictionary.js")
@@ -91,6 +95,25 @@ def verify_shared_design_contract() -> None:
             fail(f"design-system.css: missing required contract token {token}")
 
 
+def verify_repository_hygiene() -> None:
+    for path in ROOT.rglob("*"):
+        if not path.is_file():
+            continue
+        relative = path.relative_to(ROOT).as_posix()
+        lowered = relative.lower()
+        if lowered.endswith((".tmp", ".bak", ".orig", ".swp")):
+            fail(f"{relative}: temporary/backup artifact must not be committed")
+        if "saeedi" in lowered or "saeidi" in lowered:
+            fail(f"{relative}: creator surname in file path must be spelled Saeedy")
+
+    for path in ROOT.rglob("*"):
+        if not path.is_file() or path.suffix.lower() not in {".html",".js",".css",".json",".md",".py",".yml",".yaml",".webmanifest"}:
+            continue
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        if "Suhail Saeedi" in text or "Suhail Saeidi" in text:
+            fail(f"{path.relative_to(ROOT)}: creator surname must be spelled Saeedy")
+
+
 def verify_browser_files_for_obvious_secrets() -> None:
     ignored_parts = {".git", "_site", "node_modules"}
 
@@ -112,6 +135,7 @@ def main() -> None:
     verify_core_pages()
     verify_dictionary_runtime_contract()
     verify_shared_design_contract()
+    verify_repository_hygiene()
     verify_browser_files_for_obvious_secrets()
     print("PASS: Suhail Medical Dictionary product-standard checks")
 
