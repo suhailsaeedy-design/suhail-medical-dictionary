@@ -12,7 +12,7 @@ Phase 6 د Phase 5 clean checkpoint باندې جوړ شوی او **Personal Wor
 - Settings: Dark/Light، English/Pashto/Dari، Text size، Reduced motion، Dictionary 1/2/3 columns.
 - Settings د Selected/Bookmarks/History/AI chats حقیقي local counts ښيي او جلا clear controls لري.
 - Reset Preferences شخصي study data نه پاکوي؛ یوازې UI preferences default ته ګرځوي.
-- About page د v21 clean architecture، bundled scope، creator `Suhail Saeedi`، privacy/local-data behavior او medical limitations واضح کوي.
+- About page د v21 clean architecture، bundled scope، creator `Suhail Saeedy`، privacy/local-data behavior او medical limitations واضح کوي.
 - About/Settings CSS/JS او pages د Core Offline Shell برخه شول.
 - Global search په About/Settings کې Enter سره Dictionary ته query handoff کوي.
 
