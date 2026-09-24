@@ -5,7 +5,7 @@ try: import yaml
 except Exception: yaml=None
 root=Path(__file__).resolve().parent
 errors=[];notes=[]
-required=['admin-login.html','admin.html','assets/css/admin.css','assets/js/admin-auth.js','assets/js/admin-login.js','assets/js/admin.js','data/admin-config.json','assets/js/cloud-auth.js','supabase/phase10_admin_metrics.sql','supabase/PHASE10_ADMIN_SETUP.md','PHASE10_REPORT_PASHTO.md','version.json','data/offline-packs.json','sw.js','.github/workflows/deploy-pages.yml']
+required=['admin-login.html','admin.html','assets/css/admin.css','assets/js/admin-owner-auth-v2.js','assets/js/admin-login-v2.js','assets/js/admin-loader-v2.js','data/admin-secure-config-v2.json','assets/js/admin-cloud-auth-v2.js','supabase/phase10_admin_metrics.sql','supabase/PHASE10_ADMIN_SETUP.md','PHASE10_REPORT_PASHTO.md','version.json','data/offline-packs.json','sw.js','.github/workflows/deploy-pages.yml']
 for f in required:
     if not (root/f).is_file():errors.append(f'missing {f}')
 def load(p):
@@ -45,16 +45,16 @@ for fn in ['admin-login.html','admin.html']:
     if re.search(r'<input[^>]+type=["\']password',s,re.I):errors.append(f'{fn} must not use insecure static password gating')
 if 'Local diagnostics' not in (root/'admin-login.html').read_text(encoding='utf-8'):errors.append('admin login missing local diagnostics mode')
 # Client authorization must defer owner authorization to the protected server RPC.
-authjs=(root/'assets/js/admin-auth.js').read_text(encoding='utf-8')
+authjs=(root/'assets/js/admin-owner-auth-v2.js').read_text(encoding='utf-8')
 if 'user_metadata' in authjs:errors.append('admin client must not authorize with user_metadata')
 if "st.source!=='session'" not in authjs:errors.append('admin client must require a fresh session-only OAuth session')
 if 'suhail_admin_authorize' not in authjs:errors.append('admin client must use the server-verified authorization RPC')
 if 'suhailsaeedy@gmail.com' in authjs.lower():errors.append('admin client must not expose the owner email')
-cloudjs=(root/'assets/js/cloud-auth.js').read_text(encoding='utf-8')
+cloudjs=(root/'assets/js/admin-cloud-auth-v2.js').read_text(encoding='utf-8')
 for marker in ['getVerifiedUser','app_metadata:user.app_metadata||{}']:
     if marker not in cloudjs:errors.append(f'cloud-auth missing {marker}')
 # Admin runtime must be diagnostic/aggregate only.
-adminjs=(root/'assets/js/admin.js').read_text(encoding='utf-8')
+adminjs=(root/'assets/js/admin-loader-v2.js').read_text(encoding='utf-8')
 for marker in ['runDiagnostics','exportDiagnostics','verifiedCloudRole','metricsRpc','Cache Storage' if False else 'cacheAudit']:
     if marker not in adminjs:errors.append(f'admin runtime missing {marker}')
 if re.search(r'/rest/v1/(?:user_app_state|auth\.users)',adminjs):errors.append('admin browser must not fetch raw user_app_state/auth.users rows')
@@ -67,7 +67,7 @@ if 'raw_user_meta_data' in sql:errors.append('Phase 10 SQL must not authorize fr
 if re.search(r"jsonb_build_object\([^;]*'email'",sql,re.S|re.I):errors.append('admin metrics must not return email addresses')
 # Admin routes/assets deliberately not in offline core.
 core=set(packs.get('core',{}).get('urls',[]));sw=(root/'sw.js').read_text(encoding='utf-8')
-for u in ['./admin.html','./admin-login.html','./assets/js/admin.js','./assets/js/admin-auth.js','./assets/js/admin-login.js','./assets/css/admin.css','./data/admin-config.json']:
+for u in ['./admin.html','./admin-login.html','./assets/js/admin-loader-v2.js','./assets/js/admin-owner-auth-v2.js','./assets/js/admin-login-v2.js','./assets/js/admin-cloud-auth-v2.js','./assets/css/admin.css','./data/admin-secure-config-v2.json','./data/admin-auth-config-v2.json']:
     if u in core:errors.append(f'admin asset should not be in Core Offline Shell: {u}')
     if repr(u) in sw:errors.append(f'admin asset should not be pre-cached by Service Worker: {u}')
 # Cache version must be Phase 10+ and offline prefix must match it.
@@ -121,6 +121,6 @@ if errors:
     sys.exit(1)
 print('PHASE 10 VERIFY PASS')
 print('admin route: separate + no public sidebar link')
-print('cloud admin: app_metadata role + aggregate-only protected metrics')
+print('cloud admin: server-verified owner authorization + aggregate-only protected metrics')
 print('admin assets excluded from Core Offline Shell')
 for n in notes:print('NOTE:',n)
