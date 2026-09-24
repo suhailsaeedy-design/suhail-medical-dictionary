@@ -1,10 +1,6 @@
 (() => {
   'use strict';
-  // Legacy QA names remain in this public loader only; the real implementations are in the private bundle.
-  const metricsRpc='smd_ai_admin_metrics';
-  const runDiagnostics=()=>null, exportDiagnostics=()=>null, cacheAudit=()=>null;
   const verifiedCloudRole=()=>SMD21AdminAuth.verifiedCloudRole();
-  void metricsRpc; void runDiagnostics; void exportDiagnostics; void cacheAudit;
 
   const $=s=>document.querySelector(s);
   const mount=$('#secureAdminMount');
