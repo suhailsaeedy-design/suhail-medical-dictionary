@@ -5,7 +5,7 @@
 - Current Google account او Other Google account flow جلا شول؛ Other account د account chooser غوښتنه کوي.
 - Logout د cloud session او local current-account pointer دواړه پاکوي؛ Mobile/Desktop navigation کې ښکاره Sign out شته.
 - Full Offline Download persistent storage غوښتنه کوي، درې واړه packs ښکته کوي او Cache Storage verify کوي.
-- About page کې د Suhail Saeedi professional creator portrait او developer bio شامل شول.
+- About page کې د Suhail Saeedy professional creator portrait او developer bio شامل شول.
 - Admin/Owner role په تصادفي account نه دی ټاکل شوی؛ دا باید یوازې د creator د تایید شوي Google account لپاره قصدي تنظیم شي.
 
 ## Final QA
