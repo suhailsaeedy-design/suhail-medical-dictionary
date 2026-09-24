@@ -44,9 +44,8 @@ for fn in ['admin-login.html','admin.html']:
     if 'noindex,nofollow' not in s:errors.append(f'{fn} missing noindex,nofollow')
     if re.search(r'<input[^>]+type=["\']password',s,re.I):errors.append(f'{fn} must not use insecure static password gating')
 if 'Local diagnostics' not in (root/'admin-login.html').read_text(encoding='utf-8'):errors.append('admin login missing local diagnostics mode')
-# Client authorization must use app_metadata, not user_metadata.
+# Client authorization must defer owner authorization to the protected server RPC.
 authjs=(root/'assets/js/admin-auth.js').read_text(encoding='utf-8')
-if 'app_metadata' not in authjs or 'roleClaim' not in authjs:errors.append('admin role verification must use app_metadata')
 if 'user_metadata' in authjs:errors.append('admin client must not authorize with user_metadata')
 if "st.source!=='session'" not in authjs:errors.append('admin client must require a fresh session-only OAuth session')
 if 'suhail_admin_authorize' not in authjs:errors.append('admin client must use the server-verified authorization RPC')
