@@ -137,6 +137,14 @@ def verify_repository_hygiene() -> None:
             fail(f"{path.relative_to(ROOT)}: creator surname/reference must be spelled Saeedy")
 
 
+def verify_runtime_selector_contracts() -> None:
+    for path in (ROOT / "assets" / "js").glob("*.js"):
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        if "document.querySelector(s)" in text and "querySelectorAll(s)" in text:
+            if re.search(r"(?<!\$)\$\([^;\n]*?\)\.(?:forEach|map|filter|some|every)\s*\(", text):
+                fail(f"{path.relative_to(ROOT)}: list method used on single querySelector helper")
+
+
 def verify_browser_files_for_obvious_secrets() -> None:
     ignored_parts = {".git", "_site", "node_modules"}
 
@@ -159,6 +167,7 @@ def main() -> None:
     verify_dictionary_runtime_contract()
     verify_shared_design_contract()
     verify_repository_hygiene()
+    verify_runtime_selector_contracts()
     verify_browser_files_for_obvious_secrets()
     print("PASS: Suhail Medical Dictionary product-standard checks")
 
