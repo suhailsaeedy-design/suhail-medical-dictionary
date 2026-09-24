@@ -65,7 +65,8 @@ def verify_core_pages() -> None:
         if "rel=\"icon\"" not in text and "apple-touch-icon" not in text:
             fail(f"{page}: browser/app icon is missing")
 
-        if "Suhail Saeedi" in text or "Suhail Saeidi" in text:
+        bad_display_names=("Suhail "+"Sa"+"eedi","Suhail "+"Sa"+"eidi")
+        if any(bad in text for bad in bad_display_names):
             fail(f"{page}: creator surname must be spelled Saeedy")
 
         for tag in re.findall(r"<button\b[^>]*>", text, re.IGNORECASE):
@@ -103,7 +104,8 @@ def verify_repository_hygiene() -> None:
         lowered = relative.lower()
         if lowered.endswith((".tmp", ".bak", ".orig", ".swp")):
             fail(f"{relative}: temporary/backup artifact must not be committed")
-        if "saeedi" in lowered or "saeidi" in lowered:
+        bad_path_parts=("sa"+"eedi","sa"+"eidi")
+        if any(bad in lowered for bad in bad_path_parts):
             fail(f"{relative}: creator surname in file path must be spelled Saeedy")
 
     for path in ROOT.rglob("*"):
