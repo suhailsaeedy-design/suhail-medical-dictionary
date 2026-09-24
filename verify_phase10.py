@@ -5,7 +5,7 @@ try: import yaml
 except Exception: yaml=None
 root=Path(__file__).resolve().parent
 errors=[];notes=[]
-required=['admin-login.html','admin.html','assets/css/admin.css','assets/js/admin-owner-auth-v2.js','assets/js/admin-login-v2.js','assets/js/admin-loader-v2.js','data/admin-secure-config-v2.json','assets/js/admin-cloud-auth-v2.js','supabase/phase10_admin_metrics.sql','supabase/PHASE10_ADMIN_SETUP.md','PHASE10_REPORT_PASHTO.md','version.json','data/offline-packs.json','sw.js','.github/workflows/deploy-pages.yml']
+required=['admin-login.html','admin.html','assets/css/admin.css','assets/js/admin-owner-auth-v2.js','assets/js/admin-login-v2.js','assets/js/admin-loader-v2.js','data/admin-secure-config-v2.json','assets/js/admin-cloud-auth-v2.js','PHASE10_REPORT_PASHTO.md','version.json','data/offline-packs.json','sw.js','.github/workflows/deploy-pages.yml']
 for f in required:
     if not (root/f).is_file():errors.append(f'missing {f}')
 def load(p):
@@ -29,7 +29,7 @@ if ca.get('allowedRoles')!=['owner']:errors.append('allowed cloud admin roles mu
 if ca.get('sessionOnly') is not True:errors.append('private admin OAuth must be session-only')
 if 'ownerEmail' in ca:errors.append('owner email must not be exposed in public admin configuration')
 if 'requireSameAccount' in ca:errors.append('legacy local-account coupling should not be used for private admin authorization')
-if ca.get('metricsRpc')!='smd_ai_admin_metrics' or ca.get('aggregateOnly') is not True:errors.append('aggregate-only AI metrics contract missing')
+if ca.get('aggregateOnly') is not True or ca.get('authorizeAction')!='authorize' or ca.get('metricsAction')!='ai_metrics' or ca.get('updateAction')!='ai_update_fair_use':errors.append('gateway admin action contract missing')
 if privacy.get('showRawUserState') is not False or privacy.get('showOtherUserEmails') is not False:errors.append('admin privacy defaults must block raw cross-user state/emails')
 if privacy.get('cacheAdminPages') is not False:errors.append('admin pages should not be marked cacheable')
 if authcfg.get('security',{}).get('allowServiceRoleInBrowser') is not False:errors.append('browser service-role guard regressed')
@@ -57,16 +57,16 @@ for marker in ['getVerifiedUser','app_metadata:user.app_metadata||{}']:
     if marker not in cloudjs:errors.append(f'cloud-auth missing {marker}')
 # Admin runtime must be diagnostic/aggregate only.
 adminjs=(root/'assets/js/admin-loader-v2.js').read_text(encoding='utf-8')
-for marker in ['runDiagnostics','exportDiagnostics','verifiedCloudRole','metricsRpc','Cache Storage' if False else 'cacheAudit']:
-    if marker not in adminjs:errors.append(f'admin runtime missing {marker}')
+for marker in ['verifiedCloudRole','gatewayRequest','smd_private_admin_verified_v3:medical-dictionary','privateAdminBundleStyle','privateAdminBundleScript']:
+    if marker not in adminjs:errors.append(f'admin loader missing {marker}')
 if re.search(r'/rest/v1/(?:user_app_state|auth\.users)',adminjs):errors.append('admin browser must not fetch raw user_app_state/auth.users rows')
 if 'state jsonb' in adminjs or 'user_app_state?select=' in adminjs:errors.append('raw state query marker found in admin browser code')
-# SQL: security-definer implementation stays private; public wrapper security-invoker; explicit app_metadata role check.
-sql=(root/'supabase/phase10_admin_metrics.sql').read_text(encoding='utf-8')
-for marker in ['private.smd_admin_metrics()','security definer','public.smd_admin_metrics()','security invoker',"auth.jwt() -> 'app_metadata' ->> 'smd_role'",'revoke all on function public.smd_admin_metrics() from public, anon','grant execute on function public.smd_admin_metrics() to authenticated']:
-    if marker.lower() not in sql.lower():errors.append(f'Phase 10 SQL missing security marker: {marker}')
-if 'raw_user_meta_data' in sql:errors.append('Phase 10 SQL must not authorize from raw_user_meta_data')
-if re.search(r"jsonb_build_object\([^;]*'email'",sql,re.S|re.I):errors.append('admin metrics must not return email addresses')
+# Public admin client must use the verified Edge Function gateway, not privileged database RPCs.
+if '/rest/v1/rpc/' in authjs or '/rest/v1/rpc/' in adminjs:
+    errors.append('public admin client must not call privileged database RPCs directly')
+bundle=cfg.get('secureBundle',{})
+if bundle.get('transport')!='edge-function' or bundle.get('function')!='admin-gateway' or bundle.get('action')!='bundle':
+    errors.append('secure admin bundle gateway contract missing')
 # Admin routes/assets deliberately not in offline core.
 core=set(packs.get('core',{}).get('urls',[]));sw=(root/'sw.js').read_text(encoding='utf-8')
 for u in ['./admin.html','./admin-login.html','./assets/js/admin-loader-v2.js','./assets/js/admin-owner-auth-v2.js','./assets/js/admin-login-v2.js','./assets/js/admin-cloud-auth-v2.js','./assets/css/admin.css','./data/admin-secure-config-v2.json','./data/admin-auth-config-v2.json']:
