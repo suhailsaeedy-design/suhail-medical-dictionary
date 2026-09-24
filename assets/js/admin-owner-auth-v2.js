@@ -36,7 +36,12 @@
       cache:'no-store'
     });
     const body=await res.json().catch(()=>({}));
-    if(!res.ok)throw new Error(body?.error||body?.message||`Secure admin request failed (${res.status})`);
+    if(!res.ok){
+      const error=new Error(body?.error||body?.message||`Secure admin request failed (${res.status})`);
+      error.status=res.status;
+      error.blocked=body?.blocked===true;
+      throw error;
+    }
     return body;
   }
 
@@ -57,8 +62,14 @@
         role:ok?'owner':'',user,config:cfg,authStatus:st,
         reason:ok?'Verified owner session.':'This account is not authorized for private administration.'
       };
-    }catch{
-      return {enabled:true,authorized:false,config:cfg,authStatus:st,reason:'Sign-in verification failed.'};
+    }catch(err){
+      return {
+        enabled:true,authorized:false,config:cfg,authStatus:st,
+        blocked:err?.blocked===true,
+        reason:err?.blocked===true
+          ? 'Private administration is unavailable for this account or device.'
+          : 'Sign-in verification failed.'
+      };
     }
   }
 
