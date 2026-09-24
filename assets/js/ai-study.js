@@ -89,7 +89,7 @@
     if(!state.engine)return;const c=ensureChat();const box=$('#termResults');box.replaceChildren();let xs=q.trim()?state.engine.search(q,10):state.engine.terms.slice(0,10);if(!xs.length){box.append(el('div','empty-state','No matching bundled terms.'));return;}xs.forEach(x=>{const selected=c.contextIds.includes(x.id);const b=el('button','term-result'+(selected?' selected':''));b.type='button';b.dataset.toggleContext=x.id;b.append(el('b','',state.engine.localName(x,lang())),el('small','',`${x.category_label||x.category}${selected?' · Selected':''}`));box.append(b)});
   }
   function renderLabels(){
-    $('[data-ai-i18n]').forEach(n=>{const k=n.dataset.aiI18n;n.textContent=t(k)});$('#modeBadgeText').textContent='Online AI · fair-use';
+    $$('[data-ai-i18n]').forEach(n=>{const k=n.dataset.aiI18n;n.textContent=t(k)});$('#modeBadgeText').textContent='Online AI · fair-use';
   }
   function renderAll(){renderLabels();renderNav();renderMessages();renderContext();}
   window.addEventListener('smd21:languagechange',()=>renderAll());
