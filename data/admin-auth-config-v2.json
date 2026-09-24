@@ -1,0 +1,16 @@
+{
+  "version": "21.22.4-secure-admin-v2",
+  "enabled": true,
+  "provider": "google",
+  "supabaseUrl": "https://qdfylefkkkyjwtqqiuye.supabase.co",
+  "publishableKey": "sb_publishable_CQwb8FIM4lLL27T8xZGqCQ_sGT4phu7",
+  "redirectPath": "/suhail-medical-dictionary/auth-callback.html",
+  "sync": {
+    "enabled": true,
+    "table": "user_app_state"
+  },
+  "security": {
+    "allowServiceRoleInBrowser": false,
+    "sessionStorageOnly": true
+  }
+}
