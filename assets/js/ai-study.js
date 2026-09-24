@@ -59,7 +59,7 @@
   function section(parent,label,text){const s=el('div','result-section');s.append(el('b','',label),el('p','',text||'—'));parent.append(s)}
   function renderMatches(parent,ids){if(!ids?.length)return;const row=el('div','match-row');ids.map(termFor).filter(Boolean).forEach(x=>{const b=el('button','match-btn',state.engine.localName(x,lang()));b.dataset.addContext=x.id;row.append(b)});parent.append(row)}
   function renderResult(container,m){
-    const r=m.payload||{};const wrap=el('article','study-result');wrap.append(el('div','msg-meta','Local Study Engine'),el('h3','',r.heading||'Study result'));
+    const r=m.payload||{};const wrap=el('article','study-result');wrap.append(el('div','msg-meta','Bundled Study Tools'),el('h3','',r.heading||'Study result'));
     if(r.kind==='notice'||r.kind==='need-context'||r.kind==='search'){wrap.append(el('p','',r.body||''));renderMatches(wrap,r.matches);container.append(wrap);return;}
     if(r.kind==='explain'){
       const x=termFor(r.termId);if(x){section(wrap,'Definition',state.engine.definition(x,lang()));section(wrap,'Explanation',state.engine.explanation(x,lang()));section(wrap,'Category',x.category_label||x.category);const syn=el('div','result-section');syn.append(el('b','','Synonyms'));const sr=el('div','synonym-row');(x.synonyms||[]).forEach(s=>sr.append(el('span','',s)));if(!sr.children.length)sr.append(el('span','','No listed synonyms'));syn.append(sr);wrap.append(syn);section(wrap,'Source',x.source||'Bundled educational reference');}
