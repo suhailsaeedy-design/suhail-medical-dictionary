@@ -1,5 +1,5 @@
 {
-  "version": "21.22.4-secure-admin-v2",
+  "version": "21.22.5-secure-admin-gateway",
   "localDiagnostics": false,
   "cloudAdmin": {
     "enabled": true,
@@ -7,13 +7,17 @@
     "allowedRoles": [
       "owner"
     ],
-    "metricsRpc": "smd_ai_admin_metrics",
     "aggregateOnly": true,
-    "sessionOnly": true
+    "sessionOnly": true,
+    "authorizeAction": "authorize",
+    "metricsAction": "ai_metrics",
+    "updateAction": "ai_update_fair_use"
   },
   "secureBundle": {
     "enabled": true,
-    "rpc": "suhail_admin_bundle",
+    "transport": "edge-function",
+    "function": "admin-gateway",
+    "action": "bundle",
     "panels": [
       "medical-dictionary",
       "suhail-labs"
