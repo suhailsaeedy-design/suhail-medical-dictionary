@@ -69,9 +69,23 @@ def verify_core_pages() -> None:
         if any(bad in text for bad in bad_display_names):
             fail(f"{page}: creator surname must be spelled Saeedy")
 
+        ids=re.findall(r'\bid=["\']([^"\']+)["\']',text,re.IGNORECASE)
+        duplicate_ids=sorted({value for value in ids if ids.count(value)>1})
+        if duplicate_ids:
+            fail(f"{page}: duplicate HTML ids {duplicate_ids}")
+
         for tag in re.findall(r"<button\b[^>]*>", text, re.IGNORECASE):
             if not re.search(r"\btype\s*=", tag, re.IGNORECASE):
                 fail(f"{page}: every button must declare an explicit type")
+
+        for tag in re.findall(r"<img\b[^>]*>",text,re.IGNORECASE):
+            if not re.search(r"\balt\s*=",tag,re.IGNORECASE):
+                fail(f"{page}: every image must declare alt text")
+
+        for tag in re.findall(r"<a\b[^>]*target=[\"\']_blank[\"\'][^>]*>",text,re.IGNORECASE):
+            rel=re.search(r"\brel=[\"\']([^\"\']*)[\"\']",tag,re.IGNORECASE)
+            if not rel or "noopener" not in rel.group(1).lower():
+                fail(f"{page}: target=_blank links must include rel=noopener")
 
 
 def verify_dictionary_runtime_contract() -> None:
