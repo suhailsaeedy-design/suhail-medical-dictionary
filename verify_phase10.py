@@ -17,9 +17,11 @@ try:
     if vv[0]!=21 or vv<(21,9,0):errors.append('version.json must be v21.9.0 or newer for Phase 10')
 except Exception:errors.append('version semantic version invalid')
 try:
-    cv=tuple(int(x) for x in str(cfg.get('version','0.0.0')).split('.'))
+    match=re.match(r'^(\d+)\.(\d+)\.(\d+)',str(cfg.get('version','0.0.0')))
+    if not match: raise ValueError('version prefix missing')
+    cv=tuple(int(x) for x in match.groups())
     if cv<(21,9,0):errors.append('admin-config version must be 21.9.0 or newer')
-except Exception:errors.append('admin-config semantic version invalid')
+except Exception:errors.append('admin-config semantic version prefix invalid')
 ca=cfg.get('cloudAdmin',{});privacy=cfg.get('privacy',{})
 if ca.get('enabled') is not True:errors.append('verified cloud admin must be enabled in Phase 21')
 if ca.get('roleClaim')!='smd_role':errors.append('cloud admin role claim must be smd_role')
