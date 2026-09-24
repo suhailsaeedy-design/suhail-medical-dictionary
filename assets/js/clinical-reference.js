@@ -83,7 +83,7 @@
   function renderLearning(){
     $('#clinicalSpecialty').disabled=true;$('#clinicalSpecialty').innerHTML='<option>Learning routes</option>';$('#clinicalCount').textContent=`${(state.meta.learning_routes||[]).length} routes`;$('#clinicalList').innerHTML='<div class="clinical-empty">Choose a learning route from the panel at right.</div>';
     const routes=(state.meta.learning_routes||[]).map(r=>`<article class="learning-route"><h4>${esc(r.title)}</h4><p>${esc(r.text)}</p><a class="btn-ui" href="${esc(r.href)}">Open</a></article>`).join('');
-    $('#clinicalDetail').innerHTML=`<span class="reference-badge">Learning & Reference</span><h3>Continue learning</h3><section class="reference-section"><p>Move between the bundled Dictionary, Anatomy and Local Study Engine without introducing a required paid service.</p></section><div class="learning-routes">${routes}</div>`;
+    $('#clinicalDetail').innerHTML=`<span class="reference-badge">Learning & Reference</span><h3>Continue learning</h3><section class="reference-section"><p>Move between the bundled Dictionary, Anatomy and bundled study tools; online AI remains an optional connected service.</p></section><div class="learning-routes">${routes}</div>`;
   }
   function renderWorkspace(){
     const m=moduleMeta(state.module);$('#clinicalWorkspaceTitle').textContent=m.title||labels[state.module]||state.module;$('#clinicalWorkspaceNote').textContent=m.description||'Bundled educational reference.';renderTabs();
