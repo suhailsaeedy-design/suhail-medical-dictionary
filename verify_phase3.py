@@ -67,7 +67,7 @@ js=(root/'assets/js/ai-study.js').read_text(encoding='utf-8')
 engine=(root/'assets/js/study-engine.js').read_text(encoding='utf-8')
 for marker in ['newChat','chatList','messages','promptInput','sendBtn','termSearch','providerMode','renameModal','deleteModal','data-study-action="explain"','data-study-action="compare"','data-study-action="quiz"','data-study-action="flashcards"','data-study-action="summary"']:
     if marker not in ai: errors.append(f'ai.html missing feature marker: {marker}')
-for marker in ['smd21_ai_chats_','data-rename-chat','data-delete-chat','runCloud','contextIds','Local Study Engine','toggleContext']:
+for marker in ['smd21_ai_chats_','data-rename-chat','data-delete-chat','runCloud','contextIds','Bundled Study Tools','toggleContext']:
     if marker not in js: errors.append(f'ai-study.js missing runtime marker: {marker}')
 for marker in ['function create(','safetyRx','kind:\'compare\'','kind:\'quiz\'','kind:\'flashcards\'','kind:\'summary\'','kind:\'explain\'']:
     if marker not in engine: errors.append(f'study-engine.js missing engine marker: {marker}')
