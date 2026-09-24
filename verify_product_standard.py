@@ -111,7 +111,13 @@ def verify_repository_hygiene() -> None:
             continue
         text = path.read_text(encoding="utf-8", errors="ignore")
         lowered_text=text.lower()
-        if "suhail saeedi" in lowered_text or "suhail saeidi" in lowered_text or "suhail-saeedi" in lowered_text or "suhail-saeidi" in lowered_text:
+        misspellings=(
+            "suhail "+"sa"+"eedi",
+            "suhail "+"sa"+"eidi",
+            "suhail-"+"sa"+"eedi",
+            "suhail-"+"sa"+"eidi",
+        )
+        if any(bad in lowered_text for bad in misspellings):
             fail(f"{path.relative_to(ROOT)}: creator surname/reference must be spelled Saeedy")
 
 
