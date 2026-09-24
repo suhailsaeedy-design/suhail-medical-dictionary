@@ -13,9 +13,15 @@
     try{await SMD21CloudAuth.signOutRemote()}catch{}
     status(message,'bad');
   }
+  async function redirectBlocked(){
+    sessionStorage.removeItem(VERIFIED);sessionStorage.removeItem(PENDING);
+    try{await SMD21CloudAuth.signOutRemote()}catch{}
+    location.replace('/suhail-medical-dictionary/app.html#dictionary');
+  }
   async function openIfCurrentSessionIsOwner(){
     try{
       const auth=await SMD21AdminAuth.verifiedCloudRole();
+      if(auth.blocked){await redirectBlocked();return true}
       if(auth.authorized&&auth.authStatus?.source==='session'){
         setGate(auth);
         status('Verified owner session. Opening Medical Dictionary Admin…','ok');
@@ -29,6 +35,7 @@
     if(params.get('oauth')==='return'&&sessionStorage.getItem(PENDING)===panel){
       try{
         const auth=await SMD21AdminAuth.verifiedCloudRole();
+        if(auth.blocked){await redirectBlocked();return}
         if(!auth.authorized||auth.authStatus?.source!=='session'){await fail();return}
         setGate(auth);sessionStorage.removeItem(PENDING);
         status('Sign-in verified. Opening Medical Dictionary Admin…','ok');
