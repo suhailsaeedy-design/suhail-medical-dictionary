@@ -5,7 +5,7 @@
     "title": "Core Offline Shell",
     "description": "Sign-in/consent, Offline Packs manager, shared styles, icons and PWA controls.",
     "files": 46,
-    "bytes": 986202,
+    "bytes": 986204,
     "urls": [
       "./",
       "./index.html",
@@ -124,7 +124,7 @@
         "./data/ai-config.json",
         "./data/index.json"
       ],
-      "bytes": 863333,
+      "bytes": 863334,
       "files": 6
     }
   ]
