@@ -141,8 +141,8 @@ def verify_runtime_selector_contracts() -> None:
     for path in (ROOT / "assets" / "js").glob("*.js"):
         text = path.read_text(encoding="utf-8", errors="ignore")
         if "document.querySelector(s)" in text and "querySelectorAll(s)" in text:
-            if re.search(r"(?<!\$)\$\([^;\n]*?\)\.(?:forEach|map|filter|some|every)\s*\(", text):
-                fail(f"{path.relative_to(ROOT)}: list method used on single querySelector helper")
+            if re.search(r"(?<!\$)\$\(\s*(['\"])[^'\"]*\1\s*(?:,\s*[^)]*)?\)\.(?:forEach|map|filter|some|every)\s*\(", text):
+                fail(f"{path.relative_to(ROOT)}: list method used directly on single querySelector helper")
 
 
 def verify_browser_files_for_obvious_secrets() -> None:
