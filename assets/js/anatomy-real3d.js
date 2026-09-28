@@ -48,15 +48,9 @@
       layers:[{key:'bones',label:'Bones',type:'glb',asset:'skeleton',default:true,color:'#e2d9ba'}]
     },
     muscles:{
-      title:'Muscles + Neurovascular Layers',
+      title:'Detailed Muscles',
       layers:[
-        {key:'muscles',label:'Muscles',type:'atlas',system:'SYS-MUS',default:true,color:'#a8323f'},
-        {key:'arteries',label:'Arteries',type:'atlas',system:'SYS-ART',default:false,color:'#d63d43'},
-        {key:'veins',label:'Veins',type:'atlas',system:'SYS-VEN',default:false,color:'#3f72b5'},
-        {key:'nerves',label:'Nerves',type:'atlas',system:'SYS-NER',default:false,color:'#e0b64e'},
-        {key:'bones',label:'Bones',type:'atlas',system:'SYS-ESQ',default:false,color:'#e2d9ba',opacity:.22},
-        {key:'connective',label:'Connective',type:'atlas',system:'SYS-CON',default:false,color:'#69a797',opacity:.55},
-        {key:'surface',label:'Surface',type:'atlas',system:'SYS-INT',default:false,color:'#c1a080',opacity:.18}
+        {key:'muscles',label:'Muscles',type:'atlas',system:'SYS-MUS',default:true,color:'#a8323f'}
       ]
     },
     joints:{
@@ -384,11 +378,37 @@
 
     function muscleMaterial(name){
       const seed=hash01(name||'muscle');
-      const color=new THREE.Color().setHSL((.985+seed*.018)%1,.68+seed*.12,.29+seed*.10);
-      const m=makeMaterial(color,1,.67);
-      m.emissive=new THREE.Color(0x250407);
-      m.emissiveIntensity=.08;
+      const color=new THREE.Color().setHSL((.985+seed*.018)%1,.70+seed*.10,.29+seed*.11);
+      const m=makeMaterial(color,1,.60);
+      m.emissive=new THREE.Color(0x210305);
+      m.emissiveIntensity=.055;
       return m;
+    }
+
+    function eyeMaterial(name){
+      const n=String(name||'').toLowerCase();
+      let color=0xd7b7a9,opacity=1,roughness=.42,emissive=null;
+      if(/sclera/.test(n)){color=0xf0eee4;roughness=.30;}
+      else if(/cornea/.test(n)){color=0xc7eff7;opacity=.24;roughness=.08;}
+      else if(/iris/.test(n)){color=0x6a7f5b;roughness=.34;}
+      else if(/pupil/.test(n)){color=0x090b0c;roughness=.24;}
+      else if(/lens/.test(n)){color=0xeaf7ef;opacity=.30;roughness=.10;}
+      else if(/vitreous|aqueous/.test(n)){color=0xcfeaf0;opacity=.18;roughness=.10;}
+      else if(/retina/.test(n)){color=0xca6d62;roughness=.46;}
+      else if(/choroid/.test(n)){color=0x542b35;roughness=.52;}
+      else if(/optic/.test(n)){color=0xe6c75b;roughness=.55;}
+      else if(/lacrimal/.test(n)){color=0xd991a4;roughness=.50;}
+      else if(/ciliary/.test(n)){color=0x8d6656;roughness=.48;}
+      const m=makeMaterial(color,opacity,roughness);
+      if(opacity<.5){m.depthWrite=false;m.transparent=true;}
+      if(emissive){m.emissive=new THREE.Color(emissive);m.emissiveIntensity=.08;}
+      return m;
+    }
+
+    function atlasPartMaterial(system,name){
+      if(system==='SYS-MUS')return muscleMaterial(name);
+      if(system==='SYS-SEN'&&RX.eye.test(String(name||'')))return eyeMaterial(name);
+      return null;
     }
 
     async function loadAtlasSystem(system){
@@ -417,7 +437,7 @@
         geometry.computeBoundingBox();
         geometry.computeBoundingSphere();
         geometryDisposables.add(geometry);
-        const partMaterial=system==='SYS-MUS'?muscleMaterial(part.name||part.id):group.userData.smdMaterial;
+        const partMaterial=atlasPartMaterial(system,part.name||part.id)||group.userData.smdMaterial;
         const mesh=new THREE.Mesh(geometry,partMaterial);
         mesh.name=part.name||part.id;
         mesh.userData.smdBaseMaterial=partMaterial;
@@ -447,7 +467,7 @@
         let m=o.userData.smdBaseMaterial||o.material;
         if(!seen.has(m)){
           seen.add(m);
-          if(spec.color&&spec.type!=='glb'&&spec.system!=='SYS-MUS')m.color.set(spec.color);
+          if(spec.color&&spec.type!=='glb'&&spec.system!=='SYS-MUS'&&spec.system!=='SYS-SEN')m.color.set(spec.color);
           m.opacity=opacity;
           m.transparent=opacity<.999;
           m.depthWrite=opacity>.45;

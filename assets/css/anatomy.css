@@ -402,3 +402,29 @@
     min-height:520px!important;
   }
 }
+
+
+/* v21.28 pure-muscle mode + in-canvas mobile detail behavior */
+@media(max-width:860px){
+  .anatomy-viewer.atlas-mode .detail-panel{
+    display:none!important;
+  }
+  .anatomy-viewer.atlas-mode .viewer-grid{
+    grid-template-columns:1fr!important;
+  }
+  .anatomy-viewer.atlas-mode .canvas-card{
+    order:1;
+  }
+  .anatomy-viewer.atlas-mode .structure-panel{
+    order:2;
+  }
+}
+@media(max-width:700px){
+  .anatomy-viewer.atlas-mode .real3d-popup{
+    z-index:20!important;
+    bottom:52px!important;
+  }
+  .anatomy-viewer.atlas-mode .canvas-stage{
+    scroll-margin-top:110px;
+  }
+}

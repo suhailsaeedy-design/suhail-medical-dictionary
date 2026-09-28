@@ -1,11 +1,11 @@
 {
-  "version": "21.27.0",
-  "cache_prefix": "smd-v21-phase29-pack-",
+  "version": "21.28.0",
+  "cache_prefix": "smd-v21-phase30-pack-",
   "core": {
     "title": "Core Offline Shell",
     "description": "Sign-in/consent, Offline Packs manager, shared styles, icons and PWA controls.",
     "files": 46,
-    "bytes": 987597,
+    "bytes": 987824,
     "urls": [
       "./",
       "./index.html",
@@ -88,8 +88,8 @@
       "id": "anatomy",
       "icon": "◈",
       "title": "3D Anatomy Systems",
-      "description": "Offline anatomy study tools plus a detailed online human atlas with full BodyParts3D muscle rendering, green selection highlight and mobile touch controls.",
-      "detail": "Caches the local viewer, catalogs and fallback geometry. Online Muscles uses the detailed BodyParts3D muscular system as the primary layer, with optional arteries, veins, nerves, bones and connective tissues. Tap selection turns the chosen structure bright green; the default camera opens from the anterior/front view.",
+      "description": "Offline anatomy study tools plus a detailed online human atlas with pure Muscles, realistic Eye materials, green selection and mobile touch controls.",
+      "detail": "Caches the local viewer, catalogs and fallback geometry. Online Muscles opens as a pure muscular system; arteries/veins, nerves and other systems stay in their own dedicated sections. Eye mode uses part-specific anatomical materials, and all detailed modes open at the viewer instead of leaving the user scrolled into the lower detail area.",
       "urls": [
         "./anatomy.html",
         "./assets/css/anatomy.css",
@@ -109,7 +109,7 @@
         "./assets/models/sinuses-model.json",
         "./data/crosslinks.json"
       ],
-      "bytes": 561507,
+      "bytes": 562954,
       "files": 17
     },
     {

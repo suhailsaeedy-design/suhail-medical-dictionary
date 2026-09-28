@@ -139,6 +139,7 @@
     $$('.mode-btn').forEach(b=>{const on=b.dataset.mode===state.mode;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
     const detailedMode=state.mode==='skeleton'||state.mode==='muscles';
     const atlasMode=Boolean(real3d?.supportsMode?.(state.mode));
+    $('#anatomyViewer').classList.toggle('atlas-mode',atlasMode);
     $('#layerSelect').classList.toggle('hidden',atlasMode||state.mode!=='muscles');
     $('#sexSelect').classList.toggle('hidden',atlasMode);
     $('#skeletonBaseWrap').classList.toggle('hidden',atlasMode||!meta().base);
@@ -154,7 +155,14 @@
     }).catch(()=>{});
   }
 
-  function enterViewer(mode){$('#anatomyChooser').classList.add('hidden');$('#anatomyViewer').classList.remove('hidden');setMode(mode);requestAnimationFrame(()=>{resizeCanvas();requestAnimationFrame(resizeCanvas)});setTimeout(resizeCanvas,90);}
+  function enterViewer(mode){
+    $('#anatomyChooser').classList.add('hidden');
+    $('#anatomyViewer').classList.remove('hidden');
+    window.scrollTo(0,0);
+    setMode(mode);
+    requestAnimationFrame(()=>{window.scrollTo(0,0);resizeCanvas();requestAnimationFrame(resizeCanvas)});
+    setTimeout(()=>{window.scrollTo(0,0);resizeCanvas();},90);
+  }
   function backToChooser(){state.selected=null;state.isolate=false;$('#isolateToggle').classList.remove('active');$('#isolateToggle').setAttribute('aria-pressed','false');real3d?.setIsolate?.(false);real3d?.hide?.();$('#anatomyViewer').classList.add('hidden');$('#anatomyChooser').classList.remove('hidden');window.speechSynthesis?.cancel?.();window.scrollTo({top:0,behavior:'smooth'});}
 
   function sexAdjust(p,obj){let[x,y,z]=p;if(state.sex==='female'){if(obj.region==='pelvis')x*=1.11;if(obj.region==='shoulder'||obj.region==='chest')x*=.96;}return[x,y,z];}
