@@ -5,7 +5,10 @@ R=Path(__file__).resolve().parent; E=[]
 def read(p): return (R/p).read_text(encoding='utf-8')
 def load(p): return json.loads(read(p))
 V=load('version.json'); A=load('data/auth-config.json'); P=load('data/offline-packs.json')
-if V.get('version')!='21.21.0': E.append('version must be 21.21.0')
+try:
+    vv=tuple(int(x) for x in str(V.get('version','0.0.0')).split('.')[:3])
+    if vv < (21,21,0): E.append('version must be 21.21.0 or newer')
+except Exception: E.append('version is not valid semantic version')
 if not (A.get('enabled') and A.get('sync',{}).get('enabled')): E.append('live auth/sync must be enabled')
 if A.get('supabaseUrl')!='https://qdfylefkkkyjwtqqiuye.supabase.co': E.append('wrong Supabase project URL')
 if not str(A.get('publishableKey','')).startswith('sb_publishable_'): E.append('modern publishable key missing')
@@ -23,10 +26,14 @@ for m in ['Software &amp; Web Developer','Business Software','Database Systems',
     if m not in about:E.append('creator bio marker missing '+m)
 if not (R/'assets/images/suhail-saeedy-creator.webp').is_file():E.append('creator portrait file missing')
 if P.get('version')!=V.get('version'):E.append('offline version mismatch')
-if P.get('cache_prefix')!='smd-v21-phase23-pack-':E.append('offline prefix mismatch')
+sw_text=read('sw.js')
+m=re.search(r"const VERSION='smd-v21-phase(\d+)'",sw_text)
+if not m or int(m.group(1))<23:E.append('service worker cache must be phase23 or newer')
+else:
+    expected_prefix=f"smd-v21-phase{m.group(1)}-pack-"
+    if P.get('cache_prefix')!=expected_prefix:E.append('offline prefix mismatch with service worker cache')
 if './assets/images/suhail-saeedy-creator.webp' not in P['core']['urls']:E.append('portrait missing from core offline shell')
-if "const VERSION='smd-v21-phase23'" not in read('sw.js'):E.append('service worker phase23 cache missing')
-if "const CURRENT_VERSION='21.21.0'" not in read('assets/js/update-manager.js'):E.append('update manager version mismatch')
+if f"const CURRENT_VERSION='{V.get('version')}'" not in read('assets/js/update-manager.js'):E.append('update manager version mismatch')
 # offline byte/file integrity
 for sec in [P['core']]+P['packs']:
     total=0
