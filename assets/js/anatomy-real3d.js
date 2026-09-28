@@ -50,7 +50,7 @@
     muscles:{
       title:'Detailed Muscles',
       layers:[
-        {key:'muscles',label:'Muscles',type:'atlas',system:'SYS-MUS',default:true,color:'#a8323f'}
+        {key:'muscles',label:'Muscles',type:'glb',asset:'muscles',default:true,color:'#a8323f'}
       ]
     },
     joints:{
@@ -345,14 +345,35 @@
       root.traverse(o=>{
         if(!o.isMesh)return;
         const seed=hash01(o.userData?.concept||o.userData?.structureId||o.name||'');
-        let color=asset==='skeleton'?new THREE.Color(0xe8dfc5):new THREE.Color().setHSL((.985+seed*.025)%1,.60+seed*.17,.29+seed*.12);
-        const material=makeMaterial(color,1,asset==='skeleton'?.78:.82);
+        let material;
+        if(asset==='skeleton'){
+          material=makeMaterial(0xe8dfc5,1,.76);
+        }else{
+          const color=new THREE.Color().setHSL((.985+seed*.014)%1,.66+seed*.10,.31+seed*.07);
+          material=new THREE.MeshPhysicalMaterial({
+            color,
+            roughness:.54,
+            metalness:0,
+            clearcoat:.08,
+            clearcoatRoughness:.72,
+            sheen:.15,
+            sheenColor:new THREE.Color(0x5d0e17),
+            side:THREE.DoubleSide
+          });
+          material.emissive=new THREE.Color(0x240407);
+          material.emissiveIntensity=.035;
+          materialDisposables.add(material);
+        }
         o.material=material;
         o.userData.smdBaseMaterial=material;
         o.userData.smdSystem=asset==='skeleton'?'SYS-ESQ':'SYS-MUS';
         o.userData.smdName=o.userData?.concept||o.userData?.displayName||o.name||o.userData?.structureId||'Anatomical structure';
         o.userData.smdSearch=[o.userData.smdName,o.userData?.structureId,o.userData?.sourceId,o.parent?.name].filter(Boolean).map(clean);
-        if(o.geometry){o.geometry.computeBoundingBox();o.geometry.computeBoundingSphere();}
+        if(o.geometry){
+          o.geometry.computeBoundingBox();
+          o.geometry.computeBoundingSphere();
+          if(!o.geometry.attributes.normal)o.geometry.computeVertexNormals();
+        }
       });
     }
 
