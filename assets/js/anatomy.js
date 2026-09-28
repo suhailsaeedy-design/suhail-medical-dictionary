@@ -7,6 +7,9 @@
   const canvas = $('#anatomyCanvas');
   const stage = $('#canvasStage');
   const ctx = canvas.getContext('2d', { alpha: true });
+  const webglCanvas = $('#anatomyWebGLCanvas');
+  const renderer = window.SMD3DRenderer?.create?.(webglCanvas, stage) || null;
+  if(renderer?.supported)stage?.classList.add('webgl-active');
 
   const MODE_META = {
     skeleton: { title:'3D Skeleton', eyebrow:'Skeleton', singular:'bone', model:'assets/models/skeleton-model.json', centerY:0, scale:1, base:false },
@@ -50,6 +53,7 @@
     pinchCenter:null,
     raf:0
   };
+  const usingWebGL=(mode=state.mode)=>Boolean(renderer?.supported&&renderer.canRender(mode));
 
   function esc(s='') { return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m])); }
   const ui=(text)=>window.SMD21I18N?.translateExact?.(text)||text;
@@ -129,7 +133,7 @@
     renderList();renderDetail();if(reset)resetView(false);else scheduleDraw();
   }
 
-  function enterViewer(mode){$('#anatomyChooser').classList.add('hidden');$('#anatomyViewer').classList.remove('hidden');setMode(mode);requestAnimationFrame(()=>resizeCanvas());}
+  function enterViewer(mode){$('#anatomyChooser').classList.add('hidden');$('#anatomyViewer').classList.remove('hidden');setMode(mode);requestAnimationFrame(()=>{resizeCanvas();requestAnimationFrame(resizeCanvas)});setTimeout(resizeCanvas,90);}
   function backToChooser(){state.selected=null;$('#anatomyViewer').classList.add('hidden');$('#anatomyChooser').classList.remove('hidden');window.speechSynthesis?.cancel?.();window.scrollTo({top:0,behavior:'smooth'});}
 
   function sexAdjust(p,obj){let[x,y,z]=p;if(state.sex==='female'){if(obj.region==='pelvis')x*=1.11;if(obj.region==='shoulder'||obj.region==='chest')x*=.96;}return[x,y,z];}
@@ -165,6 +169,7 @@
   function drawObject(obj,mode,scale,colors,hit=true,alpha=1){
     const w=canvas.clientWidth,h=canvas.clientHeight;const pts=obj.points.map(p=>project(transformPoint(p,obj,mode),w,h,scale));if(pts.length<2)return;
     const selected=state.selected===obj.id&&state.mode===mode;const width=Math.max(1.25,obj.width*scale*widthMultiplier(mode));const oc=objectColors(obj,mode,colors);
+    if(usingWebGL(mode)){if(hit&&alpha>.5)state.hitShapes.push({id:obj.id,mode,pts,width:Math.max(14,width+10),closed:!!obj.closed});return;}
     ctx.save();ctx.globalAlpha=alpha;ctx.beginPath();ctx.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i][0],pts[i][1]);if(obj.closed)ctx.closePath();ctx.lineCap='round';ctx.lineJoin='round';
     if(selected){ctx.strokeStyle=colors.selected;ctx.fillStyle=colors.selected;ctx.shadowColor=colors.selected;ctx.shadowBlur=14;}else{ctx.strokeStyle=oc.stroke;ctx.fillStyle=oc.fill;ctx.shadowBlur=0;}
     ctx.lineWidth=width;if(obj.fill){ctx.globalAlpha=selected?alpha:Math.min(alpha,.58);ctx.fill();ctx.globalAlpha=alpha;}ctx.stroke();
@@ -194,6 +199,7 @@
   }
 
   function drawSkeletonBase(scale,colors){
+    if(usingWebGL(state.mode))return;
     if(!meta().base||!state.skeletonBase||!state.models.skeleton)return;
     const base=[...state.models.skeleton.objects].sort((a,b)=>avgDepth(a,state.mode)-avgDepth(b,state.mode));
     for(const obj of base){const pts=obj.points.map(p=>project(transformPoint(p,obj,state.mode),canvas.clientWidth,canvas.clientHeight,scale));if(pts.length<2)continue;ctx.save();ctx.beginPath();ctx.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)ctx.lineTo(pts[i][0],pts[i][1]);if(obj.closed)ctx.closePath();ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle=colors.base;ctx.fillStyle=colors.base;ctx.lineWidth=Math.max(1,obj.width*scale*2.35);if(obj.fill)ctx.fill();ctx.stroke();ctx.restore();}
@@ -202,12 +208,13 @@
   function draw(){
     state.raf=0;if(!canvas.width||!modelForMode())return;const w=canvas.clientWidth,h=canvas.clientHeight,dpr=Math.min(window.devicePixelRatio||1,2);ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
     const scale=Math.min(w/3.05,h/9.8)*state.zoom*meta().scale;const colors=themeColors();state.hitShapes=[];
+    renderer?.render?.({mode:state.mode,model:modelForMode(),skeletonModel:state.models.skeleton,selected:state.selected,layer:state.layer,isolate:state.isolate,skeletonBase:state.skeletonBase,yaw:state.yaw,pitch:state.pitch,zoom:state.zoom,panX:state.panX,panY:state.panY,sex:state.sex,centerY:meta().centerY,modeScale:meta().scale,lightTheme:document.documentElement.dataset.theme==='light'});
     ctx.save();ctx.globalAlpha=.28;ctx.strokeStyle='rgba(80,190,235,.22)';ctx.lineWidth=1;const gy=h/2+state.panY+(meta().centerY?0:4.82*scale);ctx.beginPath();ctx.moveTo(Math.max(12,w/2-1.35*scale),gy);ctx.lineTo(Math.min(w-12,w/2+1.35*scale),gy);ctx.stroke();ctx.restore();
     drawSkeletonBase(scale,colors);
     const objects=[...modelObjects()].sort((a,b)=>avgDepth(a)-avgDepth(b));for(const obj of objects)drawObject(obj,state.mode,scale,colors,true,1);drawLabels(scale,colors);
   }
   function scheduleDraw(){if(!state.raf)state.raf=requestAnimationFrame(draw);}
-  function resizeCanvas(){if(!stage||stage.classList.contains('hidden'))return;const rect=stage.getBoundingClientRect();if(rect.width<20||rect.height<20)return;const dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.max(1,Math.floor(rect.width*dpr));canvas.height=Math.max(1,Math.floor(rect.height*dpr));canvas.style.width=`${rect.width}px`;canvas.style.height=`${rect.height}px`;scheduleDraw();}
+  function resizeCanvas(){if(!stage||stage.classList.contains('hidden'))return;const rect=stage.getBoundingClientRect();if(rect.width<20||rect.height<20)return;const dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.max(1,Math.floor(rect.width*dpr));canvas.height=Math.max(1,Math.floor(rect.height*dpr));canvas.style.width=`${rect.width}px`;canvas.style.height=`${rect.height}px`;renderer?.resize?.(rect.width,rect.height,dpr);scheduleDraw();}
 
   function pointSegmentDistance(px,py,a,b){const vx=b[0]-a[0],vy=b[1]-a[1],wx=px-a[0],wy=py-a[1],c1=vx*wx+vy*wy,c2=vx*vx+vy*vy;let t=c2?c1/c2:0;t=Math.max(0,Math.min(1,t));const dx=px-(a[0]+t*vx),dy=py-(a[1]+t*vy);return Math.hypot(dx,dy);}
   function pointInPolygon(x,y,pts){let inside=false;for(let i=0,j=pts.length-1;i<pts.length;j=i++){const xi=pts[i][0],yi=pts[i][1],xj=pts[j][0],yj=pts[j][1],hit=((yi>y)!=(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi+.000001)+xi);if(hit)inside=!inside;}return inside;}
@@ -251,6 +258,6 @@
   window.addEventListener('smd21:languagechange',()=>{setMode(state.mode,{reset:false});renderDetail();});
   $('#signOutBtn').addEventListener('click',async()=>{await SMD21Auth.signOut();location.href='index.html';});const a=SMD21Auth.getAccount();$('#accountEmail').textContent=a?.email||'Local account';
   document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#topSearch').focus();}if(e.key==='Escape'){toggleMenu(false);}});
-  window.addEventListener('resize',resizeCanvas);new ResizeObserver(resizeCanvas).observe(stage);new MutationObserver(scheduleDraw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  window.addEventListener('resize',resizeCanvas);window.visualViewport?.addEventListener('resize',resizeCanvas);window.addEventListener('orientationchange',()=>setTimeout(resizeCanvas,120));new ResizeObserver(resizeCanvas).observe(stage);new MutationObserver(scheduleDraw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
   init();
 })();

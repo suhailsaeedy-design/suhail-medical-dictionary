@@ -1,11 +1,11 @@
 {
-  "version": "21.21.0",
-  "cache_prefix": "smd-v21-phase23-pack-",
+  "version": "21.22.0",
+  "cache_prefix": "smd-v21-phase24-pack-",
   "core": {
     "title": "Core Offline Shell",
     "description": "Sign-in/consent, Offline Packs manager, shared styles, icons and PWA controls.",
     "files": 46,
-    "bytes": 986204,
+    "bytes": 986388,
     "urls": [
       "./",
       "./index.html",
@@ -81,19 +81,20 @@
         "./assets/css/visual-polish.css",
         "./assets/js/visual-polish.js"
       ],
-      "bytes": 1205229,
+      "bytes": 1207929,
       "files": 17
     },
     {
       "id": "anatomy",
       "icon": "◈",
       "title": "3D Anatomy Systems",
-      "description": "206 bones, 50 major muscles and expanded joints, ligaments, organs, nerves, vessels, teeth, eye and sinus structures.",
-      "detail": "Includes the shared Anatomy viewer, English + Latin structure catalog, 10 selectable anatomy systems and bundled offline schematic model data.",
+      "description": "206 bones, 50 major muscles and expanded systems, with local WebGL 3D volume for Skeleton and Muscles.",
+      "detail": "Includes the shared Anatomy viewer, local WebGL renderer, English + Latin structure catalog, 10 selectable anatomy systems and bundled offline model data.",
       "urls": [
         "./anatomy.html",
         "./assets/css/anatomy.css",
         "./assets/js/anatomy.js",
+        "./assets/js/anatomy-webgl.js",
         "./data/anatomy/catalog.json",
         "./assets/models/skeleton-model.json",
         "./assets/models/muscles-model.json",
@@ -107,8 +108,8 @@
         "./assets/models/sinuses-model.json",
         "./data/crosslinks.json"
       ],
-      "bytes": 501132,
-      "files": 15
+      "bytes": 516768,
+      "files": 16
     },
     {
       "id": "study",

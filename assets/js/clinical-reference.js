@@ -46,7 +46,7 @@
     const t=(state.data?.terms||[]).find(x=>x.id===id);if(!t)return;
     state.selectedId=id;renderTermList();
     const synonyms=(t.synonyms||[]).length?(t.synonyms||[]).map(s=>`<span>${esc(s)}</span>`).join(''):'<span>No listed synonyms</span>';
-    $('#clinicalDetail').innerHTML=`<span class="reference-badge">${esc(labels[state.module]||'Reference')}</span><h3>${esc(termName(t))}</h3><div class="ref-category">${esc(t.category_label||t.category)}</div><section class="reference-section"><h4>Definition</h4><p>${esc(def(t))}</p></section><section class="reference-section"><h4>Explanation</h4><p>${esc(explain(t))}</p></section><section class="reference-section"><h4>Synonyms</h4><div class="reference-synonyms">${synonyms}</div></section><section class="reference-section"><h4>Source</h4><p class="reference-source">${esc(t.source||'Bundled educational reference')}</p></section><div class="reference-actions"><button class="btn-ui btn-primary-ui" type="button" data-open-dictionary-term="${esc(t.id)}">Open in Dictionary</button><a class="btn-ui" href="ai.html?term=${encodeURIComponent(t.id)}">Study in AI</a><button class="btn-ui" type="button" data-pronounce-ref="${esc(t.term)}">Pronounce</button></div>`;
+    const detail=$('#clinicalDetail');detail.classList.add('has-selection');detail.innerHTML=`<button class="clinical-detail-dismiss" type="button" data-close-clinical-detail aria-label="Close reference detail">×</button><span class="reference-badge">${esc(labels[state.module]||'Reference')}</span><h3>${esc(termName(t))}</h3><div class="ref-category">${esc(t.category_label||t.category)}</div><section class="reference-section"><h4>Definition</h4><p>${esc(def(t))}</p></section><section class="reference-section"><h4>Explanation</h4><p>${esc(explain(t))}</p></section><section class="reference-section"><h4>Synonyms</h4><div class="reference-synonyms">${synonyms}</div></section><section class="reference-section"><h4>Source</h4><p class="reference-source">${esc(t.source||'Bundled educational reference')}</p></section><div class="reference-actions"><button class="btn-ui btn-primary-ui" type="button" data-open-dictionary-term="${esc(t.id)}">Open in Dictionary</button><a class="btn-ui" href="ai.html?term=${encodeURIComponent(t.id)}">Study in AI</a><button class="btn-ui" type="button" data-pronounce-ref="${esc(t.term)}">Pronounce</button></div>`;
   }
   function renderCalculators(){
     $('#clinicalSpecialty').disabled=true;$('#clinicalSpecialty').innerHTML='<option>Numeric tools</option>';
@@ -85,19 +85,26 @@
     const routes=(state.meta.learning_routes||[]).map(r=>`<article class="learning-route"><h4>${esc(r.title)}</h4><p>${esc(r.text)}</p><a class="btn-ui" href="${esc(r.href)}">Open</a></article>`).join('');
     $('#clinicalDetail').innerHTML=`<span class="reference-badge">Learning & Reference</span><h3>Continue learning</h3><section class="reference-section"><p>Move between the bundled Dictionary, Anatomy and bundled study tools; online AI remains an optional connected service.</p></section><div class="learning-routes">${routes}</div>`;
   }
+  function showTermDetailEmpty(){
+    const detail=$('#clinicalDetail');if(!detail)return;
+    detail.classList.remove('has-selection');
+    detail.innerHTML='<div class="clinical-detail-empty"><span>✦</span><h4>Select a reference</h4><p>Choose an item to view its educational summary, synonyms, source and study links.</p></div>';
+  }
+  function clearTermDetail(){state.selectedId=null;renderTermList();showTermDetailEmpty();}
   function renderWorkspace(){
     const m=moduleMeta(state.module);$('#clinicalWorkspaceTitle').textContent=m.title||labels[state.module]||state.module;$('#clinicalWorkspaceNote').textContent=m.description||'Bundled educational reference.';renderTabs();
     const isSearchable=['conditions','procedures','drugs','calculators'].includes(state.module);$('#clinicalSearch').disabled=!isSearchable;$('#clinicalSearch').placeholder=isSearchable?'Search this reference module…':'Search is not needed for this module';
-    if(['conditions','procedures','drugs'].includes(state.module)){renderTermList();if(state.selectedId&&moduleTerms(state.module).some(x=>x.id===state.selectedId))renderTermDetail(state.selectedId);else $('#clinicalDetail').innerHTML='<div class="clinical-detail-empty"><span>✦</span><h4>Select a reference</h4><p>Choose an item to view its educational summary, synonyms, source and study links.</p></div>';}
+    if(['conditions','procedures','drugs'].includes(state.module)){renderTermList();if(state.selectedId&&moduleTerms(state.module).some(x=>x.id===state.selectedId))renderTermDetail(state.selectedId);else showTermDetailEmpty();}
     else if(state.module==='calculators')renderCalculators();else if(state.module==='interactions')renderSafety();else renderLearning();
   }
   function openModule(id){
     if(!labels[id])id='conditions';state.module=id;state.query='';state.specialty='all';state.selectedId=null;state.selectedCalc=null;$('#clinicalSearch').value='';workspace.classList.remove('hidden');renderWorkspace();requestAnimationFrame(()=>workspace.scrollIntoView({behavior:'smooth',block:'start'}));
   }
-  function closeWorkspace(){workspace.classList.add('hidden');state.selectedId=null;state.selectedCalc=null;}
+  function closeWorkspace(){workspace.classList.add('hidden');state.selectedId=null;state.selectedCalc=null;$('#clinicalDetail')?.classList.remove('has-selection');}
   function openTerm(id,module){const t=(state.data?.terms||[]).find(x=>x.id===id);if(!t)return false;const m=module||t.reference_module;if(!['conditions','procedures','drugs'].includes(m))return false;openModule(m);renderTermDetail(id);return true;}
 
   document.addEventListener('click',e=>{
+    const detailClose=e.target.closest('[data-close-clinical-detail]');if(detailClose){clearTermDetail();return;}
     const mod=e.target.closest('[data-clinical-module]');if(mod){openModule(mod.dataset.clinicalModule);return;}
     const tab=e.target.closest('[data-clinical-tab]');if(tab){openModule(tab.dataset.clinicalTab);return;}
     const item=e.target.closest('[data-clinical-item]');if(item){renderTermDetail(item.dataset.clinicalItem);return;}
