@@ -1,11 +1,11 @@
 {
-  "version": "21.30.0",
-  "cache_prefix": "smd-v21-phase32-pack-",
+  "version": "21.31.0",
+  "cache_prefix": "smd-v21-phase33-pack-",
   "core": {
     "title": "Core Offline Shell",
     "description": "Sign-in/consent, Offline Packs manager, shared styles, icons and PWA controls.",
     "files": 46,
-    "bytes": 988212,
+    "bytes": 988461,
     "urls": [
       "./",
       "./index.html",
@@ -88,8 +88,8 @@
       "id": "anatomy",
       "icon": "◈",
       "title": "3D Anatomy Systems",
-      "description": "Offline anatomy study tools plus a detailed online human atlas with an MRI-based BodyExplorer-derived écorché muscle model, natural tissue shading, green selection and mobile touch controls.",
-      "detail": "Caches the local viewer, catalogs and fallback geometry. Online Muscles loads a Draco-compressed BodyExplorer-derived écorché built from BodyParts3D and Z-Anatomy, with muscle/tendon-specific materials and green tap selection. Other anatomy systems remain in their dedicated sections.",
+      "description": "Offline anatomy study tools plus a detailed online human atlas with high-detail Z-Anatomy myology, studio tissue rendering, green selection and mobile touch controls.",
+      "detail": "Caches the local viewer, catalogs and fallback geometry. Online Muscles loads a higher-detail Z-Anatomy muscular-system GLB with separate muscle/connective-tissue materials, studio environment lighting and subtle fiber surface treatment where UVs are available. Other anatomy systems remain in their dedicated sections.",
       "urls": [
         "./anatomy.html",
         "./assets/css/anatomy.css",
@@ -109,7 +109,7 @@
         "./assets/models/sinuses-model.json",
         "./data/crosslinks.json"
       ],
-      "bytes": 564672,
+      "bytes": 568567,
       "files": 17
     },
     {

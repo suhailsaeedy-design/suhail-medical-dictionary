@@ -4,6 +4,9 @@
   const ASSET_ROOT='https://raw.githubusercontent.com/dev-christianmendes/anatomia_humana_3d/main/frontend/public/models';
   const MODEL_URLS={
     skeleton:ASSET_ROOT+'/bodyparts3d-skeleton.glb',
+    muscles:'https://raw.githubusercontent.com/Liyucheng1997/242_lab-human-anatomy/main/public/models/muscular.glb'
+  };
+  const MODEL_FALLBACK_URLS={
     muscles:'https://raw.githubusercontent.com/yogawithagnesc/yoga-app/main/assets/anatomy3d/muscles.glb'
   };
   const ATLAS_URL=ASSET_ROOT+'/fullbody/atlas.json';
@@ -13,6 +16,7 @@
     loader:'https://esm.sh/three@0.180.0/examples/jsm/loaders/GLTFLoader.js?target=es2020',
     controls:'https://esm.sh/three@0.180.0/examples/jsm/controls/OrbitControls.js?target=es2020',
     draco:'https://esm.sh/three@0.180.0/examples/jsm/loaders/DRACOLoader.js?target=es2020',
+    room:'https://esm.sh/three@0.180.0/examples/jsm/environments/RoomEnvironment.js?target=es2020',
     meshopt:'https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/libs/meshopt_decoder.module.js',
     pako:'https://esm.sh/pako@2.1.0?target=es2020'
   };
@@ -167,7 +171,7 @@
     stage.append(help);
 
     let libPromise=null,atlasPromise=null,pakoPromise=null;
-    let THREE=null,GLTFLoader=null,OrbitControls=null,DRACOLoader=null,MeshoptDecoder=null;
+    let THREE=null,GLTFLoader=null,OrbitControls=null,DRACOLoader=null,RoomEnvironment=null,MeshoptDecoder=null;
     let renderer=null,scene=null,camera=null,controls=null,raycaster=null,pointer=null;
     let currentMode=null,currentAssembly=null,selectedMesh=null,entries=[];
     let labels=true,isolate=false,active=false,loadingToken=0,raf=0;
@@ -191,17 +195,19 @@
     async function libraries(){
       if(libPromise)return libPromise;
       libPromise=(async()=>{
-        const [threeMod,loaderMod,controlsMod,dracoMod,meshoptMod]=await Promise.all([
+        const [threeMod,loaderMod,controlsMod,dracoMod,roomMod,meshoptMod]=await Promise.all([
           import(MODULE_URLS.three),
           import(MODULE_URLS.loader),
           import(MODULE_URLS.controls),
           import(MODULE_URLS.draco),
+          import(MODULE_URLS.room),
           import(MODULE_URLS.meshopt)
         ]);
         THREE=threeMod;
         GLTFLoader=loaderMod.GLTFLoader;
         OrbitControls=controlsMod.OrbitControls;
         DRACOLoader=dracoMod.DRACOLoader;
+        RoomEnvironment=roomMod.RoomEnvironment;
         MeshoptDecoder=meshoptMod.MeshoptDecoder;
         return true;
       })();
@@ -234,10 +240,15 @@
       renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'high-performance'});
       renderer.outputColorSpace=THREE.SRGBColorSpace;
       renderer.toneMapping=THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure=1.22;
+      renderer.toneMappingExposure=1.16;
       renderer.setClearColor(0x000000,0);
 
       scene=new THREE.Scene();
+      if(RoomEnvironment){
+        const pmrem=new THREE.PMREMGenerator(renderer);
+        scene.environment=pmrem.fromScene(new RoomEnvironment(),.035).texture;
+        pmrem.dispose();
+      }
       camera=new THREE.PerspectiveCamera(32,1,.01,100000);
       controls=new OrbitControls(camera,canvas);
       controls.enableDamping=true;
@@ -256,12 +267,12 @@
         controls.touches.TWO=THREE.TOUCH.DOLLY_PAN;
       }
 
-      scene.add(new THREE.HemisphereLight(0xf3f7fa,0x4b2c2b,1.08));
-      scene.add(new THREE.AmbientLight(0xffffff,.30));
-      const key=new THREE.DirectionalLight(0xfff3e7,2.25);key.position.set(-4,8,6);scene.add(key);
-      const fill=new THREE.DirectionalLight(0xb8d7ee,.72);fill.position.set(5,3,3);scene.add(fill);
-      const rim=new THREE.DirectionalLight(0xff9c83,.62);rim.position.set(2,4,-6);scene.add(rim);
-      const front=new THREE.DirectionalLight(0xffffff,.58);front.position.set(0,3,8);scene.add(front);
+      scene.add(new THREE.HemisphereLight(0xf8f6f2,0x4a2a29,.82));
+      scene.add(new THREE.AmbientLight(0xffffff,.22));
+      const key=new THREE.DirectionalLight(0xfff1df,1.48);key.position.set(-4,8,7);scene.add(key);
+      const fill=new THREE.DirectionalLight(0xd7e7f3,.52);fill.position.set(5,3,4);scene.add(fill);
+      const rim=new THREE.DirectionalLight(0xffb29d,.42);rim.position.set(2,5,-7);scene.add(rim);
+      const front=new THREE.DirectionalLight(0xffffff,.46);front.position.set(0,3,9);scene.add(front);
 
       raycaster=new THREE.Raycaster();
       pointer=new THREE.Vector2();
@@ -346,36 +357,73 @@
       return m;
     }
 
+    let muscleFiberTexture=null;
+    function getMuscleFiberTexture(){
+      if(muscleFiberTexture||!THREE)return muscleFiberTexture;
+      const c=document.createElement('canvas');c.width=128;c.height=128;
+      const ctx=c.getContext('2d');
+      const img=ctx.createImageData(128,128);
+      for(let y=0;y<128;y++){
+        for(let x=0;x<128;x++){
+          const wave=Math.sin((y*.92)+(Math.sin(x*.12)*2.6))*16;
+          const fine=Math.sin((y*2.9)+(x*.04))*6;
+          const noise=((x*17+y*31)%19)-9;
+          const v=Math.max(0,Math.min(255,128+wave+fine+noise));
+          const i=(y*128+x)*4;
+          img.data[i]=img.data[i+1]=img.data[i+2]=v;img.data[i+3]=255;
+        }
+      }
+      ctx.putImageData(img,0,0);
+      muscleFiberTexture=new THREE.CanvasTexture(c);
+      muscleFiberTexture.wrapS=muscleFiberTexture.wrapT=THREE.RepeatWrapping;
+      muscleFiberTexture.repeat.set(7,24);
+      muscleFiberTexture.colorSpace=THREE.NoColorSpace;
+      muscleFiberTexture.needsUpdate=true;
+      return muscleFiberTexture;
+    }
+
     function prepareGlb(root,asset){
-      root.userData.smdBaseRotationX=asset==='muscles'?-Math.PI/2:0;
+      root.userData.smdBaseRotationX=0;
       root.traverse(o=>{
         if(!o.isMesh)return;
         const rawName=o.userData?.concept||o.userData?.structureId||o.name||'';
         const seed=hash01(rawName);
         const lower=String(rawName).toLowerCase();
-        const connective=/tendon|ligament|retinaculum|aponeuros|fascia|membrane/.test(lower);
+        const connective=/tendon|ligament|retinaculum|aponeuros|fascia|membrane|raphe|linea alba/.test(lower);
+        const original=Array.isArray(o.material)?o.material[0]:o.material;
         let material;
         if(asset==='skeleton'){
           material=makeMaterial(0xe8dfc5,1,.76);
         }else if(connective){
           material=new THREE.MeshStandardMaterial({
-            color:new THREE.Color().setHSL(.10,.24,.77+seed*.06),
-            roughness:.48,
-            metalness:0,
-            side:THREE.DoubleSide
-          });
-          materialDisposables.add(material);
-        }else{
-          const color=new THREE.Color().setHSL((.012+seed*.012)%1,.56+seed*.12,.29+seed*.08);
-          material=new THREE.MeshStandardMaterial({
-            color,
-            roughness:.56,
+            color:new THREE.Color().setHSL(.105,.22,.80+seed*.045),
+            roughness:.46,
             metalness:0,
             side:THREE.DoubleSide,
             flatShading:false
           });
-          material.emissive=new THREE.Color(0x160203);
-          material.emissiveIntensity=.025;
+          materialDisposables.add(material);
+        }else{
+          const sourceColor=original?.color?.isColor?original.color.clone():new THREE.Color(0xb14a42);
+          const hsl={h:0,s:0,l:0};sourceColor.getHSL(hsl);
+          const color=new THREE.Color().setHSL(
+            .008+seed*.012,
+            Math.max(.48,Math.min(.72,hsl.s+.08)),
+            Math.max(.25,Math.min(.40,hsl.l+(seed-.5)*.055))
+          );
+          material=new THREE.MeshStandardMaterial({
+            color,
+            roughness:.49,
+            metalness:0,
+            side:THREE.DoubleSide,
+            flatShading:false
+          });
+          material.emissive=new THREE.Color(0x100102);
+          material.emissiveIntensity=.018;
+          if(o.geometry?.attributes?.uv){
+            material.bumpMap=getMuscleFiberTexture();
+            material.bumpScale=.012;
+          }
           materialDisposables.add(material);
         }
         o.material=material;
@@ -404,11 +452,23 @@
         draco.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/libs/draco/gltf/');
         loader.setDRACOLoader(draco);
       }
-      const root=await new Promise((resolve,reject)=>{
-        loader.load(MODEL_URLS[asset],g=>resolve(g.scene||g.scenes?.[0]),undefined,reject);
+      const loadOne=(url)=>new Promise((resolve,reject)=>{
+        loader.load(url,g=>resolve(g.scene||g.scenes?.[0]),undefined,reject);
       });
+      let root;
+      let baseRotationX=0;
+      try{
+        root=await loadOne(MODEL_URLS[asset]);
+      }catch(error){
+        const fallback=MODEL_FALLBACK_URLS[asset];
+        if(!fallback)throw error;
+        console.warn('Primary '+asset+' mesh failed; using fallback.',error);
+        root=await loadOne(fallback);
+        if(asset==='muscles')baseRotationX=-Math.PI/2;
+      }
       if(!root)throw new Error('Detailed '+asset+' model did not contain a scene.');
       prepareGlb(root,asset);
+      root.userData.smdBaseRotationX=baseRotationX;
       glbCache.set(asset,root);
       return root;
     }
@@ -699,6 +759,7 @@
 
     async function setMode(mode,nextEntries=[]){
       currentMode=mode;
+      stage.dataset.real3dMode=mode;
       entries=Array.isArray(nextEntries)?nextEntries:[];
       labels=labels!==false;
       selectedMesh=null;

@@ -428,3 +428,39 @@
     scroll-margin-top:110px;
   }
 }
+
+
+/* v21.31 high-detail muscle presentation */
+.canvas-stage[data-real3d-mode="muscles"].real3d-active{
+  background:
+    radial-gradient(circle at 50% 27%,rgba(255,255,255,.28),rgba(174,179,183,.23) 38%,rgba(88,96,103,.28) 72%,rgba(42,49,55,.36)),
+    linear-gradient(180deg,rgba(223,226,228,.36),rgba(88,96,103,.16));
+  border-color:rgba(255,255,255,.22);
+}
+[data-theme="light"] .canvas-stage[data-real3d-mode="muscles"].real3d-active{
+  background:
+    radial-gradient(circle at 50% 25%,rgba(255,255,255,.92),rgba(214,219,222,.78) 44%,rgba(171,178,183,.74) 100%);
+}
+.canvas-stage[data-real3d-mode="muscles"].real3d-active::before{
+  opacity:.14;
+}
+.canvas-stage[data-real3d-mode="muscles"] .orientation-cube{
+  background:rgba(70,76,82,.48);
+  border-color:rgba(255,255,255,.24);
+  color:#fff;
+}
+.canvas-stage[data-real3d-mode="muscles"] .real3d-help{
+  background:rgba(248,249,250,.88);
+  color:#43505a;
+  border-color:rgba(81,94,103,.18);
+}
+[data-theme="dark"] .canvas-stage[data-real3d-mode="muscles"] .real3d-help{
+  background:rgba(34,41,47,.82);
+  color:#eef5f8;
+}
+@media(max-width:700px){
+  .canvas-stage[data-real3d-mode="muscles"]{
+    height:clamp(540px,69dvh,720px)!important;
+    min-height:540px!important;
+  }
+}
