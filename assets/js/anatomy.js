@@ -74,7 +74,7 @@
 
   function renderList(){
     const arr=visibleEntries(); const total=entriesForMode().length;
-    $('#structureCount').textContent=`${arr.length}/${total}`;
+    $('#structureCount').textContent=real3d?.supportsMode?.(state.mode)?`${arr.length} study refs`:`${arr.length}/${total}`;
     const list=$('#structureList');
     if(!arr.length){list.innerHTML=`<div class="empty-state" style="padding:24px 10px">${ui('No matching structures.')}</div>`;return;}
     list.innerHTML=arr.map(x=>`<button class="structure-item ${state.selected===x.id?'selected':''}" data-structure-id="${esc(x.id)}" role="option" aria-selected="${state.selected===x.id}"><b>${esc(x.name)}</b><small>${esc(x.latin)} · ${esc(x.location)}</small></button>`).join('');
@@ -121,7 +121,8 @@
   function renderRealMeshDetail(name,location,description){
     state.selected=null;renderList();
     $('#pronounceBtn').disabled=true;
-    $('#detailType').textContent=state.mode==='skeleton'?'Detailed 3D bone mesh':'Detailed 3D muscle mesh';
+    const typeNames={skeleton:'bone',muscles:'muscle',joints:'joint',ligaments:'ligament',organs:'organ',nerves:'nerve',vessels:'vessel',teeth:'tooth',eye:'eye',sinuses:'sinus'};
+    $('#detailType').textContent=`Detailed 3D ${typeNames[state.mode]||'anatomy'} structure`;
     $('#structureName').textContent=name||'Selected 3D structure';
     $('#structureLatin').textContent='Open reference mesh';
     $('#structureLocation').textContent=location||'Human anatomy';
@@ -143,7 +144,7 @@
     $('#skeletonBaseWrap').classList.toggle('hidden',atlasMode||!meta().base);
     $('#viewerEyebrow').textContent=`${ui(meta().eyebrow)} · ${uiCount(entriesForMode().length,'structures')}`;
     if(state.mode==='skeleton')$('#viewerEyebrow').textContent=`${ui('Skeleton')} · ${uiCount(206,'bones')}`;
-    if(state.mode==='muscles')$('#viewerEyebrow').textContent=`${ui('Muscles')} · ${uiCount(entriesForMode().length,'structures')}`;
+    if(state.mode==='muscles')$('#viewerEyebrow').textContent=`${ui('Muscles')} · full detailed 3D atlas · ${entriesForMode().length} linked study references`;
     $('#viewerTitle').textContent=ui(meta().title);
     renderList();renderDetail();
     const detailedLoad=real3d?.setMode?.(state.mode,entriesForMode());

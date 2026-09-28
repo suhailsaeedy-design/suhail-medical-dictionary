@@ -50,10 +50,10 @@
     muscles:{
       title:'Muscles + Neurovascular Layers',
       layers:[
-        {key:'muscles',label:'Muscles',type:'glb',asset:'muscles',default:true,color:'#b53f4a'},
-        {key:'arteries',label:'Arteries',type:'atlas',system:'SYS-ART',default:true,color:'#d63d43'},
-        {key:'veins',label:'Veins',type:'atlas',system:'SYS-VEN',default:true,color:'#3f72b5'},
-        {key:'nerves',label:'Nerves',type:'atlas',system:'SYS-NER',default:true,color:'#e0b64e'},
+        {key:'muscles',label:'Muscles',type:'atlas',system:'SYS-MUS',default:true,color:'#a8323f'},
+        {key:'arteries',label:'Arteries',type:'atlas',system:'SYS-ART',default:false,color:'#d63d43'},
+        {key:'veins',label:'Veins',type:'atlas',system:'SYS-VEN',default:false,color:'#3f72b5'},
+        {key:'nerves',label:'Nerves',type:'atlas',system:'SYS-NER',default:false,color:'#e0b64e'},
         {key:'bones',label:'Bones',type:'atlas',system:'SYS-ESQ',default:false,color:'#e2d9ba',opacity:.22},
         {key:'connective',label:'Connective',type:'atlas',system:'SYS-CON',default:false,color:'#69a797',opacity:.55},
         {key:'surface',label:'Surface',type:'atlas',system:'SYS-INT',default:false,color:'#c1a080',opacity:.18}
@@ -311,22 +311,20 @@
 
       const size=box.getSize(new THREE.Vector3());
       const centered=box.getCenter(new THREE.Vector3());
-      const viewAlongX=size.x<size.z*.82;
-      const visualWidth=viewAlongX?size.z:size.x;
-      const visualDepth=viewAlongX?size.x:size.z;
+      const visualWidth=size.x;
+      const visualDepth=size.z;
 
       const vFov=THREE.MathUtils.degToRad(camera.fov);
       const hFov=2*Math.atan(Math.tan(vFov/2)*Math.max(.25,camera.aspect));
       const fitH=size.y/(2*Math.tan(vFov/2));
       const fitW=visualWidth/(2*Math.tan(hFov/2));
       const mobile=matchMedia('(max-width:700px)').matches;
-      const margin=mobile?1.075:1.10;
+      const margin=mobile?1.025:1.08;
       const distance=Math.max(fitH,fitW,visualDepth*.72)*margin;
 
       camera.near=Math.max(distance/5000,.001);
       camera.far=Math.max(distance*32,100);
-      if(viewAlongX)camera.position.set(distance,centered.y,centered.z);
-      else camera.position.set(centered.x,centered.y,distance);
+      camera.position.set(centered.x,centered.y,distance);
       controls.target.copy(centered);
       controls.minDistance=Math.max(distance*.11,.02);
       controls.maxDistance=distance*7;
@@ -381,7 +379,16 @@
 
     function atlasMaterial(system){
       const meta=SYSTEMS[system]||{color:0x9ba8ad};
-      return makeMaterial(meta.color,1,.66);
+      return makeMaterial(meta.color,1,system==='SYS-MUS'?.74:.66);
+    }
+
+    function muscleMaterial(name){
+      const seed=hash01(name||'muscle');
+      const color=new THREE.Color().setHSL((.985+seed*.018)%1,.68+seed*.12,.29+seed*.10);
+      const m=makeMaterial(color,1,.67);
+      m.emissive=new THREE.Color(0x250407);
+      m.emissiveIntensity=.08;
+      return m;
     }
 
     async function loadAtlasSystem(system){
@@ -410,9 +417,10 @@
         geometry.computeBoundingBox();
         geometry.computeBoundingSphere();
         geometryDisposables.add(geometry);
-        const mesh=new THREE.Mesh(geometry,group.userData.smdMaterial);
+        const partMaterial=system==='SYS-MUS'?muscleMaterial(part.name||part.id):group.userData.smdMaterial;
+        const mesh=new THREE.Mesh(geometry,partMaterial);
         mesh.name=part.name||part.id;
-        mesh.userData.smdBaseMaterial=group.userData.smdMaterial;
+        mesh.userData.smdBaseMaterial=partMaterial;
         mesh.userData.smdSystem=system;
         mesh.userData.smdName=part.name||part.id;
         mesh.userData.smdPart=part;
@@ -439,7 +447,7 @@
         let m=o.userData.smdBaseMaterial||o.material;
         if(!seen.has(m)){
           seen.add(m);
-          if(spec.color&&spec.type!=='glb')m.color.set(spec.color);
+          if(spec.color&&spec.type!=='glb'&&spec.system!=='SYS-MUS')m.color.set(spec.color);
           m.opacity=opacity;
           m.transparent=opacity<.999;
           m.depthWrite=opacity>.45;
@@ -491,7 +499,12 @@
       if(mesh.userData?.smdBaseMaterial)mesh.material=mesh.userData.smdBaseMaterial;
     }
 
-    const selectedMaterial=()=>makeMaterial(0xff243c,1,.62);
+    const selectedMaterial=()=>{
+      const m=makeMaterial(0x20e878,1,.38);
+      m.emissive=new THREE.Color(0x087a3f);
+      m.emissiveIntensity=.82;
+      return m;
+    };
 
     function clearSelection(){
       restoreMesh(selectedMesh);
