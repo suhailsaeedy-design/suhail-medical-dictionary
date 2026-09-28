@@ -1,11 +1,11 @@
 {
-  "version": "21.22.0",
-  "cache_prefix": "smd-v21-phase24-pack-",
+  "version": "21.23.0",
+  "cache_prefix": "smd-v21-phase25-pack-",
   "core": {
     "title": "Core Offline Shell",
     "description": "Sign-in/consent, Offline Packs manager, shared styles, icons and PWA controls.",
     "files": 46,
-    "bytes": 986388,
+    "bytes": 986653,
     "urls": [
       "./",
       "./index.html",
@@ -81,20 +81,21 @@
         "./assets/css/visual-polish.css",
         "./assets/js/visual-polish.js"
       ],
-      "bytes": 1207929,
+      "bytes": 1208555,
       "files": 17
     },
     {
       "id": "anatomy",
       "icon": "◈",
       "title": "3D Anatomy Systems",
-      "description": "206 bones, 50 major muscles and expanded systems, with local WebGL 3D volume for Skeleton and Muscles.",
-      "detail": "Includes the shared Anatomy viewer, local WebGL renderer, English + Latin structure catalog, 10 selectable anatomy systems and bundled offline model data.",
+      "description": "Offline anatomy study systems with a detailed online Skeleton/Muscles upgrade and a bundled local fallback.",
+      "detail": "Caches the local Anatomy viewer, study catalogs and fallback geometry. When online, Skeleton and Muscles can load detailed open-licensed human GLB meshes; those larger remote mesh files are not required for offline fallback.",
       "urls": [
         "./anatomy.html",
         "./assets/css/anatomy.css",
         "./assets/js/anatomy.js",
         "./assets/js/anatomy-webgl.js",
+        "./assets/js/anatomy-real3d.js",
         "./data/anatomy/catalog.json",
         "./assets/models/skeleton-model.json",
         "./assets/models/muscles-model.json",
@@ -108,8 +109,8 @@
         "./assets/models/sinuses-model.json",
         "./data/crosslinks.json"
       ],
-      "bytes": 516768,
-      "files": 16
+      "bytes": 535899,
+      "files": 17
     },
     {
       "id": "study",

@@ -40,3 +40,83 @@
 @media(max-width:520px){
   .canvas-stage{height:clamp(420px,58dvh,560px)!important;min-height:420px!important}
 }
+
+
+/* v21.23 detailed human-mesh layer. The existing canvases remain the offline fallback. */
+.anatomy-real3d-canvas{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  display:none;
+  width:100%;
+  height:100%;
+  touch-action:none;
+  cursor:grab;
+  outline:0;
+}
+.anatomy-real3d-canvas:active{cursor:grabbing}
+.canvas-stage.real3d-active .anatomy-real3d-canvas{display:block}
+.canvas-stage.real3d-active #anatomyWebGLCanvas,
+.canvas-stage.real3d-active #anatomyCanvas{
+  opacity:0!important;
+  pointer-events:none!important;
+}
+.canvas-stage.real3d-loading #anatomyWebGLCanvas,
+.canvas-stage.real3d-loading #anatomyCanvas{opacity:.18}
+.real3d-status{
+  position:absolute;
+  z-index:8;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  max-width:min(86%,360px);
+  padding:10px 14px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:color-mix(in srgb,var(--surface-strong) 94%,transparent);
+  color:var(--text);
+  box-shadow:0 14px 45px rgba(0,0,0,.20);
+  font-size:.78rem;
+  font-weight:800;
+  text-align:center;
+  backdrop-filter:blur(12px);
+}
+.real3d-status.bad{color:#b13b4d}
+.real3d-label{
+  position:absolute;
+  z-index:9;
+  transform:translate(-50%,-115%);
+  max-width:190px;
+  padding:6px 9px;
+  border:1px solid rgba(54,179,229,.42);
+  border-radius:9px;
+  background:rgba(250,253,255,.94);
+  color:#113c59;
+  box-shadow:0 8px 24px rgba(2,50,82,.16);
+  pointer-events:none;
+  font-size:.7rem;
+  font-weight:850;
+  line-height:1.2;
+  text-align:center;
+}
+[data-theme="dark"] .real3d-label{
+  background:rgba(3,25,43,.92);
+  color:#eafaff;
+}
+@media(max-width:860px){
+  .viewer-grid{align-items:start}
+  .canvas-card{width:100%;min-width:0}
+  .canvas-stage{
+    width:100%!important;
+    min-width:0!important;
+    overflow:hidden!important;
+  }
+  .anatomy-real3d-canvas{
+    width:100%!important;
+    max-width:100%!important;
+  }
+}
+@media(max-width:520px){
+  .real3d-label{max-width:150px;font-size:.64rem}
+  .real3d-status{font-size:.72rem}
+}

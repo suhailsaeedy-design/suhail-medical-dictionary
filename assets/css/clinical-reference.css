@@ -76,3 +76,28 @@
     display:grid;place-items:center;position:absolute;top:8px;right:8px;z-index:2
   }
 }
+
+
+/* v21.23 definitive Clinical Reference row sizing fix.
+   iOS Safari was shrinking flex children to fit the scroll box, causing every
+   reference row to collapse into the next one. A grid scroll list prevents that. */
+.clinical-list{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-auto-rows:max-content!important;
+  align-content:start!important;
+}
+.clinical-item,
+.calc-card{
+  flex:0 0 auto!important;
+  height:auto!important;
+  min-height:max-content!important;
+}
+.clinical-item{
+  position:relative;
+}
+@media(max-width:700px){
+  .clinical-list{
+    max-height:46dvh!important;
+  }
+}

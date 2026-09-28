@@ -9,6 +9,7 @@
   const ctx = canvas.getContext('2d', { alpha: true });
   const webglCanvas = $('#anatomyWebGLCanvas');
   const renderer = window.SMD3DRenderer?.create?.(webglCanvas, stage) || null;
+  const real3d = window.SMDReal3D?.create?.(stage) || null;
   if(renderer?.supported)stage?.classList.add('webgl-active');
 
   const MODE_META = {
@@ -114,10 +115,21 @@
   }
 
   function selectStructure(id,{speak=true}={}){
-    if(!entryById(id))return;state.selected=id;renderList();renderDetail();scheduleDraw();if(speak&&$('#autoVoice').checked)pronounceSelected();
+    const entry=entryById(id);if(!entry)return;state.selected=id;renderList();renderDetail();scheduleDraw();real3d?.selectEntry?.(entry);if(speak&&$('#autoVoice').checked)pronounceSelected();
   }
 
-  function resetView(show=true){state.yaw=0;state.pitch=0;state.zoom=1;state.panX=0;state.panY=0;scheduleDraw();if(show)showToast('View reset');}
+  function renderRealMeshDetail(name){
+    state.selected=null;renderList();
+    $('#pronounceBtn').disabled=true;
+    $('#detailType').textContent=state.mode==='skeleton'?'Detailed 3D bone mesh':'Detailed 3D muscle mesh';
+    $('#structureName').textContent=name||'Selected 3D structure';
+    $('#structureLatin').textContent='Open reference mesh';
+    $('#structureLocation').textContent='Select a matching study entry from the structure list for the bundled location metadata.';
+    $('#structureDescription').textContent='This selected mesh comes from the detailed open anatomy model. The local study catalog remains the source for the educational description shown in this app.';
+    $('#openDictionaryBtn')?.classList.add('hidden');
+  }
+
+  function resetView(show=true){state.yaw=0;state.pitch=0;state.zoom=1;state.panX=0;state.panY=0;scheduleDraw();real3d?.reset?.();if(show)showToast('View reset');}
   function clampView(){state.pitch=Math.max(-.85,Math.min(.85,state.pitch));state.zoom=Math.max(.45,Math.min(3.4,state.zoom));}
 
   function setMode(mode,{reset=true}={}){
@@ -125,16 +137,21 @@
     state.mode=mode;state.selected=null;state.query='';$('#structureSearch').value='';$('#topSearch').value='';
     $$('.mode-btn').forEach(b=>{const on=b.dataset.mode===state.mode;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
     $('#layerSelect').classList.toggle('hidden',state.mode!=='muscles');
-    $('#skeletonBaseWrap').classList.toggle('hidden',!meta().base);
+    const detailedMode=state.mode==='skeleton'||state.mode==='muscles';
+    $('#sexSelect').classList.toggle('hidden',detailedMode);
+    $('#skeletonBaseWrap').classList.toggle('hidden',detailedMode||!meta().base);
     $('#viewerEyebrow').textContent=`${ui(meta().eyebrow)} · ${uiCount(entriesForMode().length,'structures')}`;
     if(state.mode==='skeleton')$('#viewerEyebrow').textContent=`${ui('Skeleton')} · ${uiCount(206,'bones')}`;
     if(state.mode==='muscles')$('#viewerEyebrow').textContent=`${ui('Muscles')} · ${uiCount(entriesForMode().length,'structures')}`;
     $('#viewerTitle').textContent=ui(meta().title);
-    renderList();renderDetail();if(reset)resetView(false);else scheduleDraw();
+    renderList();renderDetail();
+    const detailedLoad=real3d?.setMode?.(state.mode,entriesForMode());
+    Promise.resolve(detailedLoad).then(()=>{if(state.selected)real3d?.selectEntry?.(entryById(state.selected));}).catch(()=>{});
+    if(reset)resetView(false);else scheduleDraw();
   }
 
   function enterViewer(mode){$('#anatomyChooser').classList.add('hidden');$('#anatomyViewer').classList.remove('hidden');setMode(mode);requestAnimationFrame(()=>{resizeCanvas();requestAnimationFrame(resizeCanvas)});setTimeout(resizeCanvas,90);}
-  function backToChooser(){state.selected=null;$('#anatomyViewer').classList.add('hidden');$('#anatomyChooser').classList.remove('hidden');window.speechSynthesis?.cancel?.();window.scrollTo({top:0,behavior:'smooth'});}
+  function backToChooser(){state.selected=null;real3d?.hide?.();$('#anatomyViewer').classList.add('hidden');$('#anatomyChooser').classList.remove('hidden');window.speechSynthesis?.cancel?.();window.scrollTo({top:0,behavior:'smooth'});}
 
   function sexAdjust(p,obj){let[x,y,z]=p;if(state.sex==='female'){if(obj.region==='pelvis')x*=1.11;if(obj.region==='shoulder'||obj.region==='chest')x*=.96;}return[x,y,z];}
   function transformPoint(p,obj,mode=state.mode){let[x,y,z]=sexAdjust(p,obj);y-=meta(mode).centerY;const cy=Math.cos(state.yaw),sy=Math.sin(state.yaw);let x1=x*cy+z*sy;let z1=-x*sy+z*cy;const cp=Math.cos(state.pitch),sp=Math.sin(state.pitch);let y1=y*cp-z1*sp;let z2=y*sp+z1*cp;return[x1,y1,z2];}
@@ -214,7 +231,7 @@
     const objects=[...modelObjects()].sort((a,b)=>avgDepth(a)-avgDepth(b));for(const obj of objects)drawObject(obj,state.mode,scale,colors,true,1);drawLabels(scale,colors);
   }
   function scheduleDraw(){if(!state.raf)state.raf=requestAnimationFrame(draw);}
-  function resizeCanvas(){if(!stage||stage.classList.contains('hidden'))return;const rect=stage.getBoundingClientRect();if(rect.width<20||rect.height<20)return;const dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.max(1,Math.floor(rect.width*dpr));canvas.height=Math.max(1,Math.floor(rect.height*dpr));canvas.style.width=`${rect.width}px`;canvas.style.height=`${rect.height}px`;renderer?.resize?.(rect.width,rect.height,dpr);scheduleDraw();}
+  function resizeCanvas(){if(!stage||stage.classList.contains('hidden'))return;const rect=stage.getBoundingClientRect();if(rect.width<20||rect.height<20)return;const dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.max(1,Math.floor(rect.width*dpr));canvas.height=Math.max(1,Math.floor(rect.height*dpr));canvas.style.width=`${rect.width}px`;canvas.style.height=`${rect.height}px`;renderer?.resize?.(rect.width,rect.height,dpr);real3d?.resize?.();scheduleDraw();}
 
   function pointSegmentDistance(px,py,a,b){const vx=b[0]-a[0],vy=b[1]-a[1],wx=px-a[0],wy=py-a[1],c1=vx*wx+vy*wy,c2=vx*vx+vy*vy;let t=c2?c1/c2:0;t=Math.max(0,Math.min(1,t));const dx=px-(a[0]+t*vx),dy=py-(a[1]+t*vy);return Math.hypot(dx,dy);}
   function pointInPolygon(x,y,pts){let inside=false;for(let i=0,j=pts.length-1;i<pts.length;j=i++){const xi=pts[i][0],yi=pts[i][1],xj=pts[j][0],yj=pts[j][1],hit=((yi>y)!=(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi+.000001)+xi);if(hit)inside=!inside;}return inside;}
@@ -244,17 +261,18 @@
   $('#sexSelect').addEventListener('change',e=>applySex(e.target.value));
   $('#layerSelect').addEventListener('change',e=>{state.layer=e.target.value;if(state.selected){const x=entryById(state.selected);if(x&&state.layer!=='all'&&x.layer!==state.layer)state.selected=null;}renderList();renderDetail();scheduleDraw();});
   $('#skeletonBase').addEventListener('change',e=>{state.skeletonBase=e.target.checked;scheduleDraw();});
-  $('#labelsToggle').addEventListener('click',e=>{state.labels=!state.labels;e.currentTarget.classList.toggle('active',state.labels);e.currentTarget.setAttribute('aria-pressed',String(state.labels));scheduleDraw();});
-  $('#isolateToggle').addEventListener('click',e=>{state.isolate=!state.isolate;e.currentTarget.classList.toggle('active',state.isolate);e.currentTarget.setAttribute('aria-pressed',String(state.isolate));if(state.isolate&&!state.selected)showToast('Select a structure to isolate');scheduleDraw();});
+  $('#labelsToggle').addEventListener('click',e=>{state.labels=!state.labels;e.currentTarget.classList.toggle('active',state.labels);e.currentTarget.setAttribute('aria-pressed',String(state.labels));real3d?.setLabels?.(state.labels);scheduleDraw();});
+  $('#isolateToggle').addEventListener('click',e=>{state.isolate=!state.isolate;e.currentTarget.classList.toggle('active',state.isolate);e.currentTarget.setAttribute('aria-pressed',String(state.isolate));real3d?.setIsolate?.(state.isolate);if(state.isolate&&!state.selected)showToast('Select a structure to isolate');scheduleDraw();});
   $('#pronounceBtn').addEventListener('click',pronounceSelected);
   function setQuery(q){state.query=q.trim();$('#structureSearch').value=state.query;$('#topSearch').value=state.query;renderList();}
   $('#structureSearch').addEventListener('input',e=>setQuery(e.target.value));
   $('#topSearch').addEventListener('input',e=>{if(!$('#anatomyViewer').classList.contains('hidden'))setQuery(e.target.value);});
   $('#structureSearch').addEventListener('keydown',e=>{if(e.key==='Enter'){const first=visibleEntries()[0];if(first)selectStructure(first.id);}});
   $('#topSearch').addEventListener('keydown',e=>{if(e.key==='Enter'&&!$('#anatomyViewer').classList.contains('hidden')){const first=visibleEntries()[0];if(first)selectStructure(first.id);}});
-  $('#rotateLeft').addEventListener('click',()=>{state.yaw-=.18;scheduleDraw();});$('#rotateRight').addEventListener('click',()=>{state.yaw+=.18;scheduleDraw();});$('#panLeft').addEventListener('click',()=>{state.panX-=24;scheduleDraw();});$('#panRight').addEventListener('click',()=>{state.panX+=24;scheduleDraw();});$('#panUp').addEventListener('click',()=>{state.panY-=24;scheduleDraw();});$('#panDown').addEventListener('click',()=>{state.panY+=24;scheduleDraw();});$('#zoomIn').addEventListener('click',()=>{state.zoom*=1.12;clampView();scheduleDraw();});$('#zoomOut').addEventListener('click',()=>{state.zoom/=1.12;clampView();scheduleDraw();});$('#resetView').addEventListener('click',()=>resetView());
+  $('#rotateLeft').addEventListener('click',()=>{state.yaw-=.18;real3d?.rotateStep?.(-.18);scheduleDraw();});$('#rotateRight').addEventListener('click',()=>{state.yaw+=.18;real3d?.rotateStep?.(.18);scheduleDraw();});$('#panLeft').addEventListener('click',()=>{state.panX-=24;real3d?.panStep?.(-1,0);scheduleDraw();});$('#panRight').addEventListener('click',()=>{state.panX+=24;real3d?.panStep?.(1,0);scheduleDraw();});$('#panUp').addEventListener('click',()=>{state.panY-=24;real3d?.panStep?.(0,1);scheduleDraw();});$('#panDown').addEventListener('click',()=>{state.panY+=24;real3d?.panStep?.(0,-1);scheduleDraw();});$('#zoomIn').addEventListener('click',()=>{state.zoom*=1.12;real3d?.zoomStep?.(.88);clampView();scheduleDraw();});$('#zoomOut').addEventListener('click',()=>{state.zoom/=1.12;real3d?.zoomStep?.(1.13);clampView();scheduleDraw();});$('#resetView').addEventListener('click',()=>resetView());
   canvas.addEventListener('contextmenu',e=>e.preventDefault());canvas.addEventListener('pointerdown',onPointerDown);canvas.addEventListener('pointermove',onPointerMove);canvas.addEventListener('pointerup',onPointerUp);canvas.addEventListener('pointercancel',onPointerUp);canvas.addEventListener('wheel',e=>{e.preventDefault();state.zoom*=e.deltaY<0?1.08:.925;clampView();scheduleDraw();},{passive:false});
   function toggleMenu(force){const open=force??!$('#sidebar').classList.contains('open');$('#sidebar').classList.toggle('open',open);$('#drawerBackdrop').classList.toggle('show',open);}$('#mobileMenu').addEventListener('click',()=>toggleMenu());$('#drawerBackdrop').addEventListener('click',()=>toggleMenu(false));
+  window.addEventListener('smd21:real3dselect',e=>{const d=e.detail||{};if(d.mode!==state.mode)return;if(d.entryId&&entryById(d.entryId)){selectStructure(d.entryId,{speak:false});return;}renderRealMeshDetail(d.name);});
   window.addEventListener('smd21:languagechange',()=>{setMode(state.mode,{reset:false});renderDetail();});
   $('#signOutBtn').addEventListener('click',async()=>{await SMD21Auth.signOut();location.href='index.html';});const a=SMD21Auth.getAccount();$('#accountEmail').textContent=a?.email||'Local account';
   document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#topSearch').focus();}if(e.key==='Escape'){toggleMenu(false);}});
