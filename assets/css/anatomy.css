@@ -236,3 +236,132 @@
     min-height:440px!important;
   }
 }
+
+
+/* v21.25 full-atlas layers + mobile anatomy usability */
+.real3d-layers{
+  position:absolute;
+  z-index:11;
+  left:10px;
+  right:10px;
+  top:10px;
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:2px 1px 6px;
+  scrollbar-width:none;
+  overscroll-behavior-inline:contain;
+  -webkit-overflow-scrolling:touch;
+  pointer-events:auto;
+}
+.real3d-layers::-webkit-scrollbar{display:none}
+.real3d-layer-btn{
+  flex:0 0 auto;
+  min-height:32px;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:0 10px;
+  background:color-mix(in srgb,var(--surface-strong) 92%,transparent);
+  color:var(--muted);
+  font-size:.68rem;
+  font-weight:850;
+  line-height:1;
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  cursor:pointer;
+}
+.real3d-layer-btn.active{
+  color:var(--text);
+  border-color:color-mix(in srgb,var(--brand) 55%,var(--line));
+  background:color-mix(in srgb,var(--surface-strong) 82%,var(--brand) 18%);
+}
+.real3d-layer-dot{
+  width:9px;
+  height:9px;
+  flex:0 0 9px;
+  border-radius:50%;
+  background:var(--layer-color);
+  box-shadow:0 0 0 2px color-mix(in srgb,var(--layer-color) 22%,transparent);
+}
+.canvas-stage.real3d-active .orientation-cube,
+.canvas-stage.real3d-active .canvas-hint{
+  opacity:.28;
+}
+@media(max-width:860px){
+  .anatomy-wrap{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    overflow-x:hidden;
+  }
+  .anatomy-viewer,
+  .viewer-head,
+  .viewer-toolbar,
+  .viewer-grid,
+  .canvas-card,
+  .canvas-stage{
+    min-width:0!important;
+    max-width:100%!important;
+  }
+  .viewer-toolbar{
+    width:100%;
+    box-sizing:border-box;
+  }
+  .viewer-toolbar .tool-group{
+    width:100%;
+    box-sizing:border-box;
+  }
+}
+@media(max-width:700px){
+  #panLeft,#panRight,#panUp,#panDown{display:none!important}
+  .viewer-toolbar{
+    gap:7px;
+    padding:8px;
+  }
+  .viewer-toolbar .tool-group{
+    overflow:visible!important;
+    flex-wrap:wrap!important;
+    gap:6px;
+  }
+  .tool-btn,.toggle-tool{
+    min-height:40px;
+  }
+  .canvas-card{
+    padding:6px;
+  }
+  .canvas-stage{
+    height:clamp(500px,66dvh,680px)!important;
+    min-height:500px!important;
+    border-radius:14px;
+  }
+  .real3d-layers{
+    top:8px;
+    left:8px;
+    right:8px;
+  }
+  .real3d-layer-btn{
+    min-height:30px;
+    padding:0 9px;
+    font-size:.64rem;
+  }
+  .real3d-help{
+    max-width:calc(100% - 18px);
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+}
+@media(max-width:390px){
+  .canvas-stage{
+    height:clamp(470px,63dvh,610px)!important;
+    min-height:470px!important;
+  }
+  .real3d-popup{
+    transform:translate(-50%,-104%);
+  }
+}

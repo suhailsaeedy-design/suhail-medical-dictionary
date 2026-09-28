@@ -1,11 +1,11 @@
 {
-  "version": "21.24.0",
-  "cache_prefix": "smd-v21-phase26-pack-",
+  "version": "21.25.0",
+  "cache_prefix": "smd-v21-phase27-pack-",
   "core": {
     "title": "Core Offline Shell",
     "description": "Sign-in/consent, Offline Packs manager, shared styles, icons and PWA controls.",
     "files": 46,
-    "bytes": 986810,
+    "bytes": 987249,
     "urls": [
       "./",
       "./index.html",
@@ -88,8 +88,8 @@
       "id": "anatomy",
       "icon": "◈",
       "title": "3D Anatomy Systems",
-      "description": "Offline anatomy study systems plus selectable detailed Skeleton/Muscles meshes with mobile touch controls when online.",
-      "detail": "Caches the local Anatomy viewer, catalogs and fallback geometry. Online detailed Skeleton/Muscles support tap selection, red highlighting, popup anatomy information, rotate, pan and pinch zoom.",
+      "description": "Local offline anatomy study tools plus an online detailed human atlas with selectable bones, muscles, joint/connective tissues, arteries, veins, nerves and organ systems.",
+      "detail": "Caches the local Anatomy viewer, catalogs and fallback geometry. When online, the viewer can combine open-licensed BodyParts3D/Z-Anatomy layers for realistic bones, muscles, arteries, veins, nerves, connective tissues and organs with tap selection, red highlight, popup information and mobile touch controls.",
       "urls": [
         "./anatomy.html",
         "./assets/css/anatomy.css",
@@ -109,7 +109,7 @@
         "./assets/models/sinuses-model.json",
         "./data/crosslinks.json"
       ],
-      "bytes": 542906,
+      "bytes": 559336,
       "files": 17
     },
     {

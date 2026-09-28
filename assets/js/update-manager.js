@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const CURRENT_VERSION='21.24.0';
+  const CURRENT_VERSION='21.25.0';
   const $=s=>document.querySelector(s);
   let last=null;
   async function latestRelease(){

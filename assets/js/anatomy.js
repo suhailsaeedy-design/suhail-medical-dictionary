@@ -137,21 +137,24 @@
     state.mode=mode;state.selected=null;state.query='';$('#structureSearch').value='';$('#topSearch').value='';
     $$('.mode-btn').forEach(b=>{const on=b.dataset.mode===state.mode;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
     const detailedMode=state.mode==='skeleton'||state.mode==='muscles';
-    $('#layerSelect').classList.toggle('hidden',detailedMode||state.mode!=='muscles');
-    $('#sexSelect').classList.toggle('hidden',detailedMode);
-    $('#skeletonBaseWrap').classList.toggle('hidden',detailedMode||!meta().base);
+    const atlasMode=Boolean(real3d?.supportsMode?.(state.mode));
+    $('#layerSelect').classList.toggle('hidden',atlasMode||state.mode!=='muscles');
+    $('#sexSelect').classList.toggle('hidden',atlasMode);
+    $('#skeletonBaseWrap').classList.toggle('hidden',atlasMode||!meta().base);
     $('#viewerEyebrow').textContent=`${ui(meta().eyebrow)} · ${uiCount(entriesForMode().length,'structures')}`;
     if(state.mode==='skeleton')$('#viewerEyebrow').textContent=`${ui('Skeleton')} · ${uiCount(206,'bones')}`;
     if(state.mode==='muscles')$('#viewerEyebrow').textContent=`${ui('Muscles')} · ${uiCount(entriesForMode().length,'structures')}`;
     $('#viewerTitle').textContent=ui(meta().title);
     renderList();renderDetail();
     const detailedLoad=real3d?.setMode?.(state.mode,entriesForMode());
-    Promise.resolve(detailedLoad).then(()=>{if(state.selected)real3d?.selectEntry?.(entryById(state.selected));}).catch(()=>{});
-    if(reset)resetView(false);else scheduleDraw();
+    if(reset){state.yaw=0;state.pitch=0;state.zoom=1;state.panX=0;state.panY=0;scheduleDraw();}else scheduleDraw();
+    Promise.resolve(detailedLoad).then(ok=>{
+      if(ok){real3d?.setLabels?.(state.labels);real3d?.setIsolate?.(state.isolate);real3d?.reset?.();if(state.selected)real3d?.selectEntry?.(entryById(state.selected));}
+    }).catch(()=>{});
   }
 
   function enterViewer(mode){$('#anatomyChooser').classList.add('hidden');$('#anatomyViewer').classList.remove('hidden');setMode(mode);requestAnimationFrame(()=>{resizeCanvas();requestAnimationFrame(resizeCanvas)});setTimeout(resizeCanvas,90);}
-  function backToChooser(){state.selected=null;real3d?.hide?.();$('#anatomyViewer').classList.add('hidden');$('#anatomyChooser').classList.remove('hidden');window.speechSynthesis?.cancel?.();window.scrollTo({top:0,behavior:'smooth'});}
+  function backToChooser(){state.selected=null;state.isolate=false;$('#isolateToggle').classList.remove('active');$('#isolateToggle').setAttribute('aria-pressed','false');real3d?.setIsolate?.(false);real3d?.hide?.();$('#anatomyViewer').classList.add('hidden');$('#anatomyChooser').classList.remove('hidden');window.speechSynthesis?.cancel?.();window.scrollTo({top:0,behavior:'smooth'});}
 
   function sexAdjust(p,obj){let[x,y,z]=p;if(state.sex==='female'){if(obj.region==='pelvis')x*=1.11;if(obj.region==='shoulder'||obj.region==='chest')x*=.96;}return[x,y,z];}
   function transformPoint(p,obj,mode=state.mode){let[x,y,z]=sexAdjust(p,obj);y-=meta(mode).centerY;const cy=Math.cos(state.yaw),sy=Math.sin(state.yaw);let x1=x*cy+z*sy;let z1=-x*sy+z*cy;const cp=Math.cos(state.pitch),sp=Math.sin(state.pitch);let y1=y*cp-z1*sp;let z2=y*sp+z1*cp;return[x1,y1,z2];}
