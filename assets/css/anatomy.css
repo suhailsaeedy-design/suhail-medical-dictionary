@@ -120,3 +120,119 @@
   .real3d-label{max-width:150px;font-size:.64rem}
   .real3d-status{font-size:.72rem}
 }
+
+
+/* v21.24 selection popup, touch guidance and mobile-fit refinements */
+.real3d-popup{
+  position:absolute;
+  z-index:12;
+  transform:translate(-50%,-108%);
+  width:min(300px,calc(100% - 24px));
+  padding:12px 38px 12px 13px;
+  border:1px solid rgba(41,170,224,.46);
+  border-radius:14px;
+  background:color-mix(in srgb,var(--surface-strong) 96%,transparent);
+  color:var(--text);
+  box-shadow:0 16px 48px rgba(0,0,0,.24);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  pointer-events:auto;
+}
+.real3d-popup-name{
+  display:block;
+  margin:0 0 3px;
+  font-size:.84rem;
+  line-height:1.25;
+}
+.real3d-popup-location{
+  display:block;
+  color:var(--brand);
+  font-size:.68rem;
+  font-weight:850;
+  line-height:1.3;
+}
+.real3d-popup-description{
+  margin:7px 0 0;
+  color:var(--muted);
+  font-size:.71rem;
+  line-height:1.42;
+}
+.real3d-popup-close{
+  position:absolute;
+  right:7px;
+  top:7px;
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--glass);
+  color:var(--text);
+  font-size:1rem;
+  line-height:1;
+  cursor:pointer;
+}
+.real3d-help{
+  position:absolute;
+  z-index:7;
+  left:50%;
+  bottom:10px;
+  transform:translateX(-50%);
+  width:max-content;
+  max-width:calc(100% - 24px);
+  padding:6px 9px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:color-mix(in srgb,var(--surface-strong) 88%,transparent);
+  color:var(--muted);
+  font-size:.64rem;
+  font-weight:750;
+  text-align:center;
+  pointer-events:none;
+  opacity:.92;
+  backdrop-filter:blur(10px);
+}
+.canvas-stage.real3d-active{
+  touch-action:none!important;
+  overscroll-behavior:contain;
+}
+@media(max-width:860px){
+  .viewer-toolbar{
+    overflow:hidden;
+  }
+  .viewer-toolbar .tool-group{
+    flex-wrap:nowrap!important;
+    overflow-x:auto;
+    overflow-y:hidden;
+    max-width:100%;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding-bottom:2px;
+  }
+  .viewer-toolbar .tool-group::-webkit-scrollbar{display:none}
+}
+@media(max-width:700px){
+  .canvas-stage{
+    height:clamp(470px,64dvh,650px)!important;
+    min-height:470px!important;
+  }
+  .real3d-popup{
+    width:min(268px,calc(100% - 18px));
+    padding:11px 36px 11px 12px;
+    border-radius:13px;
+  }
+  .real3d-popup-name{font-size:.8rem}
+  .real3d-popup-description{font-size:.68rem}
+  .real3d-help{
+    bottom:8px;
+    font-size:.6rem;
+    padding:5px 8px;
+  }
+}
+@media(max-width:390px){
+  .canvas-stage{
+    height:clamp(440px,61dvh,590px)!important;
+    min-height:440px!important;
+  }
+}

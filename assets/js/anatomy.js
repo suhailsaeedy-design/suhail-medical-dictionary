@@ -118,14 +118,14 @@
     const entry=entryById(id);if(!entry)return;state.selected=id;renderList();renderDetail();scheduleDraw();real3d?.selectEntry?.(entry);if(speak&&$('#autoVoice').checked)pronounceSelected();
   }
 
-  function renderRealMeshDetail(name){
+  function renderRealMeshDetail(name,location,description){
     state.selected=null;renderList();
     $('#pronounceBtn').disabled=true;
     $('#detailType').textContent=state.mode==='skeleton'?'Detailed 3D bone mesh':'Detailed 3D muscle mesh';
     $('#structureName').textContent=name||'Selected 3D structure';
     $('#structureLatin').textContent='Open reference mesh';
-    $('#structureLocation').textContent='Select a matching study entry from the structure list for the bundled location metadata.';
-    $('#structureDescription').textContent='This selected mesh comes from the detailed open anatomy model. The local study catalog remains the source for the educational description shown in this app.';
+    $('#structureLocation').textContent=location||'Human anatomy';
+    $('#structureDescription').textContent=description||'Selected structure from the detailed open anatomy model.';
     $('#openDictionaryBtn')?.classList.add('hidden');
   }
 
@@ -136,8 +136,8 @@
     if(!MODES.includes(mode))mode='skeleton';
     state.mode=mode;state.selected=null;state.query='';$('#structureSearch').value='';$('#topSearch').value='';
     $$('.mode-btn').forEach(b=>{const on=b.dataset.mode===state.mode;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
-    $('#layerSelect').classList.toggle('hidden',state.mode!=='muscles');
     const detailedMode=state.mode==='skeleton'||state.mode==='muscles';
+    $('#layerSelect').classList.toggle('hidden',detailedMode||state.mode!=='muscles');
     $('#sexSelect').classList.toggle('hidden',detailedMode);
     $('#skeletonBaseWrap').classList.toggle('hidden',detailedMode||!meta().base);
     $('#viewerEyebrow').textContent=`${ui(meta().eyebrow)} · ${uiCount(entriesForMode().length,'structures')}`;
@@ -262,7 +262,7 @@
   $('#layerSelect').addEventListener('change',e=>{state.layer=e.target.value;if(state.selected){const x=entryById(state.selected);if(x&&state.layer!=='all'&&x.layer!==state.layer)state.selected=null;}renderList();renderDetail();scheduleDraw();});
   $('#skeletonBase').addEventListener('change',e=>{state.skeletonBase=e.target.checked;scheduleDraw();});
   $('#labelsToggle').addEventListener('click',e=>{state.labels=!state.labels;e.currentTarget.classList.toggle('active',state.labels);e.currentTarget.setAttribute('aria-pressed',String(state.labels));real3d?.setLabels?.(state.labels);scheduleDraw();});
-  $('#isolateToggle').addEventListener('click',e=>{state.isolate=!state.isolate;e.currentTarget.classList.toggle('active',state.isolate);e.currentTarget.setAttribute('aria-pressed',String(state.isolate));real3d?.setIsolate?.(state.isolate);if(state.isolate&&!state.selected)showToast('Select a structure to isolate');scheduleDraw();});
+  $('#isolateToggle').addEventListener('click',e=>{state.isolate=!state.isolate;e.currentTarget.classList.toggle('active',state.isolate);e.currentTarget.setAttribute('aria-pressed',String(state.isolate));real3d?.setIsolate?.(state.isolate);if(state.isolate&&!state.selected&&!real3d?.isActive?.())showToast('Select a structure to isolate');scheduleDraw();});
   $('#pronounceBtn').addEventListener('click',pronounceSelected);
   function setQuery(q){state.query=q.trim();$('#structureSearch').value=state.query;$('#topSearch').value=state.query;renderList();}
   $('#structureSearch').addEventListener('input',e=>setQuery(e.target.value));
@@ -272,7 +272,7 @@
   $('#rotateLeft').addEventListener('click',()=>{state.yaw-=.18;real3d?.rotateStep?.(-.18);scheduleDraw();});$('#rotateRight').addEventListener('click',()=>{state.yaw+=.18;real3d?.rotateStep?.(.18);scheduleDraw();});$('#panLeft').addEventListener('click',()=>{state.panX-=24;real3d?.panStep?.(-1,0);scheduleDraw();});$('#panRight').addEventListener('click',()=>{state.panX+=24;real3d?.panStep?.(1,0);scheduleDraw();});$('#panUp').addEventListener('click',()=>{state.panY-=24;real3d?.panStep?.(0,1);scheduleDraw();});$('#panDown').addEventListener('click',()=>{state.panY+=24;real3d?.panStep?.(0,-1);scheduleDraw();});$('#zoomIn').addEventListener('click',()=>{state.zoom*=1.12;real3d?.zoomStep?.(.88);clampView();scheduleDraw();});$('#zoomOut').addEventListener('click',()=>{state.zoom/=1.12;real3d?.zoomStep?.(1.13);clampView();scheduleDraw();});$('#resetView').addEventListener('click',()=>resetView());
   canvas.addEventListener('contextmenu',e=>e.preventDefault());canvas.addEventListener('pointerdown',onPointerDown);canvas.addEventListener('pointermove',onPointerMove);canvas.addEventListener('pointerup',onPointerUp);canvas.addEventListener('pointercancel',onPointerUp);canvas.addEventListener('wheel',e=>{e.preventDefault();state.zoom*=e.deltaY<0?1.08:.925;clampView();scheduleDraw();},{passive:false});
   function toggleMenu(force){const open=force??!$('#sidebar').classList.contains('open');$('#sidebar').classList.toggle('open',open);$('#drawerBackdrop').classList.toggle('show',open);}$('#mobileMenu').addEventListener('click',()=>toggleMenu());$('#drawerBackdrop').addEventListener('click',()=>toggleMenu(false));
-  window.addEventListener('smd21:real3dselect',e=>{const d=e.detail||{};if(d.mode!==state.mode)return;if(d.entryId&&entryById(d.entryId)){selectStructure(d.entryId,{speak:false});return;}renderRealMeshDetail(d.name);});
+  window.addEventListener('smd21:real3dselect',e=>{const d=e.detail||{};if(d.mode!==state.mode)return;if(d.entryId&&entryById(d.entryId)){selectStructure(d.entryId,{speak:false});return;}renderRealMeshDetail(d.name,d.location,d.description);});
   window.addEventListener('smd21:languagechange',()=>{setMode(state.mode,{reset:false});renderDetail();});
   $('#signOutBtn').addEventListener('click',async()=>{await SMD21Auth.signOut();location.href='index.html';});const a=SMD21Auth.getAccount();$('#accountEmail').textContent=a?.email||'Local account';
   document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#topSearch').focus();}if(e.key==='Escape'){toggleMenu(false);}});

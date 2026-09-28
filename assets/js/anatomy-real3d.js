@@ -20,6 +20,18 @@
     .replace(/[^a-z0-9]+/g,' ')
     .trim();
 
+  const REGION_LABELS={
+    'REG-HEAD':'Head','REG-NECK':'Neck','REG-TRUNK':'Trunk',
+    'REG-UPPER-LIMB':'Upper limb','REG-LOWER-LIMB':'Lower limb',
+    'REG-THORAX':'Thorax','REG-ABDOMEN':'Abdomen','REG-PELVIS':'Pelvis'
+  };
+  const SIDE_LABELS={l:'Left',r:'Right',left:'Left',right:'Right',midline:'Midline','-':'Midline'};
+  function hash01(value=''){
+    let h=2166136261;
+    for(const ch of String(value)){h^=ch.charCodeAt(0);h=Math.imul(h,16777619);}
+    return ((h>>>0)%1000)/1000;
+  }
+
   function create(stage){
     if(!stage) return null;
 
@@ -37,6 +49,16 @@
     const label=document.createElement('div');
     label.className='real3d-label hidden';
     stage.append(label);
+
+    const popup=document.createElement('div');
+    popup.className='real3d-popup hidden';
+    popup.innerHTML='<button type="button" class="real3d-popup-close" aria-label="Close structure information">×</button><b class="real3d-popup-name"></b><span class="real3d-popup-location"></span><p class="real3d-popup-description"></p>';
+    stage.append(popup);
+
+    const help=document.createElement('div');
+    help.className='real3d-help';
+    help.textContent='Tap structure · 1 finger rotate · 2 fingers zoom / pan';
+    stage.append(help);
 
     let libPromise=null;
     let THREE=null, GLTFLoader=null, OrbitControls=null, MeshoptDecoder=null;
@@ -86,10 +108,19 @@
       controls.enableDamping=true;
       controls.dampingFactor=.075;
       controls.enablePan=true;
+      controls.enableZoom=true;
+      controls.enableRotate=true;
       controls.screenSpacePanning=true;
+      controls.rotateSpeed=.72;
+      controls.zoomSpeed=.86;
+      controls.panSpeed=.82;
       controls.minDistance=.05;
       controls.maxDistance=5000;
       controls.target.set(0,0,0);
+      if(THREE.TOUCH){
+        controls.touches.ONE=THREE.TOUCH.ROTATE;
+        controls.touches.TWO=THREE.TOUCH.DOLLY_PAN;
+      }
 
       const hemi=new THREE.HemisphereLight(0xf5fbff,0x223044,2.15);
       scene.add(hemi);
@@ -115,18 +146,23 @@
     }
 
     function meshMaterial(mode,mesh){
-      const base=mode==='skeleton'?0xe8dfc6:0xb7434c;
-      const source=Array.isArray(mesh.material)?mesh.material[0]:mesh.material;
+      const key=mesh.userData?.concept||mesh.userData?.structureId||mesh.name||'';
+      const seed=hash01(key);
       const material=new THREE.MeshStandardMaterial({
-        color:source?.color?.isColor?source.color.clone():new THREE.Color(base),
-        roughness:.72,
+        color:new THREE.Color(mode==='skeleton'?0xe7ddc3:0xa92734),
+        roughness:mode==='skeleton'?.78:.88,
         metalness:0,
         side:THREE.DoubleSide
       });
-      if(mode==='skeleton'&&(!source?.color||source.color.getHex()===0xffffff))material.color.setHex(base);
-      if(mode==='muscles'&&(!source?.color||source.color.getHex()===0xffffff))material.color.setHex(base);
+      if(mode==='muscles'){
+        const hue=.985+seed*.025;
+        const sat=.58+seed*.18;
+        const light=.29+seed*.13;
+        material.color.setHSL(hue%1,sat,light);
+      }
       mesh.userData.smdOriginalColor=material.color.getHex();
       mesh.userData.smdOriginalEmissive=material.emissive.getHex();
+      mesh.userData.smdOriginalEmissiveIntensity=material.emissiveIntensity;
       return material;
     }
 
@@ -137,6 +173,7 @@
         o.material=meshMaterial(mode,o);
         o.userData.smdSearch=[
           o.name,
+          o.userData?.concept,
           o.userData?.structureId,
           o.userData?.sourceId,
           o.parent?.name
@@ -144,22 +181,34 @@
       });
     }
 
+    function centerRoot(root){
+      if(!root)return;
+      root.updateMatrixWorld(true);
+      const box=new THREE.Box3().setFromObject(root);
+      if(box.isEmpty())return;
+      const center=box.getCenter(new THREE.Vector3());
+      root.position.sub(center);
+      root.updateMatrixWorld(true);
+    }
+
     function fit(root){
       if(!root||!camera||!controls)return;
+      root.updateMatrixWorld(true);
       const box=new THREE.Box3().setFromObject(root);
       if(box.isEmpty())return;
       const size=box.getSize(new THREE.Vector3());
       const center=box.getCenter(new THREE.Vector3());
       const vFov=THREE.MathUtils.degToRad(camera.fov);
-      const hFov=2*Math.atan(Math.tan(vFov/2)*Math.max(.2,camera.aspect));
+      const hFov=2*Math.atan(Math.tan(vFov/2)*Math.max(.25,camera.aspect));
       const fitH=size.y/(2*Math.tan(vFov/2));
       const fitW=size.x/(2*Math.tan(hFov/2));
-      const distance=Math.max(fitH,fitW,size.z*1.35)*1.16;
-      camera.near=Math.max(distance/1000,.001);
-      camera.far=Math.max(distance*20,100);
-      camera.position.copy(center).add(new THREE.Vector3(0,0,distance));
+      const mobile=matchMedia('(max-width:700px)').matches;
+      const distance=Math.max(fitH,fitW,size.z*1.35)*(mobile?1.42:1.20);
+      camera.near=Math.max(distance/1500,.001);
+      camera.far=Math.max(distance*24,100);
+      camera.position.set(center.x,center.y,distance);
       controls.target.copy(center);
-      controls.minDistance=Math.max(distance*.16,.02);
+      controls.minDistance=Math.max(distance*.14,.02);
       controls.maxDistance=distance*6;
       camera.updateProjectionMatrix();
       controls.update();
@@ -172,6 +221,7 @@
         o.visible=true;
         if(o.material?.color&&Number.isInteger(o.userData.smdOriginalColor))o.material.color.setHex(o.userData.smdOriginalColor);
         if(o.material?.emissive&&Number.isInteger(o.userData.smdOriginalEmissive))o.material.emissive.setHex(o.userData.smdOriginalEmissive);
+        if(o.material&&Number.isFinite(o.userData.smdOriginalEmissiveIntensity))o.material.emissiveIntensity=o.userData.smdOriginalEmissiveIntensity;
       });
     }
 
@@ -188,14 +238,16 @@
       }
       selectedMesh=mesh||null;
       if(selectedMesh){
-        selectedMesh.material?.color?.offsetHSL?.(0,.12,.10);
-        selectedMesh.material?.emissive?.setHex?.(currentMode==='skeleton'?0x244a65:0x4a1018);
+        selectedMesh.material?.color?.setHex?.(0xff243c);
+        selectedMesh.material?.emissive?.setHex?.(0x6a0010);
+        if(selectedMesh.material)selectedMesh.material.emissiveIntensity=.62;
       }
       applyIsolation();
     }
 
     function meshLabel(mesh){
       return String(
+        mesh?.userData?.concept ||
         mesh?.userData?.displayName ||
         mesh?.userData?.name ||
         mesh?.name ||
@@ -203,7 +255,48 @@
         mesh?.userData?.sourceId ||
         mesh?.parent?.name ||
         'Selected structure'
-      ).replaceAll('_',' ').trim();
+      ).replace(/[._-]+/g,' ').replace(/\s+/g,' ').trim();
+    }
+
+    function meshInfo(mesh){
+      const entry=entryForMesh(mesh);
+      const side=SIDE_LABELS[String(mesh?.userData?.side||'').toLowerCase()]||'';
+      const region=REGION_LABELS[mesh?.userData?.region]||entry?.region||'';
+      const location=entry?.location||[side,region].filter(Boolean).join(' ')||'Human anatomy';
+      const name=entry?.name||meshLabel(mesh);
+      const description=entry?.description||
+        (currentMode==='muscles'
+          ? name+' is a selectable muscle structure in the detailed human muscular model'+(location?' located in the '+location.toLowerCase()+'.':'.')
+          : name+' is a selectable bony structure in the detailed human skeleton model'+(location?' located in the '+location.toLowerCase()+'.':'.'));
+      return{entry,name,location,description};
+    }
+
+    function hidePopup(){popup.classList.add('hidden');}
+
+    function showPopup(mesh,clientX,clientY){
+      const info=meshInfo(mesh);
+      popup.querySelector('.real3d-popup-name').textContent=info.name;
+      popup.querySelector('.real3d-popup-location').textContent=info.location;
+      popup.querySelector('.real3d-popup-description').textContent=info.description;
+      const r=stage.getBoundingClientRect();
+      const x=Math.max(12,Math.min(r.width-12,(clientX??(r.left+r.width/2))-r.left));
+      const y=Math.max(12,Math.min(r.height-12,(clientY??(r.top+r.height*.35))-r.top));
+      popup.style.left=x+'px';
+      popup.style.top=y+'px';
+      popup.classList.remove('hidden');
+      requestAnimationFrame(()=>{
+        const p=popup.getBoundingClientRect();
+        let dx=0,dy=0;
+        if(p.right>r.right-8)dx=(r.right-8)-p.right;
+        if(p.left<r.left+8)dx=(r.left+8)-p.left;
+        if(p.bottom>r.bottom-8)dy=(r.bottom-8)-p.bottom;
+        if(p.top<r.top+8)dy=(r.top+8)-p.top;
+        if(dx||dy){
+          popup.style.left=(x+dx)+'px';
+          popup.style.top=(y+dy)+'px';
+        }
+      });
+      return info;
     }
 
     function entryForMesh(mesh){
@@ -225,12 +318,13 @@
       return bestScore>=70?best:null;
     }
 
-    function dispatchSelection(mesh){
-      const entry=entryForMesh(mesh);
+    function dispatchSelection(mesh,info=meshInfo(mesh)){
       window.dispatchEvent(new CustomEvent('smd21:real3dselect',{detail:{
         mode:currentMode,
-        name:meshLabel(mesh),
-        entryId:entry?.id||null
+        name:info.name,
+        location:info.location,
+        description:info.description,
+        entryId:info.entry?.id||null
       }}));
     }
 
@@ -277,8 +371,9 @@
       });
       if(!root)throw new Error('3D model did not contain a scene.');
       prepare(root,mode);
-      root.visible=false;
       scene.add(root);
+      centerRoot(root);
+      root.visible=false;
       roots.set(mode,root);
       cache.set(mode,root);
       return root;
@@ -289,6 +384,7 @@
       entries=Array.isArray(nextEntries)?nextEntries:[];
       selectedMesh=null;
       label.classList.add('hidden');
+      hidePopup();
 
       if(!MODEL_URLS[mode]){
         active=false;
@@ -312,6 +408,7 @@
         active=true;
         resize();
         fit(currentRoot);
+        requestAnimationFrame(()=>{resize();fit(currentRoot);});
         stage.classList.remove('real3d-loading');
         stage.classList.add('real3d-active');
         hideStatus();
@@ -343,12 +440,12 @@
           }
         }
       });
-      if(found&&score>=75)highlight(found);
+      if(found&&score>=75){highlight(found);showPopup(found);}
     }
 
     function setLabels(value){labels=!!value;if(!labels)label.classList.add('hidden');}
     function setIsolate(value){isolate=!!value;applyIsolation();}
-    function reset(){if(!active||!currentRoot)return;currentRoot.rotation.set(0,0,0);fit(currentRoot);}
+    function reset(){if(!active||!currentRoot)return;currentRoot.rotation.set(0,0,0);hidePopup();fit(currentRoot);}
     function rotateStep(delta){if(active&&currentRoot)currentRoot.rotation.y+=delta;}
     function panStep(dx,dy){
       if(!active||!camera||!controls||!currentRoot)return;
@@ -362,7 +459,7 @@
       const offset=camera.position.clone().sub(controls.target).multiplyScalar(factor);
       camera.position.copy(controls.target).add(offset);controls.update();
     }
-    function hide(){active=false;stage.classList.remove('real3d-active','real3d-loading');label.classList.add('hidden');hideStatus();}
+    function hide(){active=false;stage.classList.remove('real3d-active','real3d-loading');label.classList.add('hidden');hidePopup();hideStatus();}
 
     canvas.addEventListener('pointerdown',e=>{lastPointer={x:e.clientX,y:e.clientY};pointerMoved=false;});
     canvas.addEventListener('pointermove',e=>{if(lastPointer&&Math.hypot(e.clientX-lastPointer.x,e.clientY-lastPointer.y)>5)pointerMoved=true;});
@@ -373,10 +470,18 @@
       pointer.y=-((e.clientY-r.top)/r.height)*2+1;
       raycaster.setFromCamera(pointer,camera);
       const hits=raycaster.intersectObject(currentRoot,true).filter(h=>h.object?.isMesh&&h.object.visible);
-      if(hits[0]){highlight(hits[0].object);dispatchSelection(hits[0].object);}
+      if(hits[0]){
+        highlight(hits[0].object);
+        const info=showPopup(hits[0].object,e.clientX,e.clientY);
+        dispatchSelection(hits[0].object,info);
+      }else{
+        hidePopup();
+      }
       lastPointer=null;
     });
+    canvas.addEventListener('dblclick',e=>{e.preventDefault();reset();});
     canvas.addEventListener('pointercancel',()=>{lastPointer=null;pointerMoved=false;});
+    popup.querySelector('.real3d-popup-close').addEventListener('click',e=>{e.stopPropagation();hidePopup();});
 
     const ro=new ResizeObserver(resize);ro.observe(stage);
     window.visualViewport?.addEventListener('resize',resize);
