@@ -298,27 +298,37 @@
     function centerAndFit(root){
       if(!root||!camera||!controls)return;
       root.position.set(0,0,0);
+      root.rotation.set(0,0,0);
       root.updateMatrixWorld(true);
       let box=visibleBox(root);
       if(!box||box.isEmpty())return;
-      const center=box.getCenter(new THREE.Vector3());
-      root.position.sub(center);
+
+      const initialCenter=box.getCenter(new THREE.Vector3());
+      root.position.sub(initialCenter);
       root.updateMatrixWorld(true);
       box=visibleBox(root);
       if(!box||box.isEmpty())return;
+
       const size=box.getSize(new THREE.Vector3());
       const centered=box.getCenter(new THREE.Vector3());
+      const viewAlongX=size.x<size.z*.82;
+      const visualWidth=viewAlongX?size.z:size.x;
+      const visualDepth=viewAlongX?size.x:size.z;
+
       const vFov=THREE.MathUtils.degToRad(camera.fov);
       const hFov=2*Math.atan(Math.tan(vFov/2)*Math.max(.25,camera.aspect));
       const fitH=size.y/(2*Math.tan(vFov/2));
-      const fitW=size.x/(2*Math.tan(hFov/2));
+      const fitW=visualWidth/(2*Math.tan(hFov/2));
       const mobile=matchMedia('(max-width:700px)').matches;
-      const distance=Math.max(fitH,fitW,size.z*1.18)*(mobile?1.34:1.16);
-      camera.near=Math.max(distance/4000,.001);
-      camera.far=Math.max(distance*30,100);
-      camera.position.set(centered.x,centered.y,distance);
+      const margin=mobile?1.075:1.10;
+      const distance=Math.max(fitH,fitW,visualDepth*.72)*margin;
+
+      camera.near=Math.max(distance/5000,.001);
+      camera.far=Math.max(distance*32,100);
+      if(viewAlongX)camera.position.set(distance,centered.y,centered.z);
+      else camera.position.set(centered.x,centered.y,distance);
       controls.target.copy(centered);
-      controls.minDistance=Math.max(distance*.12,.02);
+      controls.minDistance=Math.max(distance*.11,.02);
       controls.maxDistance=distance*7;
       camera.clearViewOffset();
       camera.updateProjectionMatrix();
@@ -511,20 +521,23 @@
     function entryForMesh(mesh){
       const terms=new Set((mesh?.userData?.smdSearch||[]).filter(Boolean));
       if(!terms.size)return null;
+
+      const isAtlas=Boolean(mesh?.userData?.smdPart);
       let best=null,bestScore=0;
+
       for(const entry of entries||[]){
         const candidates=[entry.name,entry.latin,entry.id].map(clean).filter(Boolean);
         for(const a of candidates){
           for(const b of terms){
             let score=0;
             if(a===b)score=100;
-            else if(a.length>4&&b.includes(a))score=82;
-            else if(b.length>4&&a.includes(b))score=76;
+            else if(!isAtlas&&a.length>5&&b.includes(a))score=90;
+            else if(!isAtlas&&b.length>5&&a.includes(b))score=86;
             if(score>bestScore){best=entry;bestScore=score;}
           }
         }
       }
-      return bestScore>=75?best:null;
+      return bestScore>=95?best:null;
     }
 
     function meshName(mesh){
@@ -581,7 +594,7 @@
     }
 
     function updateLabel(){
-      if(!labels||!selectedMesh||!selectedMesh.visible||!active){label.classList.add('hidden');return;}
+      if(!labels||!selectedMesh||!selectedMesh.visible||!active||!popup.classList.contains('hidden')){label.classList.add('hidden');return;}
       const box=new THREE.Box3().setFromObject(selectedMesh);
       const p=box.getCenter(new THREE.Vector3()).project(camera);
       const r=stage.getBoundingClientRect();
@@ -658,12 +671,12 @@
         buildLayerBar(specs);
         for(const spec of specs)layerMeshVisibility(spec,!!spec.default);
         currentAssembly.updateMatrixWorld(true);
+        active=true;
         resize();
         centerAndFit(currentAssembly);
         requestAnimationFrame(()=>{resize();centerAndFit(currentAssembly);});
         setTimeout(()=>{if(active&&currentAssembly)centerAndFit(currentAssembly);},140);
-
-        active=true;
+        setTimeout(()=>{if(active&&currentAssembly)centerAndFit(currentAssembly);},420);
         stage.classList.remove('real3d-loading');
         stage.classList.add('real3d-active');
         hideStatus();
@@ -704,7 +717,9 @@
     function reset(){
       if(!active||!currentAssembly)return;
       currentAssembly.rotation.set(0,0,0);
+      currentAssembly.position.set(0,0,0);
       popup.classList.add('hidden');
+      label.classList.add('hidden');
       centerAndFit(currentAssembly);
     }
     function rotateStep(delta){if(active&&currentAssembly)currentAssembly.rotation.y+=delta;}

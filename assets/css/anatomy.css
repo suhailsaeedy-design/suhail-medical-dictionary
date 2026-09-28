@@ -365,3 +365,40 @@
     transform:translate(-50%,-104%);
   }
 }
+
+
+/* v21.26 mobile camera/popup correction */
+@media(max-width:700px){
+  .real3d-popup{
+    left:10px!important;
+    right:10px!important;
+    top:auto!important;
+    bottom:46px!important;
+    width:auto!important;
+    max-width:none!important;
+    transform:none!important;
+    padding:12px 40px 12px 13px!important;
+    border-radius:14px!important;
+    box-sizing:border-box;
+  }
+  .real3d-popup-name{
+    font-size:.82rem!important;
+  }
+  .real3d-popup-location{
+    font-size:.67rem!important;
+  }
+  .real3d-popup-description{
+    display:block!important;
+    margin-top:6px!important;
+    font-size:.69rem!important;
+    line-height:1.38!important;
+    max-height:4.15em;
+    overflow:auto;
+  }
+  .real3d-label{
+    display:none!important;
+  }
+  .canvas-stage.real3d-active{
+    min-height:520px!important;
+  }
+}
