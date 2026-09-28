@@ -4,7 +4,7 @@
   const ASSET_ROOT='https://raw.githubusercontent.com/dev-christianmendes/anatomia_humana_3d/main/frontend/public/models';
   const MODEL_URLS={
     skeleton:ASSET_ROOT+'/bodyparts3d-skeleton.glb',
-    muscles:ASSET_ROOT+'/z-anatomy-muscles.glb'
+    muscles:'https://raw.githubusercontent.com/yogawithagnesc/yoga-app/main/assets/anatomy3d/muscles.glb'
   };
   const ATLAS_URL=ASSET_ROOT+'/fullbody/atlas.json';
   const CHUNK_URL=(index)=>ASSET_ROOT+'/fullbody/body-'+index+'.bin.gz';
@@ -12,6 +12,7 @@
     three:'https://esm.sh/three@0.180.0?target=es2020',
     loader:'https://esm.sh/three@0.180.0/examples/jsm/loaders/GLTFLoader.js?target=es2020',
     controls:'https://esm.sh/three@0.180.0/examples/jsm/controls/OrbitControls.js?target=es2020',
+    draco:'https://esm.sh/three@0.180.0/examples/jsm/loaders/DRACOLoader.js?target=es2020',
     meshopt:'https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/libs/meshopt_decoder.module.js',
     pako:'https://esm.sh/pako@2.1.0?target=es2020'
   };
@@ -166,7 +167,7 @@
     stage.append(help);
 
     let libPromise=null,atlasPromise=null,pakoPromise=null;
-    let THREE=null,GLTFLoader=null,OrbitControls=null,MeshoptDecoder=null;
+    let THREE=null,GLTFLoader=null,OrbitControls=null,DRACOLoader=null,MeshoptDecoder=null;
     let renderer=null,scene=null,camera=null,controls=null,raycaster=null,pointer=null;
     let currentMode=null,currentAssembly=null,selectedMesh=null,entries=[];
     let labels=true,isolate=false,active=false,loadingToken=0,raf=0;
@@ -190,15 +191,17 @@
     async function libraries(){
       if(libPromise)return libPromise;
       libPromise=(async()=>{
-        const [threeMod,loaderMod,controlsMod,meshoptMod]=await Promise.all([
+        const [threeMod,loaderMod,controlsMod,dracoMod,meshoptMod]=await Promise.all([
           import(MODULE_URLS.three),
           import(MODULE_URLS.loader),
           import(MODULE_URLS.controls),
+          import(MODULE_URLS.draco),
           import(MODULE_URLS.meshopt)
         ]);
         THREE=threeMod;
         GLTFLoader=loaderMod.GLTFLoader;
         OrbitControls=controlsMod.OrbitControls;
+        DRACOLoader=dracoMod.DRACOLoader;
         MeshoptDecoder=meshoptMod.MeshoptDecoder;
         return true;
       })();
@@ -231,7 +234,7 @@
       renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'high-performance'});
       renderer.outputColorSpace=THREE.SRGBColorSpace;
       renderer.toneMapping=THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure=1.08;
+      renderer.toneMappingExposure=1.22;
       renderer.setClearColor(0x000000,0);
 
       scene=new THREE.Scene();
@@ -253,10 +256,12 @@
         controls.touches.TWO=THREE.TOUCH.DOLLY_PAN;
       }
 
-      scene.add(new THREE.HemisphereLight(0xf7fbff,0x24313f,2.25));
-      const key=new THREE.DirectionalLight(0xffffff,3.1);key.position.set(-3,7,5);scene.add(key);
-      const fill=new THREE.DirectionalLight(0x9ed9ff,1.55);fill.position.set(5,2,4);scene.add(fill);
-      const rim=new THREE.DirectionalLight(0xffdcc9,1.15);rim.position.set(2,2,-5);scene.add(rim);
+      scene.add(new THREE.HemisphereLight(0xf3f7fa,0x4b2c2b,1.08));
+      scene.add(new THREE.AmbientLight(0xffffff,.30));
+      const key=new THREE.DirectionalLight(0xfff3e7,2.25);key.position.set(-4,8,6);scene.add(key);
+      const fill=new THREE.DirectionalLight(0xb8d7ee,.72);fill.position.set(5,3,3);scene.add(fill);
+      const rim=new THREE.DirectionalLight(0xff9c83,.62);rim.position.set(2,4,-6);scene.add(rim);
+      const front=new THREE.DirectionalLight(0xffffff,.58);front.position.set(0,3,8);scene.add(front);
 
       raycaster=new THREE.Raycaster();
       pointer=new THREE.Vector2();
@@ -342,29 +347,40 @@
     }
 
     function prepareGlb(root,asset){
+      root.userData.smdBaseRotationX=asset==='muscles'?-Math.PI/2:0;
       root.traverse(o=>{
         if(!o.isMesh)return;
-        const seed=hash01(o.userData?.concept||o.userData?.structureId||o.name||'');
+        const rawName=o.userData?.concept||o.userData?.structureId||o.name||'';
+        const seed=hash01(rawName);
+        const lower=String(rawName).toLowerCase();
+        const connective=/tendon|ligament|retinaculum|aponeuros|fascia|membrane/.test(lower);
         let material;
         if(asset==='skeleton'){
           material=makeMaterial(0xe8dfc5,1,.76);
-        }else{
-          const color=new THREE.Color().setHSL((.985+seed*.014)%1,.66+seed*.10,.31+seed*.07);
-          material=new THREE.MeshPhysicalMaterial({
-            color,
-            roughness:.54,
+        }else if(connective){
+          material=new THREE.MeshStandardMaterial({
+            color:new THREE.Color().setHSL(.10,.24,.77+seed*.06),
+            roughness:.48,
             metalness:0,
-            clearcoat:.08,
-            clearcoatRoughness:.72,
-            sheen:.15,
-            sheenColor:new THREE.Color(0x5d0e17),
             side:THREE.DoubleSide
           });
-          material.emissive=new THREE.Color(0x240407);
-          material.emissiveIntensity=.035;
+          materialDisposables.add(material);
+        }else{
+          const color=new THREE.Color().setHSL((.012+seed*.012)%1,.56+seed*.12,.29+seed*.08);
+          material=new THREE.MeshStandardMaterial({
+            color,
+            roughness:.56,
+            metalness:0,
+            side:THREE.DoubleSide,
+            flatShading:false
+          });
+          material.emissive=new THREE.Color(0x160203);
+          material.emissiveIntensity=.025;
           materialDisposables.add(material);
         }
         o.material=material;
+        o.castShadow=false;
+        o.receiveShadow=false;
         o.userData.smdBaseMaterial=material;
         o.userData.smdSystem=asset==='skeleton'?'SYS-ESQ':'SYS-MUS';
         o.userData.smdName=o.userData?.concept||o.userData?.displayName||o.name||o.userData?.structureId||'Anatomical structure';
@@ -383,6 +399,11 @@
       const loader=new GLTFLoader();
       loader.setCrossOrigin('anonymous');
       if(MeshoptDecoder)loader.setMeshoptDecoder(MeshoptDecoder);
+      if(DRACOLoader){
+        const draco=new DRACOLoader();
+        draco.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/libs/draco/gltf/');
+        loader.setDRACOLoader(draco);
+      }
       const root=await new Promise((resolve,reject)=>{
         loader.load(MODEL_URLS[asset],g=>resolve(g.scene||g.scenes?.[0]),undefined,reject);
       });
@@ -716,7 +737,7 @@
           const spec=specs[i];
           if(root.parent)root.parent.remove(root);
           root.position.set(0,0,0);
-          root.rotation.set(0,0,0);
+          root.rotation.set(root.userData.smdBaseRotationX||0,0,0);
           currentAssembly.add(root);
           styleGroup(root,spec);
           root.traverse(o=>{if(o.isMesh)selectableMeshes.push(o);});
