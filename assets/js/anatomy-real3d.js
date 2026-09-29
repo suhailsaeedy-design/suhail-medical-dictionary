@@ -453,7 +453,11 @@
           if(sex==='male'){
             allowed=layer?layer==='muscular':(type?type!=='bone'&&!bone:!bone);
           }else{
-            allowed=hasMuscleId||/muscle|muscular|tendon/.test(lower);
+            // Female source contains 218 mapped muscles plus head/hand/foot
+            // context muscles and connective tissue. Keep every non-skeletal
+            // mesh so the head/face is not accidentally removed by metadata
+            // filtering.
+            allowed=!bone;
           }
           if(connective)allowed=true;
           if(eyePart)allowed=true;

@@ -1,11 +1,11 @@
 {
-  "version": "21.32.0",
-  "cache_prefix": "smd-v21-phase34-pack-",
+  "version": "21.32.1",
+  "cache_prefix": "smd-v21-phase35-pack-",
   "core": {
     "title": "Core Offline Shell",
     "description": "Sign-in/consent, Offline Packs manager, shared styles, icons and PWA controls.",
     "files": 46,
-    "bytes": 988709,
+    "bytes": 988860,
     "urls": [
       "./",
       "./index.html",
@@ -88,8 +88,8 @@
       "id": "anatomy",
       "icon": "◈",
       "title": "3D Anatomy Systems",
-      "description": "Offline anatomy study tools plus an online detailed anatomy viewer with separate Male/Female muscle presentations, green structure selection and mobile touch controls.",
-      "detail": "Caches the local Anatomy viewer, catalogs and fallback geometry. Online Muscles can switch between a refined textured male Z-Anatomy/BodyParts3D derivative and a distinct female educational muscle presentation, while retaining facial muscle geometry, eye context, popup information and green tap selection.",
+      "description": "Offline anatomy study tools plus an online detailed anatomy viewer with separate Male/Female muscle models, restored full female head/face context, green selection and mobile touch controls.",
+      "detail": "Caches the local viewer, catalogs and fallback geometry. Female Muscles now keeps the source head, facial, hand, foot and connective context meshes instead of hiding them through strict metadata filtering. Male/Female switching, green tap selection, popup information and eye context remain enabled.",
       "urls": [
         "./anatomy.html",
         "./assets/css/anatomy.css",
@@ -109,7 +109,7 @@
         "./assets/models/sinuses-model.json",
         "./data/crosslinks.json"
       ],
-      "bytes": 574029,
+      "bytes": 574303,
       "files": 17
     },
     {
