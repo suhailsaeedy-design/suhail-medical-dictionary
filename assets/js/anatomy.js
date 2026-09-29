@@ -258,7 +258,7 @@
     state.sex=sex==='female'?'female':'male';
     localStorage.setItem('smd21_anatomy_sex',state.sex);
     $('#sexSelect').value=state.sex;
-    $('.sex-btn').forEach(b=>{const on=b.dataset.sex===state.sex;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
+    $$('.sex-btn').forEach(b=>{const on=b.dataset.sex===state.sex;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
     if(state.mode==='muscles'){
       $('#viewerEyebrow').textContent=`${ui('Muscles')} · ${state.sex==='female'?'Female':'Male'} 3D model · ${entriesForMode().length} linked study references`;
       real3d?.setSex?.(state.sex)?.then?.(()=>{real3d?.setLabels?.(state.labels);real3d?.setIsolate?.(state.isolate);});
