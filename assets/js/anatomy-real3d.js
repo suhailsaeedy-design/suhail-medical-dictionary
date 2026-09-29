@@ -4,10 +4,16 @@
   const ASSET_ROOT='https://raw.githubusercontent.com/dev-christianmendes/anatomia_humana_3d/main/frontend/public/models';
   const MODEL_URLS={
     skeleton:ASSET_ROOT+'/bodyparts3d-skeleton.glb',
-    muscles:'https://raw.githubusercontent.com/Liyucheng1997/242_lab-human-anatomy/main/public/models/muscular.glb'
+    muscles:{
+      male:'https://raw.githubusercontent.com/NaS-Research/nas-website/main/public/learn/models/body/refined/body.glb',
+      female:'https://raw.githubusercontent.com/slfresh/fitmitwith-anatomy-atlas/master/models/full-body-female-mobile.glb'
+    }
   };
   const MODEL_FALLBACK_URLS={
-    muscles:'https://raw.githubusercontent.com/yogawithagnesc/yoga-app/main/assets/anatomy3d/muscles.glb'
+    muscles:{
+      male:'https://raw.githubusercontent.com/Liyucheng1997/242_lab-human-anatomy/main/public/models/muscular.glb',
+      female:'https://raw.githubusercontent.com/yogawithagnesc/yoga-app/main/assets/anatomy3d/muscles.glb'
+    }
   };
   const ATLAS_URL=ASSET_ROOT+'/fullbody/atlas.json';
   const CHUNK_URL=(index)=>ASSET_ROOT+'/fullbody/body-'+index+'.bin.gz';
@@ -174,6 +180,7 @@
     let THREE=null,GLTFLoader=null,OrbitControls=null,DRACOLoader=null,RoomEnvironment=null,MeshoptDecoder=null;
     let renderer=null,scene=null,camera=null,controls=null,raycaster=null,pointer=null;
     let currentMode=null,currentAssembly=null,selectedMesh=null,entries=[];
+    let currentSex='male';
     let labels=true,isolate=false,active=false,loadingToken=0,raf=0;
     let lastPointer=null,pointerMoved=false;
     const glbCache=new Map();
@@ -240,7 +247,7 @@
       renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:'high-performance'});
       renderer.outputColorSpace=THREE.SRGBColorSpace;
       renderer.toneMapping=THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure=1.16;
+      renderer.toneMappingExposure=.90;
       renderer.setClearColor(0x000000,0);
 
       scene=new THREE.Scene();
@@ -269,10 +276,10 @@
 
       scene.add(new THREE.HemisphereLight(0xf8f6f2,0x4a2a29,.82));
       scene.add(new THREE.AmbientLight(0xffffff,.22));
-      const key=new THREE.DirectionalLight(0xfff1df,1.48);key.position.set(-4,8,7);scene.add(key);
-      const fill=new THREE.DirectionalLight(0xd7e7f3,.52);fill.position.set(5,3,4);scene.add(fill);
-      const rim=new THREE.DirectionalLight(0xffb29d,.42);rim.position.set(2,5,-7);scene.add(rim);
-      const front=new THREE.DirectionalLight(0xffffff,.46);front.position.set(0,3,9);scene.add(front);
+      const key=new THREE.DirectionalLight(0xfff1df,1.22);key.position.set(-4,8,7);scene.add(key);
+      const fill=new THREE.DirectionalLight(0xd7e7f3,.36);fill.position.set(5,3,4);scene.add(fill);
+      const rim=new THREE.DirectionalLight(0xffb29d,.34);rim.position.set(2,5,-7);scene.add(rim);
+      const front=new THREE.DirectionalLight(0xffffff,.32);front.position.set(0,3,9);scene.add(front);
 
       raycaster=new THREE.Raycaster();
       pointer=new THREE.Vector2();
@@ -382,67 +389,131 @@
       return muscleFiberTexture;
     }
 
-    function prepareGlb(root,asset){
+    function nodeDefinitionFor(object,gltf){
+      let node=object;
+      while(node){
+        const assoc=gltf?.parser?.associations?.get?.(node);
+        if(assoc?.nodes!==undefined)return gltf.parser.json?.nodes?.[assoc.nodes]||null;
+        node=node.parent;
+      }
+      return null;
+    }
+
+    function addFallbackEyes(root){
+      const hasEye=root.children.some?.(()=>false) || (()=>{let found=false;root.traverse(o=>{if(o.isMesh&&/cornea|sclera|iris|pupil|eyeball|ocular/i.test(String(o.userData?.smdName||o.name||'')))found=true;});return found;})();
+      if(hasEye)return;
+      root.updateMatrixWorld(true);
+      const box=new THREE.Box3().setFromObject(root);
+      if(box.isEmpty())return;
+      const size=box.getSize(new THREE.Vector3());
+      const center=box.getCenter(new THREE.Vector3());
+      const radius=size.y*.0067;
+      const eyeY=box.max.y-size.y*.073;
+      const eyeDX=size.y*.0182;
+      const eyeZ=box.max.z-size.z*.035;
+      const group=new THREE.Group();
+      group.name='SMD realistic eye context';
+      group.userData.smdContextOnly=true;
+      for(const side of [-1,1]){
+        const scleraMat=new THREE.MeshPhysicalMaterial({color:0xf3f0e8,roughness:.23,metalness:0,clearcoat:.12,clearcoatRoughness:.22});
+        materialDisposables.add(scleraMat);
+        const eye=new THREE.Mesh(new THREE.SphereGeometry(radius,24,16),scleraMat);
+        eye.position.set(center.x+side*eyeDX,eyeY,eyeZ);
+        eye.userData.smdContextOnly=true;eye.userData.smdNonSelectable=true;
+        const irisMat=new THREE.MeshPhysicalMaterial({color:side<0?0x59766a:0x59766a,roughness:.26,metalness:0,clearcoat:.18});
+        const pupilMat=new THREE.MeshBasicMaterial({color:0x080909});
+        materialDisposables.add(irisMat);materialDisposables.add(pupilMat);
+        const iris=new THREE.Mesh(new THREE.CircleGeometry(radius*.42,20),irisMat);
+        iris.position.set(0,0,radius*.93);iris.userData.smdContextOnly=true;iris.userData.smdNonSelectable=true;
+        const pupil=new THREE.Mesh(new THREE.CircleGeometry(radius*.17,18),pupilMat);
+        pupil.position.set(0,0,radius*.945);pupil.userData.smdContextOnly=true;pupil.userData.smdNonSelectable=true;
+        eye.add(iris);eye.add(pupil);group.add(eye);
+      }
+      root.add(group);
+    }
+
+    function prepareGlb(root,asset,sex,gltf){
       root.userData.smdBaseRotationX=0;
+      root.userData.smdSex=sex;
       root.traverse(o=>{
         if(!o.isMesh)return;
-        const rawName=o.userData?.concept||o.userData?.structureId||o.name||'';
+        const def=nodeDefinitionFor(o,gltf);
+        const ex=def?.extras||{};
+        const rawName=ex.name||ex.label||ex.sourceName||o.userData?.concept||o.userData?.structureId||def?.name||o.name||'';
         const seed=hash01(rawName);
         const lower=String(rawName).toLowerCase();
+        const layer=String(ex.atlasLayer||ex.layer||'').toLowerCase();
+        const type=String(ex.type||'').toLowerCase();
+        const hasMuscleId=Boolean(ex.muscleId||ex.muscleID||ex.key);
         const connective=/tendon|ligament|retinaculum|aponeuros|fascia|membrane|raphe|linea alba/.test(lower);
+        const bone=/bone|skeleton|skeletal|femur|tibia|fibula|humerus|radius|ulna|scapula|clavicle|patella|sternum|vertebra|rib|skull|mandible|maxilla/.test(lower);
+        const eyePart=/cornea|sclera|iris|pupil|lens|vitreous|aqueous|eyeball|ocular|conjunctiva/.test(lower);
+        let allowed=true;
+        if(asset==='muscles'){
+          if(sex==='male'){
+            allowed=layer?layer==='muscular':(type?type!=='bone'&&!bone:!bone);
+          }else{
+            allowed=hasMuscleId||/muscle|muscular|tendon/.test(lower);
+          }
+          if(connective)allowed=true;
+          if(eyePart)allowed=true;
+        }
+        o.userData.smdAllowedInMode=allowed;
+        o.userData.smdLayerClass=eyePart?'eye':connective?'connective':asset==='skeleton'?'bone':'muscle';
+
         const original=Array.isArray(o.material)?o.material[0]:o.material;
         let material;
         if(asset==='skeleton'){
           material=makeMaterial(0xe8dfc5,1,.76);
+        }else if(eyePart){
+          material=eyeMaterial(rawName);
         }else if(connective){
-          material=new THREE.MeshStandardMaterial({
-            color:new THREE.Color().setHSL(.105,.22,.80+seed*.045),
-            roughness:.46,
-            metalness:0,
-            side:THREE.DoubleSide,
-            flatShading:false
+          material=new THREE.MeshPhysicalMaterial({
+            color:new THREE.Color().setHSL(.105,.20,.79+seed*.045),
+            roughness:.43,metalness:0,clearcoat:.06,clearcoatRoughness:.66,
+            side:THREE.DoubleSide
           });
           materialDisposables.add(material);
-        }else{
-          const sourceColor=original?.color?.isColor?original.color.clone():new THREE.Color(0xb14a42);
-          const hsl={h:0,s:0,l:0};sourceColor.getHSL(hsl);
-          const color=new THREE.Color().setHSL(
-            .008+seed*.012,
-            Math.max(.48,Math.min(.72,hsl.s+.08)),
-            Math.max(.25,Math.min(.40,hsl.l+(seed-.5)*.055))
-          );
-          material=new THREE.MeshStandardMaterial({
-            color,
-            roughness:.49,
-            metalness:0,
-            side:THREE.DoubleSide,
-            flatShading:false
-          });
-          material.emissive=new THREE.Color(0x100102);
-          material.emissiveIntensity=.018;
-          if(o.geometry?.attributes?.uv){
-            material.bumpMap=getMuscleFiberTexture();
-            material.bumpScale=.012;
+        }else if(original){
+          material=original.clone();
+          material.side=THREE.DoubleSide;
+          material.metalness=0;
+          material.roughness=Math.min(.66,Math.max(.38,original.roughness??.52));
+          if('envMapIntensity' in material)material.envMapIntensity=.38;
+          if(material.color?.isColor){
+            const source=material.color.clone();
+            const hsl={h:0,s:0,l:0};source.getHSL(hsl);
+            material.color.setHSL(.008+seed*.010,Math.max(.48,Math.min(.72,hsl.s+.04)),Math.max(.27,Math.min(.43,hsl.l)));
           }
+          if(!material.normalMap&&o.geometry?.attributes?.uv){
+            material.bumpMap=getMuscleFiberTexture();
+            material.bumpScale=.008;
+          }
+          material.needsUpdate=true;
+          materialDisposables.add(material);
+        }else{
+          const color=new THREE.Color().setHSL(.008+seed*.010,.58+seed*.10,.31+seed*.07);
+          material=new THREE.MeshStandardMaterial({color,roughness:.50,metalness:0,side:THREE.DoubleSide,flatShading:false});
+          if(o.geometry?.attributes?.uv){material.bumpMap=getMuscleFiberTexture();material.bumpScale=.008;}
           materialDisposables.add(material);
         }
         o.material=material;
-        o.castShadow=false;
-        o.receiveShadow=false;
+        o.castShadow=false;o.receiveShadow=false;
         o.userData.smdBaseMaterial=material;
         o.userData.smdSystem=asset==='skeleton'?'SYS-ESQ':'SYS-MUS';
-        o.userData.smdName=o.userData?.concept||o.userData?.displayName||o.name||o.userData?.structureId||'Anatomical structure';
-        o.userData.smdSearch=[o.userData.smdName,o.userData?.structureId,o.userData?.sourceId,o.parent?.name].filter(Boolean).map(clean);
+        o.userData.smdName=String(rawName||'Anatomical structure').replace(/[._]+/g,' ').replace(/\s+/g,' ').trim();
+        o.userData.smdSearch=[o.userData.smdName,ex.muscleId,ex.key,ex.sourceName,o.userData?.structureId,o.userData?.sourceId,o.parent?.name].filter(Boolean).map(clean);
         if(o.geometry){
-          o.geometry.computeBoundingBox();
-          o.geometry.computeBoundingSphere();
+          o.geometry.computeBoundingBox();o.geometry.computeBoundingSphere();
           if(!o.geometry.attributes.normal)o.geometry.computeVertexNormals();
         }
       });
+      if(asset==='muscles')addFallbackEyes(root);
     }
 
-    async function loadGlb(asset){
-      if(glbCache.has(asset))return glbCache.get(asset);
+    async function loadGlb(asset,sex=currentSex){
+      const cacheKey=asset==='muscles'?asset+':'+sex:asset;
+      if(glbCache.has(cacheKey))return glbCache.get(cacheKey);
       await libraries();ensureScene();
       const loader=new GLTFLoader();
       loader.setCrossOrigin('anonymous');
@@ -452,24 +523,23 @@
         draco.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/libs/draco/gltf/');
         loader.setDRACOLoader(draco);
       }
-      const loadOne=(url)=>new Promise((resolve,reject)=>{
-        loader.load(url,g=>resolve(g.scene||g.scenes?.[0]),undefined,reject);
-      });
-      let root;
-      let baseRotationX=0;
+      const loadOne=(url)=>new Promise((resolve,reject)=>loader.load(url,resolve,undefined,reject));
+      const primary=asset==='muscles'?MODEL_URLS.muscles[sex]:MODEL_URLS[asset];
+      const fallback=asset==='muscles'?MODEL_FALLBACK_URLS.muscles[sex]:MODEL_FALLBACK_URLS[asset];
+      let gltf,baseRotationX=0;
       try{
-        root=await loadOne(MODEL_URLS[asset]);
+        gltf=await loadOne(primary);
       }catch(error){
-        const fallback=MODEL_FALLBACK_URLS[asset];
         if(!fallback)throw error;
-        console.warn('Primary '+asset+' mesh failed; using fallback.',error);
-        root=await loadOne(fallback);
-        if(asset==='muscles')baseRotationX=-Math.PI/2;
+        console.warn('Primary '+asset+' '+sex+' mesh failed; using fallback.',error);
+        gltf=await loadOne(fallback);
+        if(asset==='muscles'&&sex==='female'&&fallback.includes('z-anatomy'))baseRotationX=-Math.PI/2;
       }
+      const root=gltf?.scene||gltf?.scenes?.[0];
       if(!root)throw new Error('Detailed '+asset+' model did not contain a scene.');
-      prepareGlb(root,asset);
+      prepareGlb(root,asset,sex,gltf);
       root.userData.smdBaseRotationX=baseRotationX;
-      glbCache.set(asset,root);
+      glbCache.set(cacheKey,root);
       return root;
     }
 
@@ -584,7 +654,7 @@
       root.visible=true;
       root.traverse(o=>{
         if(!o.isMesh)return;
-        const filterOk=matchesFilter(o,spec.filter);
+        const filterOk=matchesFilter(o,spec.filter)&&o.userData.smdAllowedInMode!==false;
         o.userData.smdLayerKey=spec.key;
         o.userData.smdLayerVisible=!!enabled&&filterOk;
         o.visible=o.userData.smdLayerVisible&&(!isolate||!selectedMesh||o===selectedMesh);
@@ -753,13 +823,15 @@
     }
 
     async function layerRoot(spec){
-      const root=spec.type==='glb'?await loadGlb(spec.asset):await loadAtlasSystem(spec.system);
+      const root=spec.type==='glb'?await loadGlb(spec.asset,currentSex):await loadAtlasSystem(spec.system);
       return root;
     }
 
-    async function setMode(mode,nextEntries=[]){
+    async function setMode(mode,nextEntries=[],options={}){
       currentMode=mode;
+      if(options?.sex)currentSex=options.sex==='female'?'female':'male';
       stage.dataset.real3dMode=mode;
+      stage.dataset.real3dSex=currentSex;
       entries=Array.isArray(nextEntries)?nextEntries:[];
       labels=labels!==false;
       selectedMesh=null;
@@ -892,7 +964,7 @@
       pointer.x=((e.clientX-r.left)/r.width)*2-1;
       pointer.y=-((e.clientY-r.top)/r.height)*2+1;
       raycaster.setFromCamera(pointer,camera);
-      const candidates=selectableMeshes.filter(m=>m.visible);
+      const candidates=selectableMeshes.filter(m=>m.visible&&!m.userData?.smdNonSelectable);
       const hits=raycaster.intersectObjects(candidates,false);
       if(hits[0]){
         highlight(hits[0].object);
@@ -912,10 +984,20 @@
     window.visualViewport?.addEventListener('resize',()=>{resize();if(active&&currentAssembly)centerAndFit(currentAssembly);});
     window.addEventListener('orientationchange',()=>setTimeout(()=>{resize();if(active&&currentAssembly)centerAndFit(currentAssembly);},140));
 
+    async function setSex(sex){
+      const next=sex==='female'?'female':'male';
+      if(next===currentSex)return true;
+      currentSex=next;
+      stage.dataset.real3dSex=currentSex;
+      if(currentMode==='muscles')return setMode(currentMode,entries,{sex:currentSex});
+      return true;
+    }
+
     return{
-      setMode,selectEntry,setLabels,setIsolate,reset,rotateStep,panStep,zoomStep,resize,hide,
+      setMode,setSex,selectEntry,setLabels,setIsolate,reset,rotateStep,panStep,zoomStep,resize,hide,
       isActive:()=>active,
-      supportsMode:(mode)=>Boolean(MODES[mode])
+      supportsMode:(mode)=>Boolean(MODES[mode]),
+      currentSex:()=>currentSex
     };
   }
 

@@ -141,14 +141,15 @@
     const atlasMode=Boolean(real3d?.supportsMode?.(state.mode));
     $('#anatomyViewer').classList.toggle('atlas-mode',atlasMode);
     $('#layerSelect').classList.toggle('hidden',atlasMode||state.mode!=='muscles');
-    $('#sexSelect').classList.toggle('hidden',atlasMode);
+    $('#sexSelect').classList.toggle('hidden',state.mode!=='muscles');
+    $('#sexSelect').value=state.sex;
     $('#skeletonBaseWrap').classList.toggle('hidden',atlasMode||!meta().base);
     $('#viewerEyebrow').textContent=`${ui(meta().eyebrow)} · ${uiCount(entriesForMode().length,'structures')}`;
     if(state.mode==='skeleton')$('#viewerEyebrow').textContent=`${ui('Skeleton')} · ${uiCount(206,'bones')}`;
-    if(state.mode==='muscles')$('#viewerEyebrow').textContent=`${ui('Muscles')} · full detailed 3D atlas · ${entriesForMode().length} linked study references`;
+    if(state.mode==='muscles')$('#viewerEyebrow').textContent=`${ui('Muscles')} · ${state.sex==='female'?'Female':'Male'} 3D model · ${entriesForMode().length} linked study references`;
     $('#viewerTitle').textContent=ui(meta().title);
     renderList();renderDetail();
-    const detailedLoad=real3d?.setMode?.(state.mode,entriesForMode());
+    const detailedLoad=real3d?.setMode?.(state.mode,entriesForMode(),{sex:state.sex});
     if(reset){state.yaw=0;state.pitch=0;state.zoom=1;state.panX=0;state.panY=0;scheduleDraw();}else scheduleDraw();
     Promise.resolve(detailedLoad).then(ok=>{
       if(ok){real3d?.setLabels?.(state.labels);real3d?.setIsolate?.(state.isolate);real3d?.reset?.();if(state.selected)real3d?.selectEntry?.(entryById(state.selected));}
@@ -253,7 +254,16 @@
   function onPointerMove(e){if(!state.pointers.has(e.pointerId))return;state.pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(state.pointers.size>=2){const p=[...state.pointers.values()].slice(0,2),d=Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y),c={x:(p[0].x+p[1].x)/2,y:(p[0].y+p[1].y)/2};if(state.pinchDistance){state.zoom*=d/state.pinchDistance;state.panX+=c.x-state.pinchCenter.x;state.panY+=c.y-state.pinchCenter.y;clampView();scheduleDraw();}state.pinchDistance=d;state.pinchCenter=c;return;}if(!state.dragging)return;const dx=e.clientX-state.lastX,dy=e.clientY-state.lastY;state.lastX=e.clientX;state.lastY=e.clientY;if(state.dragPan){state.panX+=dx;state.panY+=dy;}else{state.yaw+=dx*.009;state.pitch+=dy*.006;clampView();}scheduleDraw();}
   function onPointerUp(e){const hadDrag=Math.hypot(e.clientX-state.startX,e.clientY-state.startY)>5;state.pointers.delete(e.pointerId);if(state.pointers.size<2){state.pinchDistance=0;state.pinchCenter=null;}if(state.pointers.size===0)state.dragging=false;if(!hadDrag&&e.button!==2){const[x,y]=pointerPos(e),h=hitTest(x,y);if(h)selectStructure(h.id);}}
 
-  function applySex(sex){state.sex=sex==='female'?'female':'male';localStorage.setItem('smd21_anatomy_sex',state.sex);$('#sexSelect').value=state.sex;$$('.sex-btn').forEach(b=>{const on=b.dataset.sex===state.sex;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});scheduleDraw();}
+  function applySex(sex){
+    state.sex=sex==='female'?'female':'male';
+    localStorage.setItem('smd21_anatomy_sex',state.sex);
+    $('#sexSelect').value=state.sex;
+    $('.sex-btn').forEach(b=>{const on=b.dataset.sex===state.sex;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on));});
+    if(state.mode==='muscles'){
+      $('#viewerEyebrow').textContent=`${ui('Muscles')} · ${state.sex==='female'?'Female':'Male'} 3D model · ${entriesForMode().length} linked study references`;
+      real3d?.setSex?.(state.sex)?.then?.(()=>{real3d?.setLabels?.(state.labels);real3d?.setIsolate?.(state.isolate);});
+    }else scheduleDraw();
+  }
 
   async function init(){
     try{

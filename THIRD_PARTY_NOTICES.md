@@ -6,13 +6,16 @@ Bootstrap remains locally bundled by the existing project and is subject to its 
 
 ## Detailed 3D anatomy viewer
 
-The optional online detailed Anatomy viewer uses open-licensed anatomy assets and free/open-source rendering software. No proprietary assets from commercial anatomy applications are included.
+The optional online detailed Anatomy viewer uses open-licensed anatomy assets and free/open-source rendering software. No proprietary geometry, textures, or code from the commercial anatomy application used as a visual reference is included.
 
-- **Full human anatomy atlas:** BodyParts3D 4.0, © The Database Center for Life Science (DBCLS), licensed under **CC BY 4.0**. The viewer uses the open per-system atlas derived from BodyParts3D for skeletal, connective/joint, arterial, venous, nervous, respiratory, digestive, urinary, lymphatic, endocrine, reproductive, sensory and related layers.
-- **Primary muscle mesh:** the high-detail muscular-system GLB exported from the **Z-Anatomy** `Startup.blend` model and served from the public `Liyucheng1997/242_lab-human-anatomy` repository. Z-Anatomy is licensed under **CC BY-SA 4.0** and attributes its underlying BodyParts3D content to The Database Center for Life Science under **CC BY-SA 2.1 Japan**.
-- **Muscle web asset provenance:** the source repository includes the original Z-Anatomy `License.txt` and the Blender export scripts used to produce `public/models/muscular.glb`. The viewer applies only runtime materials/lighting and does not include proprietary assets from the referenced commercial anatomy application.
-- **Other detailed anatomy layers:** the BodyParts3D-derived per-system atlas is loaded from the public `dev-christianmendes/anatomia_humana_3d` repository, whose metadata records its source licenses and conversion steps.
+- **Male Muscles primary renderer:** the refined `body.glb` distributed by **NaS Research** is derived from Z-Anatomy / BodyParts3D browser models. Its project notice retains **CC BY-SA 4.0** for the refined derivative, preserves source structure identifiers, and documents smooth shading plus baked tissue-color, roughness, and tangent-normal maps. In this app only the muscular portion is shown in Muscles mode; skeletal meshes remain hidden there.
+- **Female Muscles renderer:** `full-body-female-mobile.glb` from **Fit Mit With — anatomy atlas**, an adapted Z-Anatomy / BodyParts3D model distributed under **CC BY-SA 4.0**. Its upstream project explicitly describes the female geometry as an illustrative artist-authored deformation with unverified proportions, not an independently sourced female anatomy scan. This app preserves that limitation and uses it only as an educational visual reference.
+- **Male muscle fallback:** the higher-detail Z-Anatomy muscular-system GLB exported from `Startup.blend` and distributed by the public `Liyucheng1997/242_lab-human-anatomy` project. Z-Anatomy is **CC BY-SA 4.0** and attributes underlying BodyParts3D geometry to The Database Center for Life Science.
+- **Skeleton and other atlas layers:** BodyParts3D-derived web assets from the public `dev-christianmendes/anatomia_humana_3d` repository; BodyParts3D is credited to The Database Center for Life Science (DBCLS) under its applicable Creative Commons terms recorded by the source project.
+- **Full human anatomy atlas systems:** the viewer uses open per-system atlas data for skeletal, connective/joint, arterial, venous, nervous, respiratory, digestive, urinary, lymphatic, endocrine, reproductive, sensory, and related layers.
 - **Renderer:** three.js, licensed under the **MIT License**. Browser modules are loaded from public ESM/CDN endpoints only when the detailed online viewer is opened.
-- The app keeps its bundled local anatomy geometry as an offline fallback when the detailed online assets are unavailable.
+- The app keeps its bundled local anatomy geometry as an offline fallback when detailed online assets are unavailable.
+
+Changes made by this project include runtime material calibration, studio lighting, mobile camera fitting, structure selection, green selection highlighting, popup information, and small non-diagnostic eye-context geometry when a muscle asset does not include visible eyeball structures.
 
 The detailed models are educational reference models and are not intended for diagnosis, clinical measurement, treatment planning, or surgical planning.
