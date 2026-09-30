@@ -5,7 +5,7 @@
     "title": "Core Offline Shell",
     "description": "Sign-in/consent, Offline Packs manager, shared styles, icons and PWA controls.",
     "files": 46,
-    "bytes": 935451,
+    "bytes": 1287566,
     "urls": [
       "./",
       "./index.html",
@@ -47,7 +47,7 @@
       "./assets/images/pancreas.webp",
       "./assets/images/knee.webp",
       "./assets/images/neuron.svg",
-      "./assets/images/suhail-saeedy-creator.webp",
+      "./assets/images/suhail-saeedy-creator-approved.jpeg",
       "./assets/icons/apple-touch-icon-180.png",
       "./assets/icons/icon-192.png",
       "./assets/icons/icon-512.png",
