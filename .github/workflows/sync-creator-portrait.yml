@@ -1,0 +1,35 @@
+name: Sync creator portrait
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/sync-creator-portrait.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Replace local creator portrait with validated shared asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 --retry-delay 2             "https://raw.githubusercontent.com/suhailsaeedy-design/suhail-live-wallpapers/main/assets/images/suhail-saeedy-about-v2.webp"             -o "assets/images/suhail-saeedy-creator.webp"
+          test -s "assets/images/suhail-saeedy-creator.webp"
+          file "assets/images/suhail-saeedy-creator.webp"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "assets/images/suhail-saeedy-creator.webp"
+          if git diff --cached --quiet; then
+            echo "Creator portrait already current."
+          else
+            git commit -m "Replace creator portrait with validated asset"
+            git push
+          fi
