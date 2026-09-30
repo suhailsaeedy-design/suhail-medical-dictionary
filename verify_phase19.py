@@ -21,10 +21,10 @@ if 'beginGoogle(true)' not in lg or 'beginGoogle(false)' not in lg:E.append('cur
 if 'shellSidebarSignout' not in sh or 'SMD21Auth?.signOut' not in sh:E.append('sidebar logout wiring missing')
 for m in ['requestPersistentStorage','verifyAll','Full offline library is ready']:
     if m not in off:E.append('full offline marker missing '+m)
-if 'suhail-saeedy-creator.webp' not in about:E.append('creator portrait not wired')
+if 'suhail-saeedy-creator-approved.jpeg' not in about:E.append('creator portrait not wired')
 for m in ['Software &amp; Web Developer','Business Software','Database Systems','AI Integration','Building Smart Digital Systems']:
     if m not in about:E.append('creator bio marker missing '+m)
-if not (R/'assets/images/suhail-saeedy-creator.webp').is_file():E.append('creator portrait file missing')
+if not (R/'assets/images/suhail-saeedy-creator-approved.jpeg').is_file():E.append('creator portrait file missing')
 if P.get('version')!=V.get('version'):E.append('offline version mismatch')
 sw_text=read('sw.js')
 m=re.search(r"const VERSION='smd-v21-phase(\d+)'",sw_text)
@@ -32,7 +32,7 @@ if not m or int(m.group(1))<23:E.append('service worker cache must be phase23 or
 else:
     expected_prefix=f"smd-v21-phase{m.group(1)}-pack-"
     if P.get('cache_prefix')!=expected_prefix:E.append('offline prefix mismatch with service worker cache')
-if './assets/images/suhail-saeedy-creator.webp' not in P['core']['urls']:E.append('portrait missing from core offline shell')
+if './assets/images/suhail-saeedy-creator-approved.jpeg' not in P['core']['urls']:E.append('portrait missing from core offline shell')
 if f"const CURRENT_VERSION='{V.get('version')}'" not in read('assets/js/update-manager.js'):E.append('update manager version mismatch')
 # offline byte/file integrity
 for sec in [P['core']]+P['packs']:
@@ -52,7 +52,7 @@ r=subprocess.run([sys.executable,'tools/build_release.py'],cwd=R,capture_output=
 if r.returncode:E.append('production build failed '+(r.stderr or r.stdout).strip())
 else:
     site=R/'_site'
-    for f in ['data/auth-config.json','assets/images/suhail-saeedy-creator.webp','assets/js/offline-packs.js']:
+    for f in ['data/auth-config.json','assets/images/suhail-saeedy-creator-approved.jpeg','assets/js/offline-packs.js']:
         if not (site/f).is_file():E.append('production missing '+f)
 wf=read('.github/workflows/deploy-pages.yml')
 if 'python verify_phase19.py' not in wf:E.append('workflow missing Phase19 verifier')
