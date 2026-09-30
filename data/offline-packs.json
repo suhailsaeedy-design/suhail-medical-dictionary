@@ -1,6 +1,6 @@
 {
   "version": "21.32.1",
-  "cache_prefix": "smd-v21-phase35-pack-",
+  "cache_prefix": "smd-v21-phase36-pack-",
   "core": {
     "title": "Core Offline Shell",
     "description": "Sign-in/consent, Offline Packs manager, shared styles, icons and PWA controls.",
